@@ -1,15 +1,15 @@
-# `Plugin Name`
+# ContentCleaner
 
 #### _Plugin for [Kanboard](https://github.com/fguillot/kanboard "Kanboard - Kanban Project Management Software")_
 
-`Brief intro`
+This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins.
 
 
 Features
 -------------
 
-- `main features list`
-- `main features list`
+- Delete `Remember Me` data
+- Delete [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
 
 
 Screenshots
@@ -23,7 +23,7 @@ Screenshots
 Usage
 -------------
 
-Go to `Settings` &#10562;
+Go to `Settings` &#10562; Content Cleaner
 
 
 Compatibility
@@ -61,7 +61,7 @@ Installation
 
 **_or_**
 
-- **Install via [GitHub](https://github.com/ "Find the correct plugin from the list of repositories")**
+- **Install via [GitHub](https://github.com/aljawaid "Find the correct plugin from the list of repositories")**
   - Download the `.zip` file and decompress everything under the directory `/plugins`
   - The folder inside the `.zip` must not contain any branch names and must be exact case (matching the plugin name)
 
@@ -82,7 +82,7 @@ Translations
 Authors & Contributors
 ----------------------
 
-- [@](https://github.com/url) - Author
+- [@aljawaid](https://github.com/aljawaid) - Author
 - _Contributors welcome_
 
 
