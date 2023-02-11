@@ -1,11 +1,9 @@
 <?php
 
-namespace Kanboard\Plugin\PluginNameExampleStudlyCaps;
+namespace Kanboard\Plugin\ContentCleaner;
 
 use Kanboard\Core\Plugin\Base;
 use Kanboard\Core\Translator;
-// use Kanboard\Plugin\PluginNameExampleStudlyCaps\AgeHelper;  // Helper Class and Filename should be exact
-// use Kanboard\Helper;  // Add core Helper for using forms etc. inside external templates
 
 class Plugin extends Base
 {
@@ -13,19 +11,19 @@ class Plugin extends Base
     {
         // Template Override
         //  - Override name should be camelCase e.g. pluginNameExampleCamelCase
-        $this->template->setTemplateOverride('action/index', 'pluginNameExampleCamelCase:action/index');
+        //$this->template->setTemplateOverride('action/index', 'pluginNameExampleCamelCase:action/index');
 
         // CSS - Asset Hook
         //  - Keep filename lowercase
-        $this->hook->on('template:layout:css', array('template' => 'plugins/PluginNameExampleStudlyCaps/Assets/css/plugin-name.css'));
+        $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner.css'));
 
         // JS - Asset Hook
         //  - Keep filename lowercase
-        $this->hook->on('template:layout:js', array('template' => 'plugins/PluginNameExampleStudlyCaps/Assets/js/plugin-name.js'));
+        $this->hook->on('template:layout:js', array('template' => 'plugins/ContentCleaner/Assets/js/content-cleaner.js'));
 
         // Views - Template Hook
         //  - Override name should start lowercase e.g. pluginNameExampleCamelCase
-        $this->template->hook->attach('template:project-header:view-switcher-before-project-overview', 'pluginNameExampleCamelCase:project_header/actions');
+        //$this->template->hook->attach('template:project-header:view-switcher-before-project-overview', 'pluginNameExampleCamelCase:project_header/actions');
 
         // Views - Add Menu Item - Template Hook
         //  - Override name should start lowercase e.g. pluginNameExampleCamelCase
@@ -34,12 +32,12 @@ class Plugin extends Base
         // Extra Page - Routes
         //  - Example: $this->route->addRoute('/my/custom/route', 'MyController', 'show', 'PluginNameExampleStudlyCaps');
         //  - Must have the corresponding action in the matching controller
-        $this->route->addRoute('/ / ', ' ', ' ', 'PluginNameExampleStudlyCaps');
+        //$this->route->addRoute('/ / ', ' ', ' ', 'PluginNameExampleStudlyCaps');
 
         // Helper
         //  - Example: $this->helper->register('helperClassNameCamelCase', '\Kanboard\Plugin\PluginNameExampleStudlyCaps\Helper\HelperNameExampleStudlyCaps');
         //  - Add each Helper in the 'use' section at the top of this file
-        $this->helper->register(' ', '\Kanboard\Plugin\  \Helper\  ');
+        //$this->helper->register(' ', '\Kanboard\Plugin\  \Helper\  ');
     }
 
     public function onStartup()
@@ -51,17 +49,17 @@ class Plugin extends Base
     {
         // Plugin Name MUST be identical to namespace for Plugin Directory to detect updated versions
         // Do not translate the plugin name here
-        return 'PluginNameExampleStudlyCaps';
+        return 'ContentCleaner';
     }
 
     public function getPluginDescription()
     {
-        return t('description text');
+        return t('This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins.');
     }
 
     public function getPluginAuthor()
     {
-        return '';
+        return 'aljawaid';
     }
 
     public function getPluginVersion()
@@ -80,6 +78,6 @@ class Plugin extends Base
 
     public function getPluginHomepage()
     {
-        return 'https://github.com/ /url';
+        return 'https://github.com/aljawaid/ContentCleaner';
     }
 }
