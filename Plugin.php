@@ -32,7 +32,7 @@ class Plugin extends Base
         // Extra Page - Routes
         //  - Example: $this->route->addRoute('/my/custom/route', 'MyController', 'show', 'PluginNameExampleStudlyCaps');
         //  - Must have the corresponding action in the matching controller
-        //$this->route->addRoute('/ / ', ' ', ' ', 'PluginNameExampleStudlyCaps');
+        $this->route->addRoute('/settings/cleaner', 'ContentCleanerController', 'show', 'ContentCleaner');
 
         // Helper
         //  - Example: $this->helper->register('helperClassNameCamelCase', '\Kanboard\Plugin\PluginNameExampleStudlyCaps\Helper\HelperNameExampleStudlyCaps');
