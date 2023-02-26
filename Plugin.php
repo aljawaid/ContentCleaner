@@ -45,6 +45,15 @@ class Plugin extends Base
         Translator::load($this->languageModel->getCurrentLanguage(), __DIR__.'/Locale');
     }
 
+    public function getClasses()
+    {
+        return [
+            'Plugin\ContentCleaner\Model' => [
+                'ApplicationCleaningModel',
+            ],
+        ];
+    }
+
     public function getPluginName()
     {
         // Plugin Name MUST be identical to namespace for Plugin Directory to detect updated versions
