@@ -20,8 +20,9 @@ class ApplicationCleaningModel extends Base
 
     const TABLE = '';
 
-    public function getAll()
+    public function deleteRememberMeAll()
     {
-        return $this->db->table(self::TABLE)->asc('title')->findAll();
+        // delete all
+        return $this->db->execute('DROP TABLE IF EXISTS `test`; SHOW WARNINGS');
     }
 }
