@@ -12,17 +12,30 @@ use Kanboard\Core\Base;
 
 class ApplicationCleaningModel extends Base
 {
-    /**
-     * SQL table name for comment templates
-     *
-     * @var string
-     */
-
-    const TABLE = '';
+    public function deleteRememberMeOld()
+    {
+        // delete duplicate records but keep latest
+        return $this->db->execute('
+            DELETE FROM `remember_me`
+            WHERE `id` NOT IN (
+                SELECT * FROM (
+                    SELECT MAX(`id`) FROM `remember_me`
+                    GROUP BY `user_id`
+                    ) AS x
+            )'
+        );
+    }
 
     public function deleteRememberMeAll()
     {
         // delete all
         return $this->db->execute('DROP TABLE IF EXISTS `test`; SHOW WARNINGS');
+    }
+
+    public function delete($table)
+    {
+        // delete all
+
+        return $this->db->execute('DROP TABLE IF EXISTS `'.$table.'`; SHOW WARNINGS');
     }
 }
