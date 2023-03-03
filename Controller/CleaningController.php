@@ -17,15 +17,16 @@ class CleaningController extends BaseController
     public function confirm()
     {
         $this->response->html($this->template->render('contentCleaner:config/remove', array(
-            'table' => $table,
+            'table' => $this->request->getStringParam('table'),
         )));
     }
 
     public function removeTable()
     {
+        $table =  $this->request->getStringParam('table');
         $this->checkCSRFParam();
 
-        if ($this->applicationCleaningModel->delete()) {
+        if ($this->applicationCleaningModel->delete($table)) {
             $this->flash->success(t('Cleaning complete - Database table deleted successfully'));
         } else {
             $this->flash->failure(t('Cleaning failed'));
