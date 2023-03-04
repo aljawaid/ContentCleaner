@@ -9,21 +9,9 @@ class Plugin extends Base
 {
     public function initialize()
     {
-        // Template Override
-        //  - Override name should be camelCase e.g. pluginNameExampleCamelCase
-        //$this->template->setTemplateOverride('action/index', 'pluginNameExampleCamelCase:action/index');
-
         // CSS - Asset Hook
         //  - Keep filename lowercase
         $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner.css'));
-
-        // JS - Asset Hook
-        //  - Keep filename lowercase
-        $this->hook->on('template:layout:js', array('template' => 'plugins/ContentCleaner/Assets/js/content-cleaner.js'));
-
-        // Views - Template Hook
-        //  - Override name should start lowercase e.g. pluginNameExampleCamelCase
-        //$this->template->hook->attach('template:project-header:view-switcher-before-project-overview', 'pluginNameExampleCamelCase:project_header/actions');
 
         // Views - Add Menu Item - Template Hook
         //  - Override name should start lowercase e.g. pluginNameExampleCamelCase
