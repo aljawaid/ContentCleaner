@@ -12,6 +12,12 @@ use Kanboard\Core\Base;
 
 class ApplicationCleaningModel extends Base
 {
+    public function countTables()
+    {
+        $table_schema = $this->db->table(self::TABLE);
+        return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = `'. $table_schema .'`');
+    }
+
     public function deleteRememberMeOld()
     {
         // delete duplicate records but keep latest
