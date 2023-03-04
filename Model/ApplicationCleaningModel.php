@@ -26,10 +26,10 @@ class ApplicationCleaningModel extends Base
         );
     }
 
-    public function deleteRememberMeAll()
+    public function flushRememberMeAll()
     {
-        // delete all
-        return $this->db->execute('DROP TABLE IF EXISTS `test`; SHOW WARNINGS');
+        // empty all
+        return $this->db->execute('TRUNCATE TABLE `remember_me`; SHOW WARNINGS');
     }
 
     public function delete($table)
