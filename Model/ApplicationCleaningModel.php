@@ -40,8 +40,7 @@ class ApplicationCleaningModel extends Base
 
     public function delete($table)
     {
-        // delete all
-
-        return $this->db->execute('DROP TABLE IF EXISTS `'.$table.'`; SHOW WARNINGS');
+        // delete table
+        return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
     }
 }
