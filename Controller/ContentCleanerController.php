@@ -26,7 +26,7 @@ class ContentCleanerController extends \Kanboard\Controller\PluginController
     public function show()
     {
         $this->response->html($this->helper->layout->config('contentCleaner:config/cleaner', array(
-            'title' => t('Content Cleaner'),
+            'title' => t('Settings') .' &#10562; '.t('Content Cleaner'),
         )));
     }
 }
