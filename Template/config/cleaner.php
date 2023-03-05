@@ -1,6 +1,8 @@
 <div class="page-margin">
     <div class="page-header">
-        <h2 class=""><?= t('Deep Cleaning') ?></h2>
+        <h2 class="">
+            <span class="content-cleaner-icon"></span> <?= t('Deep Cleaning') ?>
+        </h2>
     </div>
     <p class="cleaner-intro">
         
