@@ -12,6 +12,7 @@ class Plugin extends Base
         // CSS - Asset Hook
         //  - Keep filename lowercase
         $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner.css'));
+        $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/messages.css'));
 
         // Views - Add Menu Item - Template Hook
         //  - Override name should start lowercase e.g. pluginNameExampleCamelCase
