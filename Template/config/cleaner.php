@@ -7,10 +7,15 @@
     <p class="cleaner-intro">
         
     </p>
-    <div class="cleaner-warning panel panel-warning">
-        <h4 class="">Warning</h4>
-        <p class="">Using this tool deletes data from the database permanently</p>
-    </div>
+    <section class="message warning cleaner-warning">
+        <header></header>
+        <i class=""></i>
+        <h3 class="">
+            <span class="message-title">Warning</span>
+            <span class="message-text">Using this tool deletes data from the database permanently</span>
+        </h3>
+    </section>
+
     <fieldset class="">
         <legend>Application Cleaning</legend>
     </fieldset>
