@@ -5,7 +5,7 @@
         </h2>
     </div>
     <p class="cleaner-intro">
-        
+        <?= t('Temporary files can accumulate data which can affect your database storage size. Plugins which alter the application database do not (by default) remove any database tables after uninstalling. This tool can deep clean useless data easily. Simply click on any of the buttons in the sections below to deep clean your database.') ?>
     </p>
     <section class="message warning cleaner-warning">
         <header></header>

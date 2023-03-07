@@ -68,4 +68,7 @@
     height: 30px;
     display: inline-block;
 }
+
+.cleaner-intro {
+    padding: 10px 0;
 }
