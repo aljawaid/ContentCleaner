@@ -11,8 +11,8 @@
         <header></header>
         <i class=""></i>
         <h3 class="">
-            <span class="message-title">Warning</span>
-            <span class="message-text">Using this tool deletes data from the database permanently</span>
+            <span class="message-title"><?= t('Warning') ?></span>
+            <span class="message-text"><?= t('Using this tool deletes data from the database permanently') ?></span>
         </h3>
     </section>
 
