@@ -5,7 +5,7 @@
         </h2>
     </div>
     <p class="cleaner-intro">
-        <?= t('Temporary files can accumulate data which can affect your database storage size. Plugins which alter the application database do not (by default) remove any database tables after uninstalling. This tool can deep clean useless data easily. Simply click on any of the buttons in the sections below to deep clean your database.') ?>
+        <?= t('Temporary files can accumulate data which can affect your database storage size. Plugins which alter the application database do not (by default) remove any database tables after uninstalling. This tool can deep clean useless data easily. Click on any of the buttons in the sections below to deep clean your database.') ?>
     </p>
     <section class="message warning cleaner-warning">
         <header></header>
@@ -29,7 +29,7 @@
                         <polygon fill="#055D20" points="335.188,154.188 256,233.375 176.812,154.188 154.188,176.812 233.375,256 154.188,335.188 176.812,357.812 256,278.625 335.188,357.812 357.812,335.188 278.625,256 357.812,176.812 "/>
                         <path d="M256,0C114.609,0,0,114.609,0,256s114.609,256,256,256s256-114.609,256-256S397.391,0,256,0z M256,472 c-119.297,0-216-96.703-216-216S136.703,40,256,40s216,96.703,216,216S375.297,472,256,472z"/>
                     </g>
-                </svg> <?= t('Delete Table') ?>
+                </svg> <?= t('Delete Test Table') ?>
             </a>
         </fieldset>
     </section>
