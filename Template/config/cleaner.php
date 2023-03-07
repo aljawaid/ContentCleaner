@@ -17,10 +17,10 @@
     </section>
     <section class="">
         <fieldset class="">
-            <legend><?= t('Application Cleaning') ?></legend>
+            <legend><span class="db-settings-icon"></span> <?= t('Application Cleaning') ?></legend>
         </fieldset>
         <fieldset class="">
-            <legend><?= t('Plugin Cleaning') ?></legend>
+            <legend><span class="db-settings-icon"></span> <?= t('Plugin Cleaning') ?></legend>
             <a id="" href="<?= $this->url->href('CleaningController', 'confirm', array('table' => 'test', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn  js-modal-confirm" title="<?=t('Delete') ?>">
                 <svg width="20px" height="20px" class="delete-icon" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
                     <g stroke-width="0"/>
