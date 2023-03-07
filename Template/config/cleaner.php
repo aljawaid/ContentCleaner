@@ -1,5 +1,5 @@
-<div class="page-margin">
-    <div class="page-header">
+<div class="c-cleaner-page-margin">
+    <div class="c-cleaner-page-header">
         <h2 class="">
             <span class="content-cleaner-icon"></span> <?= t('Deep Cleaning') ?>
         </h2>
