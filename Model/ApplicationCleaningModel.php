@@ -14,8 +14,12 @@ class ApplicationCleaningModel extends Base
 {
     public function countTables()
     {
-        $table_schema = $this->db->table(self::TABLE);
-        return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = `'. $table_schema .'`');
+        //return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = `'. DB_NAME .'` AND TABLE_TYPE = `BASE TABLE`');
+
+        return $this->db->table('information_schema.tables')
+            ->eq('table_schema', 'myppworkspace')
+            ->eq('TABLE_TYPE', 'BASE TABLE')
+            ->count();
     }
 
     public function deleteRememberMeOld()
