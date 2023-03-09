@@ -33,7 +33,11 @@
                 </tr>
                 <tr class="">
                     <th class="">Database Size</th>
-                    <td class=""></td>
+                    <?php if (DB_DRIVER === 'sqlite'): ?>
+                        <td class=""><?= $this->text->bytes($db_size) ?></td>
+                    <?php else: ?>
+                        <td class=""></td>
+                    <?php endif ?>
                 </tr>
             </table>
         </fieldset>
