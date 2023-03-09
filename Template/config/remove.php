@@ -23,14 +23,14 @@
                         <path d="M160,224c17.656,0,32-14.344,32-32s-14.344-32-32-32s-32,14.344-32,32S142.344,224,160,224z M160,176 c8.812,0,16,7.188,16,16s-7.188,16-16,16s-16-7.188-16-16S151.188,176,160,176z"/>
                     </g>
                 </g>
-            </svg> <?= t('Clean Database Table') ?> <span class="modal-template-id"></span>
+            </svg> <?= t('Deep Cleaning') ?> <span class="modal-template-id"></span>
         </span>
     </h2>
 </div>
 <div id="DeleteModal" class="modal-contents">
     <div class="confirm">
         <p class="confirm-notice">
-            <?= t('Click on the button to confirm you would like to delete the database table') ?>
+            <?= t('Click the button to deep clean the database') ?>
             <div class="template-contents">
                 <div class="template-title"></div>
             </div>
@@ -40,7 +40,7 @@
         'CleaningController',
         'removeTable',
         array('table' => $table, 'plugin' => 'ContentCleaner'),
-        t('Delete')
+        t('Clean')
     ) ?>
     </div>
 </div>
