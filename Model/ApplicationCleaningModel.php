@@ -14,10 +14,10 @@ class ApplicationCleaningModel extends Base
 {
     public function countTables()
     {
-        //return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = `'. DB_NAME .'` AND TABLE_TYPE = `BASE TABLE`');
+        //return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ''. DB_NAME .'' AND TABLE_TYPE = 'BASE TABLE';');
 
         return $this->db->table('information_schema.tables')
-            ->eq('table_schema', 'myppworkspace')
+            ->eq('table_schema', DB_NAME)
             ->eq('TABLE_TYPE', 'BASE TABLE')
             ->count();
     }
