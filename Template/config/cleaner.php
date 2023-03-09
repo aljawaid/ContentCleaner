@@ -15,6 +15,7 @@
             <span class="message-text"><?= t('Using this tool deletes data from the database permanently') ?></span>
         </h3>
     </section>
+    <span class="database-icon"></span>
     <?= $this->helper->cleaningHelper->countTablesDB() ?>
     <section class="">
         <fieldset class="">
