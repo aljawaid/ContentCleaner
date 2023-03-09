@@ -8,8 +8,8 @@ class CleaningHelper extends Base
 {
     public function countTablesDB()
     {
-        $db_size = $this->applicationCleaningModel->countTables();
+        $db_count = $this->applicationCleaningModel->countTables();
 
-        return $db_size;
+        return $db_count;
     }
 }
