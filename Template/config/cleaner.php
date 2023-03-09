@@ -15,8 +15,29 @@
             <span class="message-text"><?= t('Using this tool deletes data from the database permanently') ?></span>
         </h3>
     </section>
-    <span class="database-icon"></span>
-    <?= $this->helper->cleaningHelper->countTablesDB() ?>
+    <section class="db-summary">
+        <fieldset class="">
+            <legend><span class="database-icon"></span> <?= t('Database Summary') ?></legend>
+            <table class="">
+                <tr class="">
+                    <th class="">Database Name</th>
+                    <td class=""><?= DB_NAME ?></td>
+                </tr>
+                <tr class="">
+                    <th class="">Database Type</th>
+                    <td class=""><?= DB_DRIVER ?> v<?= $this->text->e($db_version) ?></td>
+                </tr>
+                <tr class="">
+                    <th class="">N° of Database Tables</th>
+                    <td class=""><?= $this->helper->cleaningHelper->countTablesDB() ?></td>
+                </tr>
+                <tr class="">
+                    <th class="">Database Size</th>
+                    <td class=""></td>
+                </tr>
+            </table>
+        </fieldset>
+    </section>
     <section class="">
         <fieldset class="">
             <legend><span class="db-settings-icon"></span> <?= t('Application Cleaning') ?></legend>
