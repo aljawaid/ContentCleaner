@@ -36,7 +36,9 @@
                     <?php if (DB_DRIVER === 'sqlite'): ?>
                         <td class=""><?= $this->text->bytes($db_size) ?></td>
                     <?php else: ?>
-                        <td class=""><?= $this->helper->cleaningHelper->dbSize() ?> MB</td>
+                        <td class="" title="<?= $this->helper->cleaningHelper->dbSize() ?> MB">
+                            <?= round($this->helper->cleaningHelper->dbSize(), 1, PHP_ROUND_HALF_UP) ?> MB
+                        </td>
                     <?php endif ?>
                 </tr>
             </table>
