@@ -20,19 +20,19 @@
             <legend><span class="database-icon"></span> <?= t('Database Summary') ?></legend>
             <table id="DBSummaryTable" class="summary-table">
                 <tr class="">
-                    <th class="">Database Name</th>
+                    <th class=""><?= t('Database Name') ?></th>
                     <td class=""><?= DB_NAME ?></td>
                 </tr>
                 <tr class="">
-                    <th class="">Database Type</th>
+                    <th class=""><?= t('Database Type') ?></th>
                     <td class=""><?= DB_DRIVER ?> v<?= $this->text->e($db_version) ?></td>
                 </tr>
                 <tr class="">
-                    <th class="">N° of Database Tables</th>
+                    <th class=""><?= t('N° of Database Tables') ?></th>
                     <td class=""><?= $this->helper->cleaningHelper->countTablesDB() ?></td>
                 </tr>
                 <tr class="">
-                    <th class="">Database Size</th>
+                    <th class=""><?= t('Database Size') ?></th>
                     <?php if (DB_DRIVER === 'sqlite'): ?>
                         <td class=""><?= $this->text->bytes($db_size) ?></td>
                     <?php else: ?>
