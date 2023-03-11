@@ -15,9 +15,9 @@ Features
 Screenshots
 ----------
 
-**title**  
+**Deep Cleaning**  
 
-![Screenshot Name](../master/Screenshots/screenshot-name.png "Read Screenshot Name")
+![Summary](../master/Screenshots/screenshot-summary.png "Deep Cleaning")
 
 
 Usage
