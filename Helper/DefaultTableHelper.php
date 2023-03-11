@@ -44,12 +44,12 @@ class DefaultTableHelper extends Base
         preg_match_all("/ALTER\s+TABLE\s+`?(\w+)`?\s+RENAME\s+TO\s+`?(\w+)`?/i", $sql, $matches);
         foreach ($matches[1] as $i => $old_table) {
             $new_table = $matches[2][$i];
-            // update table name in $tables array
+            // UPDATE TABLE NAME IN $tables ARRAY
             $key = array_search($old_table, $tables);
             if ($key !== false) {
                 $tables[$key] = $new_table;
             }
-            // update table name in $columns array
+            // UPDATE TABLE NAME IN $columns ARRAY
             if (isset($columns[$old_table])) {
                 $columns[$new_table] = $columns[$old_table];
                 unset($columns[$old_table]);
@@ -59,21 +59,25 @@ class DefaultTableHelper extends Base
         // EXTRACT DROPPED TABLE NAMES
         preg_match_all("/DROP\s+TABLE\s+`?(\w+)`?/i", $sql, $matches);
         foreach ($matches[1] as $table) {
-            // remove table name from $tables array
+            // REMOVE TABLE NAME FROM $tables ARRAY
             $key = array_search($table, $tables);
             if ($key !== false) {
                 unset($tables[$key]);
             }
-            // remove table name from $columns array
+            // REMOVE TABLE NAME FROM $columns ARRAY
             if (isset($columns[$table])) {
                 unset($columns[$table]);
             }
         }
 
         // PRINT THE RESULTS
-        print_r(count($tables).'<br>');
-        foreach ($tables as $table) {
-            print_r($table.'<br>');
-        }
+        //print_r(count($tables).'<br>');
+        //foreach ($tables as $table) {
+          //  print_r($table.'<br>');
+        //}
+
+        sort($tables);
+
+        return $tables;
     }
 }
