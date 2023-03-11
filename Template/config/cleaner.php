@@ -54,6 +54,9 @@
             </table>
         </fieldset>
     </section>
+    <div>
+        <?= $this->helper->defaultTableHelper->getDefaultTables() ?>
+    </div>
     <section class="">
         <fieldset class="">
             <legend><span class="db-settings-icon"></span> <?= t('Application Cleaning') ?></legend>

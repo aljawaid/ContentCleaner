@@ -27,6 +27,7 @@ class Plugin extends Base
         //  - Example: $this->helper->register('helperClassNameCamelCase', '\Kanboard\Plugin\PluginNameExampleStudlyCaps\Helper\HelperNameExampleStudlyCaps');
         //  - Add each Helper in the 'use' section at the top of this file
         $this->helper->register('cleaningHelper', '\Kanboard\Plugin\ContentCleaner\Helper\CleaningHelper');
+        $this->helper->register('defaultTableHelper', '\Kanboard\Plugin\ContentCleaner\Helper\DefaultTableHelper');
     }
 
     public function onStartup()
