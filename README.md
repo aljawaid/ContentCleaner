@@ -7,7 +7,8 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
 
 Features
 -------------
-- Show database summary
+- Show detailed database summary
+- Show default database tables
 - Delete `Remember Me` data
 - Delete [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
 
@@ -15,9 +16,13 @@ Features
 Screenshots
 ----------
 
-**Deep Cleaning**  
+**Database Summary**  
 
-![Summary](../master/Screenshots/screenshot-summary.png "Deep Cleaning")
+![Summary](../master/Screenshots/screenshot-summary.png "Database Summary")
+
+**Default Tables**  
+
+![Summary](../master/Screenshots/screenshot-default-tables.png "Default Tables")
 
 
 Usage
