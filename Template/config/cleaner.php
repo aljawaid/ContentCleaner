@@ -54,9 +54,6 @@
             </table>
         </fieldset>
     </section>
-    <div>
-        <?= $this->helper->defaultTableHelper->getDefaultTables() ?>
-    </div>
     <section class="">
         <fieldset class="">
             <legend><span class="db-settings-icon"></span> <?= t('Application Cleaning') ?></legend>
@@ -66,6 +63,16 @@
             <a id="" href="<?= $this->url->href('CleaningController', 'confirm', array('table' => 'test', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn  js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Delete Test Table') ?>
             </a>
+        </fieldset>
+    </section>
+    <section id="DefaultTables">
+        <fieldset class="">
+            <legend><span class="database-icon"></span> <?= t('Default Database Tables') ?></legend>
+            <ul class="default-table-list fa-ul">
+                <?php foreach ($this->helper->defaultTableHelper->getDefaultTables($tables) as $table): ?>
+                    <li class="list-item"><i class="fa fa-table fa-li" aria-hidden="true"></i><?= $table ?></li>
+                <?php endforeach ?>
+            </ul>
         </fieldset>
     </section>
 </div>
