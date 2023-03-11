@@ -121,3 +121,23 @@ section.db-summary fieldset {
     border: 0;
     background: none;
 }
+
+#DefaultTables .database-icon {
+    width: 25px;
+    height: 25px;
+}
+
+li.list-item i.fa-table {
+    color: var(--pp-orange-c-cleaner);
+    opacity: .7;
+}
+
+ul.default-table-list li.list-item {
+    display: inline-block;
+    width: 300px;
+}
+
+.default-table-list {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
