@@ -13,6 +13,7 @@
     --pp-green: #2EA02E;
     --pp-green-dark: #055D20;
     --pp-orange: #FF6500;
+    --pp-orange-c-cleaner: #F4290E;
     --blue-icon-dark: #034CA6;
     --button-blue-gradient: linear-gradient(to bottom, #7892c2 80%, #476e9e 100%);
     --blue-border-gradient-match: #476E9E;
@@ -99,4 +100,19 @@
     height: 26px;
     display: inline-block;
     pointer-events: none;
+}
+
+section.db-summary fieldset {
+    width: fit-content;
+    margin: auto;
+    border: 2px outset var(--pp-orange-c-cleaner);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#DBSummaryTable {
+    border-collapse: separate;
+    border-spacing: 9px;
+    width: 500px;
+    margin: auto;
 }

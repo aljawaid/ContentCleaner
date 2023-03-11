@@ -18,7 +18,7 @@
     <section class="db-summary">
         <fieldset class="">
             <legend><span class="database-icon"></span> <?= t('Database Summary') ?></legend>
-            <table class="">
+            <table id="DBSummaryTable" class="summary-table">
                 <tr class="">
                     <th class="">Database Name</th>
                     <td class=""><?= DB_NAME ?></td>
