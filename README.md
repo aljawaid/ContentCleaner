@@ -7,7 +7,7 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
 
 Features
 -------------
-
+- Show database summary
 - Delete `Remember Me` data
 - Delete [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
 
@@ -83,6 +83,8 @@ Authors & Contributors
 ----------------------
 
 - [@aljawaid](https://github.com/aljawaid) - Author
+- [Craig Crosby](https://github.com/creecros) - Contributor
+- [Alfred Bühler](https://github.com/alfredbuehler) - Contributor
 - _Contributors welcome_
 
 
