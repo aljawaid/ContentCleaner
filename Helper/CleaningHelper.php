@@ -15,7 +15,9 @@ class CleaningHelper extends Base
 
     public function dbSize()
     {
-        $db_size = $this->applicationCleaningModel->getSize('tables.data_length') + $this->applicationCleaningModel->getSize('tables.index_length');
+        $db_size = ($this->applicationCleaningModel->getSize('tables.data_length')
+            + $this->applicationCleaningModel->getSize('tables.index_length'))
+            / 1024 / 1024;
 
         return $db_size;
     }
