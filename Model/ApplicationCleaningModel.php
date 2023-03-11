@@ -29,7 +29,7 @@ class ApplicationCleaningModel extends Base
 
         return $this->db->table('information_schema.tables')
             ->eq('tables.table_schema', DB_NAME)
-            ->sum($column) / 1024 / 1024;
+            ->sum($column);
     }
 
     public function deleteRememberMeOld()
