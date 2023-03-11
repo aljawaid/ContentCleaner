@@ -21,4 +21,15 @@ class CleaningHelper extends Base
 
         return $db_size;
     }
+
+    public function getTableDifference()
+    {
+        $db_count = $this->applicationCleaningModel->countTables();
+
+        $default_tables = count($this->helper->defaultTableHelper->getDefaultTables());
+
+        $difference = ($db_count - $default_tables);
+
+        return $difference;
+    }
 }
