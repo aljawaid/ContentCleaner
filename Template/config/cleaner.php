@@ -42,6 +42,10 @@
                     <td class=""><?= $this->helper->cleaningHelper->countTablesDB() ?></td>
                 </tr>
                 <tr class="">
+                    <th class=""><?= t('Default Tables') ?></th>
+                    <td class=""><?= count($this->helper->defaultTableHelper->getDefaultTables()) ?></td>
+                </tr>
+                <tr class="">
                     <th class=""><?= t('Database Size') ?></th>
                     <?php if (DB_DRIVER === 'sqlite'): ?>
                         <td class=""><?= $this->text->bytes($db_size) ?></td>
