@@ -38,7 +38,7 @@
                     <?php endif ?>
                 </tr>
                 <tr class="">
-                    <th class=""><?= t('N° of Database Tables') ?></th>
+                    <th class=""><?= t('Total Tables') ?></th>
                     <td class=""><?= $this->helper->cleaningHelper->countTablesDB() ?></td>
                 </tr>
                 <tr class="">
