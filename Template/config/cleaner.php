@@ -38,6 +38,16 @@
                     <?php endif ?>
                 </tr>
                 <tr class="">
+                    <th class=""><?= t('Database Size') ?></th>
+                    <?php if (DB_DRIVER === 'sqlite'): ?>
+                        <td class=""><?= $this->text->bytes($db_size) ?></td>
+                    <?php else: ?>
+                        <td class="" title="<?= $this->helper->cleaningHelper->dbSize() ?> MB">
+                            <?= round($this->helper->cleaningHelper->dbSize(), 1, PHP_ROUND_HALF_UP) ?> MB
+                        </td>
+                    <?php endif ?>
+                </tr>
+                <tr class="">
                     <th class=""><?= t('Total Tables') ?></th>
                     <td class=""><?= $this->helper->cleaningHelper->countTablesDB() ?></td>
                 </tr>
@@ -47,17 +57,7 @@
                 </tr>
                 <tr class="">
                     <th class=""><?= t('Tables Created by Plugins') ?></th>
-                    <td class=""><?= $this->helper->cleaningHelper->getTableDifference() ?></td>
-                </tr>
-                <tr class="">
-                    <th class=""><?= t('Database Size') ?></th>
-                    <?php if (DB_DRIVER === 'sqlite'): ?>
-                        <td class=""><?= $this->text->bytes($db_size) ?></td>
-                    <?php else: ?>
-                        <td class="" title="<?= $this->helper->cleaningHelper->dbSize() ?> MB">
-                            <?= round($this->helper->cleaningHelper->dbSize(), 1, PHP_ROUND_HALF_UP) ?> MB
-                        </td>
-                    <?php endif ?>
+                    <td class=""><strong><?= $this->helper->cleaningHelper->getTableDifference() ?></strong></td>
                 </tr>
             </table>
         </fieldset>
