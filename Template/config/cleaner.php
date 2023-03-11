@@ -46,6 +46,10 @@
                     <td class=""><?= count($this->helper->defaultTableHelper->getDefaultTables()) ?></td>
                 </tr>
                 <tr class="">
+                    <th class=""><?= t('Tables Created by Plugins') ?></th>
+                    <td class=""><?= $this->helper->cleaningHelper->getTableDifference() ?></td>
+                </tr>
+                <tr class="">
                     <th class=""><?= t('Database Size') ?></th>
                     <?php if (DB_DRIVER === 'sqlite'): ?>
                         <td class=""><?= $this->text->bytes($db_size) ?></td>
