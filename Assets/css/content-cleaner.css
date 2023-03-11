@@ -116,3 +116,8 @@ section.db-summary fieldset {
     width: 500px;
     margin: auto;
 }
+
+#DBSummaryTable tr th, #DBSummaryTable tr td {
+    border: 0;
+    background: none;
+}
