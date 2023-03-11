@@ -25,7 +25,17 @@
                 </tr>
                 <tr class="">
                     <th class=""><?= t('Database Type') ?></th>
-                    <td class=""><?= DB_DRIVER ?> v<?= $this->text->e($db_version) ?></td>
+                    <?php if (DB_DRIVER === 'sqlite'): ?>
+                        <td class="">SQLite v<?= $this->text->e($db_version) ?></td>
+                    <?php elseif (DB_DRIVER === 'mysql'): ?>
+                        <td class="">MySQL v<?= $this->text->e($db_version) ?></td>
+                    <?php elseif (DB_DRIVER === 'postgres'): ?>
+                        <td class="">PostgreSQL v<?= $this->text->e($db_version) ?></td>
+                    <?php elseif (DB_DRIVER === 'mssql'): ?>
+                        <td class="">Microsoft SQL Server v<?= $this->text->e($db_version) ?></td>
+                    <?php else: ?>
+                        <td class=""><i><?= t('Unknown') ?></i> v<?= $this->text->e($db_version) ?></td>
+                    <?php endif ?>
                 </tr>
                 <tr class="">
                     <th class=""><?= t('N° of Database Tables') ?></th>
