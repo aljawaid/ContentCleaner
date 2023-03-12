@@ -84,7 +84,7 @@
                         <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
                         <li class="job-result-text"><?= t('The settings for') ?> <code>calendar_project_tasks</code> <?= t('and') ?> <code>calendar_user_tasks</code> <?= t('will be reset to the value') ?> <code>date_started</code></li>
                     </ul>
-                    <a href="" class="btn job-btn"><span class="content-cleaner-icon"></span> <?= t('Reset Settings') ?></a>
+                    <a href="<?= $this->url->href('CleaningController', 'confirmReset', array('table' => 'settings', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Reset Settings') ?></a>
                 </fieldset>
             </div>
         </fieldset>
