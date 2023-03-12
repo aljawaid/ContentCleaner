@@ -62,13 +62,15 @@
             </table>
         </fieldset>
     </section>
-    <section id="DeepCleaning" class="">
+    <section id="DeepCleaningApp" class="">
         <fieldset class="app-cleaning">
-            <legend><span class="db-settings-icon"></span> <?= t('Application Cleaning') ?></legend>
+            <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Application Cleaning Jobs') ?></legend>
             <p class=""><?= t('Jobs in this section affect only the default database tables') ?></p>
         </fieldset>
+    </section>
+    <section id="DeepCleaningPlugins" class="">
         <fieldset class="plugin-cleaning">
-            <legend><span class="db-settings-icon"></span> <?= t('Plugin Cleaning') ?></legend>
+            <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Plugin Cleaning Jobs') ?></legend>
             <p class=""><?= t('Jobs in this section affect leftover tables which were created by plugins') ?></p>
             <a id="" href="<?= $this->url->href('CleaningController', 'confirm', array('table' => 'test', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn  js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Delete Test Table') ?>
@@ -76,8 +78,8 @@
         </fieldset>
     </section>
     <section id="DefaultTables" class="">
-        <fieldset class="">
-            <legend><span class="database-icon"></span> <?= t('Default Database Tables') ?></legend>
+        <fieldset class="default-tables">
+            <legend class="section-title"><span class="database-icon"></span> <?= t('Default Database Tables') ?></legend>
             <ul class="default-table-list fa-ul">
                 <?php foreach ($this->helper->defaultTableHelper->getDefaultTables($tables) as $table): ?>
                     <li class="list-item"><i class="fa fa-table fa-li" aria-hidden="true"></i><?= $table ?></li>
