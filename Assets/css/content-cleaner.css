@@ -60,6 +60,7 @@
 
 .c-cleaner-page-header h2 {
     margin-top: 10px;
+    font-weight: 600;
 }
 
 .content-cleaner-icon {
@@ -140,4 +141,19 @@ ul.default-table-list li.list-item {
 .default-table-list {
     margin-top: 10px;
     margin-bottom: 5px;
+}
+
+#DeepCleaningApp, #DeepCleaningPlugins, #DefaultTables {
+    margin: 30px auto;
+}
+
+fieldset .section-title {
+    font-weight: 600;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+.app-cleaning, .plugin-cleaning, .default-tables {
+    border: 2px outset var(--pp-orangered);
+    border-radius: var(--border-radius-c-cleaner);
 }
