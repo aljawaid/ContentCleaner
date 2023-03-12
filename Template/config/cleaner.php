@@ -65,9 +65,11 @@
     <section class="">
         <fieldset class="">
             <legend><span class="db-settings-icon"></span> <?= t('Application Cleaning') ?></legend>
+            <p class="">Jobs in this section affect only the default database tables</p>
         </fieldset>
         <fieldset class="">
             <legend><span class="db-settings-icon"></span> <?= t('Plugin Cleaning') ?></legend>
+            <p class="">Jobs in this section affect leftover tables which were created by plugins</p>
             <a id="" href="<?= $this->url->href('CleaningController', 'confirm', array('table' => 'test', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn  js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Delete Test Table') ?>
             </a>
