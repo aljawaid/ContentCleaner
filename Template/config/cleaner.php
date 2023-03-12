@@ -66,6 +66,27 @@
         <fieldset class="app-cleaning">
             <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Application Cleaning Jobs') ?></legend>
             <p class=""><?= t('Jobs in this section affect only the default database tables') ?></p>
+            <div class="job-section-wrapper">
+                <fieldset class="job-wrapper">
+                    <legend class="job-title">
+                        <span class="content-cleaner-icon"></span> <?= t('Reset Calendar Settings') ?>
+                    </legend>
+                    <p class="job-desc">
+                        <?= t('Some calendar plugins alter default settings which affect the project and user views') ?>
+                    </p>
+                    <ul class="job-tables fa-ul">
+                        <li class="job-tables-title">
+                            <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
+                        </li>
+                        <li class="job-tables-table">settings</li>
+                    </ul>
+                    <ul class="job-result fa-ul">
+                        <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
+                        <li class="job-result-text"><?= t('The settings for') ?> <code>calendar_project_tasks</code> <?= t('and') ?> <code>calendar_user_tasks</code> <?= t('will be reset to the value') ?> <code>date_started</code></li>
+                    </ul>
+                    <a href="" class="btn job-btn"><span class="content-cleaner-icon"></span> <?= t('Reset Settings') ?></a>
+                </fieldset>
+            </div>
         </fieldset>
     </section>
     <section id="DeepCleaningPlugins" class="">
