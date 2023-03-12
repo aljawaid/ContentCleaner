@@ -128,7 +128,7 @@ section.db-summary fieldset {
     height: 25px;
 }
 
-li.list-item i.fa-table {
+li.list-item i.fa-table, li.job-tables-title i.fa-table {
     color: var(--pp-orange-c-cleaner);
     opacity: .7;
 }
@@ -179,7 +179,7 @@ fieldset .section-title {
     background-color: var(--pp-white);
     padding-left: 4px;
     padding-right: 10px;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.1em;
 }
 
@@ -194,8 +194,15 @@ fieldset .section-title {
 }
 
 .job-tables, .job-result {
-    margin-block: 10px;
     font-size: .9em;
+}
+
+.job-tables {
+    margin-block-start: 10px;
+}
+
+.job-result {
+    margin-block-end: 10px;
 }
 
 .job-tables li, .job-result li {
@@ -212,4 +219,47 @@ fieldset .section-title {
 
 .job-result-title {
     min-width: 130px;
+}
+
+.job-result-text code {
+    font-size: .9em;
+    background-color: rgba(27, 31, 35, 0.22);
+    color: var(--pp-black);
+    line-height: 2;
+    margin: auto 1px;
+    padding: 1px 3px 2px 3px;
+    font-family: Monospace;
+    border-radius: 2px;
+    letter-spacing: 0.06rem;
+}
+
+fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
+    font-size: 1em;
+    border: 2px outset var(--pp-orange-c-cleaner);
+    background: rgba(0, 0, 0, .15);
+    font-weight: 600;
+    color: var(--pp-green-dark);
+    transition: var(--transition-c-cleaner);
+}
+
+fieldset.job-wrapper a.job-btn:hover {
+    color: var(--pp-green-dark) !important;
+    background: var(--pp-white);
+    border: 2px inset var(--pp-orange-c-cleaner);
+}
+
+.job-btn span.content-cleaner-icon {
+    width: 24px;
+    height: 22px;
+    vertical-align: text-top;
+}
+
+li.job-result-title i.fa-check::before {
+    content: "\2714";
+    color: var(--pp-green);
+    font-weight: 700;
+}
+
+.job-tables-table {
+    margin-left: -0.20em;
 }
