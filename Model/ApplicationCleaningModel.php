@@ -57,4 +57,11 @@ class ApplicationCleaningModel extends Base
         // delete table
         return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
     }
+
+    public function resetSettings($table, $fields = array())
+    {
+        // RESET VALUES
+        //need to work out how to add unknown no. of fields
+        $db->table($table)->eq('option', 'calendar_project_tasks')->update(['value' => 'date_started']);
+    }
 }
