@@ -34,4 +34,25 @@ class CleaningController extends BaseController
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
     }
+
+    public function confirmReset()
+    {
+        $this->response->html($this->template->render('contentCleaner:config/reset', array(
+            'table' => $this->request->getStringParam('table'),
+        )));
+    }
+
+    public function resetSettings()
+    {
+        $table =  $this->request->getStringParam('table');
+        $this->checkCSRFParam();
+
+        if ($this->applicationCleaningModel->resetSettings($table)) {
+            $this->flash->success(t('Cleaning complete - Reset successfully'));
+        } else {
+            $this->flash->failure(t('Cleaning failed'));
+        }
+
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+    }
 }
