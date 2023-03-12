@@ -157,3 +157,59 @@ fieldset .section-title {
     border: 2px outset var(--pp-orangered);
     border-radius: var(--border-radius-c-cleaner);
 }
+
+.job-section-wrapper {
+    margin: auto;
+    display: block;
+    text-align: center;
+
+}
+
+.job-wrapper {
+    width: 48%;
+    display: inline-block;
+    text-align: initial;
+    margin: 15px;
+    border: 1px solid var(--pp-grey);
+    border-radius: var(--border-radius-c-cleaner);
+    box-shadow: 0px 0px 2px 0px var(--pp-grey);
+}
+
+.job-title {
+    background-color: var(--pp-white);
+    padding-left: 4px;
+    padding-right: 10px;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.job-title span.content-cleaner-icon {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.job-desc {
+    font-size: .9em;
+}
+
+.job-tables, .job-result {
+    margin-block: 10px;
+    font-size: .9em;
+}
+
+.job-tables li, .job-result li {
+    display: inline-block;
+}
+
+.job-tables li.job-tables-title, .job-result li.job-result-title {
+    width: 130px;
+}
+
+.job-result {
+    display: inline-flex;
+}
+
+.job-result-title {
+    min-width: 130px;
+}
