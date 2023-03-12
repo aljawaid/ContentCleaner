@@ -15,7 +15,7 @@
             <span class="message-text"><?= t('Using this tool deletes data from the database permanently') ?></span>
         </h3>
     </section>
-    <section class="db-summary">
+    <section id="DBSummary" class="db-summary">
         <fieldset class="">
             <legend><span class="database-icon"></span> <?= t('Database Summary') ?></legend>
             <table id="DBSummaryTable" class="summary-table">
@@ -62,20 +62,20 @@
             </table>
         </fieldset>
     </section>
-    <section class="">
-        <fieldset class="">
+    <section id="DeepCleaning" class="">
+        <fieldset class="app-cleaning">
             <legend><span class="db-settings-icon"></span> <?= t('Application Cleaning') ?></legend>
-            <p class="">Jobs in this section affect only the default database tables</p>
+            <p class=""><?= t('Jobs in this section affect only the default database tables') ?></p>
         </fieldset>
-        <fieldset class="">
+        <fieldset class="plugin-cleaning">
             <legend><span class="db-settings-icon"></span> <?= t('Plugin Cleaning') ?></legend>
-            <p class="">Jobs in this section affect leftover tables which were created by plugins</p>
+            <p class=""><?= t('Jobs in this section affect leftover tables which were created by plugins') ?></p>
             <a id="" href="<?= $this->url->href('CleaningController', 'confirm', array('table' => 'test', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn  js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Delete Test Table') ?>
             </a>
         </fieldset>
     </section>
-    <section id="DefaultTables">
+    <section id="DefaultTables" class="">
         <fieldset class="">
             <legend><span class="database-icon"></span> <?= t('Default Database Tables') ?></legend>
             <ul class="default-table-list fa-ul">
