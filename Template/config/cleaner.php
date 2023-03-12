@@ -5,7 +5,7 @@
         </h2>
     </div>
     <p class="cleaner-intro">
-        <?= t('Temporary files can accumulate data which can affect your database storage size. Plugins which alter the application database do not (by default) remove any database tables after uninstalling. This tool can deep clean useless data easily. Click on any of the buttons in the sections below to deep clean your database.') ?>
+        <?= t('Temporary files can accumulate data which can affect your database and functionality of your application. Plugins which alter the database do not (by default) remove any database tables after uninstalling causing potential issues. Cleaning jobs are segments of processes to optimize your database and cleanup your data. This tool lists cleaning jobs that can deep clean useless data easily.') ?>
     </p>
     <section class="message warning cleaner-warning">
         <header></header>
