@@ -38,8 +38,8 @@
 
     <?= $this->modal->confirmButtons(
         'CleaningController',
-        'resetSettings',
-        array('table' => $table, 'plugin' => 'ContentCleaner'),
+        'resetCalendarSettings',
+        array('plugin' => 'ContentCleaner'),
         t('Reset')
     ) ?>
     </div>
