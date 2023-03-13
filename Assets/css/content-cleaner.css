@@ -263,3 +263,12 @@ li.job-result-title i.fa-check::before {
 .job-tables-table {
     margin-left: -0.20em;
 }
+
+.table-count-badge {
+    color: var(--pp-white);
+    font-weight: 600;
+    border: 1px solid var(--pp-red-alt-2);
+    background-color: var(--pp-orange-c-cleaner);
+    padding: 0 3px;
+    border-radius: var(--border-radius-c-cleaner);
+}

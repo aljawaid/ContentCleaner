@@ -57,7 +57,7 @@
                 </tr>
                 <tr class="">
                     <th class=""><?= t('Tables Created by Plugins') ?></th>
-                    <td class=""><strong><?= $this->helper->cleaningHelper->getTableDifference() ?></strong></td>
+                    <td class=""><span class="table-count-badge"><?= $this->helper->cleaningHelper->getTableDifference() ?></span></td>
                 </tr>
             </table>
         </fieldset>
