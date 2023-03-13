@@ -102,7 +102,7 @@
         <fieldset class="default-tables">
             <legend class="section-title"><span class="database-icon"></span> <?= t('Default Database Tables') ?></legend>
             <ul class="default-table-list fa-ul">
-                <?php foreach ($this->helper->defaultTableHelper->getDefaultTables($tables) as $table): ?>
+                <?php foreach ($this->helper->defaultTableHelper->getDefaultTables() as $table): ?>
                     <li class="list-item"><i class="fa fa-table fa-li" aria-hidden="true"></i><?= $table ?></li>
                 <?php endforeach ?>
             </ul>

@@ -12,14 +12,34 @@ use Kanboard\Core\Base;
 
 class ApplicationCleaningModel extends Base
 {
+    
     public function countTables()
     {
         //return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ''. DB_NAME .'' AND TABLE_TYPE = 'BASE TABLE';');
+        
+        Switch (DB_DRIVER) {
+            Case 'sqlite':
+                return $this->db->table($this->getTable())
+                ->eq('TYPE', 'table')
+                ->count();
+            Case 'mysql':
+                return $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->count();
+            Case 'postgres':
+                return $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->count();
+            Case 'mssql':
+                return $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->count();
+              }
 
-        return $this->db->table('information_schema.tables')
-            ->eq('table_schema', DB_NAME)
-            ->eq('TABLE_TYPE', 'BASE TABLE')
-            ->count();
+        
     }
 
     public function getSize($column)
@@ -27,7 +47,7 @@ class ApplicationCleaningModel extends Base
         // FOR DATABASE SIZE
         // SELECT table_schema "myppworkspace", ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" FROM information_schema.tables WHERE table_schema = 'myppworkspace' GROUP BY table_schema;
 
-        return $this->db->table('information_schema.tables')
+        return $this->db->table($this->getTable())
             ->eq('tables.table_schema', DB_NAME)
             ->sum($column);
     }
@@ -68,5 +88,20 @@ class ApplicationCleaningModel extends Base
                 $this->db->table($table)->eq('option', $key)->update(['value' => $value]);
             }
         }
+    }
+    
+    private function getTable()
+    {
+        if (DB_DRIVER === 'sqlite') {
+            $table = 'sqlite_master';
+        } elseif (DB_DRIVER === 'postgres') {
+            $table = 'information_schema.tables';
+        } elseif (DB_DRIVER === 'mssql') {
+            $table = 'information_schema.tables';
+        } elseif (DB_DRIVER === 'mysql') {
+            $table = 'information_schema.tables';
+        }
+        
+        return $table;
     }
 }

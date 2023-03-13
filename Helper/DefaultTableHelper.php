@@ -19,7 +19,7 @@ class DefaultTableHelper extends Base
         } elseif (DB_DRIVER === 'postgres') {
             $file = $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Postgres.php';
         } elseif (DB_DRIVER === 'mssql') {
-            $file = $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mssql.php';
+            $file = $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php'; //I don't believe this code will work on the Mssql.php file, just use the Mysql.php file for now.
         } elseif (DB_DRIVER === 'mysql') {
             $file = $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
         }
