@@ -25,12 +25,15 @@ class DefaultTableHelper extends Base
     
         // EXTRACT RENAMED TABLE NAMES
         Switch (DB_DRIVER) { // For now, I am switching everything to reading the Mysql.php file.
-            //Case 'sqlite': 
-                //preg_match_all("/ALTER\s+TABLE\s+`?(\w+)`?\s+RENAME\s+TO\s+`?(\w+)`?/i", $sql, $matches);
+            /*Case 'sqlite': 
+                preg_match_all("/ALTER\s+TABLE\s+`?(\w+)`?\s+RENAME\s+TO\s+`?(\w+)`?/i", $sql, $matches);
+                break;*/
             Case 'mysql': 
                 preg_match_all("/RENAME\s+TABLE\s+(\w+)\s+TO\s+(\w+)/i", $sql, $matches);
+                break;
             Default :
                 preg_match_all("/RENAME\s+TABLE\s+(\w+)\s+TO\s+(\w+)/i", $sql, $matches);
+                break;
         }
 
         foreach ($matches[1] as $i => $old_table) {
@@ -84,7 +87,7 @@ class DefaultTableHelper extends Base
         preg_match_all('/`?(\w+)`?\s+\w+\s*(?:\(\d+\))?(?:\s+UNSIGNED)?(?:\s+NOT\s+NULL)?(?:\s+AUTO_INCREMENT)?(?:\s+DEFAULT\s+\w*)?(?:\s+,\s*)?/i', $column_str, $matches);
         
         foreach ($matches[1] as $match) {
-            if (!preg_match('/^(PRIMARY|FOREIGN|INDEX|NOT|REFERENCES|InnoDB|ON|DEFAULT|UNIQUE)/i', $match)) {
+            if (!preg_match('/^(PRIMARY|FOREIGN|INDEX|NOT|REFERENCES|InnoDB|ON|DEFAULT|UNIQUE)$/i', $match)) {
                 $columns[] = $match;
             }
         }
@@ -113,7 +116,17 @@ class DefaultTableHelper extends Base
         foreach ($add_matches[1] as $match) {
             $columns[] = $match;
         }
-
+        
+        $current_columns = $this->applicationCleaningModel->getColumns($table_name);
+        
+        if (count(array_diff($current_columns, $columns)) > 0) {
+            foreach (array_diff($current_columns, $columns) as $missing) {
+                if ($table_name == 'subtasks') { error_log('missing-column:'.$missing,0); }
+                if (preg_match("/$table_name.*$missing/i", $sql)) {
+                   $columns[] = $missing;
+                }
+            }
+        } 
 
         return $columns;
 
@@ -123,7 +136,8 @@ class DefaultTableHelper extends Base
     {
         $current_columns = $this->applicationCleaningModel->getColumns($table_name);
         $default_columns = $this->getDefaultColumnsForTable($table_name);
-        
+        if ($table_name == 'subtasks') { foreach($default_columns as$c) { error_log('default-column:'.$c,0); }}
+        if ($table_name == 'subtasks') { foreach($current_columns as$c) { error_log('db-column:'.$c,0); }}
         return array_diff($current_columns, $default_columns);
         
     }

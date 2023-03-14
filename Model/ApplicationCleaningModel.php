@@ -153,7 +153,6 @@ class ApplicationCleaningModel extends Base
         $columnNames = array();
         foreach ($columns as $column) {
             $columnNames[] = $column['name'];
-            if ($table == 'task_has_files') { error_log('column:'.$column['name'],0); }
         }
         
         return $columnNames;
