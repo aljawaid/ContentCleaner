@@ -71,19 +71,25 @@ class DefaultTableHelper extends Base
     }
 
     public function getDefaultColumnsForTable($table_name)
-    {
+    { 
+        $check_back = false;
+        $old_table_name = $table_name;
         $file = $this->getSchema();
         $sql = file_get_contents($file);
         
         if ($this->wasRenamedFrom($table_name) !== false && $this->wasRenamedTo($table_name) == false) {
             $table_name = $this->wasRenamedFrom($table_name);
+        } else if ($this->wasRenamedTo($table_name) !== false && $this->wasRenamedFrom($this->wasRenamedTo($table_name)) !== false) {
+            $old_table_name = $this->wasRenamedTo($table_name);
+            $check_back = true;
         }
+        
         
         $columns = array();
         
         // EXTRACT TABLE NAMES AND COLUMN NAMES
         preg_match("/CREATE\s+TABLE\s+`?{$table_name}`?.*?\((.*?)\)[\s]*;/is", $sql, $match);
-        $column_str = $match[1];
+        $column_str = (!isset($match[1])) ?: $match[1];
         preg_match_all('/`?(\w+)`?\s+\w+\s*(?:\(\d+\))?(?:\s+UNSIGNED)?(?:\s+NOT\s+NULL)?(?:\s+AUTO_INCREMENT)?(?:\s+DEFAULT\s+\w*)?(?:\s+,\s*)?/i', $column_str, $matches);
         
         foreach ($matches[1] as $match) {
@@ -117,17 +123,18 @@ class DefaultTableHelper extends Base
             $columns[] = $match;
         }
         
-        $current_columns = $this->applicationCleaningModel->getColumns($table_name);
         
-        if (count(array_diff($current_columns, $columns)) > 0) {
+        $table_to_check = (!$check_back) ? $old_table_name: $table_name;
+        $current_columns = $this->applicationCleaningModel->getColumns($table_to_check);
+
+        if (count(array_diff($current_columns, $columns)) != 0) {
             foreach (array_diff($current_columns, $columns) as $missing) {
-                if ($table_name == 'subtasks') { error_log('missing-column:'.$missing,0); }
-                if (preg_match("/$table_name.*$missing/i", $sql)) {
+                if (preg_match("/$old_table_name.*$missing/i", $sql) || preg_match("/$table_name.*$missing/i", $sql)) {
                    $columns[] = $missing;
                 }
             }
         } 
-
+        
         return $columns;
 
     }
@@ -136,8 +143,7 @@ class DefaultTableHelper extends Base
     {
         $current_columns = $this->applicationCleaningModel->getColumns($table_name);
         $default_columns = $this->getDefaultColumnsForTable($table_name);
-        if ($table_name == 'subtasks') { foreach($default_columns as$c) { error_log('default-column:'.$c,0); }}
-        if ($table_name == 'subtasks') { foreach($current_columns as$c) { error_log('db-column:'.$c,0); }}
+        
         return array_diff($current_columns, $default_columns);
         
     }
