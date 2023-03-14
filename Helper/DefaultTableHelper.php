@@ -25,8 +25,8 @@ class DefaultTableHelper extends Base
     
         // EXTRACT RENAMED TABLE NAMES
         Switch (DB_DRIVER) { // For now, I am switching everything to reading the Mysql.php file.
-            Case 'sqlite': 
-                preg_match_all("/ALTER\s+TABLE\s+`?(\w+)`?\s+RENAME\s+TO\s+`?(\w+)`?/i", $sql, $matches);
+            //Case 'sqlite': 
+                //preg_match_all("/ALTER\s+TABLE\s+`?(\w+)`?\s+RENAME\s+TO\s+`?(\w+)`?/i", $sql, $matches);
             Case 'mysql': 
                 preg_match_all("/RENAME\s+TABLE\s+(\w+)\s+TO\s+(\w+)/i", $sql, $matches);
             Default :
@@ -123,10 +123,6 @@ class DefaultTableHelper extends Base
     {
         $current_columns = $this->applicationCleaningModel->getColumns($table_name);
         $default_columns = $this->getDefaultColumnsForTable($table_name);
-        
-        if ($table_name == 'comments') {
-        foreach ($current_columns as $c) { error_log('column:'.$c,0); }
-        }
         
         return array_diff($current_columns, $default_columns);
         

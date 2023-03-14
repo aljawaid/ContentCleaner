@@ -108,6 +108,7 @@
                         <ul class="">
                             <li class="default-columns-count">
                                 <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
+                                <?= count($this->helper->defaultTableHelper->checkTableColumns($table)) ?> <?= t('extra columns') ?>
                             </li>
                         </ul>
                     </li>

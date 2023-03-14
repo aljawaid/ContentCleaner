@@ -22,24 +22,32 @@ class ApplicationCleaningModel extends Base
                 return $this->db->table($this->getTable())
                 ->eq('TYPE', 'table')
                 ->count();
+                break;
             Case 'mysql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->count();
+                break;
             Case 'postgres':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->count();
+                break;
             Case 'mssql':
+                return $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->count();
+                break;
+            Default:
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->count();
               }
 
-        
     }
     
     public function getTables()
@@ -51,24 +59,32 @@ class ApplicationCleaningModel extends Base
                 return $this->db->table($this->getTable())
                 ->eq('TYPE', 'table')
                 ->findAll();
+                break;
             Case 'mysql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->findAll();
+                break;
             Case 'postgres':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->findAll();
+                break;
             Case 'mssql':
+                return $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->findAll();
+                break;
+            Default:
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->findAll();
               }
 
-        
     }
 
     public function getSize($column)
@@ -122,9 +138,25 @@ class ApplicationCleaningModel extends Base
     public function getColumns($table)
     {
         // find all columns
-        $data = $this->db->table($table)->findAll();
+        Switch (DB_DRIVER) {
+            Case 'sqlite':
+                $columns = $this->db->execute("PRAGMA table_info($table)");
+                break;
+            Case 'mysql':
+                $columns = $this->db->execute("SHOW COLUMNS FROM $table");
+                break;
+            Default :
+                $columns = $this->db->execute("SHOW COLUMNS FROM $table");
+        }
         
-        return array_keys($data);
+        // Loop through the results and retrieve the column names
+        $columnNames = array();
+        foreach ($columns as $column) {
+            $columnNames[] = $column['name'];
+            if ($table == 'task_has_files') { error_log('column:'.$column['name'],0); }
+        }
+        
+        return $columnNames;
     }
     
     private function getTable()
