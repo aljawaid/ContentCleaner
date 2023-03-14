@@ -272,3 +272,7 @@ li.job-result-title i.fa-check::before {
     padding: 0 3px;
     border-radius: var(--border-radius-c-cleaner);
 }
+
+.default-columns-count {
+    font-style: italic;
+}

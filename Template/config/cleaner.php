@@ -103,7 +103,14 @@
             <legend class="section-title"><span class="database-icon"></span> <?= t('Default Database Tables') ?></legend>
             <ul class="default-table-list fa-ul">
                 <?php foreach ($this->helper->defaultTableHelper->getDefaultTables() as $table): ?>
-                    <li class="list-item"><i class="fa fa-table fa-li" aria-hidden="true"></i><?= $table ?></li>
+                    <li class="list-item">
+                        <i class="fa fa-table fa-li" aria-hidden="true"></i><?= $table ?>
+                        <ul class="">
+                            <li class="default-columns-count">
+                                <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
+                            </li>
+                        </ul>
+                    </li>
                 <?php endforeach ?>
             </ul>
         </fieldset>
