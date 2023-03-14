@@ -41,6 +41,35 @@ class ApplicationCleaningModel extends Base
 
         
     }
+    
+    public function getTables()
+    {
+        // Find all Tables
+        
+        Switch (DB_DRIVER) {
+            Case 'sqlite':
+                return $this->db->table($this->getTable())
+                ->eq('TYPE', 'table')
+                ->findAll();
+            Case 'mysql':
+                return $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->findAll();
+            Case 'postgres':
+                return $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->findAll();
+            Case 'mssql':
+                return $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->findAll();
+              }
+
+        
+    }
 
     public function getSize($column)
     {
@@ -88,6 +117,14 @@ class ApplicationCleaningModel extends Base
                 $this->db->table($table)->eq('option', $key)->update(['value' => $value]);
             }
         }
+    }
+    
+    public function getColumns($table)
+    {
+        // find all columns
+        $data = $this->db->table($table)->findAll();
+        
+        return array_keys($data);
     }
     
     private function getTable()

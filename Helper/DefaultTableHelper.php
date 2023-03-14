@@ -2,6 +2,7 @@
 
 namespace Kanboard\Plugin\ContentCleaner\Helper;
 
+use Kanboard\Plugin\ContentCleaner\Model\ApplicationCleaningModel;
 use Kanboard\Core\Base;
 
 /**
@@ -23,7 +24,15 @@ class DefaultTableHelper extends Base
         $tables = $matches[1];
     
         // EXTRACT RENAMED TABLE NAMES
-        preg_match_all("/ALTER\s+TABLE\s+`?(\w+)`?\s+RENAME\s+TO\s+`?(\w+)`?/i", $sql, $matches);
+        Switch (DB_DRIVER) { // For now, I am switching everything to reading the Mysql.php file.
+            Case 'sqlite': 
+                preg_match_all("/ALTER\s+TABLE\s+`?(\w+)`?\s+RENAME\s+TO\s+`?(\w+)`?/i", $sql, $matches);
+            Case 'mysql': 
+                preg_match_all("/RENAME\s+TABLE\s+(\w+)\s+TO\s+(\w+)/i", $sql, $matches);
+            Default :
+                preg_match_all("/RENAME\s+TABLE\s+(\w+)\s+TO\s+(\w+)/i", $sql, $matches);
+        }
+
         foreach ($matches[1] as $i => $old_table) {
             $new_table = $matches[2][$i];
             // UPDATE TABLE NAME IN $tables ARRAY
@@ -42,6 +51,16 @@ class DefaultTableHelper extends Base
                 unset($tables[$key]);
             }
         }
+        
+        $current_tables = $this->applicationCleaningModel->getTables();
+        
+        foreach ($tables as $key => $table) {
+            if (!in_array($table, $current_tables)) {
+                // update the table name to a new value
+                $new_table_name = ($this->wasRenamedTo($table) !== false) ? $this->wasRenamedTo($table) : $table;
+                $tables[$key] = $new_table_name;
+            }
+        }
     
         sort($tables);
     
@@ -52,6 +71,10 @@ class DefaultTableHelper extends Base
     {
         $file = $this->getSchema();
         $sql = file_get_contents($file);
+        
+        if ($this->wasRenamedFrom($table_name) !== false && $this->wasRenamedTo($table_name) == false) {
+            $table_name = $this->wasRenamedFrom($table_name);
+        }
         
         $columns = array();
         
@@ -93,6 +116,56 @@ class DefaultTableHelper extends Base
 
 
         return $columns;
+
+    }
+    
+    public function checkTableColumns($table_name)
+    {
+        $current_columns = $this->applicationCleaningModel->getColumns($table_name);
+        $default_columns = $this->getDefaultColumnsForTable($table_name);
+        
+        if ($table_name == 'comments') {
+        foreach ($current_columns as $c) { error_log('column:'.$c,0); }
+        }
+        
+        return array_diff($current_columns, $default_columns);
+        
+    }
+    
+    public function checkTables()
+    {
+        $current_tables = $this->applicationCleaningModel->getTables();
+        $default_tables = $this->getDefaultTables($table_name);
+        
+        return array_diff($current_tables, $default_tables);
+        
+    }
+    
+    private function wasRenamedFrom($table_name)
+    {
+        $file = $this->getSchema();
+        $sql = file_get_contents($file);
+
+        if (preg_match("/RENAME\s+TABLE\s+(\w+)\s+TO\s+$table_name/i", $sql, $matches)) {
+            $original_table = $matches[1];
+            return $original_table;
+        } else {
+            return false;
+        }
+
+    }
+    
+    private function wasRenamedTo($table_name)
+    {
+        $file = $this->getSchema();
+        $sql = file_get_contents($file);
+
+        if (preg_match("/RENAME\s+TABLE\s+(\Q$table_name\E)\s+TO\s+(\w+)/i", $sql, $matches)) {
+            $new_table_name = $matches[2];
+            return $new_table_name;
+        } else {
+            return false;
+        }
 
     }
     
