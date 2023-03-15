@@ -37,10 +37,10 @@
         </p>
 
     <?= $this->modal->confirmButtons(
-        'CleaningController',
-        'pluginSchemaPurge',
-        array('plugin' => 'ContentCleaner'),
-        t('Purge')
-    ) ?>
+    'CleaningController',
+    'pluginSchemaPurge',
+    array('plugin' => 'ContentCleaner'),
+    t('Purge')
+) ?>
     </div>
 </div>

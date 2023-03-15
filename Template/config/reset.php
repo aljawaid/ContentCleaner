@@ -37,10 +37,10 @@
         </p>
 
     <?= $this->modal->confirmButtons(
-        'CleaningController',
-        'resetCalendarSettings',
-        array('plugin' => 'ContentCleaner'),
-        t('Reset')
-    ) ?>
+    'CleaningController',
+    'resetCalendarSettings',
+    array('plugin' => 'ContentCleaner'),
+    t('Reset')
+) ?>
     </div>
 </div>

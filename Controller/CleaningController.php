@@ -34,19 +34,19 @@ class CleaningController extends BaseController
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
     }
-    
+
     public function removeSelectedColumns()
     {
         $table =  $this->request->getStringParam('table');
         $values = $this->request->getRawFormValues();
-        
+
         if (!empty($values)) {
             foreach ($values as $key => $val) {
                 if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
                     $this->flash->success(t('Cleaning complete - Database column deleted successfully'));
                 } else {
                     $this->flash->failure(t('Cleaning failed'));
-                } 
+                }
             }
         } else {
             $this->flash->failure(t('No columns were selected'));
@@ -61,13 +61,13 @@ class CleaningController extends BaseController
             'table' => $this->request->getStringParam('table'),
         )));
     }
-    
+
     public function confirmPluginSchemaPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/purge_plugin_schemas', array(
         )));
     }
-    
+
     public function pluginSchemaPurge()
     {
         if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
@@ -75,15 +75,15 @@ class CleaningController extends BaseController
         } else {
             $this->flash->failure(t('Purge failed - Might not be anything to purge'));
         }
-        
+
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
     }
-    
+
     public function viewColumns()
     {
         $table =  $this->request->getStringParam('table');
         $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
-        
+
         $this->response->html($this->template->render('contentCleaner:config/extra_columns', array(
             'table' => $table,
             'columns' => $columns,

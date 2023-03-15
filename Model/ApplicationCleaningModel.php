@@ -12,80 +12,78 @@ use Kanboard\Core\Base;
 
 class ApplicationCleaningModel extends Base
 {
-    const TABLE_SCHEMA = 'plugin_schema_versions';
-    
+    public const TABLE_SCHEMA = 'plugin_schema_versions';
+
     public function countTables()
     {
         //return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ''. DB_NAME .'' AND TABLE_TYPE = 'BASE TABLE';');
-        
-        Switch (DB_DRIVER) {
-            Case 'sqlite':
+
+        switch (DB_DRIVER) {
+            case 'sqlite':
                 return $this->db->table($this->getTable())
                 ->eq('TYPE', 'table')
                 ->count();
                 break;
-            Case 'mysql':
+            case 'mysql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->count();
                 break;
-            Case 'postgres':
+            case 'postgres':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->count();
                 break;
-            Case 'mssql':
+            case 'mssql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->count();
                 break;
-            Default:
+            default:
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->count();
-              }
-
+        }
     }
-    
+
     public function getTables()
     {
         // Find all Tables
-        
-        Switch (DB_DRIVER) {
-            Case 'sqlite':
+
+        switch (DB_DRIVER) {
+            case 'sqlite':
                 return $this->db->table($this->getTable())
                 ->eq('TYPE', 'table')
                 ->findAllByColumn('name');
                 break;
-            Case 'mysql':
+            case 'mysql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->findAllByColumn('name');
                 break;
-            Case 'postgres':
+            case 'postgres':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->findAllByColumn('name');
                 break;
-            Case 'mssql':
+            case 'mssql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->findAllByColumn('name');
                 break;
-            Default:
+            default:
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
                 ->findAllByColumn('name');
-              }
-
+        }
     }
 
     public function getSize($column)
@@ -101,7 +99,8 @@ class ApplicationCleaningModel extends Base
     public function deleteRememberMeOld()
     {
         // delete duplicate records but keep latest
-        return $this->db->execute('
+        return $this->db->execute(
+            '
             DELETE FROM `remember_me`
             WHERE `id` NOT IN (
                 SELECT * FROM (
@@ -123,48 +122,47 @@ class ApplicationCleaningModel extends Base
         // delete table
         return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
     }
-    
+
     public function deleteColumn($table, $column)
     {
         // delete table
-        Switch (DB_DRIVER) {
-            Case 'sqlite':
+        switch (DB_DRIVER) {
+            case 'sqlite':
                 return $this->db->execute('ALTER TABLE ' . $table . ' DROP COLUMN '. $column . ';');
                 break;
-            Case 'mysql':
+            case 'mysql':
                 return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
                 break;
-            Default :
+            default:
                 return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
         }
-        
     }
-    
+
     public function purgeUninstalledPluginSchemas()
     {
         // purge plugin schemas
         $installed_plugins = array();
         $plugins = $this->pluginLoader->getPlugins();
-        
+
         foreach ($plugins as $pluginFolder => $plugin) {
             $installed_plugins[] = strtolower($plugin->getPluginName());
         }
-        
+
         $plugins_in_schema = $this->db->table(self::TABLE_SCHEMA)->findAllByColumn('plugin');
-        
-        $extra_schemas = array_diff($installed_plugins,$plugins_in_schema);
-        
+
+        $extra_schemas = array_diff($installed_plugins, $plugins_in_schema);
+
         if (!empty($extra_schemas)) {
-            foreach($extra_schemas as $plugin_to_remove) {
+            foreach ($extra_schemas as $plugin_to_remove) {
                 $this->db->table(self::TABLE_SCHEMA)->eq('plugin', strtolower($plugin_to_remove))->remove();
             }
             return true;
         }
-        
+
         return false;
     }
-    
-    
+
+
 
     public function resetSettings($fields = array())
     {
@@ -177,30 +175,30 @@ class ApplicationCleaningModel extends Base
             }
         }
     }
-    
+
     public function getColumns($table)
     {
         // find all columns
-        Switch (DB_DRIVER) {
-            Case 'sqlite':
+        switch (DB_DRIVER) {
+            case 'sqlite':
                 $columns = $this->db->execute("PRAGMA table_info($table)");
                 break;
-            Case 'mysql':
+            case 'mysql':
                 $columns = $this->db->execute("SHOW COLUMNS FROM $table");
                 break;
-            Default :
+            default:
                 $columns = $this->db->execute("SHOW COLUMNS FROM $table");
         }
-        
+
         // Loop through the results and retrieve the column names
         $columnNames = array();
         foreach ($columns as $column) {
             $columnNames[] = $column['name'];
         }
-        
+
         return $columnNames;
     }
-    
+
     private function getTable()
     {
         if (DB_DRIVER === 'sqlite') {
@@ -212,7 +210,7 @@ class ApplicationCleaningModel extends Base
         } elseif (DB_DRIVER === 'mysql') {
             $table = 'information_schema.tables';
         }
-        
+
         return $table;
     }
 }
