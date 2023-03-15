@@ -35,7 +35,7 @@
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    max-width: 40em;
+    /*max-width: 40em;*/
     margin: 1em auto 2em auto;
     width: fit-content;
 }
