@@ -100,7 +100,7 @@
     </section>
     <section id="DefaultTables" class="">
         <fieldset class="default-tables">
-            <legend class="section-title"><span class="database-icon"></span> <?= t('Default Database Tables') ?></legend>
+            <legend class="section-title"><span class="database-icon"></span> <?= t('Default Database Information') ?></legend>
             <ul class="default-table-list fa-ul">
                 <?php foreach ($this->helper->defaultTableHelper->getDefaultTables() as $table): ?>
                     <li class="list-item">
