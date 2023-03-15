@@ -147,7 +147,7 @@ class ApplicationCleaningModel extends Base
         $plugins = $this->pluginLoader->getPlugins();
         
         foreach ($plugins as $pluginFolder => $plugin) {
-            $installed_plugins[] = $plugin->getPluginName();
+            $installed_plugins[] = strtolower($plugin->getPluginName());
         }
         
         $plugins_in_schema = $this->db->table(self::TABLE_SCHEMA)->findAllByColumn('plugin');
