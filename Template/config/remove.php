@@ -30,7 +30,7 @@
 <div id="DeleteModal" class="modal-contents">
     <div class="confirm">
         <p class="confirm-notice">
-            <?= t('Click the button to deep clean the database') ?>
+            <?= t('Click the button to remove this table from the database') ?>
             <div class="template-contents">
                 <div class="template-title"></div>
             </div>
