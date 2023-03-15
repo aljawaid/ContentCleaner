@@ -114,7 +114,7 @@ section.db-summary fieldset {
 #DBSummaryTable {
     border-collapse: separate;
     border-spacing: 9px;
-    width: 500px;
+    width: auto;
     margin: auto;
 }
 

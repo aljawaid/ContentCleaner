@@ -65,7 +65,7 @@
                     <td class=""><span>
                         <?php foreach ($this->helper->defaultTableHelper->checkTables() as $table): ?>
                         <li>
-                        <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm"><?= $table . ' ' . t('created by') . ' ' .  $check_tables[$table] . ' ' . t('plugin')?>
+                        <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm"><?= $table . ' ' ?></a><?= t('created by') . ' ' .  $check_tables[$table] . ' ' . t('plugin') ?>
                         </li>
                         <?php endforeach ?>
                         </span></td>
