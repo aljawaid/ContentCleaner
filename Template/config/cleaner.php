@@ -103,6 +103,9 @@
         <fieldset class="plugin-cleaning">
             <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Plugin Cleaning Jobs') ?></legend>
             <p class=""><?= t('Jobs in this section affect leftover tables which were created by plugins') ?></p>
+            <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
+                <span class="db-delete-icon"></span> <?= t('Purge plugin_schema_versions table of unused plugin data') ?>
+            </a>
             <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => 'test', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Delete Test Table') ?>
             </a>

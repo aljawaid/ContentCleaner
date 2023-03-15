@@ -62,6 +62,23 @@ class CleaningController extends BaseController
         )));
     }
     
+    public function confirmPluginSchemaPurge()
+    {
+        $this->response->html($this->template->render('contentCleaner:config/purge_plugin_schemas', array(
+        )));
+    }
+    
+    public function pluginSchemaPurge()
+    {
+        if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
+            $this->flash->success(t('Purge complete - Plugin schema data successfully removed'));
+        } else {
+            $this->flash->failure(t('Purge failed - Might not be anything to purge'));
+        }
+        
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+    }
+    
     public function viewColumns()
     {
         $table =  $this->request->getStringParam('table');

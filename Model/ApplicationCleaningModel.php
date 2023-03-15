@@ -126,7 +126,6 @@ class ApplicationCleaningModel extends Base
     
     public function deleteColumn($table, $column, $plugin)
     {
-        $this->db->table(self::TABLE_SCHEMA)->eq('plugin', strtolower('group_assign'))->remove();
         // delete table
         Switch (DB_DRIVER) {
             Case 'sqlite':
@@ -139,8 +138,33 @@ class ApplicationCleaningModel extends Base
                 return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
         }
         
-        
     }
+    
+    public function purgeUninstalledPluginSchemas()
+    {
+        // purge plugin schemas
+        $installed_plugins = array();
+        $plugins = $this->pluginLoader->getPlugins();
+        
+        foreach ($plugins as $pluginFolder => $plugin) {
+            $installed_plugins[] = $plugin->getPluginName();
+        }
+        
+        $plugins_in_schema = $this->db->table(self::TABLE_SCHEMA)->findAllByColumn('plugin');
+        
+        $extra_schemas = array_diff($installed_plugins,$plugins_in_schema);
+        
+        if (!empty($extra_schemas)) {
+            foreach($extra_schemas as $plugin_to_remove) {
+                $this->db->table(self::TABLE_SCHEMA)->eq('plugin', strtolower($plugin_to_remove))->remove();
+            }
+            return true;
+        }
+        
+        return false;
+    }
+    
+    
 
     public function resetSettings($fields = array())
     {
