@@ -12,6 +12,7 @@ use Kanboard\Core\Base;
 
 class ApplicationCleaningModel extends Base
 {
+    const TABLE_SCHEMA = 'plugin_schema_versions';
     
     public function countTables()
     {
@@ -123,8 +124,9 @@ class ApplicationCleaningModel extends Base
         return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
     }
     
-    public function deleteColumn($table, $column)
+    public function deleteColumn($table, $column, $plugin)
     {
+        $this->db->table(self::TABLE_SCHEMA)->eq('plugin', strtolower('group_assign'))->remove();
         // delete table
         Switch (DB_DRIVER) {
             Case 'sqlite':

@@ -63,7 +63,9 @@
                     <th class=""><?= t('Extra Table List:') ?></th>
                     <td class=""><span>
                         <?php foreach ($this->helper->defaultTableHelper->checkTables() as $table): ?>
-                        <li><?= $table ?></li>
+                        <li>
+                        <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm"><?= $table ?>
+                        </li>
                         <?php endforeach ?>
                         </span></td>
                 </tr>
