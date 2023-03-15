@@ -124,7 +124,7 @@ class ApplicationCleaningModel extends Base
         return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
     }
     
-    public function deleteColumn($table, $column, $plugin)
+    public function deleteColumn($table, $column)
     {
         // delete table
         Switch (DB_DRIVER) {
