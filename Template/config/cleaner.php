@@ -108,7 +108,11 @@
                         <ul class="">
                             <li class="default-columns-count">
                                 <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
-                                <?= count($this->helper->defaultTableHelper->checkTableColumns($table)) ?> <?= t('extra columns') ?>
+                                <?php if(count($this->helper->defaultTableHelper->checkTableColumns($table))): ?>
+                                    <a href="<?= $this->url->href('CleaningController', 'viewColumns', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm">
+                                        <?= count($this->helper->defaultTableHelper->checkTableColumns($table)) ?> <?= t('extra columns') ?>
+                                    </a>
+                                <?php endif ?>
                             </li>
                         </ul>
                     </li>

@@ -41,6 +41,17 @@ class CleaningController extends BaseController
             'table' => $this->request->getStringParam('table'),
         )));
     }
+    
+    public function viewColumns()
+    {
+        $table =  $this->request->getStringParam('table');
+        $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
+        
+        $this->response->html($this->template->render('contentCleaner:config/extra_columns', array(
+            'table' => $table,
+            'columns' => $columns,
+        )));
+    }
 
     public function resetCalendarSettings()
     {
