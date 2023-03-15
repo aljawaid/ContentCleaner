@@ -122,6 +122,23 @@ class ApplicationCleaningModel extends Base
         // delete table
         return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
     }
+    
+    public function deleteColumn($table, $column)
+    {
+        // delete table
+        Switch (DB_DRIVER) {
+            Case 'sqlite':
+                return $this->db->execute('ALTER TABLE ' . $table . ' DROP COLUMN '. $column . ';');
+                break;
+            Case 'mysql':
+                return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
+                break;
+            Default :
+                return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
+        }
+        
+        
+    }
 
     public function resetSettings($fields = array())
     {

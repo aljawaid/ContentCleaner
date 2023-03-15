@@ -34,6 +34,26 @@ class CleaningController extends BaseController
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
     }
+    
+    public function removeSelectedColumns()
+    {
+        $table =  $this->request->getStringParam('table');
+        $values = $this->request->getRawFormValues();
+        
+        if (!empty($values)) {
+            foreach ($values as $key => $val) {
+                if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
+                    $this->flash->success(t('Cleaning complete - Database column deleted successfully'));
+                } else {
+                    $this->flash->failure(t('Cleaning failed'));
+                } 
+            }
+        } else {
+            $this->flash->failure(t('No columns were selected'));
+        }
+
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+    }
 
     public function confirmReset()
     {
