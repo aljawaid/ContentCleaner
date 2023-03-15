@@ -1,3 +1,4 @@
+<?php $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables()); ?>
 <div class="c-cleaner-page-margin">
     <div class="c-cleaner-page-header">
         <h2 class="">
@@ -64,7 +65,7 @@
                     <td class=""><span>
                         <?php foreach ($this->helper->defaultTableHelper->checkTables() as $table): ?>
                         <li>
-                        <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm"><?= $table ?>
+                        <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm"><?= $table . ' ' . t('created by') . ' ' .  $check_tables[$table] . ' ' . t('plugin')?>
                         </li>
                         <?php endforeach ?>
                         </span></td>

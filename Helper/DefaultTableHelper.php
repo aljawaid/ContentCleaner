@@ -177,6 +177,35 @@ class DefaultTableHelper extends Base
         return $columns_checks;
     }
     
+    public function checkTablesViaPlugin($table_names)
+    {
+        $table_checks = array();
+        $plugins = $this->pluginLoader->getPlugins();
+        
+        foreach ($plugins as $pluginFolder => $plugin) {
+            if (file_exists(PLUGINS_DIR . '/' . $pluginFolder . '/Schema/Mysql.php')) {
+                
+                $file = PLUGINS_DIR . '/' . $pluginFolder . '/Schema/Mysql.php';
+                $sql = file_get_contents($file);
+                
+                foreach ($table_names as $table_name) {
+                    if (preg_match("/$table_name/i", $sql)) {
+                       $table_checks[$table_name] = $plugin->getPluginName();
+                    }
+                }
+            }
+        }
+        
+        foreach ($table_names as $table_name) {
+            if (!isset($table_checks[$table_name])) {
+                $table_checks[$table_name] = 'Unkown';
+            }
+        }
+
+        
+        return $table_checks;
+    }
+    
     public function checkTables()
     {
         $current_tables = $this->applicationCleaningModel->getTables();
