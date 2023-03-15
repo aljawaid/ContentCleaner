@@ -59,6 +59,14 @@
                     <th class=""><?= t('Tables Created by Plugins') ?></th>
                     <td class=""><span class="table-count-badge"><?= $this->helper->cleaningHelper->getTableDifference() ?></span></td>
                 </tr>
+                <tr class="">
+                    <th class=""><?= t('Extra Table List:') ?></th>
+                    <td class=""><span>
+                        <?php foreach ($this->helper->defaultTableHelper->checkTables() as $table): ?>
+                        <li><?= $table ?></li>
+                        <?php endforeach ?>
+                        </span></td>
+                </tr>
             </table>
         </fieldset>
     </section>

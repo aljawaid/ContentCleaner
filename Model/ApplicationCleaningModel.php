@@ -58,31 +58,31 @@ class ApplicationCleaningModel extends Base
             Case 'sqlite':
                 return $this->db->table($this->getTable())
                 ->eq('TYPE', 'table')
-                ->findAll();
+                ->findAllByColumn('name');
                 break;
             Case 'mysql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
-                ->findAll();
+                ->findAllByColumn('name');
                 break;
             Case 'postgres':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
-                ->findAll();
+                ->findAllByColumn('name');
                 break;
             Case 'mssql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
-                ->findAll();
+                ->findAllByColumn('name');
                 break;
             Default:
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->eq('TABLE_TYPE', 'BASE TABLE')
-                ->findAll();
+                ->findAllByColumn('name');
               }
 
     }

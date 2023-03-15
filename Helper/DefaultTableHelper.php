@@ -180,7 +180,7 @@ class DefaultTableHelper extends Base
     public function checkTables()
     {
         $current_tables = $this->applicationCleaningModel->getTables();
-        $default_tables = $this->getDefaultTables($table_name);
+        $default_tables = $this->getDefaultTables();
         
         return array_diff($current_tables, $default_tables);
         
