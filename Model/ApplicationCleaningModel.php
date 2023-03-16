@@ -150,7 +150,7 @@ class ApplicationCleaningModel extends Base
 
         $plugins_in_schema = $this->db->table(self::TABLE_SCHEMA)->findAllByColumn('plugin');
 
-        $extra_schemas = array_diff($installed_plugins, $plugins_in_schema);
+        $extra_schemas = array_diff($plugins_in_schema, $installed_plugins);
 
         if (!empty($extra_schemas)) {
             foreach ($extra_schemas as $plugin_to_remove) {

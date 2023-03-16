@@ -21,6 +21,39 @@ class CleaningController extends BaseController
         )));
     }
 
+    public function confirmAutoPurgeAndClean()
+    {
+        $this->response->html($this->template->render('contentCleaner:config/auto_purge_clean', array(
+        )));
+    }
+
+    public function autoPurgeAndClean()
+    {
+        $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables());
+        
+        foreach ($this->helper->defaultTableHelper->checkTables() as $table) {
+            if ($check_tables[$table] == 'Unknown') {
+                $this->applicationCleaningModel->delete($table);
+            }
+        }
+        
+        foreach ($this->helper->defaultTableHelper->getDefaultTables() as $table) {
+            if(count($this->helper->defaultTableHelper->checkTableColumns($table))) {
+                $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
+                $check_columns = $this->helper->defaultTableHelper->checkColumnsViaPlugin($table, $columns);
+                foreach ($columns as $column) {
+                    if ($check_columns[$column] == 'Unknown') {
+                        $this->applicationCleaningModel->deleteColumn($table, $column);
+                    }
+                }
+            }
+        }
+        
+        $this->applicationCleaningModel->purgeUninstalledPluginSchemas();
+        
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+    }
+
     public function removeTable()
     {
         $table =  $this->request->getStringParam('table');

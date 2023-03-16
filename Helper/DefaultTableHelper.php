@@ -166,7 +166,7 @@ class DefaultTableHelper extends Base
 
         foreach ($columns as $column) {
             if (!isset($columns_checks[$column])) {
-                $columns_checks[$column] = 'Unkown';
+                $columns_checks[$column] = 'Unknown';
             }
         }
 
@@ -194,7 +194,7 @@ class DefaultTableHelper extends Base
 
         foreach ($table_names as $table_name) {
             if (!isset($table_checks[$table_name])) {
-                $table_checks[$table_name] = 'Unkown';
+                $table_checks[$table_name] = 'Unknown';
             }
         }
 
