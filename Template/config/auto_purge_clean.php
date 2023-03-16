@@ -30,7 +30,7 @@
 <div id="DeleteModal" class="modal-contents">
     <div class="confirm">
         <p class="confirm-notice">
-            <?= t('Click the button to remove this table from the database') ?>
+            <?= t('Click the button to automatically remove all unknown tables & columns left left over from uninstalled plugins, and then purge the plugin_schema_versions table of their presence.') ?>
             <div class="template-contents">
                 <div class="template-title"></div>
             </div>
