@@ -61,10 +61,15 @@ class ApplicationCleaningModel extends Base
                 ->findAllByColumn('name');
                 break;
             case 'mysql':
-                return $this->db->table($this->getTable())
-                ->eq('table_schema', DB_NAME);
-                //->eq('TABLE_TYPE', 'BASE TABLE')
-                //->findAllByColumn('name');
+                $table_names = array();
+                $data = $this->db->table($this->getTable())
+                ->eq('table_schema', DB_NAME)
+                ->findAll();
+                
+                foreach ($data as $tables) { 
+                    $table_names[] = $tables['TABLE_NAME']; 
+                }
+                return $table_names;
                 break;
             case 'postgres':
                 return $this->db->table($this->getTable())
@@ -178,23 +183,22 @@ class ApplicationCleaningModel extends Base
 
     public function getColumns($table)
     {
+        $columnNames = array();
         // find all columns
         switch (DB_DRIVER) {
             case 'sqlite':
                 $columns = $this->db->execute("PRAGMA table_info($table)");
+                foreach ($columns as $column) {
+                    $columnNames[] = $column['name'];
+                }
                 break;
             case 'mysql':
-                $columns = $this->db->execute("SHOW COLUMNS FROM $table");
+                $columns = $this->db->execute("SHOW COLUMNS FROM `".$table."`");
                 break;
             default:
                 $columns = $this->db->execute("SHOW COLUMNS FROM $table");
         }
-
-        // Loop through the results and retrieve the column names
-        $columnNames = array();
-        foreach ($columns as $column) {
-            $columnNames[] = $column['name'];
-        }
+        
 
         return $columnNames;
     }
