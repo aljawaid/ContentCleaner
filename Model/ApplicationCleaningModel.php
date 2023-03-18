@@ -62,9 +62,9 @@ class ApplicationCleaningModel extends Base
                 break;
             case 'mysql':
                 return $this->db->table($this->getTable())
-                ->eq('table_schema', DB_NAME)
-                ->eq('TABLE_TYPE', 'BASE TABLE')
-                ->findAllByColumn('name');
+                ->eq('table_schema', DB_NAME);
+                //->eq('TABLE_TYPE', 'BASE TABLE')
+                //->findAllByColumn('name');
                 break;
             case 'postgres':
                 return $this->db->table($this->getTable())
