@@ -194,9 +194,15 @@ class ApplicationCleaningModel extends Base
                 break;
             case 'mysql':
                 $columns = $this->db->execute("SHOW COLUMNS FROM `".$table."`");
+                foreach ($columns as $column) {
+                    $columnNames[] = $column['Field'];
+                }
                 break;
             default:
-                $columns = $this->db->execute("SHOW COLUMNS FROM $table");
+                $columns = $this->db->execute("SHOW COLUMNS FROM `".$table."`");
+                foreach ($columns as $column) {
+                    $columnNames[] = $column['Field'];
+                }
         }
         
 
