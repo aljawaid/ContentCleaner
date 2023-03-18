@@ -67,7 +67,9 @@ class ApplicationCleaningModel extends Base
                 ->findAll();
                 
                 foreach ($data as $tables) { 
-                    $table_names[] = $tables['TABLE_NAME']; 
+                    if ($tables['TABLE_NAME'] != 'schema_version') {
+                        $table_names[] = $tables['TABLE_NAME']; 
+                    }
                 }
                 return $table_names;
                 break;

@@ -64,6 +64,10 @@ class DefaultTableHelper extends Base
                 $tables[$key] = $new_table_name;
             }
         }
+        
+        if (DB_DRIVER == 'mysql' || DB_DRIVER == 'postgres') {
+            array_push($tables, 'schema_version');
+        }
 
         sort($tables);
 
@@ -133,6 +137,10 @@ class DefaultTableHelper extends Base
                     $columns[] = $missing;
                 }
             }
+        }
+        
+        if (DB_DRIVER == 'mysql' && $table_name == 'schema_version' || DB_DRIVER == 'postgres' && $table_name == 'schema_version') {
+            array_push($columns, 'version');
         }
 
         return $columns;
