@@ -38,6 +38,7 @@ Compatibility
 
 #### Other Plugins & Action Plugins
 - _No known issues_
+- Compatible with [PluginManager](https://github.com/aljawaid/PluginManager)
 #### Core Files & Templates
 - _No template overrides_
 - _No database changes_
