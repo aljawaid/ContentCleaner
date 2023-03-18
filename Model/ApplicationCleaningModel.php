@@ -32,8 +32,7 @@ class ApplicationCleaningModel extends Base
                 break;
             case 'postgres':
                 return $this->db->table($this->getTable())
-                ->eq('table_schema', DB_NAME)
-                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->eq('table_schema', 'public')
                 ->count();
                 break;
             case 'mssql':
@@ -74,10 +73,17 @@ class ApplicationCleaningModel extends Base
                 return $table_names;
                 break;
             case 'postgres':
-                return $this->db->table($this->getTable())
-                ->eq('table_schema', DB_NAME)
-                ->eq('TABLE_TYPE', 'BASE TABLE')
-                ->findAllByColumn('name');
+                $table_names = array();
+                $data = $this->db->table($this->getTable())
+                ->eq('table_schema', 'public')
+                ->findAll();
+                
+                foreach ($data as $tables) { 
+                    if ($tables['table_name'] != 'schema_version') {
+                        $table_names[] = $tables['table_name']; 
+                    }
+                }
+                return $table_names;
                 break;
             case 'mssql':
                 return $this->db->table($this->getTable())
@@ -93,14 +99,31 @@ class ApplicationCleaningModel extends Base
         }
     }
 
-    public function getSize($column)
+    public function getSize($column = '')
     {
         // FOR DATABASE SIZE
         // SELECT table_schema "myppworkspace", ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" FROM information_schema.tables WHERE table_schema = 'myppworkspace' GROUP BY table_schema;
-
-        return $this->db->table($this->getTable())
-            ->eq('tables.table_schema', DB_NAME)
-            ->sum($column);
+        switch (DB_DRIVER) {
+            case 'mysql':
+                return $this->db->table($this->getTable())
+                    ->eq('tables.table_schema', DB_NAME)
+                    ->sum($column);
+                    break;
+            case 'postgres':
+                $info = $this->db->execute("SELECT pg_database_size('kanboard');");
+                foreach ($info as $more_info) { 
+                    foreach ($more_info as $somehow_more_info) { 
+                        $size = $somehow_more_info;
+                        break;
+                    }
+                }
+                return $size;
+                    break;
+            default:
+                return $this->db->table($this->getTable())
+                    ->eq('tables.table_schema', DB_NAME)
+                    ->sum($column);
+        }
     }
 
     public function deleteRememberMeOld()
@@ -198,6 +221,12 @@ class ApplicationCleaningModel extends Base
                 $columns = $this->db->execute("SHOW COLUMNS FROM `".$table."`");
                 foreach ($columns as $column) {
                     $columnNames[] = $column['Field'];
+                }
+                break;
+            case 'postgres':
+                $columns = $this->db->execute("select * from information_schema.columns where table_name = '" . $table . "' AND table_schema = 'public'");
+                foreach ($columns as $column) {
+                    $columnNames[] = $column['column_name'];
                 }
                 break;
             default:
