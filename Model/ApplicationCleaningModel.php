@@ -150,7 +150,20 @@ class ApplicationCleaningModel extends Base
     public function delete($table)
     {
         // delete table
-        return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
+        
+        switch (DB_DRIVER) {
+            case 'sqlite':
+                return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
+                break;
+            case 'mysql':
+                return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
+                break;
+            case 'postgres':
+                return $this->db->execute('DROP TABLE IF EXISTS '. $table . ' CASCADE;');
+                break;
+            default:
+                return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
+        }
     }
 
     public function deleteColumn($table, $column)
@@ -162,6 +175,9 @@ class ApplicationCleaningModel extends Base
                 break;
             case 'mysql':
                 return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
+                break;
+            case 'postgres':
+                return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ' CASCADE;');
                 break;
             default:
                 return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
