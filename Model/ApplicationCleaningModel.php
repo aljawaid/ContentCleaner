@@ -110,7 +110,7 @@ class ApplicationCleaningModel extends Base
                     ->sum($column);
                     break;
             case 'postgres':
-                $info = $this->db->execute("SELECT pg_database_size('kanboard');");
+                $info = $this->db->execute("SELECT pg_database_size('" . DB_NAME ."');");
                 foreach ($info as $more_info) { 
                     foreach ($more_info as $somehow_more_info) { 
                         $size = $somehow_more_info;
