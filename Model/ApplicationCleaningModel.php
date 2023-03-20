@@ -147,6 +147,12 @@ class ApplicationCleaningModel extends Base
         return $this->db->execute('TRUNCATE TABLE `remember_me`; SHOW WARNINGS');
     }
 
+    public function flushSessionsAll()
+    {
+        // empty all
+        return $this->db->execute('TRUNCATE TABLE `sessoins`; SHOW WARNINGS');
+    }
+
     public function delete($table)
     {
         // delete table
