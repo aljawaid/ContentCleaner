@@ -10,6 +10,7 @@ Features
 - Show detailed database summary
 - Show default database tables
 - Delete `Remember Me` data
+- Delete `sessions` data
 - Delete [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
 
 
