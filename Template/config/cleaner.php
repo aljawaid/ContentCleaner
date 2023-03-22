@@ -61,14 +61,16 @@
                     <td class=""><span class="table-count-badge"><?= $this->helper->cleaningHelper->getTableDifference() ?></span></td>
                 </tr>
                 <tr class="">
-                    <th class=""><?= t('Extra Table List:') ?></th>
-                    <td class=""><span>
-                        <?php foreach ($this->helper->defaultTableHelper->checkTables() as $table): ?>
-                        <li>
-                        <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm"><?= $table . ' ' ?></a><?= t('created by') . ' ' .  $check_tables[$table] . ' ' . t('plugin') ?>
-                        </li>
-                        <?php endforeach ?>
-                        </span></td>
+                    <th class=""><?= t('Extra Tables') ?></th>
+                    <td class="">
+                        <ul class="">
+                            <?php foreach ($this->helper->defaultTableHelper->checkTables() as $table): ?>
+                                <li class="">
+                                    <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm"><?= $table . ' ' ?></a> <?= t('created by') . ' ' .  $check_tables[$table] . ' ' . t('plugin') ?>
+                                </li>
+                            <?php endforeach ?>
+                        </ul>
+                    </td>
                 </tr>
             </table>
         </fieldset>
