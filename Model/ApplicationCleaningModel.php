@@ -149,8 +149,20 @@ class ApplicationCleaningModel extends Base
 
     public function flushSessionsAll()
     {
-        // empty all
-        return $this->db->execute('TRUNCATE TABLE `sessions`; SHOW WARNINGS');
+        // EMPTY ALL SESSION ENTRIES FROM THE `SESSIONS` TABLE
+        switch (DB_DRIVER) {
+            case 'sqlite':
+                return $this->db->execute('DELETE FROM TABLE sessions');
+                break;
+            case 'mysql':
+                return $this->db->execute('TRUNCATE TABLE `sessions`; SHOW WARNINGS');
+                break;
+            case 'postgres':
+                return $this->db->execute('TRUNCATE sessions;');
+                break;
+            default:
+                return $this->db->execute('TRUNCATE TABLE `sessions`; SHOW WARNINGS');
+        }
     }
 
     public function delete($table)
