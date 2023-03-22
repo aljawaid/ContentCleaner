@@ -43,7 +43,7 @@ Compatibility
 #### Core Files & Templates
 - _No template overrides_
 - _No database changes_
-- Limited support for MS SQL databases
+- MS SQL databases are not supported
 
 
 Changelog
