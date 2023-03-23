@@ -277,6 +277,6 @@ li.job-result-title i.fa-check::before {
     font-style: italic;
 }
 
-.table-plugin-name {
+.table-plugin-name, .extra-columns-count {
     font-weight: 600;
 }
