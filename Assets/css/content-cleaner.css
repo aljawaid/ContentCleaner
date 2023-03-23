@@ -128,7 +128,7 @@ section.db-summary fieldset {
     height: 25px;
 }
 
-li.list-item i.fa-table, li.job-tables-title i.fa-table {
+li.list-item i.fa-table, li.job-tables-title i.fa-table, .extra-table-item i.fa-table {
     color: var(--pp-orange-c-cleaner);
     opacity: .7;
 }
@@ -279,4 +279,8 @@ li.job-result-title i.fa-check::before {
 
 .table-plugin-name, .extra-columns-count {
     font-weight: 600;
+}
+
+.extra-table-list {
+    margin-left: 6px;
 }
