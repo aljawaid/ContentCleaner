@@ -276,3 +276,7 @@ li.job-result-title i.fa-check::before {
 .default-columns-count {
     font-style: italic;
 }
+
+.table-plugin-name {
+    font-weight: 600;
+}
