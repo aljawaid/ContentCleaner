@@ -82,6 +82,13 @@
         <fieldset class="app-cleaning">
             <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Application Cleaning Jobs') ?></legend>
             <p class=""><?= t('Jobs in this section affect only the default database tables') ?></p>
+            <details>
+                <summary>Perform Complete Deep Clean</summary>
+                <p>Clean your database in one complete process</p>
+            </details>
+            <details>
+                <summary>Individual Cleaning Jobs</summary>
+                <p>Choose any of the jobs below to clean your database based on specific criteria</p>
             <div class="job-section-wrapper">
                 <fieldset class="job-wrapper">
                     <legend class="job-title">
@@ -103,6 +110,7 @@
                     <a href="<?= $this->url->href('CleaningController', 'confirmReset', array('table' => 'settings', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Reset Settings') ?></a>
                 </fieldset>
             </div>
+            </details>
         </fieldset>
     </section>
     <section id="DeepCleaningPlugins" class="">
