@@ -284,3 +284,9 @@ li.job-result-title i.fa-check::before {
 .extra-table-list {
     margin-left: 6px;
 }
+
+.list-item-table {
+    background: rgba(244, 41, 14, .2);
+    padding: 0 3px 2px 3px;
+    border-radius: var(--border-radius-c-cleaner);
+}
