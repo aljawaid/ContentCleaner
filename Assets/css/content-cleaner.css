@@ -290,3 +290,17 @@ li.job-result-title i.fa-check::before {
     padding: 0 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
 }
+
+td a.list-item-table {
+    margin-right: 3px;
+    text-decoration: none !important;
+    line-height: 27px;
+}
+
+.extra-table-item i.fa-table {
+    line-height: 1.5;
+}
+
+li.list-item i.fa-table {
+    line-height: 1.2;
+}
