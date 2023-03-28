@@ -262,6 +262,9 @@ li.job-result-title i.fa-check::before {
 
 .job-tables-table {
     margin-left: -0.20em;
+    background: rgba(244, 41, 14, .2);
+    padding: 0 3px 2px 3px;
+    border-radius: var(--border-radius-c-cleaner);
 }
 
 .table-count-badge {
@@ -289,12 +292,18 @@ li.job-result-title i.fa-check::before {
     background: rgba(244, 41, 14, .2);
     padding: 0 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
+    border: 1px solid transparent;
 }
 
 td a.list-item-table {
     margin-right: 3px;
     text-decoration: none !important;
     line-height: 27px;
+}
+
+td a.list-item-table:hover {
+    text-decoration: none !important;
+    border: 1px solid var(--pp-orange-c-cleaner);
 }
 
 .extra-table-item i.fa-table {
