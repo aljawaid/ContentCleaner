@@ -22,7 +22,11 @@
             <table id="DBSummaryTable" class="summary-table">
                 <tr class="">
                     <th class=""><?= t('Database Name') ?></th>
-                    <td class=""><?= DB_NAME ?></td>
+                    <td class="">
+                        <span class="db-name">
+                            <span class="database-icon"></span> <?= DB_NAME ?>
+                        </span>
+                    </td>
                 </tr>
                 <tr class="">
                     <th class=""><?= t('Database Type') ?></th>

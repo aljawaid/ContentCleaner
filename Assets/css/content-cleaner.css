@@ -113,7 +113,7 @@ section.db-summary fieldset {
 
 #DBSummaryTable {
     border-collapse: separate;
-    border-spacing: 9px;
+    /*border-spacing: 9px;*/
     width: auto;
     margin: auto;
 }
@@ -121,6 +121,10 @@ section.db-summary fieldset {
 #DBSummaryTable tr th, #DBSummaryTable tr td {
     border: 0;
     background: none;
+}
+
+#DBSummaryTable tr th {
+    font-weight: 600;
 }
 
 #DefaultTables .database-icon {
@@ -312,4 +316,17 @@ td a.list-item-table:hover {
 
 li.list-item i.fa-table {
     line-height: 1.2;
+}
+
+span.db-name {
+    border: 1px solid var(--pp-orange-c-cleaner);
+    padding: 0 3px 4px 3px;
+    border-radius: var(--border-radius-c-cleaner);
+    letter-spacing: .051em;
+}
+
+span.db-name > span.database-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
