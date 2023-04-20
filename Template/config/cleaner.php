@@ -124,7 +124,7 @@
             <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Purge plugin_schema_versions table of unused plugin data') ?>
             </a>
-            <a href="<?= $this->url->href('CleaningController', 'confirmAutoPurgeAndClean', array('table' => 'test', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
+            <a href="<?= $this->url->href('CleaningController', 'confirmAutoPurgeAndClean', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Auto Purge & Clean Unknown Tables and Columns') ?>
             </a>
         </fieldset>
