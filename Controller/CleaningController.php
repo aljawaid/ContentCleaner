@@ -51,7 +51,7 @@ class CleaningController extends BaseController
         
         $this->applicationCleaningModel->purgeUninstalledPluginSchemas();
         
-        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
     public function removeTable()
@@ -65,7 +65,7 @@ class CleaningController extends BaseController
             $this->flash->failure(t('Cleaning failed'));
         }
 
-        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
     public function removeSelectedColumns()
@@ -85,7 +85,7 @@ class CleaningController extends BaseController
             $this->flash->failure(t('No columns were selected'));
         }
 
-        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
     public function confirmReset()
@@ -109,7 +109,7 @@ class CleaningController extends BaseController
             $this->flash->failure(t('Purge failed - Might not be anything to purge'));
         }
 
-        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
     public function viewColumns()
@@ -138,6 +138,6 @@ class CleaningController extends BaseController
             $this->flash->failure(t('Cleaning failed'));
         }
 
-        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')), true);
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 }
