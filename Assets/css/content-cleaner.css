@@ -112,17 +112,7 @@ ul.default-table-list li.list-item {
     margin-bottom: 5px;
 }
 
-#DeepCleaningApp, #DeepCleaningPlugins, #DefaultTables {
-    margin: 30px auto;
-}
-
-fieldset .section-title {
-    font-weight: 600;
-    padding-right: 8px;
-    padding-left: 8px;
-}
-
-.app-cleaning, .plugin-cleaning, .default-tables {
+.default-tables {
     border: 2px outset var(--pp-orangered);
     border-radius: var(--border-radius-c-cleaner);
 }
@@ -131,7 +121,6 @@ fieldset .section-title {
     margin: auto;
     display: block;
     text-align: center;
-
 }
 
 .job-wrapper {

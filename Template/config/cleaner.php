@@ -82,53 +82,38 @@
             </table>
         </fieldset>
     </section>
-    <section id="DeepCleaningApp" class="">
-        <fieldset class="app-cleaning">
-            <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Application Cleaning Jobs') ?></legend>
-            <p class=""><?= t('Jobs in this section affect only the default database tables') ?></p>
-            <details>
-                <summary>Perform Complete Deep Clean</summary>
-                <p>Clean your database in one complete process</p>
-            </details>
-            <details>
-                <summary>Individual Cleaning Jobs</summary>
-                <p>Choose any of the jobs below to clean your database based on specific criteria</p>
-            <div class="job-section-wrapper">
-                <fieldset class="job-wrapper">
-                    <legend class="job-title">
-                        <span class="content-cleaner-icon"></span> <?= t('Reset Calendar Settings') ?>
-                    </legend>
-                    <p class="job-desc">
-                        <?= t('Some calendar plugins alter default settings which affect the project and user views') ?>
-                    </p>
-                    <ul class="job-tables fa-ul">
-                        <li class="job-tables-title">
-                            <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
-                        </li>
-                        <li class="job-tables-table">settings</li>
-                    </ul>
-                    <ul class="job-result fa-ul">
-                        <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
-                        <li class="job-result-text"><?= t('The settings for') ?> <code>calendar_project_tasks</code> <?= t('and') ?> <code>calendar_user_tasks</code> <?= t('will be reset to the value') ?> <code>date_started</code></li>
-                    </ul>
-                    <a href="<?= $this->url->href('CleaningController', 'confirmReset', array('table' => 'settings', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Reset Settings') ?></a>
-                </fieldset>
-            </div>
-            </details>
-        </fieldset>
-    </section>
-    <section id="DeepCleaningPlugins" class="">
-        <fieldset class="plugin-cleaning">
-            <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Plugin Cleaning Jobs') ?></legend>
-            <p class=""><?= t('Jobs in this section affect leftover tables which were created by plugins') ?></p>
+    <details class="accordion-section auto-cleaning-section">
+        <summary class="accordion-title">
+            <span class="content-cleaner-icon"></span> <?= t('Application Cleaning Jobs') ?>
+        </summary>
+        <div class="accordion-content">
+            <p class="section-intro"><?= t('Clean your database automatically choosing one or both of the options below.') ?></p>
             <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Purge plugin_schema_versions table of unused plugin data') ?>
             </a>
             <a href="<?= $this->url->href('CleaningController', 'confirmAutoPurgeAndClean', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Auto Purge & Clean Unknown Tables and Columns') ?>
             </a>
-        </fieldset>
-    </section>
+        </div>
+    </details>
+    <details class="accordion-section db-cleaning-section">
+        <summary class="accordion-title">
+            <span class="content-cleaner-icon"></span> <?= t('Application Cleaning Jobs') ?>
+        </summary>
+        <div class="accordion-content">
+            <p class="section-intro"><?= t('Jobs in this section affect only the default database tables. Choose any of the jobs below to clean your database based on specific criteria.') ?></p>
+            <?= $this->render('ContentCleaner:cleaning/core-clean') ?>
+        </div>
+    </details>
+    <details class="accordion-section plugin-cleaning-section">
+        <summary class="accordion-title">
+            <span class="content-cleaner-icon"></span> <?= t('Plugin Cleaning Jobs') ?>
+        </summary>
+        <div class="accordion-content">
+            <p class="section-intro"><?= t('Jobs in this section affect leftover tables which were created by plugins. Choose any of the jobs below to clean your database based on specific criteria.') ?></p>
+            <?= $this->render('ContentCleaner:cleaning/plugin-clean') ?>
+        </div>
+    </details>
     <section id="DefaultTables" class="default-table-section">
         <fieldset class="default-tables">
             <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Default Database Information') ?></legend>
