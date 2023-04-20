@@ -1,3 +1,8 @@
+<?php
+    $incomingController = $this->app->getRouterController();
+    $outgoingAction = $this->app->getRouterAction();
+?>
+
 <div class="modal-page-header">
     <h2 class="relative">
         <span class="content-cleaner-icon"></span> <?= t('Content Cleaner') ?>
@@ -8,18 +13,11 @@
 </div>
 <div id="DeleteModal" class="modal-contents">
     <div class="confirm">
+        <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmReset')): ?>
         <p class="confirm-notice">
-            <?= t('Click the button to deep clean the database') ?>
-            <div class="template-contents">
-                <div class="template-title"></div>
-            </div>
+            <?= t('Click the button to restore the settings to the default values') ?>
         </p>
-
-    <?= $this->modal->confirmButtons(
-    'CleaningController',
-    'resetCalendarSettings',
-    array('plugin' => 'ContentCleaner'),
-    t('Reset')
-) ?>
+            <?= $this->modal->confirmButtons('CleaningController', 'resetCalendarSettings', array('plugin' => 'ContentCleaner'), t('Reset')) ?>
+        <?php endif ?>
     </div>
 </div>
