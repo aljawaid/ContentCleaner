@@ -12,6 +12,7 @@ class Plugin extends Base
         // CSS - Asset Hook
         //  - Keep filename lowercase
         $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner.css'));
+        $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner-icons.css'));
         $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/messages.css'));
 
         // Views - Add Menu Item - Template Hook
@@ -53,7 +54,7 @@ class Plugin extends Base
 
     public function getPluginDescription()
     {
-        return t('This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins.');
+        return t('This tool allows admins to cleanup their Kanboard database by deleting useless data saved by Kanboard and leftover data after uninstalling plugins.');
     }
 
     public function getPluginAuthor()
