@@ -240,12 +240,37 @@ li.job-result-title i.fa-check::before {
     margin-top: 3px;
 }
 
-.table-plugin-name, .extra-columns-count {
+.extra-columns-count {
     font-weight: 600;
+}
+
+.table-plugin-name {
+    float: right;
+    margin-top: 5px;
+    margin-left: 50px;
+    font-size: .9em;
+    cursor: context-menu;
+}
+
+.table-plugin-name span.plugin-icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: sub;
+    margin-right: 3px;
 }
 
 .extra-table-list {
     margin-left: 6px;
+}
+
+.extra-table-list .extra-table-item {
+    padding: 0 5px 2px 5px;
+    transition: var(--transition-c-cleaner);
+    border-radius: 2px;
+}
+
+.extra-table-item:hover {
+    background-color: rgba(244, 41, 14, .1);
 }
 
 .list-item-table {
