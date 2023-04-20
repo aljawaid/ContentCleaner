@@ -103,7 +103,8 @@ li.list-item i.fa-table, li.job-tables-title i.fa-table, .extra-table-item i.fa-
 
 ul.default-table-list li.list-item {
     display: inline-block;
-    width: 300px;
+    width: 260px;
+    margin-block: 5px;
 }
 
 .default-table-list {
@@ -246,6 +247,8 @@ li.job-result-title i.fa-check::before {
 
 .default-columns-count {
     font-style: italic;
+    font-size: .9em;
+    margin-top: 3px;
 }
 
 .table-plugin-name, .extra-columns-count {
@@ -261,6 +264,7 @@ li.job-result-title i.fa-check::before {
     padding: 0 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
     border: 1px solid transparent;
+    font-size: .9em;
 }
 
 td a.list-item-table {
@@ -293,4 +297,8 @@ span.db-name > span.database-icon {
     width: 20px;
     height: 20px;
     vertical-align: middle;
+}
+
+.auto-cleaning-section p.section-intro, .db-cleaning-section p.section-intro, .plugin-cleaning-section p.section-intro, .default-table-section p.section-intro {
+    margin: 10px auto 15px auto;
 }
