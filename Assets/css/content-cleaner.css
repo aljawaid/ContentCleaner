@@ -91,7 +91,7 @@ section.db-summary fieldset {
     font-weight: 600;
 }
 
-#DefaultTables .database-icon {
+#DefaultTables .db-database-icon {
     width: 25px;
     height: 25px;
 }
@@ -303,11 +303,12 @@ li.list-item i.fa-table {
 span.db-name {
     border: 1px solid var(--pp-orange-c-cleaner);
     padding: 0 3px 4px 3px;
-    border-radius: var(--border-radius-c-cleaner);
     letter-spacing: .051em;
+    border-left: 0;
+    border-right: 0;
 }
 
-span.db-name > span.database-icon {
+span.db-name > span.db-database-icon {
     width: 20px;
     height: 20px;
     vertical-align: middle;
