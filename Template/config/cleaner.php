@@ -74,6 +74,9 @@
                                     <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm list-item-table" title="<?= t('Delete extra table') ?>">
                                         <?= $table . ' ' ?>
                                     </a>
+                                    <span class="table-plugin-name">
+                                        <span class="plugin-icon"></span><?= $check_tables[$table] ?>
+                                    </span>
                                 </li>
                             <?php endforeach ?>
                         </ul>
