@@ -129,18 +129,21 @@
             </a>
         </fieldset>
     </section>
-    <section id="DefaultTables" class="">
+    <section id="DefaultTables" class="default-table-section">
         <fieldset class="default-tables">
-            <legend class="section-title"><span class="database-icon"></span> <?= t('Default Database Information') ?></legend>
+            <legend class="section-title"><span class="db-settings-icon"></span> <?= t('Default Database Information') ?></legend>
+            <p class="section-intro">
+                <?= t('This section lists all the default database tables with their total number of columns highlighting any additional columns related to plugins. Click on the extra columns to delete them.') ?>
+            </p>
             <ul class="default-table-list fa-ul">
                 <?php foreach ($this->helper->defaultTableHelper->getDefaultTables() as $table): ?>
                     <li class="list-item">
-                        <i class="fa fa-table fa-li" aria-hidden="true"></i><span class="list-item-table"><?= $table ?></span>
+                        <i class="fa fa-table fa-li" aria-hidden="true"></i><span class="list-item-table" title="<?= t('Table name') ?>"><?= $table ?></span>
                         <ul class="">
                             <li class="default-columns-count">
                                 <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
                                 <?php if(count($this->helper->defaultTableHelper->checkTableColumns($table))): ?>
-                                    <a href="<?= $this->url->href('CleaningController', 'viewColumns', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm extra-columns-count" title="<?= t('Delete columns from table') ?>">
+                                    <a href="<?= $this->url->href('CleaningController', 'viewColumns', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm extra-columns-count" title="<?= t('Delete columns from this table') ?>">
                                         <?= t('+') ?> <?= count($this->helper->defaultTableHelper->checkTableColumns($table)) ?> <?= t('columns from plugins') ?>
                                     </a>
                                 <?php endif ?>
