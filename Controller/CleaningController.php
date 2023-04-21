@@ -141,4 +141,25 @@ class CleaningController extends BaseController
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
+
+    public function confirmSessionsPurge()
+    {
+        $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
+            'table' => $this->request->getStringParam('table'),
+            'job' => $this->request->getStringParam('job'),
+        )));
+    }
+
+    public function purgeSessionsData()
+    {
+        $this->checkCSRFParam();
+
+        if ($this->applicationCleaningModel->flushSessionsAll()) {
+            $this->flash->success(t('Cleaning complete - Purged successfully'));
+        } else {
+            $this->flash->failure(t('Cleaning failed'));
+        }
+
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
+    }
 }
