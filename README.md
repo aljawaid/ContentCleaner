@@ -13,11 +13,12 @@ Features
   - Easily identify plugin ownership of each extra table
 - Show default database information
   - Highlight extra columns within tables and delete columns directly from the database
+- Automatically deep clean the database from all plugins
 - Process individual cleaning jobs
- - Each cleaning job is specific to a plugin or a default application setting
- - Delete `Remember Me` data
- - Delete `sessions` data
- - Delete [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
+  - Each cleaning job is specific to a plugin or a default application setting
+  - Purge `Remember Me` data
+  - Purge `sessions` data
+  - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
 
 
 Screenshots
