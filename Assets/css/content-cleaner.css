@@ -173,7 +173,7 @@ li.more {
     height: 75px;
 }
 
-.job-tables, .job-result {
+.job-tables, .job-result, .job-table-size {
     font-size: .9em;
 }
 
@@ -181,11 +181,11 @@ li.more {
     margin-block-start: 10px;
 }
 
-.job-tables li, .job-result li {
+.job-tables li, .job-result li, .job-table-size li {
     display: inline-block;
 }
 
-.job-tables li.job-tables-title, .job-result li.job-result-title {
+.job-tables li.job-tables-title, .job-result li.job-result-title, .job-table-size li.job-tables-title {
     width: 130px;
 }
 
@@ -268,6 +268,12 @@ li.job-result-title i.fa-check::before {
 .job-tables-table {
     margin-left: -0.20em;
     background: rgba(244, 41, 14, .2);
+    padding: 0 3px 2px 3px;
+    border-radius: var(--border-radius-c-cleaner);
+}
+
+.job-tables-data {
+    margin-left: -0.20em;
     padding: 0 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
 }
