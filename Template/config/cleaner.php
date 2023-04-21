@@ -148,7 +148,7 @@
         </summary>
         <div class="accordion-content">
             <p class="section-intro"><?= t('Jobs in this section affect only the default database tables. Choose any of the jobs below to clean your database based on specific criteria.') ?></p>
-            <?= $this->render('ContentCleaner:cleaning/core-clean') ?>
+            <?= $this->render('ContentCleaner:cleaning-jobs/core-clean') ?>
         </div>
     </details>
     <details class="accordion-section plugin-cleaning-section">
@@ -157,7 +157,7 @@
         </summary>
         <div class="accordion-content">
             <p class="section-intro"><?= t('Jobs in this section affect leftover tables which were created by plugins. Choose any of the jobs below to clean your database based on specific criteria.') ?></p>
-            <?= $this->render('ContentCleaner:cleaning/plugin-clean') ?>
+            <?= $this->render('ContentCleaner:cleaning-jobs/plugin-clean') ?>
         </div>
     </details>
     <section id="DefaultTables" class="default-table-section">

@@ -16,14 +16,14 @@ class CleaningController extends BaseController
 {
     public function confirm()
     {
-        $this->response->html($this->template->render('contentCleaner:config/remove', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/remove', array(
             'table' => $this->request->getStringParam('table'),
         )));
     }
 
     public function confirmAutoPurgeAndClean()
     {
-        $this->response->html($this->template->render('contentCleaner:config/auto_purge_clean', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/auto_purge_clean', array(
         )));
     }
 
@@ -90,14 +90,14 @@ class CleaningController extends BaseController
 
     public function confirmReset()
     {
-        $this->response->html($this->template->render('contentCleaner:config/reset', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'table' => $this->request->getStringParam('table'),
         )));
     }
 
     public function confirmPluginSchemaPurge()
     {
-        $this->response->html($this->template->render('contentCleaner:config/purge_plugin_schemas', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
         )));
     }
 
@@ -117,7 +117,7 @@ class CleaningController extends BaseController
         $table =  $this->request->getStringParam('table');
         $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
 
-        $this->response->html($this->template->render('contentCleaner:config/extra_columns', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/extra_columns', array(
             'table' => $table,
             'columns' => $columns,
         )));

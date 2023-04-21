@@ -7,16 +7,18 @@
     <h2 class="relative">
         <span class="content-cleaner-icon"></span> <?= t('Content Cleaner') ?>
         <span class="modal-title">
-            <span class="db-settings-icon"></span> <?= t('Reset Settings') ?> <span class="modal-template-id"></span>
+            <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmReset')): ?>
+                <span class="db-settings-icon"></span> <?= t('Reset Settings') ?> <span class="modal-template-id"></span>
+            <?php endif ?>
         </span>
     </h2>
 </div>
 <div id="DeleteModal" class="modal-contents">
     <div class="confirm">
         <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmReset')): ?>
-        <p class="confirm-notice">
-            <?= t('Click the button to restore the settings to the default values') ?>
-        </p>
+            <p class="confirm-notice">
+                <?= t('Click the button to restore the calendar settings to the default values in the \'%s\' table', $table) ?>
+            </p>
             <?= $this->modal->confirmButtons('CleaningController', 'resetCalendarSettings', array('plugin' => 'ContentCleaner'), t('Reset')) ?>
         <?php endif ?>
     </div>
