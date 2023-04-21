@@ -317,3 +317,25 @@ span.db-name > span.db-database-icon {
 .auto-cleaning-section p.section-intro, .db-cleaning-section p.section-intro, .plugin-cleaning-section p.section-intro, .default-table-section p.section-intro {
     margin: 10px auto 15px auto;
 }
+
+details.auto-cleaning-section > summary.accordion-title, details.db-cleaning-section > summary.accordion-title, details.plugin-cleaning-section > summary.accordion-title {
+    border-block-width: medium;
+    border-block-style: inset;
+    text-indent: .5em;
+    border-block-start-color: rgba(138, 1, 1, .6);
+    border-block-end-color: rgba(244, 41, 14, .6);
+}
+
+#DefaultTables {
+    margin-top: 20px;
+}
+
+details.auto-cleaning-section, details.db-cleaning-section, details.plugin-cleaning-section {
+    margin-left: initial;
+    margin-right: initial;
+}
+
+.accordion-title span.content-cleaner-icon {
+    width: 24px;
+    height: 24px;
+}
