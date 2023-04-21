@@ -87,7 +87,7 @@
     </section>
     <details class="accordion-section auto-cleaning-section">
         <summary class="accordion-title">
-            <span class="content-cleaner-icon"></span> <?= t('Automatic Deep Cleaning') ?>
+            <span class="content-cleaner-icon"></span> <?= t('Automatic Cleaning') ?>
         </summary>
         <div class="accordion-content">
             <p class="section-intro"><?= t('Clean your database automatically choosing one or both of the options below.') ?></p>
@@ -110,7 +110,7 @@
                         <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
                         <li class="job-result-text"><?= t('The table is checked for all unknown entries compared to your installed plugins. Use this job if you are having issues reinstalling a plugin.') ?></li>
                     </ul>
-                    <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm" title="<?=t('Delete') ?>">
+                    <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                         <span class="db-delete-icon"></span> <?= t('Purge Unused Plugin Entries') ?>
                     </a>
                 </fieldset>
@@ -118,7 +118,7 @@
             <div class="job-section-wrapper">
                 <fieldset class="job-wrapper relative">
                     <legend class="job-title">
-                        <span class="content-cleaner-icon"></span> <?= t('Clean Unknown Tables and Columns') ?>
+                        <span class="content-cleaner-icon"></span> <?= t('Clean All Unknown Tables and Columns') ?>
                         <span class="job-number">02</span>
                     </legend>
                     <p class="job-desc">
@@ -135,7 +135,7 @@
                         <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
                         <li class="job-result-text"><?= t('First all unknown tables are identified and deleted followed by all unknown columns in each table. Finally the plugin registration entries are purged.') ?></li>
                     </ul>
-                    <a href="<?= $this->url->href('CleaningController', 'confirmAutoPurgeAndClean', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm" title="<?=t('Delete') ?>">
+                    <a href="<?= $this->url->href('CleaningController', 'confirmAutoPurgeAndClean', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                         <span class="db-delete-icon"></span> <?= t('Deep Clean Database') ?>
                     </a>
                 </fieldset>
