@@ -92,9 +92,10 @@
         <div class="accordion-content">
             <p class="section-intro"><?= t('Clean your database automatically choosing one or both of the options below.') ?></p>
             <div class="job-section-wrapper">
-                <fieldset class="job-wrapper">
+                <fieldset class="job-wrapper relative">
                     <legend class="job-title">
                         <span class="content-cleaner-icon"></span> <?= t('Unused Plugin Registration Entries') ?>
+                        <span class="job-number">01</span>
                     </legend>
                     <p class="job-desc">
                         <?= t('Plugins which have altered the database also register themselves in the database.') ?>
@@ -115,9 +116,10 @@
                 </fieldset>
             </div>
             <div class="job-section-wrapper">
-                <fieldset class="job-wrapper">
+                <fieldset class="job-wrapper relative">
                     <legend class="job-title">
                         <span class="content-cleaner-icon"></span> <?= t('Clean Unknown Tables and Columns') ?>
+                        <span class="job-number">02</span>
                     </legend>
                     <p class="job-desc">
                         <?= t('This job is an all-in-one process to completely deep clean your database.') ?>

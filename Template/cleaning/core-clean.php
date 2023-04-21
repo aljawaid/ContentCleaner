@@ -1,5 +1,5 @@
 <div class="job-section-wrapper">
-    <fieldset class="job-wrapper">
+    <fieldset class="job-wrapper relative">
         <legend class="job-title">
             <span class="content-cleaner-icon"></span> <?= t('Reset Calendar Settings') ?>
         </legend>

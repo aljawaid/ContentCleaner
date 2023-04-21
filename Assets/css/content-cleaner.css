@@ -230,6 +230,17 @@ fieldset.job-wrapper a.job-btn:hover {
     vertical-align: text-top;
 }
 
+.job-wrapper .job-number {
+    position: absolute;
+    right: 10px;
+    background: var(--pp-orange-c-cleaner);
+    color: var(--pp-white);
+    padding: 0 3px;
+    top: -27px;
+    border-radius: var(--border-radius-c-cleaner);
+    font-size: 1.1em;
+}
+
 li.job-result-title i.fa-check::before {
     content: "\2714";
     color: var(--pp-green);
