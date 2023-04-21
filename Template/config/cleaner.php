@@ -91,12 +91,32 @@
         </summary>
         <div class="accordion-content">
             <p class="section-intro"><?= t('Clean your database automatically choosing one or both of the options below.') ?></p>
-            <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
-                <span class="db-delete-icon"></span> <?= t('Purge plugin_schema_versions table of unused plugin data') ?>
-            </a>
             <a href="<?= $this->url->href('CleaningController', 'confirmAutoPurgeAndClean', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm" title="<?=t('Delete') ?>">
                 <span class="db-delete-icon"></span> <?= t('Auto Purge & Clean Unknown Tables and Columns') ?>
             </a>
+            <div class="job-section-wrapper">
+                <fieldset class="job-wrapper">
+                    <legend class="job-title">
+                        <span class="content-cleaner-icon"></span> <?= t('Unused Plugin Registration Entries') ?>
+                    </legend>
+                    <p class="job-desc">
+                        <?= t('Plugins which have altered the database also register themselves in the database.') ?>
+                    </p>
+                    <ul class="job-tables fa-ul">
+                        <li class="job-tables-title">
+                            <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
+                        </li>
+                        <li class="job-tables-table">plugin_schema_versions</li>
+                    </ul>
+                    <ul class="job-result fa-ul">
+                        <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
+                        <li class="job-result-text"><?= t('The table is checked for all unknown entries compared to your installed plugins. Use this job if you are having issues reinstalling a plugin.') ?></li>
+                    </ul>
+                    <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm" title="<?=t('Delete') ?>">
+                        <span class="db-delete-icon"></span> <?= t('Purge Unused Plugin Entries') ?>
+                    </a>
+                </fieldset>
+            </div>
         </div>
     </details>
     <details class="accordion-section db-cleaning-section">
