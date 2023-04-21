@@ -368,3 +368,11 @@ details.auto-cleaning-section, details.db-cleaning-section, details.plugin-clean
     width: 24px;
     height: 24px;
 }
+
+.confirm .confirm-notice {
+    margin-top: 20px;
+}
+
+#DeleteModal .confirm .form-actions, #ViewColumns .confirm .form-actions {
+    padding-top: 0;
+}
