@@ -44,4 +44,9 @@ class CleaningHelper extends Base
 
         return $difference;
     }
+
+    public function countSessions()
+    {
+        return $this->applicationCleaningModel->getSessionCount();
+    }
 }

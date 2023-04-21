@@ -226,8 +226,6 @@ class ApplicationCleaningModel extends Base
         return false;
     }
 
-
-
     public function resetSettings($fields = array())
     {
         // RESET VALUES
@@ -293,5 +291,10 @@ class ApplicationCleaningModel extends Base
         }
 
         return $table;
+    }
+
+    public function getSessionCount()
+    {
+        return $this->db->table('sessions')->count();
     }
 }
