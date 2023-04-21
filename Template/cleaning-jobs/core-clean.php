@@ -2,7 +2,8 @@
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
             <span class="content-cleaner-icon"></span> <?= t('Reset Calendar Settings') ?>
-            <span class="job-number">01</span>
+            <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
+            <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">02</span></span>
         </legend>
         <p class="job-desc">
             <?= t('Some calendar plugins alter default settings which affect the project and user views') ?>

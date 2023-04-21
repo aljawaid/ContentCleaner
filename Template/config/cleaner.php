@@ -95,7 +95,8 @@
                 <fieldset class="job-wrapper relative">
                     <legend class="job-title">
                         <span class="content-cleaner-icon"></span> <?= t('Unused Plugin Registration Entries') ?>
-                        <span class="job-number">01</span>
+                        <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
+                        <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">01</span></span>
                     </legend>
                     <p class="job-desc">
                         <?= t('Plugins which have altered the database also register themselves in the database.') ?>
@@ -119,7 +120,8 @@
                 <fieldset class="job-wrapper relative">
                     <legend class="job-title">
                         <span class="content-cleaner-icon"></span> <?= t('Clean All Unknown Tables and Columns') ?>
-                        <span class="job-number">02</span>
+                        <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
+                        <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">02</span></span>
                     </legend>
                     <p class="job-desc">
                         <?= t('This job is an all-in-one process to completely deep clean your database.') ?>

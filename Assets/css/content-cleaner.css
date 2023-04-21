@@ -230,13 +230,24 @@ fieldset.job-wrapper a.job-btn:hover {
     vertical-align: text-top;
 }
 
-.job-wrapper .job-number {
+.job-wrapper .job-number-wrapper {
     position: absolute;
     right: 10px;
+    width: 33px;
+    background: white;
+    height: 26px;
+    top: -29px;
+    padding: 0 3px;
+    cursor: context-menu;
+}
+
+.job-wrapper .job-number {
+    position: relative;
+    right: -3px;
     background: var(--pp-orange-c-cleaner);
     color: var(--pp-white);
     padding: 0 3px;
-    top: -27px;
+    top: 1px;
     border-radius: var(--border-radius-c-cleaner);
     font-size: 1.1em;
 }
