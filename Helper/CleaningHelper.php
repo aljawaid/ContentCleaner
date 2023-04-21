@@ -49,4 +49,9 @@ class CleaningHelper extends Base
     {
         return $this->applicationCleaningModel->getSessionCount();
     }
+
+    public function sessionsTableSize()
+    {
+        return $this->applicationCleaningModel->getSessionsTableSize();
+    }
 }
