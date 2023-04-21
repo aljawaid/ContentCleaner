@@ -5,7 +5,7 @@
 
 <div class="modal-page-header">
     <h2 class="relative">
-        <span class="content-cleaner-icon"></span> <?= t('Content Cleaner') ?>
+        <span class="content-cleaner-icon"></span> <?= t('Confirm Cleaning Job N° ') . $job ?>
         <span class="modal-title">
             <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmReset')): ?>
                 <span class="db-settings-icon"></span> <?= t('Reset Settings') ?> <span class="modal-template-id"></span>
