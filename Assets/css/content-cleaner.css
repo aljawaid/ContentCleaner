@@ -117,20 +117,31 @@ ul.default-table-list li.list-item {
     border-radius: var(--border-radius-c-cleaner);
 }
 
-.job-section-wrapper {
-    margin: auto;
-    display: block;
+.auto-cleaning-section .accordion-content {
     text-align: center;
 }
 
+.auto-cleaning-section .accordion-content p {
+    text-align: initial;
+}
+
+.job-section-wrapper {
+    display: inline;
+}
+
+li.more {
+    font-style: italic;
+}
+
 .job-wrapper {
-    width: 48%;
+    max-width: 45%;
     display: inline-block;
     text-align: initial;
-    margin: 15px;
+    margin: 10px;
     border: 1px solid var(--pp-grey);
     border-radius: var(--border-radius-c-cleaner);
     box-shadow: 0px 0px 2px 0px var(--pp-grey);
+    vertical-align: middle;
 }
 
 .job-title {
@@ -198,12 +209,19 @@ fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
     font-weight: 600;
     color: var(--pp-green-dark);
     transition: var(--transition-c-cleaner);
+    float: right;
 }
 
 fieldset.job-wrapper a.job-btn:hover {
     color: var(--pp-green-dark) !important;
     background: var(--pp-white);
     border: 2px inset var(--pp-orange-c-cleaner);
+}
+
+.job-btn span.db-delete-icon {
+    width: 24px;
+    height: 22px;
+    vertical-align: text-top;
 }
 
 .job-btn span.content-cleaner-icon {
