@@ -102,7 +102,7 @@ class ApplicationCleaningModel extends Base
     public function getSize($column = '')
     {
         // FOR DATABASE SIZE
-        // SELECT table_schema "myppworkspace", ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" FROM information_schema.tables WHERE table_schema = 'myppworkspace' GROUP BY table_schema;
+        // SELECT table_schema "dbname", ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" FROM information_schema.tables WHERE table_schema = 'dbname' GROUP BY table_schema;
         switch (DB_DRIVER) {
             case 'mysql':
                 return $this->db->table($this->getTable())
@@ -297,4 +297,5 @@ class ApplicationCleaningModel extends Base
     {
         return $this->db->table('sessions')->count();
     }
+
 }
