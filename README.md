@@ -32,6 +32,10 @@ Screenshots
 
 ![Summary](../master/Screenshots/screenshot-default-tables.png "Default Tables")
 
+**Automatic Cleaning Jobs**  
+
+![Summary](../master/Screenshots/screenshot-auto-cleaning-jobs.png "Automatic Cleaning Jobs")
+
 
 Usage
 -------------
