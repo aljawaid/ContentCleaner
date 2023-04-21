@@ -88,13 +88,6 @@ class CleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
-    public function confirmReset()
-    {
-        $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
-            'table' => $this->request->getStringParam('table'),
-        )));
-    }
-
     public function confirmPluginSchemaPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
@@ -120,6 +113,14 @@ class CleaningController extends BaseController
         $this->response->html($this->template->render('contentCleaner:config/modals/extra_columns', array(
             'table' => $table,
             'columns' => $columns,
+        )));
+    }
+
+    public function confirmResetCalendar()
+    {
+        $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
+            'table' => $this->request->getStringParam('table'),
+            'job' => $this->request->getStringParam('job'),
         )));
     }
 
