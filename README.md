@@ -7,11 +7,17 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
 
 Features
 -------------
-- Show detailed database summary
-- Show default database tables
-- Delete `Remember Me` data
-- Delete `sessions` data
-- Delete [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
+- Show a detailed database summary
+  - Display extra tables which are created by plugins
+  - Delete extra tables directly from the database
+  - Easily identify plugin ownership of each extra table
+- Show default database information
+  - Highlight extra columns within tables and delete columns directly from the database
+- Process individual cleaning jobs
+ - Each cleaning job is specific to a plugin or a default application setting
+ - Delete `Remember Me` data
+ - Delete `sessions` data
+ - Delete [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
 
 
 Screenshots
@@ -42,7 +48,7 @@ Compatibility
 - Compatible with [PluginManager](https://github.com/aljawaid/PluginManager)
 #### Core Files & Templates
 - _No template overrides_
-- _No database changes_
+- _No database changes are made by this plugin other than the deletion of database content_
 - MS SQL databases are not supported
 
 
