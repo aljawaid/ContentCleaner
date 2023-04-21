@@ -234,10 +234,16 @@ class ApplicationCleaningModel extends Base
         $table = 'settings';
 
         foreach ($fields as $key => $value) {
+            // IF OPTION EXISTS
             if ($this->db->table($table)->eq('option', $key)->exists()) {
+                // UPDATE VALUE
                 $this->db->table($table)->eq('option', $key)->update(['value' => $value]);
+            } else {
+                // INSERT OPTION AND VALUE
+                $this->db->table($table)->eq('option', $key)->insert(['option' => $key, 'value' => $value]);
             }
         }
+        return true;
     }
 
     public function getColumns($table)
