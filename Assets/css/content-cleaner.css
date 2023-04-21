@@ -134,7 +134,7 @@ li.more {
 }
 
 .job-wrapper {
-    max-width: 45%;
+    width: 45%;
     display: inline-block;
     text-align: initial;
     margin: 10px;
@@ -142,6 +142,12 @@ li.more {
     border-radius: var(--border-radius-c-cleaner);
     box-shadow: 0px 0px 2px 0px var(--pp-grey);
     vertical-align: middle;
+    height: 175px;
+}
+
+.job-wrapper .form-actions {
+    text-align: right;
+    padding-top: 0;
 }
 
 .job-title {
@@ -162,16 +168,17 @@ li.more {
     font-size: .9em;
 }
 
+.job-content {
+    margin-bottom: 10px;
+    height: 75px;
+}
+
 .job-tables, .job-result {
     font-size: .9em;
 }
 
 .job-tables {
     margin-block-start: 10px;
-}
-
-.job-result {
-    margin-block-end: 10px;
 }
 
 .job-tables li, .job-result li {
