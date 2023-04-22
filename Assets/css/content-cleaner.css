@@ -96,7 +96,7 @@ section.db-summary fieldset {
     height: 25px;
 }
 
-li.list-item i.fa-table, li.job-tables-title i.fa-table, .extra-table-item i.fa-table {
+li.list-item i.fa-table, li.job-tables-title i.fa-table, .extra-table-item i.fa-table, .job-tables-title i.fa-columns {
     color: var(--pp-orange-c-cleaner);
     opacity: .7;
 }
@@ -237,7 +237,7 @@ fieldset.job-wrapper a.job-btn:hover {
     vertical-align: text-top;
 }
 
-#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasHeader h2, #RemoveTableHeader h2 {
+#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasHeader h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2 {
     margin-top: 5px;
     margin-bottom: 0;
 }
@@ -249,27 +249,27 @@ fieldset.job-wrapper a.job-btn:hover {
     border-radius: var(--border-radius-c-cleaner);
 }
 
-#ResetModalSettingsHeader .modal-title, #AutoPurgeCleanHeader .modal-title, #PurgePluginSchemasHeader .modal-title, #RemoveTableHeader .modal-title {
+#ResetModalSettingsHeader .modal-title, #AutoPurgeCleanHeader .modal-title, #PurgePluginSchemasHeader .modal-title, #RemoveTableHeader .modal-title, #ExtraColumnsHeader .modal-title {
     float: right;
     margin-right: 2em;
     font-weight: 600;
     font-size: .8em;
 }
 
-#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions, #PurgePluginSchemasContent .form-actions, #RemoveTableContent .form-actions {
+#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions, #PurgePluginSchemasContent .form-actions, #RemoveTableContent .form-actions, #ExtraColumnsContent .form-actions {
     text-align: right;
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions {
     color: var(--pp-white);
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions button, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions button, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions button, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions button {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions button, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions button, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions button, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions button, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions button {
     border-radius: var(--border-radius-c-cleaner);
     padding-bottom: 4px;
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions a, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions a, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions a, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions a {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions a, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions a, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions a, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions a, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions a {
     font-size: 1.2em;
     padding: 3px 10px;
     transition: var(--transition-c-cleaner);
@@ -447,4 +447,34 @@ details.auto-cleaning-section, details.db-cleaning-section, details.plugin-clean
 
 #ResetModalSettingsHeader .confirm .form-actions, #ViewColumns .confirm .form-actions {
     padding-top: 0;
+}
+
+ol.column-list li.job-columns-name {
+    display: list-item;
+}
+
+.job-columns-name label {
+    width: 200px;
+}
+
+.job-columns-name label, .job-columns-name .job-columns-plugin {
+    display: inline-block;
+}
+
+.job-columns-plugin {
+    margin: auto 10px;
+}
+
+.job-columns-plugin .plugin-icon {
+    width: 18px;
+    height: 18px;
+}
+
+li.extra-columns-title {
+    vertical-align: top;
+}
+
+li.job-columns-list ol.column-list {
+    margin-left: .7em;
+    margin-top: -10px;
 }
