@@ -436,9 +436,23 @@ details.auto-cleaning-section, details.db-cleaning-section, details.plugin-clean
     margin-right: initial;
 }
 
-.accordion-title span.content-cleaner-icon {
-    width: 24px;
-    height: 24px;
+.accordion-title span.plugin-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.accordion-title span.application-icon {
+    vertical-align: sub;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+}
+
+.accordion-title span.automatic-icon {
+    vertical-align: sub;
+    height: 23px;
+    width: 23px;
+    display: inline-block;
 }
 
 .confirm .confirm-notice {
