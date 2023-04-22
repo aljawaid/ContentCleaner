@@ -237,11 +237,40 @@ fieldset.job-wrapper a.job-btn:hover {
     vertical-align: text-top;
 }
 
-#ResetModal h2 .job-number {
+#ResetModalSettingsHeader h2 .job-number {
     background: var(--pp-orange-c-cleaner);
     color: var(--pp-white);
     padding: 0 3px;
     border-radius: var(--border-radius-c-cleaner);
+}
+
+#ResetModalSettingsHeader .modal-title {
+    float: right;
+    margin-right: 2em;
+    font-weight: 600;
+}
+
+#ResetModalSettingsContent .form-actions {
+    text-align: right;
+}
+
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions {
+    color: var(--pp-white);
+}
+
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions button {
+    border-radius: var(--border-radius-c-cleaner);
+    padding-bottom: 4px;
+}
+
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions a {
+    font-size: 1.2em;
+    padding: 3px 10px;
+    transition: var(--transition-c-cleaner);
+    background: var(--pp-white);
+    border: 1px solid var(--pp-grey);
+    border-radius: var(--border-radius-c-cleaner);
+    text-decoration: none;
 }
 
 .job-wrapper .job-number-wrapper {
@@ -402,6 +431,6 @@ details.auto-cleaning-section, details.db-cleaning-section, details.plugin-clean
     margin-top: 20px;
 }
 
-#DeleteModal .confirm .form-actions, #ViewColumns .confirm .form-actions {
+#ResetModalSettingsHeader .confirm .form-actions, #ViewColumns .confirm .form-actions {
     padding-top: 0;
 }

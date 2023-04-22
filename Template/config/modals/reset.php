@@ -3,7 +3,7 @@
     $outgoingAction = $this->app->getRouterAction();
 ?>
 
-<div id="ResetModal" class="modal-page-header">
+<div id="ResetModalSettingsHeader" class="modal-page-header">
     <h2 class="relative">
         <span class="content-cleaner-icon"></span> <?= t('Confirm Cleaning Job') ?>
         <span class="job-number" title="<?= t('Cleaning Job Number') ?>"><?= $job ?></span>
@@ -18,7 +18,7 @@
         </span>
     </h2>
 </div>
-<div class="modal-contents">
+<div id="ResetModalSettingsContent" class="modal-contents">
     <div class="confirm">
 
         <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmResetCalendar')): ?>
