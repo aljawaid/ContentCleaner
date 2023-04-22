@@ -50,4 +50,9 @@ class CleaningHelper extends Base
         return $this->applicationCleaningModel->getSessionCount();
     }
 
+    public function countRememberMe()
+    {
+        return $this->applicationCleaningModel->getRememberMeCount();
+    }
+
 }
