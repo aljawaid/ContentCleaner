@@ -287,6 +287,20 @@ fieldset.job-wrapper a.job-btn:hover {
     font-size: 1em;
 }
 
+#JobType span.automatic-icon {
+    vertical-align: bottom;
+    opacity: .4;
+}
+
+#JobType span.application-icon {
+    vertical-align: sub;
+    opacity: .4;
+}
+
+#JobType span.plugin-icon {
+    opacity: .4;
+}
+
 .job-wrapper .job-number-wrapper {
     position: absolute;
     right: 10px;
