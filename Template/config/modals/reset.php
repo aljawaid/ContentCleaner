@@ -13,6 +13,8 @@
                 <span class="db-settings-icon"></span> <?= t('Reset Settings') ?> <span class="modal-reset-settings"></span>
             <?php elseif (($incomingController == 'CleaningController') && ($outgoingAction =='confirmSessionsPurge')): ?>
                 <span class="db-settings-icon"></span> <?= t('Purge Sessions') ?> <span class="modal-reset-settings"></span>
+            <?php elseif (($incomingController == 'CleaningController') && ($outgoingAction =='confirmRememberMePurge')): ?>
+                <span class="db-settings-icon"></span> <?= t('Purge Login Sessions') ?> <span class="modal-reset-settings"></span>
             <?php endif ?>
 
         </span>
@@ -51,6 +53,22 @@
                 <span class="application-icon"></span> <?= t('Application Cleaning Jobs') ?>
             </span>
             <?= $this->modal->confirmButtons('CleaningController', 'purgeSessionsData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
+        <?php endif ?>
+
+        <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmRememberMePurge')): ?>
+            <p class="confirm-notice">
+                <?= t('Click the button to empty the login sessions table.') ?>
+                <ul class="job-tables fa-ul">
+                    <li class="job-tables-title">
+                        <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
+                    </li>
+                    <li class="job-tables-table"><?= $table ?></li>
+                </ul>
+            </p>
+            <span id="JobType">
+                <span class="application-icon"></span> <?= t('Application Cleaning Jobs') ?>
+            </span>
+            <?= $this->modal->confirmButtons('CleaningController', 'purgeRememberMeData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
         <?php endif ?>
 
     </div>
