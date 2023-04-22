@@ -142,7 +142,7 @@ li.more {
     border-radius: var(--border-radius-c-cleaner);
     box-shadow: 0px 0px 2px 0px var(--pp-grey);
     vertical-align: middle;
-    height: 175px;
+    height: 195px;
 }
 
 .job-wrapper .form-actions {
@@ -216,7 +216,9 @@ fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
     font-weight: 600;
     color: var(--pp-green-dark);
     transition: var(--transition-c-cleaner);
-    float: right;
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
 }
 
 fieldset.job-wrapper a.job-btn:hover {
@@ -505,4 +507,8 @@ li.extra-columns-title {
 li.job-columns-list ol.column-list {
     margin-left: .7em;
     margin-top: -10px;
+}
+
+.table-data-info {
+    font-weight: 600;
 }
