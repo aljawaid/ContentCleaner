@@ -17,10 +17,10 @@ Features
 - Numbered cleaning jobs for easy reference
   - Each cleaning job is specific to a plugin or a default application setting
 - Process individual cleaning jobs
-  - Purge `sessions` data
+  - Purge user sessions data
   - Reset calendar settings
-  - Purge `Remember Me` data
-  - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin")
+  - Purge **Remember Me** login sessions
+  - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin") data
 
 
 Screenshots
