@@ -12,7 +12,7 @@
             <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmResetCalendar')): ?>
                 <span class="db-settings-icon"></span> <?= t('Reset Settings') ?> <span class="modal-reset-settings"></span>
             <?php elseif (($incomingController == 'CleaningController') && ($outgoingAction =='confirmSessionsPurge')): ?>
-                <span class="db-settings-icon"></span> <?= t('Reset Sessions') ?> <span class="modal-reset-settings"></span>
+                <span class="db-settings-icon"></span> <?= t('Purge Sessions') ?> <span class="modal-reset-settings"></span>
             <?php endif ?>
 
         </span>
@@ -31,7 +31,9 @@
                     <li class="job-tables-table"><?= $table ?></li>
                 </ul>
             </p>
-            <span id="JobType"><?= t('Application Cleaning Jobs') ?></span>
+            <span id="JobType">
+                <span class="application-icon"></span> <?= t('Application Cleaning Jobs') ?>
+            </span>
             <?= $this->modal->confirmButtons('CleaningController', 'resetCalendarSettings', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
         <?php endif ?>
 
@@ -45,7 +47,9 @@
                     <li class="job-tables-table"><?= $table ?></li>
                 </ul>
             </p>
-            <span id="JobType"><?= t('Application Cleaning Jobs') ?></span>
+            <span id="JobType">
+                <span class="application-icon"></span> <?= t('Application Cleaning Jobs') ?>
+            </span>
             <?= $this->modal->confirmButtons('CleaningController', 'purgeSessionsData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
         <?php endif ?>
 

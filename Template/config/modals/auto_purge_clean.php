@@ -12,7 +12,9 @@
         <p class="confirm-notice">
             <?= t('Automatically remove all unknown tables and columns left over from uninstalled plugins, followed by purging the respective plugin registration entries.') ?>
         </p>
-        <span id="JobType"><?= t('Automatic Cleaning Jobs') ?></span>
+        <span id="JobType">
+            <span class="automatic-icon"></span> <?= t('Automatic Cleaning Jobs') ?>
+        </span>
         <?= $this->modal->confirmButtons('CleaningController', 'autoPurgeAndClean', array('plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
     </div>
 </div>

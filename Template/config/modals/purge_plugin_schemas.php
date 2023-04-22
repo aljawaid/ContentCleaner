@@ -12,7 +12,9 @@
         <p class="confirm-notice">
             <?= t('Click the button to purge the database of unused plugin registration data') ?>
         </p>
-        <span id="JobType"><?= t('Automatic Cleaning Jobs') ?></span>
+        <span id="JobType">
+            <span class="automatic-icon"></span> <?= t('Automatic Cleaning Jobs') ?>
+        </span>
         <?= $this->modal->confirmButtons('CleaningController', 'pluginSchemaPurge', array('plugin' => 'ContentCleaner'), t('Purge')) ?>
     </div>
 </div>
