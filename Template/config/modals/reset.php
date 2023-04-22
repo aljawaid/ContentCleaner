@@ -31,6 +31,7 @@
                     <li class="job-tables-table"><?= $table ?></li>
                 </ul>
             </p>
+            <span id="JobType"><?= t('Application Cleaning Jobs') ?></span>
             <?= $this->modal->confirmButtons('CleaningController', 'resetCalendarSettings', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
         <?php endif ?>
 
@@ -44,6 +45,7 @@
                     <li class="job-tables-table"><?= $table ?></li>
                 </ul>
             </p>
+            <span id="JobType"><?= t('Application Cleaning Jobs') ?></span>
             <?= $this->modal->confirmButtons('CleaningController', 'purgeSessionsData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
         <?php endif ?>
 

@@ -20,5 +20,6 @@
     array('plugin' => 'ContentCleaner'),
     t('Clean')
 ) ?>
+        <span id="JobType"><?= t('Automatic Cleaning Jobs') ?></span>
     </div>
 </div>

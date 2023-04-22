@@ -273,6 +273,14 @@ fieldset.job-wrapper a.job-btn:hover {
     text-decoration: none;
 }
 
+#JobType {
+    position: absolute;
+    bottom: 7px;
+    color: var(--pp-light-grey);
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
 .job-wrapper .job-number-wrapper {
     position: absolute;
     right: 10px;
