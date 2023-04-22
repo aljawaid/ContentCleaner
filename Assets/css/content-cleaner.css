@@ -237,39 +237,39 @@ fieldset.job-wrapper a.job-btn:hover {
     vertical-align: text-top;
 }
 
-#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2 {
+#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasHeader h2 {
     margin-top: 5px;
     margin-bottom: 0;
 }
 
-#ResetModalSettingsHeader h2 .job-number, #AutoPurgeCleanHeader h2 .job-number {
+#ResetModalSettingsHeader h2 .job-number, #AutoPurgeCleanHeader h2 .job-number, #PurgePluginSchemasHeader h2 .job-number {
     background: var(--pp-orange-c-cleaner);
     color: var(--pp-white);
     padding: 0 3px;
     border-radius: var(--border-radius-c-cleaner);
 }
 
-#ResetModalSettingsHeader .modal-title, #AutoPurgeCleanHeader .modal-title {
+#ResetModalSettingsHeader .modal-title, #AutoPurgeCleanHeader .modal-title, #PurgePluginSchemasHeader .modal-title {
     float: right;
     margin-right: 2em;
     font-weight: 600;
     font-size: .8em;
 }
 
-#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions {
+#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions, #PurgePluginSchemasContent .form-actions {
     text-align: right;
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions {
     color: var(--pp-white);
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions button, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions button {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions button, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions button, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions button {
     border-radius: var(--border-radius-c-cleaner);
     padding-bottom: 4px;
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions a, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions a {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions a, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions a, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions a  {
     font-size: 1.2em;
     padding: 3px 10px;
     transition: var(--transition-c-cleaner);
@@ -442,7 +442,7 @@ details.auto-cleaning-section, details.db-cleaning-section, details.plugin-clean
 }
 
 .confirm .confirm-notice {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 #ResetModalSettingsHeader .confirm .form-actions, #ViewColumns .confirm .form-actions {
