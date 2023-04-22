@@ -1,4 +1,4 @@
-<!-- ContentCleaner: CLEANING JOB -->
+<!-- ContentCleaner: CLEANING JOB 01 -->
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
@@ -7,7 +7,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">01</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('User sessions can build up needlessly over time.') ?>
+            <?= t('User sessions can build up needlessly over time. It is safe to clear this table from time to time for expired entries.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
@@ -28,7 +28,7 @@
             </ul>
             <ul class="job-result fa-ul">
                 <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
-                <li class="job-result-text"><?= t('The table will be emptied leaving the current single session entry in the table') ?></li>
+                <li class="job-result-text"><?= t('The table will be emptied leaving the current single session entry in the table.') ?></li>
             </ul>
         </div>
         <div class="form-actions">
@@ -37,7 +37,7 @@
     </fieldset>
 </div>
 
-<!-- ContentCleaner: CLEANING JOB -->
+<!-- ContentCleaner: CLEANING JOB 02 -->
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
@@ -57,7 +57,7 @@
             </ul>
             <ul class="job-result fa-ul">
                 <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
-                <li class="job-result-text"><?= t('The settings for') ?> <code>calendar_project_tasks</code> <?= t('and') ?> <code>calendar_user_tasks</code> <?= t('will be reset to the value') ?> <code>date_started</code></li>
+                <li class="job-result-text"><?= t('The settings for') ?> <code>calendar_project_tasks</code> <?= t('and') ?> <code>calendar_user_tasks</code> <?= t('will be reset to the value') ?> <code>date_started</code>.</li>
             </ul>
         </div>
         <div class="form-actions">
