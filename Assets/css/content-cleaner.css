@@ -117,11 +117,11 @@ ul.default-table-list li.list-item {
     border-radius: var(--border-radius-c-cleaner);
 }
 
-.auto-cleaning-section .accordion-content {
+.auto-cleaning-section .accordion-content, .db-cleaning-section .accordion-content, .plugin-cleaning-section .accordion-content {
     text-align: center;
 }
 
-.auto-cleaning-section .accordion-content p {
+.auto-cleaning-section .accordion-content p, .db-cleaning-section .accordion-content p, .plugin-cleaning-section .accordion-content p {
     text-align: initial;
 }
 
