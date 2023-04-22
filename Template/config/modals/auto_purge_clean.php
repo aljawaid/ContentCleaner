@@ -1,25 +1,18 @@
-<div class="modal-page-header">
+<div id="AutoPurgeCleanHeader" class="modal-page-header">
     <h2 class="relative">
-        <span class="content-cleaner-icon"></span> <?= t('Automatic Cleaning') ?> <span class="modal-template-id"></span>
+        <span class="content-cleaner-icon"></span> <?= t('Confirm Cleaning Job') ?>
         <span class="job-number" title="<?= t('Cleaning Job Number') ?>"><?= $job ?></span>
+        <span class="modal-title">
+            <span class="db-settings-icon"></span> <?= t('All Unknown Tables and Columns') ?> <span class="modal-reset-settings"></span>
         </span>
     </h2>
 </div>
-<div id="DeleteModal" class="modal-contents">
+<div id="AutoPurgeCleanContent" class="modal-contents">
     <div class="confirm">
         <p class="confirm-notice">
-            <?= t('Click the button to automatically remove all unknown tables & columns left left over from uninstalled plugins, and then purge the plugin_schema_versions table of their presence.') ?>
-            <div class="template-contents">
-                <div class="template-title"></div>
-            </div>
+            <?= t('Automatically remove all unknown tables and columns left over from uninstalled plugins, followed by purging the respective plugin registration entries') ?>
         </p>
-
-    <?= $this->modal->confirmButtons(
-    'CleaningController',
-    'autoPurgeAndClean',
-    array('plugin' => 'ContentCleaner'),
-    t('Clean')
-) ?>
         <span id="JobType"><?= t('Automatic Cleaning Jobs') ?></span>
+        <?= $this->modal->confirmButtons('CleaningController', 'autoPurgeAndClean', array('plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
     </div>
 </div>
