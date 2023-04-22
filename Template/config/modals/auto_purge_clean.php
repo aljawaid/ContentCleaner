@@ -1,6 +1,7 @@
 <div class="modal-page-header">
     <h2 class="relative">
         <span class="content-cleaner-icon"></span> <?= t('Automatic Cleaning') ?> <span class="modal-template-id"></span>
+        <span class="job-number" title="<?= t('Cleaning Job Number') ?>"><?= $job ?></span>
         </span>
     </h2>
 </div>
