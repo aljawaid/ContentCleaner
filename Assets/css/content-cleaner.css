@@ -237,6 +237,13 @@ fieldset.job-wrapper a.job-btn:hover {
     vertical-align: text-top;
 }
 
+#ResetModal h2 .job-number {
+    background: var(--pp-orange-c-cleaner);
+    color: var(--pp-white);
+    padding: 0 3px;
+    border-radius: var(--border-radius-c-cleaner);
+}
+
 .job-wrapper .job-number-wrapper {
     position: absolute;
     right: 10px;
