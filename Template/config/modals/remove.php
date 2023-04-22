@@ -12,11 +12,11 @@
             <?= t('Click the button to remove this table from the database') ?>
         </p>
         <ul class="job-tables fa-ul">
-                    <li class="job-tables-title">
-                        <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
-                    </li>
-                    <li class="job-tables-table"><?= $table ?></li>
-                </ul>
+            <li class="job-tables-title">
+                <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
+            </li>
+            <li class="job-tables-table"><?= $table ?></li>
+        </ul>
         <span id="JobType"><?= t('Deep Cleaning') ?></span>
         <?= $this->modal->confirmButtons('CleaningController', 'removeTable', array('table' => $table, 'plugin' => 'ContentCleaner'), t('Delete Table')) ?>
     </div>
