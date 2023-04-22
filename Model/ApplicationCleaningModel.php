@@ -143,8 +143,22 @@ class ApplicationCleaningModel extends Base
 
     public function flushRememberMeAll()
     {
-        // empty all
-        return $this->db->execute('TRUNCATE TABLE `remember_me`; SHOW WARNINGS');
+        // EMPTY ALL 'REMEMBER ME' SESSION ENTRIES FROM THE 'REMEMBER_ME' TABLE
+        // EMPTY ALL SESSION ENTRIES FROM THE `SESSIONS` TABLE
+        switch (DB_DRIVER) {
+            case 'sqlite':
+                return $this->db->execute('DELETE FROM TABLE remember_me');
+                break;
+            case 'mysql':
+                return $this->db->execute('TRUNCATE TABLE `remember_me`; SHOW WARNINGS');
+                break;
+            case 'postgres':
+                return $this->db->execute('TRUNCATE remember_me;');
+                break;
+            default:
+                return $this->db->execute('TRUNCATE TABLE `remember_me`; SHOW WARNINGS');
+        }
+    }
 
     public function getRememberMeCount()
     {
