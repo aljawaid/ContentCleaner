@@ -23,7 +23,7 @@
 
         <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmResetCalendar')): ?>
             <p class="confirm-notice">
-                <?= t('Click the button to restore the calendar settings to the default values') ?>
+                <?= t('Click the button to restore the calendar settings to the default values.') ?>
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
@@ -37,7 +37,7 @@
 
         <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmSessionsPurge')): ?>
             <p class="confirm-notice">
-                <?= t('Click the button to empty the sessions table') ?>
+                <?= t('Click the button to empty the sessions table.') ?>
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>

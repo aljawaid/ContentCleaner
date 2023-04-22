@@ -87,7 +87,7 @@
     </section>
     <details class="accordion-section auto-cleaning-section">
         <summary class="accordion-title">
-            <span class="content-cleaner-icon"></span> <?= t('Automatic Cleaning') ?>
+            <span class="content-cleaner-icon"></span> <?= t('Automatic Cleaning Jobs') ?>
         </summary>
         <div class="accordion-content">
             <p class="section-intro"><?= t('Clean your database automatically choosing one or both of the options below.') ?></p>
