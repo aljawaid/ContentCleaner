@@ -54,7 +54,7 @@ class Plugin extends Base
 
     public function getPluginDescription()
     {
-        return t('This tool allows admins to cleanup their Kanboard database by deleting useless data saved by Kanboard and leftover data after uninstalling plugins.');
+        return t('This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins. Keep your database clean and free from cluttered and expired data using cleaning jobs to solve specific application issues.');
     }
 
     public function getPluginAuthor()
