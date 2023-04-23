@@ -75,7 +75,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">03</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('By default, entries are automatically deleted after 60 days. Delete all entries for all users. ') ?>
+            <?= t('By default, entries are automatically deleted after 60 days. Delete all entries for all users.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
@@ -99,7 +99,7 @@
             </ul>
             <ul class="job-result fa-ul">
                 <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
-                <li class="job-result-text"><?= t('The table will be completely emptied') ?></li>
+                <li class="job-result-text"><?= t('The table will be completely emptied.') ?></li>
             </ul>
         </div>
         <div class="form-actions">
