@@ -441,6 +441,11 @@ details.auto-cleaning-section > summary.accordion-title, details.db-cleaning-sec
     text-indent: .5em;
     border-block-start-color: rgba(138, 1, 1, .6);
     border-block-end-color: rgba(244, 41, 14, .6);
+    font-weight: 600;
+}
+
+details.auto-cleaning-section[open] summary, details.db-cleaning-section[open] summary, details.plugin-cleaning-section[open] summary {
+    color: var(--pp-green-dark);
 }
 
 #DefaultTables {
@@ -453,8 +458,10 @@ details.auto-cleaning-section, details.db-cleaning-section, details.plugin-clean
 }
 
 .accordion-title span.plugin-icon {
-    width: 20px;
+    width: 22px;
     height: 20px;
+    vertical-align: top;
+    margin-top: 2px;
 }
 
 .accordion-title span.application-icon {

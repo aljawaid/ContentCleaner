@@ -1,4 +1,4 @@
-<!-- ContentCleaner: CLEANING JOB 01 -->
+<!-- ContentCleaner: APPLICATION CLEANING JOB 01 -->
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
@@ -37,7 +37,7 @@
     </fieldset>
 </div>
 
-<!-- ContentCleaner: CLEANING JOB 02 -->
+<!-- ContentCleaner: APPLICATION CLEANING JOB 02 -->
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
@@ -66,7 +66,7 @@
     </fieldset>
 </div>
 
-<!-- ContentCleaner: CLEANING JOB 03 -->
+<!-- ContentCleaner: APPLICATION CLEANING JOB 03 -->
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">

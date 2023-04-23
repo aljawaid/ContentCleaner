@@ -1,3 +1,4 @@
+<!-- ContentCleaner: AUTOMATIC CLEANING JOB 01 -->
 <div id="PurgePluginSchemasHeader" class="modal-page-header">
     <h2 class="relative">
         <span class="content-cleaner-icon"></span> <?= t('Confirm Cleaning Job') ?>

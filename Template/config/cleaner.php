@@ -87,7 +87,7 @@
     </section>
     <details class="accordion-section auto-cleaning-section">
         <summary class="accordion-title">
-            <span class="automatic-icon"></span> <?= t('Automatic Cleaning Jobs') ?>
+            <span class="automatic-icon"></span> <?= t('1 - Automatic Cleaning Jobs') ?>
         </summary>
         <div class="accordion-content">
             <p class="section-intro"><?= t('Clean your database automatically choosing one or both of the options below.') ?></p>
@@ -96,7 +96,7 @@
     </details>
     <details class="accordion-section db-cleaning-section">
         <summary class="accordion-title">
-            <span class="application-icon"></span> <?= t('Application Cleaning Jobs') ?>
+            <span class="application-icon"></span> <?= t('2 - Application Cleaning Jobs') ?>
         </summary>
         <div class="accordion-content">
             <p class="section-intro"><?= t('Jobs in this section affect only the default database tables. Choose any of the jobs below to clean your database based on specific criteria.') ?></p>
@@ -105,7 +105,7 @@
     </details>
     <details class="accordion-section plugin-cleaning-section">
         <summary class="accordion-title">
-            <span class="plugin-icon"></span> <?= t('Plugin Cleaning Jobs') ?>
+            <span class="plugin-icon"></span> <?= t('3 - Plugin Cleaning Jobs') ?>
         </summary>
         <div class="accordion-content">
             <p class="section-intro"><?= t('Jobs in this section affect leftover tables which were created by plugins. Choose any of the jobs below to clean your database based on specific criteria.') ?></p>
