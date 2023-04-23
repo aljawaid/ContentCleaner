@@ -90,7 +90,10 @@
                 </li>
                 <li class="job-tables-data">
                     <span class="table-data-info">
-                        <?= $this->helper->cleaningHelper->countRememberMe() ?> <?= ($this->helper->cleaningHelper->countRememberMe() > 1) ? t('Entries') : t('Entry') ?>
+                        <?= $this->helper->cleaningHelper->countRememberMe() ?>
+                        <?php if ($this->helper->cleaningHelper->countRememberMe() != 0): ?>
+                            <?= ($this->helper->cleaningHelper->countRememberMe() > 1) ? t('Entries') : t('Entry') ?>
+                        <?php endif ?>
                     </span>
                 </li>
             </ul>
