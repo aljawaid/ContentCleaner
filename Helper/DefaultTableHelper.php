@@ -246,7 +246,8 @@ class DefaultTableHelper extends Base
 
     private function getSchema()
     {
-        switch (DB_DRIVER) { // For now, I am switching everything to reading the Mysql.php file.
+        // ALL DEFAULT CHECKS ARE BASED ON THE MYSQL.PHP FILE - DO NOT CHANGE
+        switch (DB_DRIVER) {
             case 'sqlite':
                 return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
             case 'postgres':
