@@ -55,4 +55,9 @@ class CleaningHelper extends Base
         return $this->applicationCleaningModel->getRememberMeCount();
     }
 
+    public function countRememberMeOld()
+    {
+        return $this->applicationCleaningModel->getRememberMeOld();
+    }
+
 }
