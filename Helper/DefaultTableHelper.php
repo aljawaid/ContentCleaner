@@ -246,17 +246,17 @@ class DefaultTableHelper extends Base
 
     private function getSchema()
     {
-        switch (DB_DRIVER) {
+        switch (DB_DRIVER) { // For now, I am switching everything to reading the Mysql.php file.
             case 'sqlite':
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Sqlite.php';
+                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
             case 'postgres':
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Postgres.php';
+                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
             case 'mssql':
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mssql.php';
+                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
             case 'mysql':
                 return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
             default:
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Sqlite.php';
+                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
         }
     }
 }
