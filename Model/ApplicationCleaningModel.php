@@ -126,6 +126,33 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    public function getRememberMeOld()
+    {
+        // delete duplicate records but keep latest
+        switch (DB_DRIVER) {
+            case 'sqlite':
+                return t('This cleaning job is not compatible with your database type');
+                break;
+            case 'mysql':
+                $result = $this->db->execute('
+                    SELECT * FROM `remember_me`
+                    WHERE `id` NOT IN (
+                        SELECT * FROM (
+                            SELECT MAX(`id`) FROM `remember_me`
+                            GROUP BY `user_id`
+                            ) AS x
+                    )'
+                );
+                $count = is_array($result) ? count($result) : '0';
+                break;
+            case 'postgres':
+                return t('This cleaning job is not compatible with your database type');
+                break;
+            default:
+                return t('This cleaning job is not compatible with your database type');
+        }
+    }
+
     public function deleteRememberMeOld()
     {
         // delete duplicate records but keep latest
