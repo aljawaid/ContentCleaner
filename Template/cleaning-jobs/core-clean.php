@@ -41,12 +41,12 @@
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
-            <span class="content-cleaner-icon"></span> <?= t('Reset Calendar Settings') ?>
+            <span class="content-cleaner-icon"></span> <?= t('Restore Calendar Settings') ?>
             <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">02</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('Some calendar plugins alter default settings which affect the project and user views.') ?>
+            <?= t('Some calendar plugins alter default settings which affect the project and user views. This can affect how tasks are displayed in relation to start dates and due dates.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
@@ -57,11 +57,11 @@
             </ul>
             <ul class="job-result fa-ul">
                 <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
-                <li class="job-result-text"><?= t('The settings for') ?> <code>calendar_project_tasks</code> <?= t('and') ?> <code>calendar_user_tasks</code> <?= t('will be reset to the value') ?> <code>date_started</code>.</li>
+                <li class="job-result-text"><?= t('The settings for') ?> <code>calendar_project_tasks</code> <?= t('and') ?> <code>calendar_user_tasks</code> <?= t('will be reset to the default value') ?> <code>date_started</code>.</li>
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmResetCalendar', array('table' => 'settings', 'job' => '02', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Reset Settings') ?></a>
+            <a href="<?= $this->url->href('CleaningController', 'confirmResetCalendar', array('table' => 'settings', 'job' => '02', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Reset Calendar Settings') ?></a>
         </div>
     </fieldset>
 </div>
@@ -75,7 +75,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">03</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('By default, entries are automatically deleted after 60 days. Delete all entries for all users.') ?>
+            <?= t('By default, login sessions are automatically deleted after 60 days. This job will delete all entries for all users.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">

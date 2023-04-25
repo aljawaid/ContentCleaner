@@ -7,7 +7,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">01</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('Plugins which have altered the database also register themselves in the database.') ?>
+            <?= t('Plugins which have altered the database also register themselves in the database. Use this job if you are having issues reinstalling a plugin.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
@@ -18,7 +18,7 @@
             </ul>
             <ul class="job-result fa-ul">
                 <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
-                <li class="job-result-text"><?= t('The table is checked for all unknown entries compared to your installed plugins. Use this job if you are having issues reinstalling a plugin.') ?></li>
+                <li class="job-result-text"><?= t('The table is checked for all unknown entries compared to your installed plugins.') ?></li>
             </ul>
         </div>
         <div class="form-actions">
@@ -38,7 +38,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">02</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('This job is an all-in-one process to completely deep clean your database.') ?>
+            <?= t('This job is an all-in-one process to completely deep clean your database. Any data inside unknown tables and columns will also be deleted.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
