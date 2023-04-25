@@ -18,6 +18,9 @@
             <!-- ContentCleaner: APPLICATION CLEANING JOB 03 -->
             <?php elseif (($incomingController == 'CleaningController') && ($outgoingAction =='confirmRememberMePurge')): ?>
                 <span class="db-settings-icon"></span> <?= t('Purge Login Sessions') ?> <span class="modal-reset-settings"></span>
+            <!-- ContentCleaner: APPLICATION CLEANING JOB 04 -->
+            <?php elseif (($incomingController == 'CleaningController') && ($outgoingAction =='confirmRememberMeDuplicatesPurge')): ?>
+                <span class="db-settings-icon"></span> <?= t('Delete Duplicate Login Sessions') ?> <span class="modal-reset-settings"></span>
             <?php endif ?>
 
         </span>
@@ -75,6 +78,23 @@
                 <span class="application-icon"></span> <?= t('Application Cleaning Jobs') ?>
             </span>
             <?= $this->modal->confirmButtons('CleaningController', 'purgeRememberMeData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
+        <?php endif ?>
+
+        <!-- ContentCleaner: APPLICATION CLEANING JOB 04 -->
+        <?php if (($incomingController == 'CleaningController') && ($outgoingAction =='confirmRememberMeDuplicatesPurge')): ?>
+            <p class="confirm-notice">
+                <?= t('Click the button to delete all duplicate sessions leaving the latest record for each user.') ?>
+                <ul class="job-tables fa-ul">
+                    <li class="job-tables-title">
+                        <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
+                    </li>
+                    <li class="job-tables-table"><?= $table ?></li>
+                </ul>
+            </p>
+            <span id="JobType">
+                <span class="application-icon"></span> <?= t('Application Cleaning Jobs') ?>
+            </span>
+            <?= $this->modal->confirmButtons('CleaningController', 'deleteRememberMeDuplicatesData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
         <?php endif ?>
 
     </div>
