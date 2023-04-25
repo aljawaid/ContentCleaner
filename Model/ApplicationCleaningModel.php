@@ -173,16 +173,39 @@ class ApplicationCleaningModel extends Base
     public function deleteRememberMeOld()
     {
         // delete duplicate records but keep latest
-        return $this->db->execute(
-            '
-            DELETE FROM `remember_me`
-            WHERE `id` NOT IN (
-                SELECT * FROM (
-                    SELECT MAX(`id`) FROM `remember_me`
-                    GROUP BY `user_id`
-                    ) AS x
-            )'
-        );
+        switch (DB_DRIVER) {
+            case 'sqlite':
+                return $this->db->execute('
+                    DELETE FROM "remember_me"
+                    WHERE "id" NOT IN (
+                        SELECT MAX("id") FROM "remember_me"
+                        GROUP BY "user_id"
+                    )'
+                );
+                break;
+            case 'mysql':
+                return $this->db->execute('
+                    DELETE FROM `remember_me`
+                    WHERE `id` NOT IN (
+                        SELECT * FROM (
+                            SELECT MAX(`id`) FROM `remember_me`
+                            GROUP BY `user_id`
+                            ) AS x
+                    )'
+                );
+                break;
+            case 'postgres':
+                return $this->db->execute('
+                    DELETE FROM "remember_me"
+                    WHERE "id" NOT IN (
+                        SELECT MAX("id") FROM "remember_me"
+                        GROUP BY "user_id"
+                    )'
+                );
+                break;
+            default:
+                return t('This cleaning job is not compatible with your database type');
+        }
     }
 
     public function flushRememberMeAll()
