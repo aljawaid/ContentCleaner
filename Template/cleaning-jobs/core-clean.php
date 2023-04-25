@@ -142,7 +142,7 @@
                             <?= $this->helper->cleaningHelper->countRememberMeOld() ?>
                         <?php endif ?>
                         <?php if ($this->helper->cleaningHelper->countRememberMeOld() != 0): ?>
-                            <?= ($this->helper->cleaningHelper->countRememberMe() > 1) ? t('Duplicates') : t('Duplicate') ?>
+                            <?= ($this->helper->cleaningHelper->countRememberMeOld() > 1) ? t('Duplicates') : t('Duplicate') ?>
                         <?php endif ?>
                     </span>
                 </li>
