@@ -147,7 +147,15 @@ class ApplicationCleaningModel extends Base
                 return $count;
                 break;
             case 'postgres':
-                return t('This cleaning job is not compatible with your database type');
+                $result = $this->db->execute('
+                    SELECT * FROM "remember_me"
+                    WHERE "id" NOT IN (
+                        SELECT MAX("id") FROM "remember_me"
+                        GROUP BY "user_id"
+                    )'
+                );
+                $count = $result->rowCount();
+                return $count;
                 break;
             default:
                 return t('This cleaning job is not compatible with your database type');
