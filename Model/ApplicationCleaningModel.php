@@ -143,7 +143,8 @@ class ApplicationCleaningModel extends Base
                             ) AS x
                     )'
                 );
-                $count = is_array($result) ? count($result) : '0';
+                $count = $result->rowCount();
+                return $count;
                 break;
             case 'postgres':
                 return t('This cleaning job is not compatible with your database type');
