@@ -2,7 +2,7 @@
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
-            <span class="content-cleaner-icon"></span> <?= t('Unused Plugin Registration Entries') ?>
+            <span class="content-cleaner-icon"></span> <?= t('Purge Unused Plugin Registration Entries') ?>
             <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">01</span></span>
         </legend>
@@ -23,7 +23,7 @@
         </div>
         <div class="form-actions">
             <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('job' => '01', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
-                <span class="db-delete-icon"></span> <?= t('Purge Unused Plugin Entries') ?>
+                <span class="db-delete-icon"></span> <?= t('Purge Unused Entries') ?>
             </a>
         </div>
     </fieldset>

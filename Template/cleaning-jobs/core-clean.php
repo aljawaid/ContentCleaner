@@ -2,7 +2,7 @@
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
-            <span class="content-cleaner-icon"></span> <?= t('Purge Sessions') ?>
+            <span class="content-cleaner-icon"></span> <?= t('Purge User Sessions') ?>
             <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">01</span></span>
         </legend>
@@ -70,7 +70,7 @@
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
-            <span class="content-cleaner-icon"></span> <?= t('Remember Me Login Sessions') ?>
+            <span class="content-cleaner-icon"></span> <?= t('Delete Remember Me Login Sessions') ?>
             <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">03</span></span>
         </legend>
@@ -107,7 +107,7 @@
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmRememberMePurge', array('table' => 'remember_me', 'job' => '03', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Purge Login Sessions') ?></a>
+            <a href="<?= $this->url->href('CleaningController', 'confirmRememberMePurge', array('table' => 'remember_me', 'job' => '03', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Delete Login Sessions') ?></a>
         </div>
     </fieldset>
 </div>
@@ -116,7 +116,7 @@
 <div class="job-section-wrapper">
     <fieldset class="job-wrapper relative">
         <legend class="job-title">
-            <span class="content-cleaner-icon"></span> <?= t('Duplicate Remember Me Login Sessions') ?>
+            <span class="content-cleaner-icon"></span> <?= t('Delete Duplicate Remember Me Login Sessions') ?>
             <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">04</span></span>
         </legend>
