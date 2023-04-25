@@ -1,2 +1,9 @@
 {
+  "1": {
+    "plugin_name": "metamagik",
+    "plugin_author": "Creecros",
+    "checked_upto_plugin_version": "1.5.5",
+    "plugin_tables": ["metadata_has_type", "metadata_types"],
+    "plugin_schema_version": 7
+  }
 }
