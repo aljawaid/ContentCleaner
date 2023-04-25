@@ -77,7 +77,6 @@ section.db-summary fieldset {
 
 #DBSummaryTable {
     border-collapse: separate;
-    /*border-spacing: 9px;*/
     width: auto;
     margin: auto;
 }
@@ -85,6 +84,7 @@ section.db-summary fieldset {
 #DBSummaryTable tr th, #DBSummaryTable tr td {
     border: 0;
     background: none;
+    padding-left: 10px;
 }
 
 #DBSummaryTable tr th {
@@ -142,12 +142,14 @@ li.more {
     border-radius: var(--border-radius-c-cleaner);
     box-shadow: 0px 0px 2px 0px var(--pp-grey);
     vertical-align: middle;
-    height: 195px;
+    height: 200px;
 }
 
 .job-wrapper .form-actions {
     text-align: right;
     padding-top: 0;
+    margin-top: 5px;
+    display: block;
 }
 
 .job-title {
@@ -166,11 +168,14 @@ li.more {
 
 .job-desc {
     font-size: .9em;
+    margin-block-start: 5px;
+    margin-block-end: 15px;
 }
 
 .job-content {
     margin-bottom: 10px;
     height: 75px;
+    display: block;
 }
 
 .job-tables, .job-result, .job-table-size {
@@ -216,9 +221,8 @@ fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
     font-weight: 600;
     color: var(--pp-green-dark);
     transition: var(--transition-c-cleaner);
-    position: absolute;
-    right: 8px;
-    bottom: 8px;
+    margin: 0;
+    margin-right: -6px;
 }
 
 fieldset.job-wrapper a.job-btn:hover {
@@ -359,6 +363,8 @@ li.job-result-title i.fa-check::before {
 
 .extra-columns-count {
     font-weight: 600;
+    color: var(--pp-black);
+    text-decoration: none;
 }
 
 .table-plugin-name {
@@ -402,11 +408,13 @@ td a.list-item-table {
     margin-right: 3px;
     text-decoration: none !important;
     line-height: 27px;
+    color: var(--pp-red-alt-2);
 }
 
 td a.list-item-table:hover {
     text-decoration: none !important;
     border: 1px solid var(--pp-orange-c-cleaner);
+    color: var(--pp-black) !important;
 }
 
 .extra-table-item i.fa-table {
@@ -442,10 +450,15 @@ details.auto-cleaning-section > summary.accordion-title, details.db-cleaning-sec
     border-block-start-color: rgba(138, 1, 1, .6);
     border-block-end-color: rgba(244, 41, 14, .6);
     font-weight: 600;
+    cursor: pointer;
 }
 
 details.auto-cleaning-section[open] summary, details.db-cleaning-section[open] summary, details.plugin-cleaning-section[open] summary {
     color: var(--pp-green-dark);
+}
+
+details.accordion-section summary.accordion-title::marker {
+    font-size: 1.2em;
 }
 
 #DefaultTables {
@@ -455,12 +468,13 @@ details.auto-cleaning-section[open] summary, details.db-cleaning-section[open] s
 details.auto-cleaning-section, details.db-cleaning-section, details.plugin-cleaning-section {
     margin-left: initial;
     margin-right: initial;
+    margin-block: 10px;
 }
 
 .accordion-title span.plugin-icon {
     width: 22px;
     height: 20px;
-    vertical-align: top;
+    vertical-align: text-top;
     margin-top: 2px;
 }
 
