@@ -30,7 +30,7 @@
 
 .message {
     background: #eee;
-    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.31);
+    box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, .31);
     border-radius: 1em;
     overflow: hidden;
     display: flex;
@@ -43,7 +43,7 @@
 .message header {
     background: #9E9E9E;
     width: 100%;
-    padding: 0.5em;
+    padding: .5em;
     margin-bottom: 0;
     border-bottom: 0;
 }
@@ -55,7 +55,7 @@
     font-style: normal;
     color: #eee;
     background: #353535;
-    padding: 1em 0.75em;
+    padding: 1em .75em;
     font-size: 1.25em;
     display: block;
     width: 2.5em;
@@ -64,7 +64,7 @@
 }
 
 .message h3 {
-    margin: 0.75em;
+    margin: .75em;
     font-size: 1.25em;
     position: relative;
     display: block;
@@ -107,7 +107,7 @@
 }
 
 .error h3:after {
-    border-bottom: 0.1em solid #D50000;
+    border-bottom: .1em solid #D50000;
 }
 
 .warning header {
@@ -125,7 +125,7 @@
 }
 
 .warning h3:after {
-    border-bottom: 0.1em solid #FF6F00;
+    border-bottom: .1em solid #FF6F00;
 }
 
 .neutral header {
@@ -143,7 +143,7 @@
 }
 
 .neutral h3:after {
-    border-bottom: 0.1em solid #448AFF;
+    border-bottom: .1em solid #448AFF;
 }
 
 .success header {
@@ -161,7 +161,7 @@
 }
 
 .success h3:after {
-    border-bottom: 0.1em solid #388E3C;
+    border-bottom: .1em solid #388E3C;
 }
 
 .uhm header {
@@ -179,5 +179,5 @@
 }
 
 .uhm h3:after {
-    border-bottom: 0.1em solid #c1610d;
+    border-bottom: .1em solid #c1610d;
 }
