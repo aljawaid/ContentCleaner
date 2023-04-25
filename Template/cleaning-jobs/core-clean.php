@@ -121,7 +121,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">04</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('Duplicate login sessions by users may cause conflicts.') ?>
+            <?= t('Duplicate login sessions may get created over time for users. This can cause session conflicts for regular users who log in from different locations and devices.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
@@ -136,7 +136,14 @@
                 </li>
                 <li class="job-tables-data">
                     <span class="table-data-info">
-                            <?= $this->helper->cleaningHelper->countRememberMeOld() ?> Entries
+                        <?php if ($this->helper->cleaningHelper->countRememberMeOld() == 0): ?>
+                            <i style="font-weight: 400;"><?= t('No duplicates found') ?></i>
+                        <?php else: ?>
+                            <?= $this->helper->cleaningHelper->countRememberMeOld() ?>
+                        <?php endif ?>
+                        <?php if ($this->helper->cleaningHelper->countRememberMeOld() != 0): ?>
+                            <?= ($this->helper->cleaningHelper->countRememberMe() > 1) ? t('Duplicates') : t('Duplicate') ?>
+                        <?php endif ?>
                     </span>
                 </li>
             </ul>
@@ -146,7 +153,7 @@
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmRememberMePurge', array('table' => 'remember_me', 'job' => '04', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Purge Login Sessions') ?></a>
+            <a href="<?= $this->url->href('CleaningController', 'confirmRememberMeDuplicatesPurge', array('table' => 'remember_me', 'job' => '04', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Delete Duplicate Sessions') ?></a>
         </div>
     </fieldset>
 </div>
