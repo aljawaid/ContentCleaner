@@ -51,5 +51,17 @@
             {"subtasks": ["duedate"]}
         ],
         "plugin_schema_version": 1
+    },
+    "6": {
+        "plugin_title": "Wiki",
+        "plugin_name": "wiki",
+        "plugin_author": "lastlink",
+        "plugin_url": "https://github.com/funktechno/kanboard-plugin-wiki",
+        "checked_upto_plugin_version": "0.3.3",
+        "plugin_tables": ["wikipage", "wikipage_has_files", "wikipage_editions"],
+        "core_table_entries": [
+            {"settings": ["persistEditions"]}
+        ],
+        "plugin_schema_version": 8
     }
 }
