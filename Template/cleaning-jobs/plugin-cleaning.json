@@ -1,14 +1,4 @@
 {
-  "2": {
-    "plugin_name": "costcontrol",
-    "plugin_author": "aljawaid",
-    "checked_upto_plugin_version": "1.0",
-    "plugin_tables": ["hourly_rates", "budget_lines"],
-    "core_table_columns": [
-      {"currencies": ["last_modified", "comment", "live_rate", "live_rate_updated"]}
-    ],
-    "plugin_schema_version": 1
-  }
     "1": {
         "plugin_name": "metamagik",
         "plugin_author": "Craig Crosby",
@@ -17,4 +7,15 @@
         "plugin_tables": ["metadata_has_type", "metadata_types"],
         "plugin_schema_version": 7
     },
+    "2": {
+        "plugin_name": "costcontrol",
+        "plugin_author": "aljawaid",
+        "plugin_url": "https://github.com/aljawaid/CostControl",
+        "checked_upto_plugin_version": "1.1",
+        "plugin_tables": ["hourly_rates", "budget_lines"],
+        "core_table_columns": [
+            {"currencies": ["last_modified", "comment", "live_rate", "live_rate_updated"]}
+        ],
+        "plugin_schema_version": 1
+    }
 }
