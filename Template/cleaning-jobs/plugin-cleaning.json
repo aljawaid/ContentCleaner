@@ -63,5 +63,17 @@
             {"settings": ["persistEditions"]}
         ],
         "plugin_schema_version": 8
+    },
+    "7": {
+        "plugin_title": "TemplateManager",
+        "plugin_name": "templatemanager",
+        "plugin_author": "aljawaid",
+        "plugin_url": "https://github.com/aljawaid/TemplateManager",
+        "checked_upto_plugin_version": "2.6",
+        "plugin_tables": ["comment_templates", "global_templates"],
+        "core_table_columns": [
+            {"predefined_task_descriptions": ["topic", "note", "instructions"]}
+        ],
+        "plugin_schema_version": 1
     }
 }
