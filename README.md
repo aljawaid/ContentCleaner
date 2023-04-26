@@ -25,6 +25,12 @@ Features
   - Delete `Remember Me` Login Sessions
   - Delete Duplicate `Remember Me` Login Sessions
 - **Plugin Cleaning Jobs:**
+  - Remove [MetaMagik](https://github.com/creecros/MetaMagik "A Kanboard plugin") data
+  - Remove [CostControl](https://github.com/aljawaid/CostControl "A Kanboard plugin") data
+  - Remove [Bigboard](https://github.com/BlueTeck/kanboard_plugin_bigboard "A Kanboard plugin") data
+  - Remove [Group_assign](https://github.com/creecros/Group_assign "A Kanboard plugin") data
+  - Remove [SubtaskDueDate](https://github.com/eSkiSo/Subtaskdate "A Kanboard plugin") data
+  - Remove [Wiki](https://github.com/funktechno/kanboard-plugin-wiki "A Kanboard plugin") data
   - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin") data
 
 
