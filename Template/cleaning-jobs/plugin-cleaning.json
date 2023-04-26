@@ -1,5 +1,6 @@
 {
     "1": {
+        "plugin_title": "MetaMagik",
         "plugin_name": "metamagik",
         "plugin_author": "Craig Crosby",
         "plugin_url": "https://github.com/creecros/MetaMagik",
@@ -8,6 +9,7 @@
         "plugin_schema_version": 7
     },
     "2": {
+        "plugin_title": "CostControl",
         "plugin_name": "costcontrol",
         "plugin_author": "aljawaid",
         "plugin_url": "https://github.com/aljawaid/CostControl",
@@ -19,6 +21,7 @@
         "plugin_schema_version": 1
     },
     "3": {
+        "plugin_title": "Bigboard",
         "plugin_name": "bigboard",
         "plugin_author": "BlueTeck",
         "plugin_url": "https://github.com/BlueTeck/kanboard_plugin_bigboard",
@@ -27,6 +30,7 @@
         "plugin_schema_version": 4
     },
     "4": {
+        "plugin_title": "Group_assign",
         "plugin_name": "group_assign",
         "plugin_author": "Craig Crosby",
         "plugin_url": "https://github.com/creecros/Group_assign",
