@@ -25,5 +25,16 @@
         "checked_upto_plugin_version": "1.5.1",
         "plugin_tables": ["bigboard_collapsed", "bigboard_selected"],
         "plugin_schema_version": 4
+    },
+    "4": {
+        "plugin_name": "group_assign",
+        "plugin_author": "Craig Crosby",
+        "plugin_url": "https://github.com/creecros/Group_assign",
+        "checked_upto_plugin_version": "1.8.2",
+        "plugin_tables": ["multiselect", "multiselect_has_users"],
+        "core_table_columns": [
+            {"tasks": ["owner_gp", "owner_ms"]}
+        ],
+        "plugin_schema_version": 3
     }
 }
