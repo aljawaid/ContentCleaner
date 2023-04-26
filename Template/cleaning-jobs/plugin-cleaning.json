@@ -17,5 +17,13 @@
             {"currencies": ["last_modified", "comment", "live_rate", "live_rate_updated"]}
         ],
         "plugin_schema_version": 1
+    },
+    "3": {
+        "plugin_name": "bigboard",
+        "plugin_author": "BlueTeck",
+        "plugin_url": "https://github.com/BlueTeck/kanboard_plugin_bigboard",
+        "checked_upto_plugin_version": "1.5.1",
+        "plugin_tables": ["bigboard_collapsed", "bigboard_selected"],
+        "plugin_schema_version": 4
     }
 }
