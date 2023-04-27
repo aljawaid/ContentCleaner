@@ -1,6 +1,6 @@
 # ContentCleaner
-
-#### _Plugin for [Kanboard](https://github.com/fguillot/kanboard "Kanboard - Kanban Project Management Software")_
+![GitHub All Releases](https://img.shields.io/github/downloads/aljawaid/ContentCleaner/total?style=for-the-badge "GitHub All Downloads")
+#### _Plugin for [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software")_
 
 This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins. Keep your database clean and free from cluttered and expired data using cleaning jobs to solve specific application issues.
 
@@ -52,14 +52,12 @@ Screenshots
 
 Usage
 -------------
-
 Go to `Settings` &#10562; Content Cleaner
 
 
 Compatibility
 -------------
-
-- Requires [Kanboard](https://github.com/fguillot/kanboard "Kanboard - Kanban Project Management Software") ≥`1.2.20`
+- Requires [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software") ≥`1.2.20`
 
 #### Other Plugins & Action Plugins
 - _No known issues_
@@ -72,7 +70,6 @@ Compatibility
 
 Changelog
 ---------
-
 Read the full [**Changelog**](../master/changelog.md "See changes")
  
 
@@ -83,13 +80,10 @@ Installation
 
 Translations
 ------------
-
-- _Contributors welcome_
 - _Starter template available_
 
 Authors & Contributors
 ----------------------
-
 - [@aljawaid](https://github.com/aljawaid) - Author
 - [Craig Crosby](https://github.com/creecros) - Contributor
 - [Alfred Bühler](https://github.com/alfredbuehler) - Contributor
