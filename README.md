@@ -1,12 +1,11 @@
 # ContentCleaner
-![GitHub All Releases](https://img.shields.io/github/downloads/aljawaid/ContentCleaner/total?style=for-the-badge "GitHub All Downloads")
-#### _Plugin for [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software")_
+![GitHub All Releases](https://img.shields.io/github/downloads/aljawaid/ContentCleaner/total?style=for-the-badge "GitHub All Downloads") - **_A Plugin for [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software")_**
 
 This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins. Keep your database clean and free from cluttered and expired data using cleaning jobs to solve specific application issues.
 
 
-Features
--------------
+## Features
+
 - Show a detailed database summary
   - Display extra tables which are created by plugins
   - Delete extra tables directly from the database
@@ -34,8 +33,7 @@ Features
   - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin") data
 
 
-Screenshots
-----------
+## Screenshots
 
 **Database Summary**  
 
@@ -50,46 +48,49 @@ Screenshots
 ![Summary](../master/Screenshots/screenshot-auto-cleaning-jobs.png "Automatic Cleaning Jobs")
 
 
-Usage
--------------
+## Usage
+
 Go to `Settings` &#10562; Content Cleaner
 
 
-Compatibility
--------------
-- Requires [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software") ≥`1.2.20`
+## Installation & Compatibility
 
-#### Other Plugins & Action Plugins
-- _No known issues_
-- Compatible with [PluginManager](https://github.com/aljawaid/PluginManager)
-#### Core Files & Templates
-- _No template overrides_
-- _No database changes are made by this plugin other than the deletion of database content_
-- MS SQL databases are not supported
+<details>
+    <summary><strong>Installation</strong></summary>
 
-
-Changelog
----------
-Read the full [**Changelog**](../master/changelog.md "See changes")
- 
-
-Installation
-------------
 - Install via the **[Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software") Plugin Directory** or see [INSTALL.md](../master/INSTALL.md)
+- Read the full [**Changelog**](../master/changelog.md "See changes") to see the latest updates
 
+</details>
+<details>
+    <summary><strong>Compatibility</strong></summary>
 
-Translations
-------------
+- Requires [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software") ≥`1.2.20`
+- **Other Plugins & Action Plugins**
+  - _No known issues_
+  - Compatible with [PluginManager](https://github.com/aljawaid/PluginManager)
+- **Core Files & Templates**
+  - _No template overrides_
+  - _No database changes are made by this plugin other than the deletion of database content_
+  - MS SQL databases are not supported
+
+</details>
+<details>
+    <summary><strong>Translations</strong></summary>
+
 - _Starter template available_
 
-Authors & Contributors
-----------------------
+</details>
+
+
+## Authors & Contributors
+
 - [@aljawaid](https://github.com/aljawaid) - Author
 - [Craig Crosby](https://github.com/creecros) - Contributor
 - [Alfred Bühler](https://github.com/alfredbuehler) - Contributor
 - _Contributors welcome_
 
 
-License
--------
+## License
+
 - This project is distributed under the [MIT License](../master/LICENSE "Read The MIT license")
