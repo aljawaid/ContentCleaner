@@ -1,8 +1,10 @@
-# ContentCleaner
+<h1 name="readme-top">ContentCleaner</h1>
+
 ![GitHub All Releases](https://img.shields.io/github/downloads/aljawaid/ContentCleaner/total?style=for-the-badge "GitHub All Downloads") - **_A plugin for [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software")_**
 
 This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins. Keep your database clean and free from cluttered and expired data using cleaning jobs to solve specific application issues.
 
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>]</p>
 
 ## Features
 
@@ -32,6 +34,7 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
   - Remove [Wiki](https://github.com/funktechno/kanboard-plugin-wiki "A Kanboard plugin") data
   - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin") data
 
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Screenshots
 
@@ -47,11 +50,13 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
 
 ![Summary](../master/Screenshots/screenshot-auto-cleaning-jobs.png "Automatic Cleaning Jobs")
 
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Usage
 
 Go to `Settings` &#10562; Content Cleaner
 
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Installation & Compatibility
 
@@ -82,6 +87,7 @@ Go to `Settings` &#10562; Content Cleaner
 
 </details>
 
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Authors & Contributors
 
@@ -90,7 +96,11 @@ Go to `Settings` &#10562; Content Cleaner
 - [Alfred Bühler](https://github.com/alfredbuehler) - Contributor
 - _Contributors welcome_
 
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## License
 
 - This project is distributed under the [MIT License](../master/LICENSE "Read The MIT license")
+
+<a name="readme-bottom"></a>
+<p align="right">[<a href="#readme-top">&#8593; Top</a>]</p>
