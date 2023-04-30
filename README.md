@@ -15,7 +15,7 @@
 
 This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins. Keep your database clean and free from cluttered and expired data using cleaning jobs to solve specific application issues.
 
-<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>]</p>
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#screenshots">&#8594; Next</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Features
 
@@ -45,7 +45,7 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
   - Remove [Wiki](https://github.com/funktechno/kanboard-plugin-wiki "A Kanboard plugin") data
   - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin") data
 
-<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#features">&#8592; Previous</a>] [<a href="#usage">&#8594; Next</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Screenshots
 
@@ -61,13 +61,13 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
 
 ![Summary](../master/Screenshots/screenshot-auto-cleaning-jobs.png "Automatic Cleaning Jobs")
 
-<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#features">&#8592; Previous</a>] [<a href="#installation--compatibility">&#8594; Next</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Usage
 
 Go to `Settings` &#10562; Content Cleaner
 
-<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#screenshots">&#8592; Previous</a>] [<a href="#authors--contributors">&#8594; Next</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Installation & Compatibility
 
@@ -98,7 +98,7 @@ Go to `Settings` &#10562; Content Cleaner
 
 </details>
 
-<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#usage">&#8592; Previous</a>] [<a href="#license">&#8594; Next</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## Authors & Contributors
 
@@ -107,7 +107,7 @@ Go to `Settings` &#10562; Content Cleaner
 - [Alfred Bühler](https://github.com/alfredbuehler) - Contributor
 - _Contributors welcome_
 
-<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
+<p align="right">[<a href="#readme-bottom">&#8595; Bottom</a>] [<a href="#installation--compatibility">&#8592; Previous</a>] [<a href="#readme-top">&#8593; Top</a>]</p>
 
 ## License
 
