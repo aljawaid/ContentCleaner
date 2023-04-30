@@ -16,7 +16,7 @@ class ApplicationCleaningModel extends Base
 
     public function countTables()
     {
-        //return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ''. DB_NAME .'' AND TABLE_TYPE = 'BASE TABLE';');
+        // return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ''. DB_NAME .'' AND TABLE_TYPE = 'BASE TABLE';');
 
         switch (DB_DRIVER) {
             case 'sqlite':
@@ -51,7 +51,7 @@ class ApplicationCleaningModel extends Base
 
     public function getTables()
     {
-        // Find all Tables
+        // FIND ALL TABLES
 
         switch (DB_DRIVER) {
             case 'sqlite':
@@ -103,6 +103,7 @@ class ApplicationCleaningModel extends Base
     {
         // FOR DATABASE SIZE
         // SELECT table_schema "dbname", ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" FROM information_schema.tables WHERE table_schema = 'dbname' GROUP BY table_schema;
+
         switch (DB_DRIVER) {
             case 'mysql':
                 return $this->db->table($this->getTable())
@@ -129,6 +130,7 @@ class ApplicationCleaningModel extends Base
     public function getRememberMeOld()
     {
         // FIND ALL DUPLICATE RECORDS IN `REMEMBER_ME` TABLE
+
         switch (DB_DRIVER) {
             case 'sqlite':
                 $result = $this->db->execute('
@@ -172,7 +174,8 @@ class ApplicationCleaningModel extends Base
 
     public function deleteRememberMeOld()
     {
-        // delete duplicate records but keep latest
+        // DELETE ALL DUPLICATES BUT KEEP THE LATEST RECORD
+
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('
@@ -212,6 +215,7 @@ class ApplicationCleaningModel extends Base
     {
         // EMPTY ALL 'REMEMBER ME' SESSION ENTRIES FROM THE 'REMEMBER_ME' TABLE
         // EMPTY ALL SESSION ENTRIES FROM THE `SESSIONS` TABLE
+
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('DELETE FROM TABLE remember_me');
@@ -229,12 +233,15 @@ class ApplicationCleaningModel extends Base
 
     public function getRememberMeCount()
     {
+        // COUNT ALL ENTRIES
+
         return $this->db->table('remember_me')->count();
     }
 
     public function flushSessionsAll()
     {
         // EMPTY ALL SESSION ENTRIES FROM THE `SESSIONS` TABLE
+
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('DELETE FROM TABLE sessions');
@@ -252,7 +259,7 @@ class ApplicationCleaningModel extends Base
 
     public function delete($table)
     {
-        // delete table
+        // DELETE TABLE
         
         switch (DB_DRIVER) {
             case 'sqlite':
@@ -271,7 +278,8 @@ class ApplicationCleaningModel extends Base
 
     public function deleteColumn($table, $column)
     {
-        // delete table
+        // DELETE COLUMN FROM TABLE
+
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('ALTER TABLE ' . $table . ' DROP COLUMN '. $column . ';');
@@ -289,7 +297,8 @@ class ApplicationCleaningModel extends Base
 
     public function purgeUninstalledPluginSchemas()
     {
-        // purge plugin schemas
+        // PURGE PLUGIN SCHEMAS
+
         $installed_plugins = array();
         $plugins = $this->pluginLoader->getPlugins();
 
@@ -314,6 +323,7 @@ class ApplicationCleaningModel extends Base
     public function resetSettings($fields = array())
     {
         // RESET VALUES
+
         $table = 'settings';
 
         foreach ($fields as $key => $value) {
@@ -331,8 +341,10 @@ class ApplicationCleaningModel extends Base
 
     public function getColumns($table)
     {
+        // FIND ALL COLUMNS
+
         $columnNames = array();
-        // find all columns
+
         switch (DB_DRIVER) {
             case 'sqlite':
                 $columns = $this->db->execute("PRAGMA table_info($table)");
@@ -358,7 +370,6 @@ class ApplicationCleaningModel extends Base
                     $columnNames[] = $column['Field'];
                 }
         }
-        
 
         return $columnNames;
     }
