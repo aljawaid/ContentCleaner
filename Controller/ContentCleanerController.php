@@ -29,7 +29,6 @@ class ContentCleanerController extends \Kanboard\Controller\PluginController
             'title' => t('Settings') .' &#10562; '.t('Content Cleaner'),
             'db_size' => $this->configModel->getDatabaseSize(),
             'db_version' => $this->db->getDriver()->getDatabaseVersion(),
-            'deletable_plugins' => PluginCleaningController::getInstance($this->container)->getDeletablePlugins(),
         )));
     }
 }
