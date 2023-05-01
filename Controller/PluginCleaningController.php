@@ -5,7 +5,6 @@ namespace Kanboard\Plugin\ContentCleaner\Controller;
 use Kanboard\Controller\BaseController;
 use Kanboard\Core\Plugin\Directory;
 use Kanboard\Core\Controller\PageNotFoundException;
-use Kanboard\Core\Http\Client;
 
 /**
  * Plugin ContentCleaner
@@ -21,7 +20,7 @@ class PluginCleaningController extends BaseController
         // 'template/cleaning-jobs/plugin-cleaning.json'
 
         $url = PLUGINS_DIR . '/ContentCleaner/Template/cleaning-jobs/plugin-cleaning.json';
-        $plugins = $this->httpClient->getJson($url);
+        $plugins = file_get_contents(json_decode($url));
         return $plugins;
     }
 }
