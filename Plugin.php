@@ -29,6 +29,7 @@ class Plugin extends Base
         //  - Add each Helper in the 'use' section at the top of this file
         $this->helper->register('cleaningHelper', '\Kanboard\Plugin\ContentCleaner\Helper\CleaningHelper');
         $this->helper->register('defaultTableHelper', '\Kanboard\Plugin\ContentCleaner\Helper\DefaultTableHelper');
+        $this->helper->register('pluginCleaningHelper', '\Kanboard\Plugin\ContentCleaner\Helper\PluginCleaningHelper');
     }
 
     public function onStartup()
