@@ -15,4 +15,13 @@ use Kanboard\Core\Http\Client;
 
 class PluginCleaningController extends BaseController
 {
+    public function getDeletablePlugins()
+    {
+        // GET THE JSON OF PLUGINS WHICH CAN BE DELETED
+        // 'template/cleaning-jobs/plugin-cleaning.json'
+
+        $url = PLUGINS_DIR . '/ContentCleaner/Template/cleaning-jobs/plugin-cleaning.json';
+        $plugins = $this->httpClient->getJson($url);
+        return $plugins;
+    }
 }
