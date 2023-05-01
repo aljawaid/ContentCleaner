@@ -150,6 +150,7 @@ li.more {
     padding-top: 0;
     margin-top: 5px;
     display: block;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .job-title {
@@ -223,6 +224,7 @@ fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
     transition: var(--transition-c-cleaner);
     margin: 0;
     margin-right: -6px;
+    text-decoration: none;
 }
 
 fieldset.job-wrapper a.job-btn:hover {
@@ -340,6 +342,7 @@ li.job-result-title i.fa-check::before {
     background: rgba(244, 41, 14, .2);
     padding: 0 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
+    margin-right: 10px;
 }
 
 .job-tables-data {
@@ -536,4 +539,26 @@ li.job-columns-list ol.column-list {
 
 .alert-fade-out, .alert-error {
     animation: fadeout 10s linear forwards;
+}
+
+fieldset.plugin-job-wrapper {
+    padding: 10px 15px 15px 10px;
+    position: relative;
+    display: block;
+    width: auto;
+}
+
+.job-plugin-table {
+    margin-block-end: 5px;
+}
+
+.job-tables-title .content-cleaner-tooltip {
+    float: right;
+    margin-right: 5px;
+}
+
+fieldset.plugin-job-wrapper .form-actions {
+    bottom: 6px;
+    position: absolute;
+    right: 13px;
 }
