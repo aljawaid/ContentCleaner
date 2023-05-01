@@ -19,8 +19,8 @@ class PluginCleaningController extends BaseController
         // GET THE JSON OF PLUGINS WHICH CAN BE DELETED
         // 'template/cleaning-jobs/plugin-cleaning.json'
 
-        $url = PLUGINS_DIR . '/ContentCleaner/Template/cleaning-jobs/plugin-cleaning.json';
-        $plugins = file_get_contents(json_decode($url));
+        $file = PLUGINS_DIR . '/ContentCleaner/Template/cleaning-jobs/plugin-cleaning.json';
+        $plugins = json_decode(file_get_contents($file), true);
         return $plugins;
     }
 }
