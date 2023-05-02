@@ -22,6 +22,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '7.4-'
+          ini-values: short_open_tag=On
           coverage: none
 
       - name: php-compatibility run
