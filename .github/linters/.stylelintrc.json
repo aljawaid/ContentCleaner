@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
+    "no-extra-semicolons": true,
     "number-leading-zero": "never",
     "shorthand-property-no-redundant-values": null,
     "comment-whitespace-inside": "always",
@@ -26,6 +27,7 @@
       {
         "message": "Expected CSS Selector ID pattern to be CamelCase"
       }
-    ]
+    ],
+    "value-list-comma-space-after": "always"
   }
 }
