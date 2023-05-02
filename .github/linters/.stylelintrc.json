@@ -1,7 +1,6 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "length-zero-no-unit": true,
     "number-leading-zero": "never",
     "shorthand-property-no-redundant-values": null,
     "comment-whitespace-inside": "always",
