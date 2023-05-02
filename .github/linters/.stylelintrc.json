@@ -28,6 +28,7 @@
         "message": "Expected CSS Selector ID pattern to be CamelCase"
       }
     ],
-    "value-list-comma-space-after": "always"
+    "value-list-comma-space-after": "always",
+    "color-function-notation": "legacy"
   }
 }
