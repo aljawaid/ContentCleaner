@@ -1,0 +1,19 @@
+name: CSS
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  linters:
+    name: CSS Compatibility
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions-hub/stylelint@master
+        env:
+          PATTERN: "*.css"
+          INDENT_SPACES: 4
