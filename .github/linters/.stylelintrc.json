@@ -1,15 +1,26 @@
 {
   "extends": "stylelint-config-standard",
   "rules": {
-    "max-empty-lines": 4,
-    "string-quotes": "single",
-    "function-url-quotes": "single",
-    "color-hex-length": "long",
-    "media-feature-no-missing-punctuation": null,
-    "declaration-colon-newline-after": null,
-    "font-family-name-quotes": null,
+    "length-zero-no-unit": true,
     "number-leading-zero": "never",
+    "shorthand-property-no-redundant-values": null,
+    "comment-whitespace-inside": "always",
+    "font-family-name-quotes": "always-where-recommended",
+    "font-weight-notation": ["numeric", { "severity": ["warning"] }],
+    "color-no-invalid-hex": true,
+    "color-hex-case": "upper",
+    "color-hex-length": ["long", { "severity": ["warning"] }],
+    "alpha-value-notation": "number",
     "value-list-comma-newline-after": null,
-    "max-nesting-depth": 2
+    "length-zero-no-unit": true,
+    "no-descending-specificity": null,
+    "string-quotes": "double",
+    "selector-type-case": "lower",
+    "selector-id-pattern": [
+      "([A-Z][a-z0-9]+)((\\d)|([A-Z0-9][a-z0-9]+))*([A-Z])?",
+      {
+        "message": "Expected CSS Selector ID pattern to be CamelCase"
+      }
+    ]
   }
 }
