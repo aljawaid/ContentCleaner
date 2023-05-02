@@ -1,3 +1,5 @@
+<?php foreach ($deletable_plugins as $plugin): ?>
+
 <!-- ContentCleaner: PLUGIN CLEANING JOB 01 -->
 <?php $plugin_job_1 = 'Plugin'; ?>
 <div class="job-section-wrapper">
@@ -79,3 +81,5 @@
         </div>
     </fieldset>
 </div>
+
+<?php endforeach ?>
