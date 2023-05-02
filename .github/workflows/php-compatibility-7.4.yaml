@@ -25,7 +25,7 @@ jobs:
           ini-values: short_open_tag=On
           coverage: none
 
-      - name: php-compatibility run
+      - name: Run PHP Compatibility
         uses: pantheon-systems/phpcompatibility-action@v1
         with:
           test-versions: '7.4-'
