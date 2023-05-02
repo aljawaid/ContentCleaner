@@ -8,10 +8,7 @@
     "font-weight-notation": ["numeric", { "severity": ["warning"] }],
     "color-no-invalid-hex": true,
     "color-hex-case": "upper",
-    "color-hex-length": [
-      "long",
-      { "severity": "warning" }
-    ],
+    "color-hex-length": "long",
     "alpha-value-notation": "number",
     "value-list-comma-newline-after": null,
     "length-zero-no-unit": true,
