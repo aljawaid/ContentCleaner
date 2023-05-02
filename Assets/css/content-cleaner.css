@@ -15,13 +15,13 @@
     --pp-orange: #FF6500;
     --pp-orange-c-cleaner: #F4290E;
     --blue-icon-dark: #034CA6;
-    --button-blue-gradient: linear-gradient(to bottom, #7892c2 80%, #476e9e 100%);
+    --button-blue-gradient: linear-gradient(to bottom, #7892C2 80%, #476E9E 100%);
     --blue-border-gradient-match: #476E9E;
     --button-background-delete: #D05C84;
-    --link-color-primary: #36C;
+    --link-color-primary: #3366CC;
     --header-page-margin-c-cleaner: 5px 15px 10px 15px;
-    --page-margin-c-cleaner: 0px 15px 0px 15px;
-    --title-margin-c-cleaner: 0px 15px 0px 15px;
+    --page-margin-c-cleaner: 0 15px 0 15px;
+    --title-margin-c-cleaner: 0 15px 0 15px;
     --border-radius-c-cleaner: 3px;
     --panel-background-c-cleaner: #EEEEEE;
     --transition-c-cleaner: ease-in-out all .3s;
@@ -40,15 +40,9 @@
 .pp-dark-green { color: var(--pp-green-dark); fill: var(--pp-green-dark); }
 .pp-orange { color: var(--pp-orange); fill: var(--pp-orange); }
 
-/*a, details, summary, i, img, table, tr, svg, figure, button {
-    transition: var(--transition-c-cleaner);
-}*/
-
-/*a:hover { color: var(--pp-red-alt-2) !important; }*/
-
 .display-none, .d-none { display: none !important; }
 
-.font-weight-bold { font-weight: bold; }
+.font-weight-bold { font-weight: 700; }
 
 .text-center { text-align: center; }
 
@@ -140,7 +134,7 @@ li.more {
     margin: 10px;
     border: 1px solid var(--pp-grey);
     border-radius: var(--border-radius-c-cleaner);
-    box-shadow: 0px 0px 2px 0px var(--pp-grey);
+    box-shadow: 0 0 2px 0 var(--pp-grey);
     vertical-align: middle;
     height: 200px;
 }
@@ -205,14 +199,14 @@ li.more {
 
 .job-result-text code {
     font-size: .9em;
-    background-color: rgba(27, 31, 35, 0.22);
+    background-color: rgba(27, 31, 35, .22);
     color: var(--pp-black);
     line-height: 2;
     margin: auto 1px;
     padding: 1px 3px 2px 3px;
-    font-family: Monospace;
+    font-family: monospace;
     border-radius: 2px;
-    letter-spacing: 0.06rem;
+    letter-spacing: .06rem;
 }
 
 fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
@@ -338,7 +332,7 @@ li.job-result-title i.fa-check::before {
 }
 
 .job-tables-table {
-    margin-left: -0.20em;
+    margin-left: -.20em;
     background: rgba(244, 41, 14, .2);
     padding: 0 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
@@ -346,7 +340,7 @@ li.job-result-title i.fa-check::before {
 }
 
 .job-tables-data {
-    margin-left: -0.20em;
+    margin-left: -.20em;
 }
 
 .table-count-badge {
@@ -560,5 +554,5 @@ fieldset.plugin-job-wrapper {
 fieldset.plugin-job-wrapper .form-actions {
     bottom: 6px;
     position: absolute;
-    right: 13px;;;;;;
+    right: 13px;;
 }
