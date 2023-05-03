@@ -149,13 +149,27 @@ Go to `Settings` &#10562; Content Cleaner
 ---
 
 <h3 align="center">
-    <a href="https://github.com/aljawaid/ContentCleaner/stargazers" title="View Stargazers"><img src="https://img.shields.io/github/stars/aljawaid/ContentCleaner?logo=github&style=flat-square" alt="ContentCleaner"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/forks" title="See Forks"><img src="https://img.shields.io/github/forks/aljawaid/ContentCleaner?logo=github&style=flat-square" alt="ContentCleaner"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/blob/master/LICENSE" title="Read License"><img src="https://img.shields.io/github/license/aljawaid/ContentCleaner?style=flat-square" alt="ContentCleaner"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/issues" title="Open Issues"><img src="https://img.shields.io/github/issues-raw/aljawaid/ContentCleaner?style=flat-square" alt="ContentCleaner"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/issues?q=is%3Aissue+is%3Aclosed" title="Closed Issues"><img src="https://img.shields.io/github/issues-closed/aljawaid/ContentCleaner?style=flat-square" alt="ContentCleaner"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/discussions" title="Read Discussions"><img src="https://img.shields.io/github/discussions/aljawaid/ContentCleaner?style=flat-square" alt="ContentCleaner"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/compare/" title="Latest Commits"><img alt="GitHub commits since latest release (by date)" src="https://img.shields.io/github/commits-since/aljawaid/ContentCleaner/latest?style=flat-square"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/stargazers" title="View Stargazers">
+        <img src="https://img.shields.io/github/stars/aljawaid/ContentCleaner?logo=github&style=flat-square" alt="ContentCleaner">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/forks" title="See Forks">
+        <img src="https://img.shields.io/github/forks/aljawaid/ContentCleaner?logo=github&style=flat-square" alt="ContentCleaner">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/blob/master/LICENSE" title="Read License">
+        <img src="https://img.shields.io/github/license/aljawaid/ContentCleaner?style=flat-square" alt="ContentCleaner">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/issues" title="Open Issues">
+        <img src="https://img.shields.io/github/issues-raw/aljawaid/ContentCleaner?style=flat-square" alt="ContentCleaner">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/issues?q=is%3Aissue+is%3Aclosed" title="Closed Issues">
+        <img src="https://img.shields.io/github/issues-closed/aljawaid/ContentCleaner?style=flat-square" alt="ContentCleaner">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/discussions" title="Read Discussions">
+        <img src="https://img.shields.io/github/discussions/aljawaid/ContentCleaner?style=flat-square" alt="ContentCleaner">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/compare/" title="Latest Commits">
+        <img alt="GitHub commits since latest release (by date)" src="https://img.shields.io/github/commits-since/aljawaid/ContentCleaner/latest?style=flat-square">
+    </a>
 </h3>
 <a name="readme-bottom"></a>
 <p align="right">[<a href="#readme-top">&#8593; Top</a>]</p>
