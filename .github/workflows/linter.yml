@@ -4,7 +4,7 @@
 ## Super Linter GitHub Actions ##
 #################################
 #################################
-name: Code Scanning
+name: Code Scan
 
 #
 # Documentation:
@@ -27,7 +27,7 @@ on:
 jobs:
   build:
     # Name the Job
-    name: Lint Code Base
+    name: Check Code
     # Set the agent to run on
     runs-on: ubuntu-latest
 
@@ -85,3 +85,4 @@ jobs:
           VALIDATE_SQLFLUFF: true
           VALIDATE_XML: true
           VALIDATE_YAML: true
+          MARKDOWN_CONFIG_FILE: .markdownlint.json
