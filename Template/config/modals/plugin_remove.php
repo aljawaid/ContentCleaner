@@ -1,1 +1,3 @@
-<?= t('Remove Plugin') ?>
+<div class="">
+    <?= t('Remove Plugin') ?>
+</div>
