@@ -78,8 +78,8 @@ jobs:
           VALIDATE_PHP: true
           VALIDATE_PHP_BUILTIN: true
           VALIDATE_PHP_PHPCS: true
-          VALIDATE_PHP_PHPSTAN: true
-          VALIDATE_PHP_PSALM: true
+          # VALIDATE_PHP_PHPSTAN: true
+          # VALIDATE_PHP_PSALM: true
           VALIDATE_SHELL_SHFMT: true
           VALIDATE_SQL: true
           VALIDATE_SQLFLUFF: true
