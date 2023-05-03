@@ -1,16 +1,34 @@
 <h1 name="readme-top">ContentCleaner</h1>
 <p align="center">
-    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/v/release/aljawaid/ContentCleaner?style=for-the-badge&color=brightgreen" alt="GitHub Latest Release (by date)" title="GitHub Latest Release (by date)"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/downloads/aljawaid/ContentCleaner/total?style=for-the-badge&color=orange" alt="GitHub All Releases" title="GitHub All Downloads"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/directory-file-count/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Repository File Count" title="GitHub Repository File Count"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/repo-size/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Repository Size" title="GitHub Repository Size"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/languages/code-size/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Code Size" title="GitHub Code Size"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases">
+        <img src="https://img.shields.io/github/v/release/aljawaid/ContentCleaner?style=for-the-badge&color=brightgreen" alt="GitHub Latest Release (by date)" title="GitHub Latest Release (by date)">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases">
+        <img src="https://img.shields.io/github/downloads/aljawaid/ContentCleaner/total?style=for-the-badge&color=orange" alt="GitHub All Releases" title="GitHub All Downloads">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases">
+        <img src="https://img.shields.io/github/directory-file-count/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Repository File Count" title="GitHub Repository File Count">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases">
+        <img src="https://img.shields.io/github/repo-size/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Repository Size" title="GitHub Repository Size">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases">
+        <img src="https://img.shields.io/github/languages/code-size/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Code Size" title="GitHub Code Size">
+    </a>
 </p>
 <p align="center">
-    <a href="https://github.com/aljawaid/ContentCleaner/discussions" title="Read Discussions"><img src="https://img.shields.io/github/discussions/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Discussions" title="GitHub Discussions"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/compare" title="Latest Commits"><img src="https://img.shields.io/github/commits-since/aljawaid/ContentCleaner/latest?include_prereleases&style=for-the-badge&color=blue" alt="GitHub Commits Since Last Release" title="GitHub Commits Since Last Release"></a>
-    <a href="https://github.com/aljawaid/ContentCleaner/compare" title="Latest Commits"><img src="https://img.shields.io/github/commit-activity/m/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Commit Monthly Activity" title="GitHub Commit Monthly Activity"></a>
-    <a href="https://github.com/kanboard/kanboard" title="Kanboard - Kanban Project Management Software"><img src="https://img.shields.io/badge/Plugin%20for-kanboard-D40000?style=for-the-badge&labelColor=000000" alt="Kanboard"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/discussions">
+        <img src="https://img.shields.io/github/discussions/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Discussions" title="Read Discussions">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/compare">
+        <img src="https://img.shields.io/github/commits-since/aljawaid/ContentCleaner/latest?include_prereleases&style=for-the-badge&color=blue" alt="GitHub Commits Since Last Release" title="GitHub Commits Since Last Release">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/compare">
+        <img src="https://img.shields.io/github/commit-activity/m/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Commit Monthly Activity" title="GitHub Commit Monthly Activity">
+    </a>
+    <a href="https://github.com/kanboard/kanboard" title="Kanboard - Kanban Project Management Software">
+        <img src="https://img.shields.io/badge/Plugin%20for-kanboard-D40000?style=for-the-badge&labelColor=000000" alt="Kanboard">
+    </a>
 </p>
 
 This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins. Keep your database clean and free from cluttered and expired data using cleaning jobs to solve specific application issues.
@@ -71,7 +89,20 @@ Go to `Settings` &#10562; Content Cleaner
 
 ## Installation & Compatibility
 
-[![GitHub Code Scanning](https://github.com/aljawaid/ContentCleaner/workflows/Code%20Scanning/badge.svg)](https://github.com/aljawaid/ContentCleaner/actions/workflows/linter.yml) [![PHP 7.4](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-7.4.yaml/badge.svg?branch=master&event=push)](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-7.4.yaml) [![PHP 8.0](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.0.yaml/badge.svg?branch=master&event=push)](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.0.yaml) [![PHP 8.2](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.2.yaml/badge.svg?branch=master&event=push)](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.2.yaml)
+<p align="left">
+    <a href="https://github.com/aljawaid/ContentCleaner/actions/workflows/linter.yml">
+        <img src="https://github.com/aljawaid/ContentCleaner/actions/workflows/linter.yml/badge.svg?branch=master&event=push" alt="Code Scanning" title="View Test">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-7.4.yaml">
+        <img src="https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-7.4.yaml/badge.svg?branch=master&event=push" alt="PHP Compatibility Test" title="View Test">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.0.yaml">
+        <img src="https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.0.yaml/badge.svg?branch=master&event=push" alt="PHP Compatibility Test" title="View Test">
+    </a>
+    <a href="https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.2.yaml">
+        <img src="https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.2.yaml/badge.svg?branch=master&event=push" alt="PHP Compatibility Test" title="View Test">
+    </a>
+</p>
 
 <details>
     <summary><strong>Installation</strong></summary>
