@@ -1,15 +1,15 @@
 <h1 name="readme-top">ContentCleaner</h1>
 <p align="center">
-    <img src="https://img.shields.io/github/v/release/aljawaid/ContentCleaner?style=for-the-badge&color=brightgreen" alt="GitHub Latest Release (by date)" title="GitHub Latest Release (by date)">
-    <img src="https://img.shields.io/github/downloads/aljawaid/ContentCleaner/total?style=for-the-badge&color=orange" alt="GitHub All Releases" title="GitHub All Downloads">
-    <img src="https://img.shields.io/github/directory-file-count/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Repository File Count" title="GitHub Repository File Count">
-    <img src="https://img.shields.io/github/repo-size/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Repository Size" title="GitHub Repository Size">
-    <img src="https://img.shields.io/github/languages/code-size/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Code Size" title="GitHub Code Size">
+    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/v/release/aljawaid/ContentCleaner?style=for-the-badge&color=brightgreen" alt="GitHub Latest Release (by date)" title="GitHub Latest Release (by date)"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/downloads/aljawaid/ContentCleaner/total?style=for-the-badge&color=orange" alt="GitHub All Releases" title="GitHub All Downloads"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/directory-file-count/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Repository File Count" title="GitHub Repository File Count"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/repo-size/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Repository Size" title="GitHub Repository Size"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/releases" title="View Releases"><img src="https://img.shields.io/github/languages/code-size/aljawaid/ContentCleaner?style=for-the-badge&color=orange" alt="GitHub Code Size" title="GitHub Code Size"></a>
 </p>
 <p align="center">
-    <img src="https://img.shields.io/github/discussions/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Discussions" title="GitHub Discussions">
-    <img src="https://img.shields.io/github/commits-since/aljawaid/ContentCleaner/latest?include_prereleases&style=for-the-badge&color=blue" alt="GitHub Commits Since Last Release" title="GitHub Commits Since Last Release">
-    <img src="https://img.shields.io/github/commit-activity/m/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Commit Monthly Activity" title="GitHub Commit Monthly Activity">
+    <a href="https://github.com/aljawaid/ContentCleaner/discussions" title="Read Discussions"><img src="https://img.shields.io/github/discussions/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Discussions" title="GitHub Discussions"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/compare" title="Latest Commits"><img src="https://img.shields.io/github/commits-since/aljawaid/ContentCleaner/latest?include_prereleases&style=for-the-badge&color=blue" alt="GitHub Commits Since Last Release" title="GitHub Commits Since Last Release"></a>
+    <a href="https://github.com/aljawaid/ContentCleaner/compare" title="Latest Commits"><img src="https://img.shields.io/github/commit-activity/m/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Commit Monthly Activity" title="GitHub Commit Monthly Activity"></a>
     <a href="https://github.com/kanboard/kanboard" title="Kanboard - Kanban Project Management Software"><img src="https://img.shields.io/badge/Plugin%20for-kanboard-D40000?style=for-the-badge" alt="Kanboard"></a>
 </p>
 
