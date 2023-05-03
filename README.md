@@ -71,7 +71,7 @@ Go to `Settings` &#10562; Content Cleaner
 
 ## Installation & Compatibility
 
-[![GitHub Code Scanning](https://github.com/aljawaid/ContentCleaner/workflows/Code%20Scanning/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Code Scanning](https://github.com/aljawaid/ContentCleaner/workflows/Code%20Scanning/badge.svg)](https://github.com/aljawaid/ContentCleaner/actions/workflows/linter.yml) [![PHP 7.0](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-7.0.yaml/badge.svg?branch=master&event=push)](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-7.0.yaml) [![PHP 7.4](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-7.4.yaml/badge.svg?branch=master&event=push)](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-7.4.yaml) [![PHP 8.0](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.0.yaml/badge.svg?branch=master&event=push)](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.0.yaml) [![PHP 8.2](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.2.yaml/badge.svg?branch=master&event=push)](https://github.com/aljawaid/ContentCleaner/actions/workflows/php-compatibility-8.2.yaml)
 
 <details>
     <summary><strong>Installation</strong></summary>
