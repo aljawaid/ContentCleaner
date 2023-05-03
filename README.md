@@ -29,8 +29,8 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
   - Each cleaning job is specific to a plugin or a default application setting
 - Deep clean the database from all plugins and plugin related data
 - **Automatic Cleaning Jobs:**
-  - Purge Unused Plugin Registration Entries 
-  - Clean All Unknown Tables and Columns 
+  - Purge Unused Plugin Registration Entries
+  - Clean All Unknown Tables and Columns
 - **Application Cleaning Jobs:**
   - Purge User Sessions
   - Restore Calendar Settings
