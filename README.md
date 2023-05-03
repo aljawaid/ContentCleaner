@@ -71,6 +71,8 @@ Go to `Settings` &#10562; Content Cleaner
 
 ## Installation & Compatibility
 
+[![GitHub Code Scanning](https://github.com/aljawaid/ContentCleaner/workflows/Code%20Scanning/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 <details>
     <summary><strong>Installation</strong></summary>
 
@@ -81,7 +83,6 @@ Go to `Settings` &#10562; Content Cleaner
 <details>
     <summary><strong>Compatibility</strong></summary>
 
-[![GitHub Code Scanning](https://github.com/aljawaid/ContentCleaner/workflows/Code%20Scanning/badge.svg)](https://github.com/marketplace/actions/super-linter)
 - Requires [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software") ≥`1.2.20`
 - **Other Plugins & Action Plugins**
   - _No known issues_
