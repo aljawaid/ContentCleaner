@@ -10,7 +10,7 @@
     <a href="https://github.com/aljawaid/ContentCleaner/discussions" title="Read Discussions"><img src="https://img.shields.io/github/discussions/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Discussions" title="GitHub Discussions"></a>
     <a href="https://github.com/aljawaid/ContentCleaner/compare" title="Latest Commits"><img src="https://img.shields.io/github/commits-since/aljawaid/ContentCleaner/latest?include_prereleases&style=for-the-badge&color=blue" alt="GitHub Commits Since Last Release" title="GitHub Commits Since Last Release"></a>
     <a href="https://github.com/aljawaid/ContentCleaner/compare" title="Latest Commits"><img src="https://img.shields.io/github/commit-activity/m/aljawaid/ContentCleaner?style=for-the-badge&color=blue" alt="GitHub Commit Monthly Activity" title="GitHub Commit Monthly Activity"></a>
-    <a href="https://github.com/kanboard/kanboard" title="Kanboard - Kanban Project Management Software"><img src="https://img.shields.io/badge/Plugin%20for-kanboard-D40000?style=for-the-badge" alt="Kanboard"></a>
+    <a href="https://github.com/kanboard/kanboard" title="Kanboard - Kanban Project Management Software"><img src="https://img.shields.io/badge/Plugin%20for-kanboard-D40000?style=for-the-badge&labelColor=000000" alt="Kanboard"></a>
 </p>
 
 This tool allows admins to cleanup their Kanboard database by selectively deleting useless data saved by Kanboard and leftover data after uninstalling plugins. Keep your database clean and free from cluttered and expired data using cleaning jobs to solve specific application issues.
