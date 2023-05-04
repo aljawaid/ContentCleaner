@@ -91,9 +91,9 @@ jobs:
           VALIDATE_XML: true
           VALIDATE_YAML: true
       - name: Save Debug Logfile
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          if-no-files-found: ignore
-          name: actions_job_debug.log
-          path: ${{ env.LOG_FILE }}
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        if-no-files-found: ignore
+        name: actions_job_debug.log
+        path: ${{ env.LOG_FILE }}
