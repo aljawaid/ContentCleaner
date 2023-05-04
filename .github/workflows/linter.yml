@@ -71,7 +71,7 @@ jobs:
           ACTIONS_RUNNER_DEBUG: true
           CREATE_LOG_FILE: true
           LOG_FILE: code-linter.log
-          LOG_LEVEL: VERBOSE
+          LOG_LEVEL: NOTICE
           ACTIONS_STEP_DEBUG: true
           VALIDATE_CSS: true
           VALIDATE_GITHUB_ACTIONS: true
@@ -98,4 +98,4 @@ jobs:
         with:
           if-no-files-found: ignore
           name: actions_job_debug.log
-          path: ${{ env.LOG_FILE }}
+          path: .github/logs
