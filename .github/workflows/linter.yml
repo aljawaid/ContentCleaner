@@ -68,6 +68,11 @@ jobs:
           LINTER_RULES_PATH: .github/linters
           MARKDOWN_CONFIG_FILE: .markdownlint.json
           PHP_CONFIG_FILE: php.ini
+          ACTIONS_RUNNER_DEBUG: true
+          CREATE_LOG_FILE: true
+          LOG_FILE: code-linter.log
+          LOG_LEVEL: VERBOSE
+          ACTIONS_STEP_DEBUG: true
           VALIDATE_CSS: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_GITLEAKS: true
@@ -87,3 +92,10 @@ jobs:
           VALIDATE_SQLFLUFF: true
           VALIDATE_XML: true
           VALIDATE_YAML: true
+      - name: Save Debug Logfile
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        if-no-files-found: ignore
+        name: actions_job_debug.log
+        path: ${{ env.LOG_FILE }}
