@@ -93,4 +93,4 @@ jobs:
           VALIDATE_XML: true
           VALIDATE_YAML: true
       - name: Adding Markdown to Tests Summary
-        run: echo '### Tests Summary' >> $GITHUB_STEP_SUMMARY
+        run: echo "### Tests Summary" >> $GITHUB_STEP_SUMMARY
