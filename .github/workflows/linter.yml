@@ -68,7 +68,6 @@ jobs:
           LINTER_RULES_PATH: .github/linters
           MARKDOWN_CONFIG_FILE: .markdownlint.json
           PHP_CONFIG_FILE: php.ini
-          # ACTIONS_RUNNER_DEBUG: true
           CREATE_LOG_FILE: true
           LOG_FILE: code-linter.log
           LOG_LEVEL: WARN
@@ -92,5 +91,3 @@ jobs:
           VALIDATE_SQLFLUFF: true
           VALIDATE_XML: true
           VALIDATE_YAML: true
-      - name: Adding Markdown to Tests Summary
-        run: echo "### Tests Summary" >> $GITHUB_STEP_SUMMARY
