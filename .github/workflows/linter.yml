@@ -43,7 +43,9 @@ jobs:
     # Load all steps #
     ##################
     steps:
+      ##########################
       # Checkout the code base #
+      ##########################
       - name: Checkout Code
         uses: actions/checkout@v3
         with:
@@ -91,9 +93,9 @@ jobs:
           VALIDATE_XML: true
           VALIDATE_YAML: true
       - name: Save Debug Logfile
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        if-no-files-found: ignore
-        name: actions_job_debug.log
-        path: ${{ env.LOG_FILE }}
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          if-no-files-found: ignore
+          name: actions_job_debug.log
+          path: ${{ env.LOG_FILE }}
