@@ -148,7 +148,7 @@ Go to `Settings` &#10562; Content Cleaner
 
 ---
 
-<p name="readme-bottom" align="center">
+<p align="center">
     <a href="https://github.com/aljawaid/ContentCleaner/stargazers" title="View Stargazers">
         <img src="https://img.shields.io/github/stars/aljawaid/ContentCleaner?logo=github&style=flat-square" alt="ContentCleaner">
     </a>
@@ -172,3 +172,4 @@ Go to `Settings` &#10562; Content Cleaner
     </a>
 </p>
 <p align="right">[<a href="#readme-top">&#8593; Top</a>]</p>
+<a name="readme-bottom"></a>
