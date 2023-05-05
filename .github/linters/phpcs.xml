@@ -6,6 +6,7 @@
     <arg name="encoding" value="utf-8"/>
     <arg value="sp"/>
     <config name="ignore_warnings_on_exit" value="1"/>
+    <config name="report_width" value="auto"/>
     <rule ref="PSR12" />
     <rule ref="Generic.Files.LineLength.MaxExceeded">
         <type>warning</type>
