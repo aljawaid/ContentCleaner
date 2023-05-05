@@ -4,7 +4,8 @@
     <description>The default coding standard for usage with GitHub Super-Linter. It just includes PSR12.</description>
     <arg name="colors"/>
     <arg name="encoding" value="utf-8"/>
-    <arg name="ignore_warnings_on_exit" value="1"/>
+    <arg value="sp"/>
+    <config name="ignore_warnings_on_exit" value="1"/>
     <rule ref="PSR12" />
     <rule ref="Generic.Files.LineLength.MaxExceeded">
         <type>warning</type>
