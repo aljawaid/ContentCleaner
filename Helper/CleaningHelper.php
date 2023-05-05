@@ -15,7 +15,7 @@ class CleaningHelper extends Base
 
     public function dbSize()
     {
-        switch(DB_DRIVER) {
+        switch (DB_DRIVER) {
             case 'mysql':
                 $db_size = ($this->applicationCleaningModel->getSize('tables.data_length')
                 + $this->applicationCleaningModel->getSize('tables.index_length'))
@@ -59,5 +59,4 @@ class CleaningHelper extends Base
     {
         return $this->applicationCleaningModel->getRememberMeOld();
     }
-
 }

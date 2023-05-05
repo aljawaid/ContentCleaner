@@ -64,7 +64,7 @@ class DefaultTableHelper extends Base
                 $tables[$key] = $new_table_name;
             }
         }
-        
+
         if (DB_DRIVER == 'mysql' || DB_DRIVER == 'postgres') {
             array_push($tables, 'schema_version');
         }
@@ -138,7 +138,7 @@ class DefaultTableHelper extends Base
                 }
             }
         }
-        
+
         if (DB_DRIVER == 'mysql' && $table_name == 'schema_version' || DB_DRIVER == 'postgres' && $table_name == 'schema_version') {
             array_push($columns, 'version');
         }
@@ -249,15 +249,15 @@ class DefaultTableHelper extends Base
         // ALL DEFAULT CHECKS ARE BASED ON THE MYSQL.PHP FILE - DO NOT CHANGE
         switch (DB_DRIVER) {
             case 'sqlite':
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
+                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
             case 'postgres':
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
+                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
             case 'mssql':
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
+                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
             case 'mysql':
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
+                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
             default:
-                return $_SERVER['DOCUMENT_ROOT'].'/app/Schema/Mysql.php';
+                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
         }
     }
 }

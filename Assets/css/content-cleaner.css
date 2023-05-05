@@ -42,7 +42,7 @@
 
 .display-none, .d-none { display: none !important; }
 
-.font-weight-bold { font-weight: 700; }
+.font-weight-bold { font-weight: bold; }
 
 .text-center { text-align: center; }
 
@@ -328,7 +328,7 @@ fieldset.job-wrapper a.job-btn:hover {
 li.job-result-title i.fa-check::before {
     content: "\2714";
     color: var(--pp-green);
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .job-tables-table {

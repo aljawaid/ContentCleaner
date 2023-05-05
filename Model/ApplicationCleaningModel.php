@@ -64,10 +64,10 @@ class ApplicationCleaningModel extends Base
                 $data = $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
                 ->findAll();
-                
-                foreach ($data as $tables) { 
+
+                foreach ($data as $tables) {
                     if ($tables['TABLE_NAME'] != 'schema_version') {
-                        $table_names[] = $tables['TABLE_NAME']; 
+                        $table_names[] = $tables['TABLE_NAME'];
                     }
                 }
                 return $table_names;
@@ -77,10 +77,10 @@ class ApplicationCleaningModel extends Base
                 $data = $this->db->table($this->getTable())
                 ->eq('table_schema', 'public')
                 ->findAll();
-                
-                foreach ($data as $tables) { 
+
+                foreach ($data as $tables) {
                     if ($tables['table_name'] != 'schema_version') {
-                        $table_names[] = $tables['table_name']; 
+                        $table_names[] = $tables['table_name'];
                     }
                 }
                 return $table_names;
@@ -111,9 +111,9 @@ class ApplicationCleaningModel extends Base
                     ->sum($column);
                     break;
             case 'postgres':
-                $info = $this->db->execute("SELECT pg_database_size('" . DB_NAME ."');");
-                foreach ($info as $more_info) { 
-                    foreach ($more_info as $somehow_more_info) { 
+                $info = $this->db->execute("SELECT pg_database_size('" . DB_NAME . "');");
+                foreach ($info as $more_info) {
+                    foreach ($more_info as $somehow_more_info) {
                         $size = $somehow_more_info;
                         break;
                     }
@@ -138,8 +138,7 @@ class ApplicationCleaningModel extends Base
                     WHERE "id" NOT IN (
                         SELECT MAX("id") FROM "remember_me"
                         GROUP BY "user_id"
-                    )'
-                );
+                    )');
                 $count = $result->rowCount();
                 return $count;
                 break;
@@ -151,8 +150,7 @@ class ApplicationCleaningModel extends Base
                             SELECT MAX(`id`) FROM `remember_me`
                             GROUP BY `user_id`
                             ) AS x
-                    )'
-                );
+                    )');
                 $count = $result->rowCount();
                 return $count;
                 break;
@@ -162,8 +160,7 @@ class ApplicationCleaningModel extends Base
                     WHERE "id" NOT IN (
                         SELECT MAX("id") FROM "remember_me"
                         GROUP BY "user_id"
-                    )'
-                );
+                    )');
                 $count = $result->rowCount();
                 return $count;
                 break;
@@ -260,19 +257,19 @@ class ApplicationCleaningModel extends Base
     public function delete($table)
     {
         // DELETE TABLE
-        
+
         switch (DB_DRIVER) {
             case 'sqlite':
-                return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
+                return $this->db->execute('DROP TABLE IF EXISTS `' . $table . '`; SHOW WARNINGS');
                 break;
             case 'mysql':
-                return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
+                return $this->db->execute('DROP TABLE IF EXISTS `' . $table . '`; SHOW WARNINGS');
                 break;
             case 'postgres':
-                return $this->db->execute('DROP TABLE IF EXISTS '. $table . ' CASCADE;');
+                return $this->db->execute('DROP TABLE IF EXISTS ' . $table . ' CASCADE;');
                 break;
             default:
-                return $this->db->execute('DROP TABLE IF EXISTS `'. $table .'`; SHOW WARNINGS');
+                return $this->db->execute('DROP TABLE IF EXISTS `' . $table . '`; SHOW WARNINGS');
         }
     }
 
@@ -353,7 +350,7 @@ class ApplicationCleaningModel extends Base
                 }
                 break;
             case 'mysql':
-                $columns = $this->db->execute("SHOW COLUMNS FROM `".$table."`");
+                $columns = $this->db->execute("SHOW COLUMNS FROM `" . $table . "`");
                 foreach ($columns as $column) {
                     $columnNames[] = $column['Field'];
                 }
@@ -365,7 +362,7 @@ class ApplicationCleaningModel extends Base
                 }
                 break;
             default:
-                $columns = $this->db->execute("SHOW COLUMNS FROM `".$table."`");
+                $columns = $this->db->execute("SHOW COLUMNS FROM `" . $table . "`");
                 foreach ($columns as $column) {
                     $columnNames[] = $column['Field'];
                 }
@@ -393,5 +390,4 @@ class ApplicationCleaningModel extends Base
     {
         return $this->db->table('sessions')->count();
     }
-
 }

@@ -31,15 +31,15 @@ class CleaningController extends BaseController
     public function autoPurgeAndClean()
     {
         $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables());
-        
+
         foreach ($this->helper->defaultTableHelper->checkTables() as $table) {
             if ($check_tables[$table] == 'Unknown') {
                 $this->applicationCleaningModel->delete($table);
             }
         }
-        
+
         foreach ($this->helper->defaultTableHelper->getDefaultTables() as $table) {
-            if(count($this->helper->defaultTableHelper->checkTableColumns($table))) {
+            if (count($this->helper->defaultTableHelper->checkTableColumns($table))) {
                 $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
                 $check_columns = $this->helper->defaultTableHelper->checkColumnsViaPlugin($table, $columns);
                 foreach ($columns as $column) {
@@ -49,9 +49,9 @@ class CleaningController extends BaseController
                 }
             }
         }
-        
+
         $this->applicationCleaningModel->purgeUninstalledPluginSchemas();
-        
+
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
@@ -132,10 +132,12 @@ class CleaningController extends BaseController
         // $table =  $this->request->getStringParam('table');
         $this->checkCSRFParam();
 
-        if ($this->applicationCleaningModel->resetSettings(array(
-            'calendar_project_tasks' => 'date_started',
-            'calendar_user_tasks' => 'date_started',
-        ))) {
+        if ($this->applicationCleaningModel->resetSettings(
+            array(
+                'calendar_project_tasks' => 'date_started',
+                'calendar_user_tasks' => 'date_started',
+            )
+        )) {
             $this->flash->success(t('Cleaning complete - Reset successfully'));
         } else {
             $this->flash->failure(t('Cleaning failed'));

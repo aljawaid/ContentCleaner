@@ -11,6 +11,4 @@ use Kanboard\Core\Base;
  */
 
 class PluginCleaningModel extends Base
-{
-
-}
+{}
