@@ -53,5 +53,6 @@
     </rule>
     <rule ref="PSR12.ControlStructures.ControlStructureSpacing">
         <type>warning</type>
+        <severity>4</severity>
     </rule>
 </ruleset>
