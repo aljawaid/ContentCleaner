@@ -33,7 +33,7 @@ rules:
   document-end: disable
   document-start:
     level: warning
-    present: false
+    present: true
   empty-lines:
     level: warning
     max: 2
@@ -48,11 +48,7 @@ rules:
     indent-sequences: true
     check-multi-line-strings: false
   key-duplicates: enable
-  line-length:
-    level: warning
-    max: 80
-    allow-non-breakable-words: true
-    allow-non-breakable-inline-mappings: true
+  line-length: disable
   new-line-at-end-of-file: enable
   new-lines:
     type: unix
