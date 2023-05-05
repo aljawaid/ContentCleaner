@@ -19,10 +19,10 @@
         </properties>
     </rule>
     <rule ref="Generic.Formatting.SpaceAfterNot">
+        <type>warning</type>
         <properties>
             <property name="spacing" value="0" />
             <property name="ignoreNewlines" value="true" />
-            <type>warning</type>
         </properties>
     </rule>
     <rule ref="Generic.WhiteSpace.ArbitraryParenthesesSpacing">
@@ -50,5 +50,8 @@
         <properties>
             <property name="requiredSpacesBeforeColon" value="0" />
         </properties>
+    </rule>
+    <rule ref="PSR12.ControlStructures.ControlStructureSpacing">
+        <type>warning</type>
     </rule>
 </ruleset>
