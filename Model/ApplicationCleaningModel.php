@@ -180,8 +180,7 @@ class ApplicationCleaningModel extends Base
                     WHERE "id" NOT IN (
                         SELECT MAX("id") FROM "remember_me"
                         GROUP BY "user_id"
-                    )'
-                );
+                    )');
                 break;
             case 'mysql':
                 return $this->db->execute('
@@ -191,8 +190,7 @@ class ApplicationCleaningModel extends Base
                             SELECT MAX(`id`) FROM `remember_me`
                             GROUP BY `user_id`
                             ) AS x
-                    )'
-                );
+                    )');
                 break;
             case 'postgres':
                 return $this->db->execute('
@@ -200,8 +198,7 @@ class ApplicationCleaningModel extends Base
                     WHERE "id" NOT IN (
                         SELECT MAX("id") FROM "remember_me"
                         GROUP BY "user_id"
-                    )'
-                );
+                    )');
                 break;
             default:
                 return t('This cleaning job is not compatible with your database type');
@@ -279,16 +276,16 @@ class ApplicationCleaningModel extends Base
 
         switch (DB_DRIVER) {
             case 'sqlite':
-                return $this->db->execute('ALTER TABLE ' . $table . ' DROP COLUMN '. $column . ';');
+                return $this->db->execute('ALTER TABLE ' . $table . ' DROP COLUMN ' . $column . ';');
                 break;
             case 'mysql':
-                return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
+                return $this->db->execute('ALTER TABLE ' . $table . ' DROP ' . $column . ';');
                 break;
             case 'postgres':
-                return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ' CASCADE;');
+                return $this->db->execute('ALTER TABLE ' . $table . ' DROP ' . $column . ' CASCADE;');
                 break;
             default:
-                return $this->db->execute('ALTER TABLE ' . $table . ' DROP '. $column . ';');
+                return $this->db->execute('ALTER TABLE ' . $table . ' DROP ' . $column . ';');
         }
     }
 

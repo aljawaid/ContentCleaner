@@ -13,4 +13,5 @@ use Kanboard\Core\Controller\PageNotFoundException;
  */
 
 class PluginCleaningController extends BaseController
-{}
+{
+}

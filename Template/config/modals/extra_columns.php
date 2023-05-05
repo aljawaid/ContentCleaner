@@ -37,7 +37,7 @@
                 </li>
             </ul>
             <span id="JobType"><?= t('Deep Cleaning') ?></span>
-            <?= $this->modal->submitButtons(array('submitLabel' =>  t('Delete Selected'))) ?>
+            <?= $this->modal->submitButtons(array('submitLabel' => t('Delete Selected'))) ?>
         </div>
     </div>
 </form>

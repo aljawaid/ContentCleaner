@@ -57,7 +57,7 @@ class CleaningController extends BaseController
 
     public function removeTable()
     {
-        $table =  $this->request->getStringParam('table');
+        $table = $this->request->getStringParam('table');
         $this->checkCSRFParam();
 
         if ($this->applicationCleaningModel->delete($table)) {
@@ -71,7 +71,7 @@ class CleaningController extends BaseController
 
     public function removeSelectedColumns()
     {
-        $table =  $this->request->getStringParam('table');
+        $table = $this->request->getStringParam('table');
         $values = $this->request->getRawFormValues();
 
         if (!empty($values)) {
@@ -109,7 +109,7 @@ class CleaningController extends BaseController
 
     public function viewColumns()
     {
-        $table =  $this->request->getStringParam('table');
+        $table = $this->request->getStringParam('table');
         $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
 
         $this->response->html($this->template->render('contentCleaner:config/modals/extra_columns', array(

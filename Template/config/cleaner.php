@@ -125,7 +125,7 @@
                         <ul class="">
                             <li class="default-columns-count">
                                 <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
-                                <?php if(count($this->helper->defaultTableHelper->checkTableColumns($table))): ?>
+                                <?php if (count($this->helper->defaultTableHelper->checkTableColumns($table))): ?>
                                     <a href="<?= $this->url->href('CleaningController', 'viewColumns', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm extra-columns-count" title="<?= t('Delete columns from this table') ?>">
                                         <?= t('+') ?> <?= count($this->helper->defaultTableHelper->checkTableColumns($table)) ?> <?= t('columns from plugins') ?>
                                     </a>
