@@ -132,12 +132,10 @@ class CleaningController extends BaseController
         // $table =  $this->request->getStringParam('table');
         $this->checkCSRFParam();
 
-        if ($this->applicationCleaningModel->resetSettings(
-            array(
+        if ($this->applicationCleaningModel->resetSettings(array(
                 'calendar_project_tasks' => 'date_started',
                 'calendar_user_tasks' => 'date_started',
-            )
-        )) {
+            ))) {
             $this->flash->success(t('Cleaning complete - Reset successfully'));
         } else {
             $this->flash->failure(t('Cleaning failed'));
