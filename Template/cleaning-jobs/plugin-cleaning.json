@@ -1,5 +1,6 @@
 {
     "1": {
+        "job_number": "01",
         "plugin_title": "MetaMagik",
         "plugin_name": "metamagik",
         "plugin_author": "Craig Crosby",
@@ -9,6 +10,7 @@
         "plugin_schema_version": 7
     },
     "2": {
+        "job_number": "02",
         "plugin_title": "CostControl",
         "plugin_name": "costcontrol",
         "plugin_author": "aljawaid",
@@ -22,6 +24,7 @@
         "plugin_schema_version": 1
     },
     "3": {
+        "job_number": "03",
         "plugin_title": "Bigboard",
         "plugin_name": "bigboard",
         "plugin_author": "BlueTeck",
@@ -31,6 +34,7 @@
         "plugin_schema_version": 4
     },
     "4": {
+        "job_number": "04",
         "plugin_title": "Group_assign",
         "plugin_name": "group_assign",
         "plugin_author": "Craig Crosby",
@@ -44,6 +48,7 @@
         "plugin_schema_version": 3
     },
     "5": {
+        "job_number": "05",
         "plugin_title": "SubtaskDueDate",
         "plugin_name": "subtaskdate",
         "plugin_author": "Manuel Raposo",
@@ -56,6 +61,7 @@
         "plugin_schema_version": 1
     },
     "6": {
+        "job_number": "06",
         "plugin_title": "Wiki",
         "plugin_name": "wiki",
         "plugin_author": "lastlink",
@@ -69,6 +75,7 @@
         "plugin_schema_version": 8
     },
     "7": {
+        "job_number": "07",
         "plugin_title": "TemplateManager",
         "plugin_name": "templatemanager",
         "plugin_author": "aljawaid",
