@@ -1,17 +1,16 @@
+<!-- ContentCleaner: PLUGIN CLEANING -->
 <?php foreach ($deletable_plugins as $plugin): ?>
-    <!-- ContentCleaner: PLUGIN CLEANING JOB 01 -->
-    <?php $plugin_job_name = $plugin['plugin_title']; ?>
     <div class="job-section-wrapper">
         <fieldset class="job-wrapper plugin-job-wrapper">
             <legend class="job-title">
-                <span class="content-cleaner-icon"></span> <?= t('%s Plugin', $plugin_job_name) ?>
+                <span class="content-cleaner-icon"></span> <?= t('%s Plugin', $plugin['plugin_title']) ?>
                 <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
                 <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>">
                     <span class="job-number"><?= $plugin['job_number'] ?></span>
                 </span>
             </legend>
             <p class="job-desc">
-                <?= t('Remove all traces, content and plugin registration data for %s.', $plugin_job_name) ?>
+                <?= t('Remove all traces, content and plugin registration data for %s.', $plugin['plugin_title']) ?>
                 <span class="tooltip content-cleaner-tooltip">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     <script type="text/template">
@@ -102,7 +101,7 @@
                         <i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?>
                     </li>
                     <li class="job-result-text">
-                        <?= t('%s will not exist on your system in any form.', $plugin_job_name) ?>
+                        <?= t('%s will not exist on your system in any form.', $plugin['plugin_title']) ?>
                     </li>
                 </ul>
             </div>
