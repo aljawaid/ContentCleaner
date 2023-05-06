@@ -108,7 +108,19 @@
             <span class="plugin-icon"></span> <?= t('3 - Plugin Cleaning Jobs') ?>
         </summary>
         <div class="accordion-content">
-            <p class="section-intro"><?= t('Jobs in this section affect leftover tables which were created by plugins. Once a plugin is uninstalled, all leftover tables for the uninstalled plugin will be marked as unknown. Process each job carefully only if you have installed the relevant plugin previously. Deleting plugin related database tables before uninstalling the plugin will prompt the plugin to recreate the tables, not uninstall the plugin.') ?></p>
+             <section class="message error cleaner-warning">
+                <header></header>
+                <i class=""></i>
+                <h3 class="">
+                    <span class="message-title"><?= t('Warning') ?></span>
+                    <span class="message-text"><?= t('Run any job only if you have previously installed the relevant plugin') ?></span>
+                </h3>
+            </section>
+            <p class="section-intro">
+                <?= t('Jobs in this section affect leftover tables which were created by plugins.') ?>
+                <strong><?= t(' Once a plugin is uninstalled, all leftover tables for the uninstalled plugin are marked as unknown.') ?></strong>
+                <?= t(' Deleting plugin related database tables before uninstalling the plugin will prompt the plugin to recreate the tables, not uninstall the plugin.') ?>
+            </p>
             <?= $this->render('ContentCleaner:cleaning-jobs/plugin-clean', array('deletable_plugins' => $deletable_plugins)) ?>
         </div>
     </details>
