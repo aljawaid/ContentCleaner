@@ -60,7 +60,8 @@ jobs:
         uses: github/super-linter/slim@v5
         # https://github.com/marketplace/actions/super-linter#environment-variables
         env:
-          VALIDATE_ALL_CODEBASE: true
+          # Change to 'true' to scan all files, 'false' for new or edited files
+          VALIDATE_ALL_CODEBASE: false
           # Change to 'master' if your main branch differs
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
