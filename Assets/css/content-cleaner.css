@@ -554,3 +554,7 @@ fieldset.plugin-job-wrapper .form-actions {
     position: absolute;
     right: 13px;
 }
+
+li.job-plugin-version {
+    background: none;
+}

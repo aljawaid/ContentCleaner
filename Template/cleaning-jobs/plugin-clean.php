@@ -68,7 +68,7 @@
                             </script>
                         </span>
                     </li>
-                    <li class="job-tables-table job-plugin-table">v1.0.0</li>
+                    <li class="job-tables-table job-plugin-table job-plugin-version">v<?= $plugin['checked_upto_plugin_version'] ?></li>
                 </ul>
                 <ul class="job-result fa-ul">
                     <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
