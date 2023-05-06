@@ -33,6 +33,3 @@ jobs:
         with:
           test-versions: '7.4-'
           paths: ${{ github.workspace }}/Plugin.php ${{ github.workspace }}/Controller/ ${{ github.workspace }}/Locale/ ${{ github.workspace }}/Model/ ${{ github.workspace }}/Helper/ ${{ github.workspace }}/Template/
-
-      - name: Adding markdown
-        run: echo "### Test Complete 🚀" >> $GITHUB_STEP_SUMMARY
