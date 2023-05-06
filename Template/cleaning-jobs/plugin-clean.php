@@ -110,7 +110,7 @@
                 </ul>
             </div>
             <div class="form-actions">
-                <a href="<?= $this->url->href('PluginCleaningController', 'confirmRemoval', array('plugin_job_name' => $plugin_job_name, 'job' => '01', 'plugin' => 'ContentCleaner', 'plugin' => $plugin), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Deep Clean Plugin') ?></a>
+                <a href="<?= $this->url->href('PluginCleaningController', 'confirmRemoval', array('plugin_job_name' => $plugin_job_name, 'job' => '01', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Deep Clean Plugin') ?></a>
             </div>
         </fieldset>
     </div>
