@@ -64,7 +64,7 @@
                 </ul>
                 <ul class="job-table-size fa-ul">
                     <li class="job-tables-title">
-                        <i class="fa fa-columns fa-li" aria-hidden="true"></i><?= t('Core Columns') ?> (5)
+                        <i class="fa fa-columns fa-li" aria-hidden="true"></i><?= t('Core Columns') ?>
                         <span class="tooltip content-cleaner-tooltip">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <script type="text/template">
@@ -72,8 +72,21 @@
                             </script>
                         </span>
                     </li>
-                    <li class="job-tables-table job-plugin-table">tasks: column_1 column_2 column_3</li>
-                    <li class="job-tables-table job-plugin-table">projects: column_4 column_5</li>
+                    <?php if (isset($plugin['core_table_columns'])): ?>
+                        <span class="table-totals"><?= count($plugin['core_table_columns']) ?></span>
+                        <?php foreach ($plugin['core_table_columns'] as $tables): ?>
+                            <?php foreach ($tables as $tablename => $tablecolumns): ?>
+                                <?= $tablename ?>
+                                <?php foreach ($tablecolumns as $column): ?>
+                                    <li class="job-tables-table job-plugin-table"><?= $column ?></li>
+                                <?php endforeach ?>
+                            <?php endforeach ?>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        <li class="job-tables-table job-plugin-table no-tables">
+                            <i><?= t('This plugin alters no core table columns') ?></i>
+                        </li>
+                    <?php endif ?>
                 </ul>
                 <ul class="job-table-size fa-ul">
                     <li class="job-tables-title">
