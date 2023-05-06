@@ -15,6 +15,7 @@
         "plugin_url": "https://github.com/aljawaid/CostControl",
         "checked_upto_plugin_version": "1.1",
         "plugin_tables": ["hourly_rates", "budget_lines"],
+        "core_tables": ["currencies"],
         "core_table_columns": [
             {"currencies": ["last_modified", "comment", "live_rate", "live_rate_updated"]}
         ],
@@ -36,6 +37,7 @@
         "plugin_url": "https://github.com/creecros/Group_assign",
         "checked_upto_plugin_version": "1.8.2",
         "plugin_tables": ["multiselect", "multiselect_has_users"],
+        "core_tables": ["tasks"],
         "core_table_columns": [
             {"tasks": ["owner_gp", "owner_ms"]}
         ],
@@ -47,6 +49,7 @@
         "plugin_author": "Manuel Raposo",
         "plugin_url": "https://github.com/eSkiSo/Subtaskdate",
         "checked_upto_plugin_version": "1.1.3",
+        "core_tables": ["subtasks"],
         "core_table_columns": [
             {"subtasks": ["duedate"]}
         ],
@@ -59,6 +62,7 @@
         "plugin_url": "https://github.com/funktechno/kanboard-plugin-wiki",
         "checked_upto_plugin_version": "0.3.3",
         "plugin_tables": ["wikipage", "wikipage_has_files", "wikipage_editions"],
+        "core_tables": ["settings"],
         "core_table_entries": [
             {"settings": ["persistEditions"]}
         ],
@@ -71,6 +75,7 @@
         "plugin_url": "https://github.com/aljawaid/TemplateManager",
         "checked_upto_plugin_version": "2.6",
         "plugin_tables": ["comment_templates", "global_templates"],
+        "core_tables": ["predefined_task_descriptions"],
         "core_table_columns": [
             {"predefined_task_descriptions": ["topic", "note", "instructions"]}
         ],
