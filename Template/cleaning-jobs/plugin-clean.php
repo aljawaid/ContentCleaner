@@ -4,7 +4,6 @@
         <fieldset class="job-wrapper plugin-job-wrapper">
             <legend class="job-title">
                 <span class="content-cleaner-icon"></span> <?= t('%s Plugin', $plugin['plugin_title']) ?>
-                <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
                 <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>">
                     <span class="job-number"><?= $plugin['job_number'] ?></span>
                 </span>
@@ -22,12 +21,14 @@
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Plugin Tables') ?>
-                        <span class="tooltip content-cleaner-tooltip">
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                            <script type="text/template">
-                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-tables', array('plugin' => $plugin)) ?></div>
-                            </script>
-                        </span>
+                        <?php if (isset($plugin['plugin_tables'])): ?>
+                            <span class="tooltip content-cleaner-tooltip">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <script type="text/template">
+                                    <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-tables', array('plugin' => $plugin)) ?></div>
+                                </script>
+                            </span>
+                        <?php endif ?>
                     </li>
                     <?php if (isset($plugin['plugin_tables'])): ?>
                         <?php foreach ($plugin['plugin_tables'] as $value): ?>
@@ -42,12 +43,14 @@
                 <ul class="job-table-size fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Core Tables') ?>
-                        <span class="tooltip content-cleaner-tooltip">
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                            <script type="text/template">
-                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/core-tables', array('plugin' => $plugin)) ?></div>
-                            </script>
-                        </span>
+                        <?php if (isset($plugin['core_tables'])): ?>
+                            <span class="tooltip content-cleaner-tooltip">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <script type="text/template">
+                                    <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/core-tables', array('plugin' => $plugin)) ?></div>
+                                </script>
+                            </span>
+                        <?php endif ?>
                     </li>
                     <?php if (isset($plugin['core_tables'])): ?>
                         <?php foreach ($plugin['core_tables'] as $value): ?>
@@ -62,12 +65,14 @@
                 <ul class="job-table-size fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-columns fa-li" aria-hidden="true"></i><?= t('Core Columns') ?>
-                        <span class="tooltip content-cleaner-tooltip">
-                            <i class="fa fa-info-circle" aria-hidden="true"></i>
-                            <script type="text/template">
-                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/core-columns', array('plugin' => $plugin)) ?></div>
-                            </script>
-                        </span>
+                        <?php if (isset($plugin['core_table_columns'])): ?>
+                            <span class="tooltip content-cleaner-tooltip">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                <script type="text/template">
+                                    <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/core-columns', array('plugin' => $plugin)) ?></div>
+                                </script>
+                            </span>
+                        <?php endif ?>
                     </li>
                     <?php if (isset($plugin['core_table_columns'])): ?>
                         <?php foreach ($plugin['core_table_columns'] as $tables): ?>
@@ -116,5 +121,4 @@
             </div>
         </fieldset>
     </div>
-
 <?php endforeach ?>
