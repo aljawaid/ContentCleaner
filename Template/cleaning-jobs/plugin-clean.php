@@ -31,7 +31,6 @@
                         </span>
                     </li>
                     <?php if (isset($plugin['plugin_tables'])): ?>
-                        <span class="table-totals"><?= count($plugin['plugin_tables']) ?></span>
                         <?php foreach ($plugin['plugin_tables'] as $value): ?>
                             <li class="job-tables-table job-plugin-table"><?= $value ?></li>
                         <?php endforeach ?>
@@ -52,7 +51,6 @@
                         </span>
                     </li>
                     <?php if (isset($plugin['core_tables'])): ?>
-                        <span class="table-totals"><?= count($plugin['core_tables']) ?></span>
                         <?php foreach ($plugin['core_tables'] as $value): ?>
                             <li class="job-tables-table job-plugin-table"><?= $value ?></li>
                         <?php endforeach ?>
@@ -73,10 +71,9 @@
                         </span>
                     </li>
                     <?php if (isset($plugin['core_table_columns'])): ?>
-                        <span class="table-totals"><?= count($plugin['core_table_columns']) ?></span>
                         <?php foreach ($plugin['core_table_columns'] as $tables): ?>
                             <?php foreach ($tables as $tablename => $tablecolumns): ?>
-                                <?= $tablename ?>
+                                <span class="table-name-columns"><?= $tablename ?></span>
                                 <?php foreach ($tablecolumns as $column): ?>
                                     <li class="job-tables-table job-plugin-table"><?= $column ?></li>
                                 <?php endforeach ?>
