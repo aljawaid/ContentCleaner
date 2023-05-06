@@ -6,7 +6,9 @@
             <legend class="job-title">
                 <span class="content-cleaner-icon"></span> <?= t('%s Plugin', $plugin_job_name) ?>
                 <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
-                <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">01</span></span>
+                <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>">
+                    <span class="job-number">01</span>
+                </span>
             </legend>
             <p class="job-desc">
                 <?= t('Remove all traces, content and plugin registration data for %s.', $plugin_job_name) ?>
@@ -20,7 +22,7 @@
             <div class="job-content">
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
-                        <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Plugin Tables') ?> (2)
+                        <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Plugin Tables') ?>
                         <span class="tooltip content-cleaner-tooltip">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <script type="text/template">
@@ -33,7 +35,7 @@
                 </ul>
                 <ul class="job-table-size fa-ul">
                     <li class="job-tables-title">
-                        <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Core Tables') ?> (3)
+                        <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Core Tables') ?>
                         <span class="tooltip content-cleaner-tooltip">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <script type="text/template">
@@ -71,8 +73,12 @@
                     <li class="job-tables-table job-plugin-table job-plugin-version">v<?= $plugin['checked_upto_plugin_version'] ?></li>
                 </ul>
                 <ul class="job-result fa-ul">
-                    <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
-                    <li class="job-result-text"><?= t('%s will not exist on your system in any form.', $plugin_job_name) ?></li>
+                    <li class="job-result-title">
+                        <i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?>
+                    </li>
+                    <li class="job-result-text">
+                        <?= t('%s will not exist on your system in any form.', $plugin_job_name) ?>
+                    </li>
                 </ul>
             </div>
             <div class="form-actions">
