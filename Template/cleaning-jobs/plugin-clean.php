@@ -30,8 +30,16 @@
                             </script>
                         </span>
                     </li>
-                    <li class="job-tables-table job-plugin-table">metadata_has_type</li>
-                    <li class="job-tables-table job-plugin-table">metadata_types</li>
+                    <?php if (isset($plugin['plugin_tables'])): ?>
+                        <span class="table-totals"><?= count($plugin['plugin_tables']) ?></span>
+                        <?php foreach ($plugin['plugin_tables'] as $value): ?>
+                            <li class="job-tables-table job-plugin-table"><?= $value ?></li>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        <li class="job-tables-table job-plugin-table no-tables">
+                            <i><?= t('This plugin creates no tables of its own') ?></i>
+                        </li>
+                    <?php endif ?>
                 </ul>
                 <ul class="job-table-size fa-ul">
                     <li class="job-tables-title">
