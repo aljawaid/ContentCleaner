@@ -77,9 +77,9 @@
                     <?php if (isset($plugin['core_table_columns'])): ?>
                         <?php foreach ($plugin['core_table_columns'] as $tables): ?>
                             <?php foreach ($tables as $tablename => $tablecolumns): ?>
-                                <span class="table-name-columns"><?= $tablename ?></span>
+                                <span class="job-tables-table"><?= $tablename ?></span>
                                 <?php foreach ($tablecolumns as $column): ?>
-                                    <li class="job-tables-table job-plugin-table"><?= $column ?></li>
+                                    <li class="job-tables-table job-plugin-table column-names"><?= $column ?></li>
                                 <?php endforeach ?>
                             <?php endforeach ?>
                         <?php endforeach ?>
@@ -112,7 +112,7 @@
                         <i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?>
                     </li>
                     <li class="job-result-text">
-                        <?= t('%s will not exist on your system in any form.', $plugin['plugin_title']) ?>
+                        <?= t('%s will not exist on your system in any form after running this job', $plugin['plugin_title']) ?>
                     </li>
                 </ul>
             </div>

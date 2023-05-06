@@ -558,3 +558,7 @@ fieldset.plugin-job-wrapper .form-actions {
 li.job-plugin-version, li.no-tables {
     background: none;
 }
+
+li.column-names {
+    background: rgba(255, 101, 0, .6);
+}
