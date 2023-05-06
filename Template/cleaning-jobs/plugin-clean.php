@@ -7,7 +7,7 @@
                 <span class="content-cleaner-icon"></span> <?= t('%s Plugin', $plugin_job_name) ?>
                 <!-- ContentCleaner: DO NOT CHANGE JOB NUMBERS -->
                 <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>">
-                    <span class="job-number">01</span>
+                    <span class="job-number"><?= $plugin['job_number'] ?></span>
                 </span>
             </legend>
             <p class="job-desc">
@@ -107,7 +107,7 @@
                 </ul>
             </div>
             <div class="form-actions">
-                <a href="<?= $this->url->href('PluginCleaningController', 'confirmRemoval', array('plugin_job_name' => $plugin_job_name, 'job' => '01', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Deep Clean Plugin') ?></a>
+                <a href="<?= $this->url->href('PluginCleaningController', 'confirmRemoval', array('plugin_job_name' => $plugin['plugin_title'], 'job_number' => $plugin['job_number'], 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Deep Clean Plugin') ?></a>
             </div>
         </fieldset>
     </div>
