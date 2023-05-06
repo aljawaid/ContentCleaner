@@ -51,9 +51,16 @@
                             </script>
                         </span>
                     </li>
-                    <li class="job-tables-table job-plugin-table">table_1</li>
-                    <li class="job-tables-table job-plugin-table">table_2</li>
-                    <li class="job-tables-table job-plugin-table">table_3</li>
+                    <?php if (isset($plugin['core_tables'])): ?>
+                        <span class="table-totals"><?= count($plugin['core_tables']) ?></span>
+                        <?php foreach ($plugin['core_tables'] as $value): ?>
+                            <li class="job-tables-table job-plugin-table"><?= $value ?></li>
+                        <?php endforeach ?>
+                    <?php else: ?>
+                        <li class="job-tables-table job-plugin-table no-tables">
+                            <i><?= t('This plugin alters no core tables') ?></i>
+                        </li>
+                    <?php endif ?>
                 </ul>
                 <ul class="job-table-size fa-ul">
                     <li class="job-tables-title">
