@@ -13,7 +13,7 @@
                 <span class="tooltip content-cleaner-tooltip">
                     <i class="fa fa-info-circle" aria-hidden="true"></i>
                     <script type="text/template">
-                        <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-details') ?></div>
+                        <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-details', array('plugin' => $plugin)) ?></div>
                     </script>
                 </span>
             </p>
@@ -24,7 +24,7 @@
                         <span class="tooltip content-cleaner-tooltip">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <script type="text/template">
-                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-tables') ?></div>
+                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-tables', array('plugin' => $plugin)) ?></div>
                             </script>
                         </span>
                     </li>
@@ -37,7 +37,7 @@
                         <span class="tooltip content-cleaner-tooltip">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <script type="text/template">
-                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/core-tables') ?></div>
+                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/core-tables', array('plugin' => $plugin)) ?></div>
                             </script>
                         </span>
                     </li>
@@ -51,7 +51,7 @@
                         <span class="tooltip content-cleaner-tooltip">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <script type="text/template">
-                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/core-columns') ?></div>
+                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/core-columns', array('plugin' => $plugin)) ?></div>
                             </script>
                         </span>
                     </li>
@@ -64,7 +64,7 @@
                         <span class="tooltip content-cleaner-tooltip">
                             <i class="fa fa-info-circle" aria-hidden="true"></i>
                             <script type="text/template">
-                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-version') ?></div>
+                                <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-version', array('plugin' => $plugin)) ?></div>
                             </script>
                         </span>
                     </li>
