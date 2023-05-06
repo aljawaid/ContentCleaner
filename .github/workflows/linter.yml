@@ -99,5 +99,3 @@ jobs:
           VALIDATE_SQLFLUFF: true
           VALIDATE_XML: true
           VALIDATE_YAML: true
-      - name: Adding markdown
-        run: echo '### Test Complete 🚀' >> $GITHUB_STEP_SUMMARY
