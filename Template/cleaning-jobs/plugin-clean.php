@@ -112,7 +112,7 @@
                             </script>
                         </span>
                     </li>
-                    <li class="job-tables-table job-plugin-table job-plugin-version">v<?= $plugin['checked_upto_plugin_version'] ?></li>
+                    <li class="job-tables-table job-plugin-table job-plugin-version">v<?= $plugin['checked_up_to_plugin_version'] ?></li>
                 </ul>
                 <ul class="job-result fa-ul">
                     <li class="job-result-title">
