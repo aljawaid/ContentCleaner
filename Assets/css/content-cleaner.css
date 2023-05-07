@@ -590,3 +590,9 @@ ul.job-plugin-details span.plugin-icon, ul.job-plugin-details span.website-globe
     height: 20px;
     vertical-align: text-bottom;
 }
+
+span.tooltip.content-cleaner-tooltip i.fa-info-circle {
+    font-size: 1.3em !important;
+    vertical-align: middle !important;
+    color: #737272;
+}
