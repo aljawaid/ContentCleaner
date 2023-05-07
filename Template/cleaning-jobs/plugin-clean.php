@@ -10,12 +10,6 @@
             </legend>
             <p class="job-desc">
                 <?= t('Remove all traces, content and plugin registration data for %s.', $plugin['plugin_title']) ?>
-                <span class="tooltip content-cleaner-tooltip">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
-                    <script type="text/template">
-                        <div class="markdown"><?= $this->render('contentCleaner:cleaning-jobs/tooltips/plugin-details', array('plugin' => $plugin)) ?></div>
-                    </script>
-                </span>
             </p>
             <div class="job-content">
                 <ul class="job-tables fa-ul">
