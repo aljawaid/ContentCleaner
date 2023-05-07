@@ -73,7 +73,9 @@
                             <?php foreach ($tables as $tablename => $tablecolumns): ?>
                                 <span class="job-tables-table"><?= $tablename ?></span>
                                 <?php foreach ($tablecolumns as $column): ?>
-                                    <li class="job-tables-table job-plugin-table column-names"><?= $column ?></li>
+                                    <li class="job-tables-table job-plugin-table column-names" title="<?= t('This column is located in the "%s" table', $tablename) ?>">
+                                        <?= $column ?>
+                                    </li>
                                 <?php endforeach ?>
                             <?php endforeach ?>
                         <?php endforeach ?>
