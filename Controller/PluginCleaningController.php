@@ -17,7 +17,8 @@ class PluginCleaningController extends BaseController
     public function confirmRemoval()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_remove', array(
-            'table' => $this->request->getStringParam('table'),
+            'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
+            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 }
