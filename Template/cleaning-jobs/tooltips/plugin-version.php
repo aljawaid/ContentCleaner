@@ -1,7 +1,1 @@
-<div class="">
-    <h3 class=""><?= t('Plugin Version') ?></h3>
-    <hr>
-    <p class="">
-        <?= t('This cleaning job is compatible with all versions of this plugin upto v') . $plugin['checked_upto_plugin_version'] ?>
-    </p>
-</div>
+<?= t('This cleaning job is compatible with all versions of this plugin up to v') . $plugin['checked_up_to_plugin_version'] ?>

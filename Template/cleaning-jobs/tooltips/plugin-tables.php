@@ -1,1 +1,1 @@
-<?= t('This plugin did not affect any default tables or columns') ?>
+<?= t('The tables listed here are created by the plugin itself') ?>

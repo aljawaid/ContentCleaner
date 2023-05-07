@@ -1,1 +1,1 @@
-<?= t('This plugin did not affect any default tables or columns') ?>
+<?= t('These columns are located inside core tables and will be deleted if created by a plugin') ?>
