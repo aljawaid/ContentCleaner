@@ -9,7 +9,7 @@
 <div id="RemoveTableContent" class="modal-contents">
     <div class="confirm">
         <p class="confirm-notice">
-            <?= t('Click the button to remove this table from the database') ?>
+            <?= t('Click the button to remove this table from the database.') ?>
         </p>
         <ul class="job-tables fa-ul">
             <li class="job-tables-title">

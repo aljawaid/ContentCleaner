@@ -32,7 +32,7 @@
         <!-- ContentCleaner: APPLICATION CLEANING JOB 01 -->
         <?php if (($incomingController == 'CleaningController') && ($outgoingAction == 'confirmSessionsPurge')): ?>
             <p class="confirm-notice">
-                <?= t('Click the button to empty the sessions table.') ?>
+                <?= t('Run this job to empty the sessions table.') ?>
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
@@ -49,7 +49,7 @@
         <!-- ContentCleaner: APPLICATION CLEANING JOB 02 -->
         <?php if (($incomingController == 'CleaningController') && ($outgoingAction == 'confirmResetCalendar')): ?>
             <p class="confirm-notice">
-                <?= t('Click the button to restore the calendar settings to the default values.') ?>
+                <?= t('Run this job to restore the calendar settings to the default values.') ?>
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
@@ -66,7 +66,7 @@
         <!-- ContentCleaner: APPLICATION CLEANING JOB 03 -->
         <?php if (($incomingController == 'CleaningController') && ($outgoingAction == 'confirmRememberMePurge')): ?>
             <p class="confirm-notice">
-                <?= t('Click the button to empty the login sessions table.') ?>
+                <?= t('Run this job to empty the login sessions table.') ?>
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>
@@ -83,7 +83,7 @@
         <!-- ContentCleaner: APPLICATION CLEANING JOB 04 -->
         <?php if (($incomingController == 'CleaningController') && ($outgoingAction == 'confirmRememberMeDuplicatesPurge')): ?>
             <p class="confirm-notice">
-                <?= t('Click the button to delete all duplicate sessions leaving the latest record for each user.') ?>
+                <?= t('Run this job to delete all duplicate sessions leaving the latest record for each user.') ?>
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Table Affected') ?>

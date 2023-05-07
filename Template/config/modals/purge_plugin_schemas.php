@@ -11,7 +11,7 @@
 <div id="PurgePluginSchemasContent" class="modal-contents">
     <div class="confirm">
         <p class="confirm-notice">
-            <?= t('Click the button to purge the database of unused plugin registration data') ?>
+            <?= t('Run this job to purge the database of unused plugin registration data.') ?>
         </p>
         <span id="JobType">
             <span class="automatic-icon"></span> <?= t('Automatic Cleaning Jobs') ?>
