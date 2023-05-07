@@ -419,11 +419,10 @@ li.list-item i.fa-table {
 }
 
 span.db-name {
-    border: 1px solid var(--pp-orange-c-cleaner);
+    border-left: 2px solid var(--pp-orange-c-cleaner);
+    border-right: 2px solid var(--pp-orange-c-cleaner);
     padding: 0 3px 4px 3px;
     letter-spacing: .051em;
-    border-left: 0;
-    border-right: 0;
 }
 
 span.db-name > span.db-database-icon {
