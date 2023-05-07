@@ -8,6 +8,17 @@
                     <span class="job-number"><?= $plugin['job_number'] ?></span>
                 </span>
             </legend>
+            <ul class="job-plugin-details">
+                <li class="" title="<?= t('Plugin Author') ?>">
+                    <span class="plugin-icon"></span> <?= $plugin['plugin_author'] ?>
+                </li>
+                <li class="" title="<?= t('Plugin Homepage - opens in a new window') ?> &#8663;">
+                    <span class="website-globe-icon"></span>
+                    <a href="<?= $plugin['plugin_url'] ?>" rel="noopener noreferrer">
+                        <?= $plugin['plugin_url'] ?>
+                    </a>
+                </li>
+            </ul>
             <p class="job-desc">
                 <?= t('Remove all traces, content and plugin registration data for %s.', $plugin['plugin_title']) ?>
             </p>

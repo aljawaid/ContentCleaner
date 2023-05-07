@@ -567,9 +567,11 @@ li.column-names {
 
 ul.job-plugin-details {
     position: absolute;
-    top: -10px;
+    top: -8px;
     right: 60px;
     list-style-type: none;
+    font-size: .9em;
+    opacity: .7;
 }
 
 ul.job-plugin-details li {
@@ -579,4 +581,10 @@ ul.job-plugin-details li {
 
 ul.job-plugin-details li:last-child {
     margin-right: 0;
+}
+
+ul.job-plugin-details span.plugin-icon, ul.job-plugin-details span.website-globe-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: text-bottom;
 }
