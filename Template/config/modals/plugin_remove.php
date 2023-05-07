@@ -10,9 +10,11 @@
 <div id="RemovePluginContent" class="modal-contents">
     <div class="confirm">
         <p class="confirm-notice">
-            <?= t('Click the button to completely remove %s from the database', $plugin_job_name) ?>
+            <?= t('Process this job to completely remove %s from the database.', $plugin_job_name) ?>
         </p>
-        <span id="JobType"><?= t('Plugin Cleaning') ?></span>
-        <?= $this->modal->confirmButtons('PluginCleaningController', 'removePlugin', array('job_number' => $job_number, 'plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Delete Table')) ?>
+        <span id="JobType">
+            <span class="plugin-icon"></span> <?= t('Plugin Cleaning') ?>
+        </span>
+        <?= $this->modal->confirmButtons('PluginCleaningController', 'removePlugin', array('job_number' => $job_number, 'plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Delete Plugin')) ?>
     </div>
 </div>
