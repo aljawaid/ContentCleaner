@@ -46,7 +46,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">02</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('Some calendar plugins alter default settings which affect the project and user views. This can affect how tasks are displayed in relation to start dates and due dates.') ?>
+            <?= t('Calendar plugins can alter the default settings project and user views affecting how tasks are displayed based on start and due dates.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
@@ -121,7 +121,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">04</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('Duplicate login sessions may get created over time for users. This can cause session conflicts for regular users who log in from different locations and devices.') ?>
+            <?= t('Duplicate login sessions can cause session conflicts for regular users who log in from different locations and devices.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
