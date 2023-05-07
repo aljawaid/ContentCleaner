@@ -119,6 +119,7 @@ ul.default-table-list li.list-item {
 
 .job-section-wrapper {
     display: inline;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 li.more {
@@ -135,12 +136,12 @@ li.more {
     box-shadow: 0 0 2px 0 var(--pp-grey);
     vertical-align: middle;
     height: 200px;
+    padding: 5px 5px 5px 5px;
 }
 
 .job-wrapper .form-actions {
     text-align: right;
     padding-top: 0;
-    margin-top: 5px;
     display: block;
     font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -161,10 +162,11 @@ li.more {
 
 .job-desc {
     margin-block-start: 5px;
+    margin-block-end: 10px;
 }
 
 .job-content {
-    margin-bottom: 10px;
+    margin-bottom: 7px;
     height: 75px;
     display: block;
 }
@@ -205,6 +207,12 @@ li.more {
     letter-spacing: .06rem;
 }
 
+fieldset.job-wrapper a.job-btn:hover {
+    color: var(--pp-green-dark) !important;
+    background: var(--pp-white);
+    border: 2px inset var(--pp-orange-c-cleaner);
+}
+
 fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
     font-size: 1em;
     border: 2px outset var(--pp-orange-c-cleaner);
@@ -213,14 +221,11 @@ fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
     color: var(--pp-green-dark);
     transition: var(--transition-c-cleaner);
     margin: 0;
-    margin-right: -6px;
     text-decoration: none;
 }
 
-fieldset.job-wrapper a.job-btn:hover {
-    color: var(--pp-green-dark) !important;
-    background: var(--pp-white);
-    border: 2px inset var(--pp-orange-c-cleaner);
+fieldset.job-wrapper .plugin-job-form-actions a.job-btn, .plugin-job-form-actions fieldset a.job-btn:visited {
+    margin-right: -6px;
 }
 
 .job-btn span.db-delete-icon {
@@ -558,4 +563,20 @@ li.job-plugin-version, li.no-tables {
 
 li.column-names {
     background: rgba(255, 101, 0, .6);
+}
+
+ul.job-plugin-details {
+    position: absolute;
+    top: -10px;
+    right: 60px;
+    list-style-type: none;
+}
+
+ul.job-plugin-details li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+ul.job-plugin-details li:last-child {
+    margin-right: 0;
 }

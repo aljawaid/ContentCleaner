@@ -38,7 +38,7 @@
             <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>"><span class="job-number">02</span></span>
         </legend>
         <p class="job-desc">
-            <?= t('This job is an all-in-one process to completely deep clean your database. Any data inside unknown tables and columns will also be deleted.') ?>
+            <?= t('This job is an all-in-one process to deep clean your database. Any data inside unknown tables and columns will also be deleted.') ?>
         </p>
         <div class="job-content">
             <ul class="job-tables fa-ul">
