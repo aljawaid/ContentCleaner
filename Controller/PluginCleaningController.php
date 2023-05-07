@@ -14,4 +14,10 @@ use Kanboard\Core\Controller\PageNotFoundException;
 
 class PluginCleaningController extends BaseController
 {
+    public function confirmRemoval()
+    {
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_remove', array(
+            'table' => $this->request->getStringParam('table'),
+        )));
+    }
 }
