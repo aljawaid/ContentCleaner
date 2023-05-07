@@ -245,34 +245,34 @@ fieldset.job-wrapper .plugin-job-form-actions a.job-btn, .plugin-job-form-action
     margin-bottom: 0;
 }
 
-#ResetModalSettingsHeader h2 .job-number, #AutoPurgeCleanHeader h2 .job-number, #PurgePluginSchemasHeader h2 .job-number, #RemoveTableHeader h2 .job-number {
+#ResetModalSettingsHeader h2 .job-number, #AutoPurgeCleanHeader h2 .job-number, #PurgePluginSchemasHeader h2 .job-number, #RemoveTableHeader h2 .job-number, #RemovePluginHeader h2 .job-number {
     background: var(--pp-orange-c-cleaner);
     color: var(--pp-white);
     padding: 0 3px;
     border-radius: var(--border-radius-c-cleaner);
 }
 
-#ResetModalSettingsHeader .modal-title, #AutoPurgeCleanHeader .modal-title, #PurgePluginSchemasHeader .modal-title, #RemoveTableHeader .modal-title, #ExtraColumnsHeader .modal-title {
+#ResetModalSettingsHeader .modal-title, #AutoPurgeCleanHeader .modal-title, #PurgePluginSchemasHeader .modal-title, #RemoveTableHeader .modal-title, #ExtraColumnsHeader .modal-title, #RemovePluginHeader .modal-title {
     float: right;
     margin-right: 2em;
     font-weight: 600;
     font-size: .8em;
 }
 
-#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions, #PurgePluginSchemasContent .form-actions, #RemoveTableContent .form-actions, #ExtraColumnsContent .form-actions {
+#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions, #PurgePluginSchemasContent .form-actions, #RemoveTableContent .form-actions, #ExtraColumnsContent .form-actions, #RemovePluginContent .form-actions {
     text-align: right;
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions, #RemovePluginContent .confirm .js-confirm-buttons-rendered .form-actions {
     color: var(--pp-white);
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions button, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions button, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions button, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions button, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions button {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions button, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions button, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions button, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions button, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions button, #RemovePluginContent .confirm .js-confirm-buttons-rendered .form-actions button {
     border-radius: var(--border-radius-c-cleaner);
     padding-bottom: 4px;
 }
 
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions a, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions a, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions a, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions a, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions a {
+#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions a, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions a, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions a, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions a, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions a, #RemovePluginContent .confirm .js-confirm-buttons-rendered .form-actions a {
     font-size: 1.2em;
     padding: 3px 10px;
     transition: var(--transition-c-cleaner);
