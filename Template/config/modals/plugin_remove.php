@@ -15,6 +15,6 @@
         <span id="JobType">
             <span class="plugin-icon"></span> <?= t('Plugin Cleaning') ?>
         </span>
-        <?= $this->modal->confirmButtons('PluginCleaningController', 'removePlugin', array('job_number' => $job_number, 'plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Delete Plugin')) ?>
+        <?= $this->modal->confirmButtons('PluginCleaningController', 'removePlugin', array('job_number' => $job_number, 'plugin_job_name' => $plugin_job_name, 'plugin_name' => $plugin['plugin_name'], 'plugin' => 'ContentCleaner'), t('Delete Plugin')) ?>
     </div>
 </div>
