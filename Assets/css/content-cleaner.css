@@ -561,7 +561,7 @@ li.job-plugin-version, li.no-tables {
 
 li.column-names {
     background: rgba(255, 101, 0, .6);
-    border-bottom: 2px dashed rgb(255, 101, 0);
+    border-bottom: 2px dashed #A52A2A;
     padding-bottom: 0;
 }
 
