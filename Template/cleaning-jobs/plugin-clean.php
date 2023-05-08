@@ -1,7 +1,7 @@
 <!-- ContentCleaner: PLUGIN CLEANING -->
 <?php foreach ($deletable_plugins as $plugin): ?>
     <div class="job-section-wrapper">
-        <fieldset class="job-wrapper plugin-job-wrapper">
+        <fieldset id="PluginJobWrapper" class="job-wrapper plugin-job-wrapper">
             <legend class="job-title">
                 <span class="content-cleaner-icon"></span> <?= t('%s Plugin', $plugin['plugin_title']) ?>
                 <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>">
@@ -22,7 +22,7 @@
             <p class="job-desc">
                 <?= t('Remove all traces, content and plugin registration data for %s.', $plugin['plugin_title']) ?>
             </p>
-            <div class="job-content">
+            <div class="plugin-job-content">
                 <ul class="job-tables fa-ul">
                     <li class="job-tables-title">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><?= t('Plugin Tables') ?>
@@ -123,17 +123,33 @@
                     </li>
                 </ul>
             </div>
-            <div class="form-actions plugin-job-form-actions">
-                <div class="panel">
-                    <h5><?= t('Plugin Deep Cleaning') ?></h5>
-                    <ul class="">
-                        <li class=""><a href="" class=""><span class="plugin-icon"></span><?= t('Plugin Tables') ?></a></li>
-                        <li class=""><a href="" class=""><span class="plugin-icon"></span><?= t('Core Table Columns') ?></a></li>
-                        <li class=""><a href="" class=""><span class="plugin-icon"></span><?= t('Core Table Entries') ?></a></li>
-                        <li class=""><a href="" class=""><span class="plugin-icon"></span><?= t('Plugin Registration') ?></a></li>
+            <div id="DeepCleanFormActions" class="form-actions plugin-job-form-actions">
+                <div class="deep-clean-panel">
+                    <ul class="plugin-btn-list">
+                        <li class="deep-clean-panel-title"><?= t('Deep Cleaning') ?></li>
+                        <li class="plugin-btn-item">
+                            <a href="" class="btn job-btn js-modal-confirm">
+                                <span class="plugin-icon"></span> <?= t('Plugin Tables') ?>
+                            </a>
+                        </li>
+                        <li class="plugin-btn-item">
+                            <a href="" class="btn job-btn js-modal-confirm">
+                                <span class="plugin-icon"></span> <?= t('Core Table Columns') ?>
+                            </a>
+                        </li>
+                        <li class="plugin-btn-item">
+                            <a href="" class="btn job-btn js-modal-confirm">
+                                <span class="plugin-icon"></span> <?= t('Core Table Entries') ?>
+                            </a>
+                        </li>
+                        <li class="plugin-btn-item">
+                            <a href="" class="btn job-btn js-modal-confirm">
+                                <span class="plugin-icon"></span> <?= t('Plugin Registration') ?>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePlugin', array(
+                <a id="DeletePluginButton" href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePlugin', array(
                     'plugin_job_name' => $plugin['plugin_title'],
                     'job_number' => $plugin['job_number'],
                     'plugin_name' => $plugin['plugin_name'],

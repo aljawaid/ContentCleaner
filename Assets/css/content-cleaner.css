@@ -171,6 +171,11 @@ li.more {
     display: block;
 }
 
+.plugin-job-content {
+    margin-bottom: 7px;
+    display: block;
+}
+
 .job-tables, .job-result, .job-table-size {
     font-size: .9em;
 }
@@ -534,10 +539,14 @@ li.job-columns-list ol.column-list {
 }
 
 fieldset.plugin-job-wrapper {
-    padding: 10px 15px 15px 10px;
+    padding: 10px 15px 7px 10px;
     position: relative;
     display: block;
     width: auto;
+}
+
+#PluginJobWrapper {
+    height: unset;
 }
 
 .job-plugin-table {
@@ -553,6 +562,14 @@ fieldset.plugin-job-wrapper .form-actions {
     bottom: 6px;
     position: absolute;
     right: 13px;
+}
+
+#DeepCleanFormActions {
+    position: unset;
+    right: 13px;
+    display: block;
+    margin: auto;
+    text-align: right;
 }
 
 li.job-plugin-version, li.no-tables {
@@ -593,4 +610,58 @@ span.tooltip.content-cleaner-tooltip i.fa-info-circle {
     font-size: 1.3em !important;
     vertical-align: middle !important;
     color: #737272;
+}
+
+.deep-clean-panel {
+    border-radius: var(--border-radius-c-cleaner);
+    padding: 0 1px 3px 5px;
+    border: 1px solid #000;
+    color: var(--color-primary);
+    background-color: #fcfcfc;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+li.deep-clean-panel-title {
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: 600;
+    color: var(--pp-grey);
+    white-space: break-spaces;
+    word-break: break-word;
+    width: 60px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+ul.plugin-btn-list {
+    list-style-type: none;
+}
+
+ul.plugin-btn-list li {
+    display: inline-block;
+}
+
+ul.plugin-btn-list li a.job-btn {
+    font-size: .9em;
+}
+
+ul.plugin-btn-list li a.job-btn span.plugin-icon {
+    width: 16px;
+    height: 16px;
+    color: red;
+}
+
+li.plugin-btn-item {
+    margin-right: 10px;
+}
+
+#DeletePluginButton:hover {
+    background: var(--pp-white);
+}
+
+#DeletePluginButton {
+    background: var(--pp-green);
+    color: var(--pp-white);
+    border-color: var(--pp-green-dark);
 }
