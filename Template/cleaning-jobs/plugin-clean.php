@@ -124,7 +124,13 @@
                 </ul>
             </div>
             <div class="form-actions plugin-job-form-actions">
-                <a href="<?= $this->url->href('PluginCleaningController', 'confirmRemoval', array('plugin_job_name' => $plugin['plugin_title'], 'job_number' => $plugin['job_number'], 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Deep Clean Plugin') ?></a>
+                <a href="<?= $this->url->href('PluginCleaningController', 'confirmRemoval', array(
+                    'plugin_job_name' => $plugin['plugin_title'],
+                    'job_number' => $plugin['job_number'],
+                    'plugin_name' => $plugin['plugin_name'],
+                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon">
+                        </span> <?= t('Deep Clean Plugin') ?>
+                </a>
             </div>
         </fieldset>
     </div>
