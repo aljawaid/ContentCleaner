@@ -16,7 +16,7 @@ class PluginCleaningController extends BaseController
 {
     public function confirmDeletePlugin()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_remove', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
             'job_number' => $this->request->getStringParam('job_number'),
             'plugin_name' => $this->request->getStringParam('plugin_name'),
@@ -40,8 +40,9 @@ class PluginCleaningController extends BaseController
 
     public function confirmDeletePluginTables()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
-            'job' => $this->request->getStringParam('job'),
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
+            'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
+            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 
@@ -63,8 +64,9 @@ class PluginCleaningController extends BaseController
 
     public function confirmDeleteCoreTableColumns()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
-            'job' => $this->request->getStringParam('job'),
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
+            'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
+            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 
@@ -92,8 +94,9 @@ class PluginCleaningController extends BaseController
 
     public function confirmDeleteCoreTableEntries()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
-            'job' => $this->request->getStringParam('job'),
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
+            'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
+            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 
@@ -112,8 +115,9 @@ class PluginCleaningController extends BaseController
 
     public function confirmDeletePluginSchemaEntry()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
-            'job' => $this->request->getStringParam('job'),
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
+            'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
+            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 
