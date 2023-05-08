@@ -124,12 +124,21 @@
                 </ul>
             </div>
             <div class="form-actions plugin-job-form-actions">
+                <div class="panel">
+                    <h5><?= t('Plugin Deep Cleaning') ?></h5>
+                    <ul class="">
+                        <li class=""><a href="" class=""><span class="plugin-icon"></span><?= t('Plugin Tables') ?></a></li>
+                        <li class=""><a href="" class=""><span class="plugin-icon"></span><?= t('Core Table Columns') ?></a></li>
+                        <li class=""><a href="" class=""><span class="plugin-icon"></span><?= t('Core Table Entries') ?></a></li>
+                        <li class=""><a href="" class=""><span class="plugin-icon"></span><?= t('Plugin Registration') ?></a></li>
+                    </ul>
+                </div>
                 <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePlugin', array(
                     'plugin_job_name' => $plugin['plugin_title'],
                     'job_number' => $plugin['job_number'],
                     'plugin_name' => $plugin['plugin_name'],
                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
-                    <span class="content-cleaner-icon"></span> <?= t('Deep Clean Plugin') ?>
+                    <span class="content-cleaner-icon"></span> <?= t('Delete Plugin') ?>
                 </a>
             </div>
         </fieldset>
