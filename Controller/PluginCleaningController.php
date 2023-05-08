@@ -19,6 +19,7 @@ class PluginCleaningController extends BaseController
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_remove', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
             'job_number' => $this->request->getStringParam('job_number'),
+            'plugin_name' => $this->request->getStringParam('plugin_name'),
         )));
     }
 }
