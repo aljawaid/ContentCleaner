@@ -29,17 +29,7 @@ class ContentCleanerController extends \Kanboard\Controller\PluginController
             'title' => t('Settings') . ' &#10562; ' . t('Content Cleaner'),
             'db_size' => $this->configModel->getDatabaseSize(),
             'db_version' => $this->db->getDriver()->getDatabaseVersion(),
-            'deletable_plugins' => $this->getDeletablePlugins(),
+            'deletable_plugins' => $this->helper->pluginCleaningHelper->getDeletablePlugins(),
         )));
-    }
-
-    public function getDeletablePlugins()
-    {
-        // GET THE JSON OF PLUGINS WHICH CAN BE DELETED
-        // 'template/cleaning-jobs/plugin-cleaning.json'
-
-        $file = PLUGINS_DIR . '/ContentCleaner/Template/cleaning-jobs/plugin-cleaning.json';
-        $plugins = json_decode(file_get_contents($file), true);
-        return $plugins;
     }
 }
