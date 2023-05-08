@@ -88,7 +88,6 @@ class DefaultTableHelper extends Base
             $check_back = true;
         }
 
-
         $columns = array();
 
         // EXTRACT TABLE NAMES AND COLUMN NAMES
@@ -126,7 +125,6 @@ class DefaultTableHelper extends Base
         foreach ($add_matches[1] as $match) {
             $columns[] = $match;
         }
-
 
         $table_to_check = (!$check_back) ? $old_table_name : $table_name;
         $current_columns = $this->applicationCleaningModel->getColumns($table_to_check);
@@ -178,7 +176,6 @@ class DefaultTableHelper extends Base
             }
         }
 
-
         return $columns_checks;
     }
 
@@ -205,7 +202,6 @@ class DefaultTableHelper extends Base
                 $table_checks[$table_name] = 'Unknown';
             }
         }
-
 
         return $table_checks;
     }
