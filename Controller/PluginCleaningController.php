@@ -40,7 +40,7 @@ class PluginCleaningController extends BaseController
 
     public function confirmDeletePluginTables()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
             'job_number' => $this->request->getStringParam('job_number'),
         )));
@@ -64,7 +64,7 @@ class PluginCleaningController extends BaseController
 
     public function confirmDeleteCoreTableColumns()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
             'job_number' => $this->request->getStringParam('job_number'),
         )));
@@ -94,7 +94,7 @@ class PluginCleaningController extends BaseController
 
     public function confirmDeleteCoreTableEntries()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
             'job_number' => $this->request->getStringParam('job_number'),
         )));
@@ -115,7 +115,7 @@ class PluginCleaningController extends BaseController
 
     public function confirmDeletePluginSchemaEntry()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
             'job_number' => $this->request->getStringParam('job_number'),
         )));
