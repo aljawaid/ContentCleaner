@@ -48,6 +48,15 @@
                             </li>
                         <?php endif ?>
                     <?php endif ?>
+                    <!-- ContentCleaner: PLUGIN DEEP CLEAN PLUGIN SCHEMA ENTRY -->
+                    <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeletePluginSchemaEntry')): ?>
+                        <?php if (isset($plugin['plugin_schema_version'])): ?>
+                            <li class="plugin-job-delete-item">
+                                <i class="fa fa-check fa-li pp-green" aria-hidden="true"></i>
+                                <span class="db-database-icon"></span> <?= t('Plugin Schema Registration Entry') ?>
+                            </li>
+                        <?php endif ?>
+                    <?php endif ?>
                 <?php endif ?>
             <?php endforeach ?>
         </ul>
@@ -65,6 +74,10 @@
         <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE ENTRIES -->
         <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableEntries')): ?>
             <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableEntries', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean Plugin')) ?>
+        <?php endif ?>
+        <!-- ContentCleaner: PLUGIN DEEP CLEAN PLUGIN SCHEMA ENTRY -->
+        <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeletePluginSchemaEntry')): ?>
+            <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginSchemaEntry', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean Plugin')) ?>
         <?php endif ?>
     </div>
 </div>
