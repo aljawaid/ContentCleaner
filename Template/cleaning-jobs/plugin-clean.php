@@ -127,26 +127,50 @@
                 <div class="deep-clean-panel">
                     <ul class="plugin-btn-list">
                         <li class="deep-clean-panel-title"><?= t('Deep Cleaning') ?></li>
-                        <li class="plugin-btn-item">
-                            <a href="" class="btn job-btn js-modal-confirm">
-                                <span class="plugin-icon"></span> <?= t('Plugin Tables') ?>
-                            </a>
-                        </li>
-                        <li class="plugin-btn-item">
-                            <a href="" class="btn job-btn js-modal-confirm">
-                                <span class="plugin-icon"></span> <?= t('Core Table Columns') ?>
-                            </a>
-                        </li>
-                        <li class="plugin-btn-item">
-                            <a href="" class="btn job-btn js-modal-confirm">
-                                <span class="plugin-icon"></span> <?= t('Core Table Entries') ?>
-                            </a>
-                        </li>
-                        <li class="plugin-btn-item">
-                            <a href="" class="btn job-btn js-modal-confirm">
-                                <span class="plugin-icon"></span> <?= t('Plugin Registration') ?>
-                            </a>
-                        </li>
+                        <?php if (isset($plugin['plugin_tables'])): ?>
+                            <li class="plugin-btn-item">
+                                <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePluginTables', array(
+                                    'plugin_job_name' => $plugin['plugin_title'],
+                                    'job_number' => $plugin['job_number'],
+                                    'plugin_name' => $plugin['plugin_name'],
+                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                                    <span class="plugin-icon"></span> <?= t('Plugin Tables') ?>
+                                </a>
+                            </li>
+                        <?php endif ?>
+                        <?php if (isset($plugin['core_table_columns'])): ?>
+                            <li class="plugin-btn-item">
+                                <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeleteCoreTableColumns', array(
+                                    'plugin_job_name' => $plugin['plugin_title'],
+                                    'job_number' => $plugin['job_number'],
+                                    'plugin_name' => $plugin['plugin_name'],
+                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                                    <span class="plugin-icon"></span> <?= t('Core Table Columns') ?>
+                                </a>
+                            </li>
+                        <?php endif ?>
+                        <?php if (isset($plugin['core_table_entries'])): ?>
+                            <li class="plugin-btn-item">
+                                <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeleteCoreTableEntries', array(
+                                    'plugin_job_name' => $plugin['plugin_title'],
+                                    'job_number' => $plugin['job_number'],
+                                    'plugin_name' => $plugin['plugin_name'],
+                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                                    <span class="plugin-icon"></span> <?= t('Core Table Entries') ?>
+                                </a>
+                            </li>
+                        <?php endif ?>
+                        <?php if (isset($plugin['plugin_schema_version'])): ?>
+                            <li class="plugin-btn-item">
+                                <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePluginSchemaEntry', array(
+                                    'plugin_job_name' => $plugin['plugin_title'],
+                                    'job_number' => $plugin['job_number'],
+                                    'plugin_name' => $plugin['plugin_name'],
+                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                                    <span class="plugin-icon"></span> <?= t('Plugin Registration') ?>
+                                </a>
+                            </li>
+                        <?php endif ?>
                     </ul>
                 </div>
                 <a id="DeletePluginButton" href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePlugin', array(
