@@ -30,6 +30,15 @@
                             </li>
                         <?php endif ?>
                     <?php endif ?>
+                    <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE COLUMNS -->
+                    <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableColumns')): ?>
+                        <?php if (isset($plugin['core_table_columns'])): ?>
+                            <li class="plugin-job-delete-item">
+                                <i class="fa fa-check fa-li pp-green" aria-hidden="true"></i>
+                                <i class="fa fa-columns" aria-hidden="true"></i> <?= t('Core Table Columns') ?>
+                            </li>
+                        <?php endif ?>
+                    <?php endif ?>
                 <?php endif ?>
             <?php endforeach ?>
         </ul>
@@ -39,6 +48,10 @@
         <!-- ContentCleaner: PLUGIN DEEP CLEAN PLUGIN TABLES -->
         <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeletePluginTables')): ?>
             <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginTables', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean Plugin')) ?>
+        <?php endif ?>
+        <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE COLUMNS -->
+        <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableColumns')): ?>
+            <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableColumns', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean Plugin')) ?>
         <?php endif ?>
     </div>
 </div>
