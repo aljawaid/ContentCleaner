@@ -88,7 +88,7 @@ section.db-summary fieldset {
     height: 25px;
 }
 
-li.list-item i.fa-table, li.job-tables-title i.fa-table, .extra-table-item i.fa-table, .job-tables-title i.fa-columns, .plugin-job-delete-item i.fa-table, .plugin-job-delete-item i.fa-columns, .plugin-job-delete-item i.fa-tasks {
+li.list-item i.fa-table, li.job-tables-title i.fa-table, .extra-table-item i.fa-table, .job-tables-title i.fa-columns, .plugin-job-delete-item i.fa-table, .plugin-job-delete-item i.fa-columns, .plugin-job-delete-item i.fa-tasks, .job-tables-table i.fa-tasks {
     color: var(--pp-orange-c-cleaner);
     opacity: .7;
 }

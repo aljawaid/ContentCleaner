@@ -93,7 +93,7 @@
                     <?php else: ?>
                         <?php if (isset($plugin['core_table_entries'])): ?>
                             <li class="job-tables-table job-plugin-table no-tables">
-                                <i><?= t('This plugin alters no core table columns but adds or edits entries to the core table') ?></i>
+                                <i class="fa fa-tasks" aria-hidden="true"></i> <i><?= t('This plugin alters no core table columns but adds or edits entries to the core table') ?></i>
                             </li>
                         <?php else: ?>
                             <li class="job-tables-table job-plugin-table no-tables">
