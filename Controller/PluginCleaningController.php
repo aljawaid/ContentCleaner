@@ -42,7 +42,6 @@ class PluginCleaningController extends BaseController
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
-            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 
@@ -66,7 +65,6 @@ class PluginCleaningController extends BaseController
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
-            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 
@@ -96,7 +94,6 @@ class PluginCleaningController extends BaseController
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
-            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 
@@ -117,7 +114,6 @@ class PluginCleaningController extends BaseController
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
-            'job_number' => $this->request->getStringParam('job_number'),
         )));
     }
 
