@@ -65,19 +65,19 @@
         </span>
         <!-- ContentCleaner: PLUGIN DEEP CLEAN PLUGIN TABLES -->
         <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeletePluginTables')): ?>
-            <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginTables', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean Plugin')) ?>
+            <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginTables', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
         <?php endif ?>
         <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE COLUMNS -->
         <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableColumns')): ?>
-            <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableColumns', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean Plugin')) ?>
+            <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableColumns', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
         <?php endif ?>
         <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE ENTRIES -->
         <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableEntries')): ?>
-            <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableEntries', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean Plugin')) ?>
+            <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableEntries', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
         <?php endif ?>
         <!-- ContentCleaner: PLUGIN DEEP CLEAN PLUGIN SCHEMA ENTRY -->
         <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeletePluginSchemaEntry')): ?>
-            <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginSchemaEntry', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean Plugin')) ?>
+            <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginSchemaEntry', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
         <?php endif ?>
     </div>
 </div>
