@@ -3,7 +3,7 @@
         <span class="content-cleaner-icon"></span> <?= t('Confirm Cleaning Job') ?>
         <span class="job-number" title="<?= t('Cleaning Job Number') ?>"><?= $job_number ?></span>
         <span class="modal-title">
-            <span class="plugin-icon"></span> <?= t('Deep Clean Plugin') ?> <span class="modal-reset-settings"></span>
+            <span class="plugin-icon"></span> <?= t('Delete Plugin') ?> <span class="modal-reset-settings"></span>
         </span>
     </h2>
 </div>
@@ -35,12 +35,14 @@
                             <i class="fa fa-tasks" aria-hidden="true"></i> <?= t('Core Table Entries') ?>
                         </li>
                     <?php endif ?>
+                    <?php if (isset($plugin['plugin_schema_version'])): ?>
+                        <li class="plugin-job-delete-item">
+                            <i class="fa fa-check fa-li pp-green" aria-hidden="true"></i>
+                            <span class="db-database-icon"></span> <?= t('Plugin Schema Registration Entry') ?>
+                        </li>
+                    <?php endif ?>
                 <?php endif ?>
             <?php endforeach ?>
-            <li class="plugin-job-delete-item">
-                <i class="fa fa-check fa-li pp-green" aria-hidden="true"></i>
-                <span class="db-database-icon"></span> <?= t('Plugin Schema Registration Entry') ?>
-            </li>
         </ul>
         <span id="JobType">
             <span class="plugin-icon"></span> <?= t('Plugin Cleaning') ?>
