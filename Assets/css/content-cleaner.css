@@ -88,7 +88,7 @@ section.db-summary fieldset {
     height: 25px;
 }
 
-li.list-item i.fa-table, li.job-tables-title i.fa-table, .extra-table-item i.fa-table, .job-tables-title i.fa-columns {
+li.list-item i.fa-table, li.job-tables-title i.fa-table, .extra-table-item i.fa-table, .job-tables-title i.fa-columns, .plugin-job-delete-item i.fa-table, .plugin-job-delete-item i.fa-columns, .plugin-job-delete-item i.fa-tasks {
     color: var(--pp-orange-c-cleaner);
     opacity: .7;
 }
@@ -615,9 +615,9 @@ span.tooltip.content-cleaner-tooltip i.fa-info-circle {
 .deep-clean-panel {
     border-radius: var(--border-radius-c-cleaner);
     padding: 0 1px 3px 5px;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     color: var(--color-primary);
-    background-color: #fcfcfc;
+    background-color: #FCFCFC;
     display: inline-block;
     margin-right: 15px;
 }
@@ -663,4 +663,15 @@ li.plugin-btn-item {
     background: var(--pp-green);
     color: var(--pp-white);
     border-color: var(--pp-green-dark);
+}
+
+.plugin-job-delete-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.plugin-job-delete-item span.db-database-icon {
+    width: 14px;
+    height: 18px;
+    opacity: .7;
 }
