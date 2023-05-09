@@ -131,7 +131,6 @@
                             <li class="plugin-btn-item">
                                 <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePluginTables', array(
                                     'plugin_job_name' => $plugin['plugin_title'],
-                                    'job_number' => $plugin['job_number'],
                                     'plugin_name' => $plugin['plugin_name'],
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                                     <span class="plugin-icon"></span> <?= t('Plugin Tables') ?>
@@ -142,7 +141,6 @@
                             <li class="plugin-btn-item">
                                 <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeleteCoreTableColumns', array(
                                     'plugin_job_name' => $plugin['plugin_title'],
-                                    'job_number' => $plugin['job_number'],
                                     'plugin_name' => $plugin['plugin_name'],
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                                     <span class="plugin-icon"></span> <?= t('Core Table Columns') ?>
@@ -153,7 +151,6 @@
                             <li class="plugin-btn-item">
                                 <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeleteCoreTableEntries', array(
                                     'plugin_job_name' => $plugin['plugin_title'],
-                                    'job_number' => $plugin['job_number'],
                                     'plugin_name' => $plugin['plugin_name'],
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                                     <span class="plugin-icon"></span> <?= t('Core Table Entries') ?>
@@ -164,7 +161,6 @@
                             <li class="plugin-btn-item">
                                 <a href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePluginSchemaEntry', array(
                                     'plugin_job_name' => $plugin['plugin_title'],
-                                    'job_number' => $plugin['job_number'],
                                     'plugin_name' => $plugin['plugin_name'],
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                                     <span class="plugin-icon"></span> <?= t('Plugin Registration') ?>
