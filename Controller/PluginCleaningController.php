@@ -53,9 +53,9 @@ class PluginCleaningController extends BaseController
         $this->checkCSRFParam();
 
         if ($this->applicationCleaningModel->delete($table)) {
-            $this->flash->success(t('Plugin tables were deleted successfully'));
+            $this->flash->success(t('DEEP CLEANING COMPLETE: Plugin tables were deleted successfully'));
         } else {
-            $this->flash->failure(t('Cleaning failed'));
+            $this->flash->failure(t('DEEP CLEANING FAILED: Plugin tables could not be deleted'));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
@@ -78,9 +78,9 @@ class PluginCleaningController extends BaseController
         if (!empty($values)) {
             foreach ($values as $key => $val) {
                 if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
-                    $this->flash->success(t('Cleaning complete - Database column deleted successfully'));
+                    $this->flash->success(t('DEEP CLEANING COMPLETE: Core table columns deleted successfully'));
                 } else {
-                    $this->flash->failure(t('Cleaning failed'));
+                    $this->flash->failure(t('DEEP CLEANING FAILED: Core table columns were not deleted'));
                 }
             }
         } else {
@@ -102,9 +102,9 @@ class PluginCleaningController extends BaseController
         // DELETE THE PLUGIN SCHEMA ENTRY FOR THE PLUGIN
 
         if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
-            $this->flash->success(t('Purge complete - Plugin schema data successfully removed'));
+            $this->flash->success(t('DEEP CLEANING COMPLETE: Core table entries were deleted successfully'));
         } else {
-            $this->flash->failure(t('Purge failed - Might not be anything to purge'));
+            $this->flash->failure(t('DEEP CLEANING FAILED: Core table entries were not deleted'));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
@@ -122,9 +122,9 @@ class PluginCleaningController extends BaseController
         // DELETE THE PLUGIN SCHEMA ENTRY FOR THE PLUGIN
 
         if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
-            $this->flash->success(t('Purge complete - Plugin schema data successfully removed'));
+            $this->flash->success(t('DEEP CLEANING COMPLETE: Plugin registration entry deleted successfully'));
         } else {
-            $this->flash->failure(t('Purge failed - Might not be anything to purge'));
+            $this->flash->failure(t('DEEP CLEANING FAILED: Plugin registration entry was not deleted'));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
