@@ -1,6 +1,7 @@
 <?php
     $incomingController = $this->app->getRouterController();
     $outgoingAction = $this->app->getRouterAction();
+    // phpcs:disable Generic.Files.LineLength.TooLong
 ?>
 
 <div id="RemovePluginHeader" class="modal-page-header">
@@ -81,3 +82,4 @@
         <?php endif ?>
     </div>
 </div>
+<?php //phpcs enable ?>
