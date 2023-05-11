@@ -119,7 +119,7 @@
                         <i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?>
                     </li>
                     <li class="job-result-text">
-                        <?= t('%s will not exist on your system in any form after running this job', $plugin['plugin_title']) ?>
+                        <?= t('%s will not exist on your system in any form after completing this job', $plugin['plugin_title']) ?>
                     </li>
                 </ul>
             </div>
