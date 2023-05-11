@@ -1,7 +1,5 @@
-<!--
-ContentCleaner: PLUGIN CLEANING
-// phpcs:disable Generic.Files.LineLength.TooLong
--->
+<!-- ContentCleaner: PLUGIN CLEANING -->
+<?php // phpcs:disable Generic.Files.LineLength.TooLong ?>
 <?php foreach ($deletable_plugins as $plugin): ?>
     <div class="job-section-wrapper">
         <fieldset id="PluginJobWrapper" class="job-wrapper plugin-job-wrapper">
@@ -182,6 +180,4 @@ ContentCleaner: PLUGIN CLEANING
         </fieldset>
     </div>
 <?php endforeach ?>
-<!--
-// phpcs:enable
--->
+<?php // phpcs:enable ?>
