@@ -49,9 +49,21 @@ class PluginCleaningController extends BaseController
     {
         // DELETE PLUGIN TABLES
 
-        $plugin_table = $this->request->getStringParam('plugin_table');
         $this->checkCSRFParam();
 
+        // PULL VARIABLE FROM BUTTON
+        $plugin_job_name = $this->request->getStringParam('plugin_job_name');
+
+        // MATCH VARIABLE TO JSON CONTENT
+        foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
+            if ($plugin['plugin_title'] == $plugin_job_name) {
+                if (isset($plugin['plugin_tables'])) {
+                    return $table
+                }
+            }
+        }
+
+        // DELETE PLUGIN TABLES
         if ($this->applicationCleaningModel->delete($table)) {
             $this->flash->success(t('DEEP CLEANING COMPLETE: Plugin tables were deleted successfully'));
         } else {
