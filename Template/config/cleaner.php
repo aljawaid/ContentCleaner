@@ -1,4 +1,5 @@
 <?php $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables()); ?>
+<?php // phpcs:disable Generic.Files.LineLength.TooLong ?>
 <div class="c-cleaner-page-margin">
     <div class="c-cleaner-page-header">
         <h2 class="">
@@ -62,7 +63,9 @@
                 </tr>
                 <tr class="">
                     <th class=""><?= t('Tables Created by Plugins') ?></th>
-                    <td class=""><span class="table-count-badge"><?= $this->helper->cleaningHelper->getTableDifference() ?></span></td>
+                    <td class="">
+                        <span class="table-count-badge"><?= $this->helper->cleaningHelper->getTableDifference() ?></span>
+                    </td>
                 </tr>
                 <tr class="">
                     <th class=""><?= t('Extra Tables') ?></th>
@@ -90,7 +93,9 @@
             <span class="automatic-icon"></span> <?= t('1 - Automatic Cleaning Jobs') ?>
         </summary>
         <div class="accordion-content">
-            <p class="section-intro"><?= t('Clean your database automatically by processing any of the jobs in this section (in any order).') ?></p>
+            <p class="section-intro">
+                <?= t('Clean your database automatically by processing any of the jobs in this section (in any order).') ?>
+            </p>
             <?= $this->render('ContentCleaner:cleaning-jobs/automatic-clean') ?>
         </div>
     </details>
@@ -99,7 +104,9 @@
             <span class="application-icon"></span> <?= t('2 - Application Cleaning Jobs') ?>
         </summary>
         <div class="accordion-content">
-            <p class="section-intro"><?= t('Jobs in this section affect only the default database tables. Process any of the jobs below to clean your database.') ?></p>
+            <p class="section-intro">
+                <?= t('Jobs in this section affect only the default database tables. Process any of the jobs below to clean your database.') ?>
+            </p>
             <?= $this->render('ContentCleaner:cleaning-jobs/core-clean') ?>
         </div>
     </details>
@@ -150,3 +157,4 @@
         </fieldset>
     </section>
 </div>
+<?php //phpcs enable ?>
