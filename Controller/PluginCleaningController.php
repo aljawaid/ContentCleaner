@@ -58,7 +58,7 @@ class PluginCleaningController extends BaseController
         foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
             if ($plugin['plugin_title'] == $plugin_job_name) {
                 if (isset($plugin['plugin_tables'])) {
-                    return $table
+                    return $table;
                 }
             }
         }
