@@ -1,5 +1,5 @@
 <?php $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables()); ?>
-<?php // phpcs:disable Generic.Files.LineLength.TooLong ?>
+
 <div class="c-cleaner-page-margin">
     <div class="c-cleaner-page-header">
         <h2 class="">
@@ -157,4 +157,3 @@
         </fieldset>
     </section>
 </div>
-<?php //phpcs enable ?>
