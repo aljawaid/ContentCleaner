@@ -1,0 +1,10 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "jquery": true
+    },
+    "root": true,
+    "extends": "eslint:recommended",
+    "ignorePatterns": ["clipboard-*.min.js", "**/vendor/*.js"]
+}
