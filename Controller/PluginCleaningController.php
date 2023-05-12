@@ -16,6 +16,11 @@ use Kanboard\Core\Controller\PageNotFoundException;
 
 class PluginCleaningController extends BaseController
 {
+    /**
+     * Confirm Deletion of Plugin (Modal)
+     *
+     * @author aljawaid
+     */
     public function confirmDeletePlugin()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
@@ -91,6 +96,11 @@ class PluginCleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Confirm Deletion of Core Table Columns (Modal)
+     *
+     * @author aljawaid
+     */
     public function confirmDeleteCoreTableColumns()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
@@ -120,6 +130,11 @@ class PluginCleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Confirm Deletion of Core Table Entries (Modal)
+     *
+     * @author aljawaid
+     */
     public function confirmDeleteCoreTableEntries()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
@@ -140,6 +155,11 @@ class PluginCleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Confirm Deletion of Plugin Schema Entry (Modal)
+     *
+     * @author aljawaid
+     */
     public function confirmDeletePluginSchemaEntry()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
