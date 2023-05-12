@@ -62,6 +62,7 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
   - Remove [SubtaskDueDate](https://github.com/eSkiSo/Subtaskdate "A Kanboard plugin") data
   - Remove [Wiki](https://github.com/funktechno/kanboard-plugin-wiki "A Kanboard plugin") data
   - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin") data
+  - Deep clean plugins based on their structure or totally remove them using one button
 
 <p align="right">[<a href="#user-content-readme-bottom">&#8595; Bottom</a>] [<a href="#features">&#8592; Previous</a>] [<a href="#usage">&#8594; Next</a>] [<a href="#user-content-readme-top">&#8593; Top</a>]</p>
 
@@ -78,6 +79,14 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
 **Automatic Cleaning Jobs**  
 
 ![Summary](../master/Screenshots/screenshot-auto-cleaning-jobs.png "Automatic Cleaning Jobs")
+
+**Application Cleaning Jobs**  
+
+![Summary](../master/Screenshots/screenshot-app-cleaning-jobs.png "Application Cleaning Jobs")
+
+**Plugin Cleaning Jobs**  
+
+![Summary](../master/Screenshots/screenshot-plugin-cleaning-jobs.png "Plugin Cleaning Jobs")
 
 <p align="right">[<a href="#user-content-readme-bottom">&#8595; Bottom</a>] [<a href="#features">&#8592; Previous</a>] [<a href="#installation--compatibility">&#8594; Next</a>] [<a href="#user-content-readme-top">&#8593; Top</a>]</p>
 
