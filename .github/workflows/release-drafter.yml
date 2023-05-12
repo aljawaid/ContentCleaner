@@ -1,4 +1,5 @@
-name: Release Drafter
+---
+name: GitHub Release Drafter
 
 on:
   push:
@@ -18,6 +19,7 @@ permissions:
 
 jobs:
   update_release_draft:
+    name: Update Draft Release Notes
     permissions:
       # write permission is required to create a github release
       contents: write
