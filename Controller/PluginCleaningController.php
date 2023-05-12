@@ -8,8 +8,10 @@ use Kanboard\Core\Controller\PageNotFoundException;
 
 /**
  * Plugin ContentCleaner
+ *
  * Class PluginCleaningController
  * @author aljawaid
+ * @author alfredbuehler Alfred Bühler
  */
 
 class PluginCleaningController extends BaseController
@@ -38,6 +40,11 @@ class PluginCleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Confirm Deletion of Plugin Tables (Modal)
+     *
+     * @author aljawaid
+     */
     public function confirmDeletePluginTables()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
@@ -45,26 +52,37 @@ class PluginCleaningController extends BaseController
         )));
     }
 
+    /**
+     * Delete Plugin Tables
+     *
+     * @author alfredbuehler Alfred Bühler
+     */
     public function deletePluginTables()
     {
-        // DELETE PLUGIN TABLES
-
         $this->checkCSRFParam();
 
-        // PULL VARIABLE FROM BUTTON
+        // Pull variable from button
         $plugin_job_name = $this->request->getStringParam('plugin_job_name');
+        $plugin_tables = [];
 
-        // MATCH VARIABLE TO JSON CONTENT
+        // Match variable to json content if the plugin name matches
         foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
-            if ($plugin['plugin_title'] == $plugin_job_name) {
-                if (isset($plugin['plugin_tables'])) {
-                    return $table;
-                }
+            if ($plugin['plugin_title'] === $plugin_job_name && isset($plugin['plugin_tables'])) {
+                $plugin_tables = $plugin['plugin_tables'];
+                break;
             }
         }
 
-        // DELETE PLUGIN TABLES
-        if ($this->applicationCleaningModel->delete($table)) {
+        // Delete the plugin tables
+        $success = true;
+        foreach ($plugin_tables as $table) {
+            if (!$this->applicationCleaningModel->delete($table)) {
+                $success = false;
+                break;
+            }
+        }
+
+        if ($success) {
             $this->flash->success(t('DEEP CLEANING COMPLETE: Plugin tables were deleted successfully'));
         } else {
             $this->flash->failure(t('DEEP CLEANING FAILED: Plugin tables could not be deleted'));
