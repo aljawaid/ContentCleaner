@@ -164,14 +164,21 @@ class PluginCleaningController extends BaseController
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
+            'plugin_name' => $this->request->getStringParam('plugin_name'),
         )));
     }
 
+    /**
+     * Delete the Plugin Schema Entry for the Plugin
+     *
+     * @author aljawaid
+     */
     public function deletePluginSchemaEntry()
     {
-        // DELETE THE PLUGIN SCHEMA ENTRY FOR THE PLUGIN
+        $this->checkCSRFParam();
+        $plugin_name = $this->request->getStringParam('plugin_name');
 
-        if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
+        if ($this->pluginCleaningModel->deletePluginSchemaEntry($plugin_name. $plugin_schema_version !== false)) {
             $this->flash->success(t('DEEP CLEANING COMPLETE: Plugin registration entry deleted successfully'));
         } else {
             $this->flash->failure(t('DEEP CLEANING FAILED: Plugin registration entry was not deleted'));
