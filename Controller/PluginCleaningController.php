@@ -178,7 +178,7 @@ class PluginCleaningController extends BaseController
         $this->checkCSRFParam();
         $plugin_name = $this->request->getStringParam('plugin_name');
 
-        if ($this->pluginCleaningModel->deletePluginSchemaEntry($plugin_name. $plugin_schema_version !== false)) {
+        if ($this->pluginCleaningModel->deletePluginSchemaEntry($plugin_name, $plugin_schema_version !== false)) {
             $this->flash->success(t('DEEP CLEANING COMPLETE: Plugin registration entry deleted successfully'));
         } else {
             $this->flash->failure(t('DEEP CLEANING FAILED: Plugin registration entry was not deleted'));

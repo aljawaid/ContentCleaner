@@ -451,6 +451,7 @@ details.auto-cleaning-section > summary.accordion-title, details.db-cleaning-sec
     border-block-end-color: rgba(244, 41, 14, .6);
     font-weight: 600;
     cursor: pointer;
+    background: none;
 }
 
 details.auto-cleaning-section[open] summary, details.db-cleaning-section[open] summary, details.plugin-cleaning-section[open] summary {
@@ -474,7 +475,7 @@ details.auto-cleaning-section, details.db-cleaning-section, details.plugin-clean
 .accordion-title span.plugin-icon {
     width: 22px;
     height: 20px;
-    vertical-align: text-top;
+    /* vertical-align: text-top; */
     margin-top: 2px;
 }
 
