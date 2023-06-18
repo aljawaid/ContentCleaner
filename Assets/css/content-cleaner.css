@@ -458,7 +458,7 @@ details.auto-cleaning-section[open] summary, details.db-cleaning-section[open] s
     color: var(--pp-green-dark);
 }
 
-details.accordion-section summary.accordion-title::marker {
+details.accordion-section.auto-cleaning-section summary.accordion-title::marker, details.accordion-section.db-cleaning-section summary.accordion-title::marker, details.accordion-section.plugin-cleaning-section summary.accordion-title::marker {
     font-size: 1.2em;
 }
 
