@@ -17,17 +17,12 @@ class PluginCleaningModel extends Base
      * Delete Plugin Entry from the Schema Table
      * Table: plugin_schema_versions (plugin VARCHAR(80) NOT NULL, version INT NOT NULL DEFAULT 0, PRIMARY KEY(plugin)) ENGINE=InnoDB CHARSET=utf8
      *
-     * @return true
-     * @author aljawaid
+     * @var     string      $plugin_name        - must be lowercase
+     * @return  true
+     * @author  aljawaid
      */
-    public function deletePluginSchemaEntry($plugin_name, $plugin_schema_version)
+    public function deletePluginSchemaEntry($plugin_name)
     {
-        //$plugin_name = $this->request->getStringParam('plugin_name');
-
-        if ($this->db->table('plugin_schema_versions')->eq('plugin', $plugin_name)->exists()) {
-            $this->db->table('plugin_schema_versions')->eq('plugin', $plugin_name)->remove();
-        }
-
-        return true;
+        return $this->db->table('plugin_schema_versions')->eq('plugin', $plugin_name)->remove();
     }
 }

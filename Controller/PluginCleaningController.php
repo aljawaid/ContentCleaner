@@ -162,9 +162,13 @@ class PluginCleaningController extends BaseController
      */
     public function confirmDeletePluginSchemaEntry()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
-            'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
-            'plugin_name' => $this->request->getStringParam('plugin_name'),
+        $plugin_job_name = $this->request->getStringParam('plugin_job_name');
+        $plugin_name = $this->request->getStringParam('plugin_name');
+
+        $this->response->html($this->template->render('contentCleaner:config/modals/remove_plugin_schema', array(
+            'title' => t('Delete Plugin Registration Entry'),
+            'plugin_job_name' => $plugin_job_name,
+            'plugin_name' => $plugin_name,
         )));
     }
 
@@ -176,12 +180,13 @@ class PluginCleaningController extends BaseController
     public function deletePluginSchemaEntry()
     {
         $this->checkCSRFParam();
+
         $plugin_name = $this->request->getStringParam('plugin_name');
 
-        if ($this->pluginCleaningModel->deletePluginSchemaEntry($plugin_name, $plugin_schema_version !== false)) {
-            $this->flash->success(t('DEEP CLEANING COMPLETE: Plugin registration entry deleted successfully'));
+        if ($this->pluginCleaningModel->deletePluginSchemaEntry($plugin_name)) {
+            $this->flash->success(t('Deep Cleaning Complete: Plugin registration entry for %s deleted successfully', ucfirst($plugin_name)));
         } else {
-            $this->flash->failure(t('DEEP CLEANING FAILED: Plugin registration entry was not deleted'));
+            $this->flash->failure(t('Deep Cleaning Failed: Plugin registration entry was not deleted for %s', ucfirst($plugin_name)));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
