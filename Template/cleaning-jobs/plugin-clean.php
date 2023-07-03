@@ -15,7 +15,7 @@
                 </li>
                 <li class="" title="<?= t('Plugin Homepage - opens in a new window') ?> &#8663;">
                     <span class="website-globe-icon"></span>
-                    <a href="<?= $plugin['plugin_url'] ?>" rel="noopener noreferrer">
+                    <a href="<?= $plugin['plugin_url'] ?>" rel="noopener noreferrer" target="_blank">
                         <?= $plugin['plugin_url'] ?>
                     </a>
                 </li>
