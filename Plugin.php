@@ -41,7 +41,7 @@ class Plugin extends Base
     {
         return [
             'Plugin\ContentCleaner\Model' => [
-                'ApplicationCleaningModel'
+                'ApplicationCleaningModel', 'PluginCleaningModel'
             ],
         ];
     }
