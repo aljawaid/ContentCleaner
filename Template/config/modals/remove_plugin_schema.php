@@ -41,6 +41,17 @@
         <p class="confirm-delete">
             <?= e('Do you really want to remove the entry for %s?', '<strong>' . $plugin_job_name . '</strong>') ?>
         </p>
+        <?php $folder_name = $this->helper->pluginCleaningHelper->getFolderName() ?>
+        <?php if (file_exists('plugins/' . $folder_name . '')): ?>
+            <section class="message error cleaner-warning">
+                <header></header>
+                <i class=""></i>
+                <h3 class="">
+                    <span class="message-title"><?= t('Warning') ?></span>
+                    <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of the database entry.', $plugin_job_name, $plugin_job_name) ?></span>
+                </h3>
+            </section>
+        <?php endif ?>
         <div class="form-actions">
             <?= $this->url->link(t('Deep Clean'), 'PluginCleaningController', 'deletePluginSchemaEntry', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), true, 'btn btn-ab-delete') ?>
             <button class="btn cancel-btn js-modal-close" href="#"><?= t('Cancel') ?></button>
