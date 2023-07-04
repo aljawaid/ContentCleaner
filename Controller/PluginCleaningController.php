@@ -10,8 +10,9 @@ use Kanboard\Core\Controller\PageNotFoundException;
  * Plugin ContentCleaner
  *
  * Class PluginCleaningController
- * @author aljawaid
- * @author alfredbuehler Alfred Bühler
+ * @package     PluginCleaningController
+ * @author      aljawaid
+ * @author      alfredbuehler Alfred Bühler
  */
 
 class PluginCleaningController extends BaseController
@@ -19,7 +20,10 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Plugin (Modal)
      *
-     * @author aljawaid
+     * @param   $plugin_job_name       string
+     * @param   $plugin_name           string
+     * @param   $job_number            string
+     * @author  aljawaid
      */
     public function confirmDeletePlugin()
     {
@@ -30,6 +34,13 @@ class PluginCleaningController extends BaseController
         )));
     }
 
+    /**
+     * Delete Plugin
+     *
+     * @param   $plugin_name        string
+     * @return  true
+     * @author  aljawaid
+     */
     public function deletePlugin($plugin_name)
     {
         $this->checkCSRFParam();
@@ -48,7 +59,8 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Plugin Tables (Modal)
      *
-     * @author aljawaid
+     * @param   $plugin_job_name        string
+     * @author  aljawaid
      */
     public function confirmDeletePluginTables()
     {
@@ -60,6 +72,8 @@ class PluginCleaningController extends BaseController
     /**
      * Delete Plugin Tables
      *
+     * @param   $plugin_job_name    string
+     * @param   $plugin_tables      array
      * @author alfredbuehler Alfred Bühler
      */
     public function deletePluginTables()
@@ -99,7 +113,8 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Core Table Columns (Modal)
      *
-     * @author aljawaid
+     * @param   $plugin_job_name    string
+     * @author  aljawaid
      */
     public function confirmDeleteCoreTableColumns()
     {
@@ -108,10 +123,15 @@ class PluginCleaningController extends BaseController
         )));
     }
 
+    /**
+     * Delete Core Table Columns (created by a plugin)
+     *
+     * @param   $table        string
+     * @return  void
+     * @author  aljawaid
+     */
     public function deleteCoreTableColumns()
     {
-        // DELETE CORE COLUMNS CREATED BY THE PLUGIN
-
         $table = $this->request->getStringParam('table');
         $values = $this->request->getRawFormValues();
 
@@ -133,7 +153,8 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Core Table Entries (Modal)
      *
-     * @author aljawaid
+     * @param   $plugin_job_name        string
+     * @author  aljawaid
      */
     public function confirmDeleteCoreTableEntries()
     {
@@ -142,6 +163,12 @@ class PluginCleaningController extends BaseController
         )));
     }
 
+    /**
+     * Delete Core Table Entries (created by a plugin)
+     *
+     * @return  void
+     * @author  aljawaid
+     */
     public function deleteCoreTableEntries()
     {
         // DELETE THE PLUGIN SCHEMA ENTRY FOR THE PLUGIN
@@ -158,7 +185,9 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Plugin Schema Entry (Modal)
      *
-     * @author aljawaid
+     * @param   $plugin_job_name    string
+     * @param   $plugin_name        string
+     * @author  aljawaid
      */
     public function confirmDeletePluginSchemaEntry()
     {
@@ -175,7 +204,8 @@ class PluginCleaningController extends BaseController
     /**
      * Delete the Plugin Schema Entry for the Plugin
      *
-     * @author aljawaid
+     * @param   $plugin_name        string  - lowercase
+     * @author  aljawaid
      */
     public function deletePluginSchemaEntry()
     {
