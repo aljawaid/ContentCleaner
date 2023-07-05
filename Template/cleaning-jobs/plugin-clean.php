@@ -20,6 +20,12 @@
                     </a>
                 </li>
             </ul>
+            <?php if (isset($plugin['plugin_folder_name']) && (file_exists('plugins/' . $plugin['plugin_folder_name'] . ''))): ?>
+                <div id="InstallDetected" class="install-detected" title="<?= t('This plugin is detected as being installed') ?>">
+                    <span class="plugin-icon"></span>
+                    <p class=""><?= t('Installed') ?></p>
+                </div>
+            <?php endif ?>
             <p class="job-desc">
                 <?= t('Remove all traces, content and plugin registration data for %s.', $plugin['plugin_title']) ?>
             </p>
