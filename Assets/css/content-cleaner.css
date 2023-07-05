@@ -245,7 +245,7 @@ fieldset.job-wrapper .plugin-job-form-actions a.job-btn, .plugin-job-form-action
     vertical-align: text-top;
 }
 
-#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasHeader h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2 {
+#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasHeader h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2 {
     margin-top: 5px;
     margin-bottom: 0;
 }
@@ -264,7 +264,7 @@ fieldset.job-wrapper .plugin-job-form-actions a.job-btn, .plugin-job-form-action
     font-size: .8em;
 }
 
-#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions, #PurgePluginSchemasContent .form-actions, #RemoveTableContent .form-actions, #ExtraColumnsContent .form-actions, #RemovePluginContent .form-actions {
+#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions, #PurgePluginSchemasContent .form-actions, #RemoveTableContent .form-actions, #ExtraColumnsContent .form-actions, #RemovePluginContent .form-actions, #RemovePluginSchemaModal .modal-actions {
     text-align: right;
 }
 
@@ -716,4 +716,48 @@ li.plugin-btn-item {
     margin-top: 3px;
     font-size: .7em;
     text-align: center;
+}
+
+.modal .modal-actions {
+    text-align: right;
+    margin-top: 20px;
+    clear: both;
+}
+
+.modal .modal-actions a.btn-cc-delete {
+    /* Default Red */
+    background: #D14836;
+    border-radius: var(--border-radius-c-cleaner);
+    transition: var(--transition-c-cleaner);
+    border: 1px solid #D14836;
+    color: var(--pp-white) !important;
+    text-decoration: none !important;
+}
+
+.modal .modal-actions a.btn-cc-delete:focus, .modal .modal-actions a.btn-cc-delete:hover {
+    border: 1px solid #D14836;
+    color: #D14836 !important;
+    background: var(--pp-white);
+    text-decoration: none !important;
+}
+
+.modal .modal-actions button.cancel-btn {
+    transition: var(--transition-c-cleaner);
+}
+
+.modal .modal-actions button.cancel-btn:hover {
+    border: 1px solid #D14836;
+}
+
+.confirm .message.cleaner-warning {
+    margin-bottom: 1em;
+}
+
+.confirm .message.cleaner-warning h3 {
+    font-size: 1.1em;
+    margin: .5em;
+}
+
+.confirm.warning-confirm p.confirm-notice{
+    margin-top: 25px;
 }
