@@ -9,13 +9,13 @@
                     <span class="job-number"><?= $plugin['job_number'] ?></span>
                 </span>
             </legend>
-            <ul class="job-plugin-details">
-                <li class="" title="<?= t('Plugin Author') ?>">
+            <ul id="JobPluginDetails" class="job-plugin-details">
+                <li class="details-item" title="<?= t('Plugin Author') ?>">
                     <span class="plugin-icon"></span> <?= $plugin['plugin_author'] ?>
                 </li>
-                <li class="" title="<?= t('Plugin Homepage - opens in a new window') ?> &#8663;">
+                <li class="details-item" title="<?= t('Plugin Homepage - opens in a new window') ?> &#8663;">
                     <span class="website-globe-icon"></span>
-                    <a href="<?= $plugin['plugin_url'] ?>" rel="noopener noreferrer" target="_blank">
+                    <a href="<?= $plugin['plugin_url'] ?>" class="details-url" rel="noopener noreferrer" target="_blank">
                         <?= $plugin['plugin_url'] ?>
                     </a>
                 </li>

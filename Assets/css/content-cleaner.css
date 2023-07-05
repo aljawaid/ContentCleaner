@@ -589,12 +589,12 @@ ul.job-plugin-details {
     right: 60px;
     list-style-type: none;
     font-size: .9em;
-    opacity: .7;
 }
 
 ul.job-plugin-details li {
     display: inline-block;
     margin-right: 20px;
+    opacity: .7;
 }
 
 ul.job-plugin-details li:last-child {
@@ -605,6 +605,17 @@ ul.job-plugin-details span.plugin-icon, ul.job-plugin-details span.website-globe
     width: 20px;
     height: 20px;
     vertical-align: text-bottom;
+}
+
+#JobPluginDetails li.details-item a.details-url:hover {
+    color: var(--pp-orange-c-cleaner);
+    opacity: 1;
+}
+
+#JobPluginDetails li.details-item a.details-url {
+    transition: var(--transition-c-cleaner);
+    text-decoration: none;
+    color: #333;
 }
 
 span.tooltip.content-cleaner-tooltip i.fa-info-circle {
