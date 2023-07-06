@@ -8,22 +8,30 @@ use Kanboard\Core\Base;
 /**
  * Plugin ContentCleaner
  * Class DefaultTableHelper
- * @author creecros
+ *
+ * @package  DefaultTableHelper
+ * @author   creecros Craig Crosby
  */
 
 class DefaultTableHelper extends Base
 {
+    /**
+     * Get Default Tables
+     *
+     * @see     getSchema()
+     * @author  creecros Craig Crosby
+     */
     public function getDefaultTables()
     {
         $file = $this->getSchema();
         $tables = array();
         $sql = file_get_contents($file);
 
-        // EXTRACT TABLE NAMES
+        // Extract table names
         preg_match_all("/CREATE\s+TABLE\s+`?(\w+)`?/i", $sql, $matches);
         $tables = $matches[1];
 
-        // EXTRACT RENAMED TABLE NAMES
+        // Extract renamed table names
         switch (DB_DRIVER) { // For now, I am switching everything to reading the Mysql.php file.
             /*Case 'sqlite':
                 preg_match_all("/ALTER\s+TABLE\s+`?(\w+)`?\s+RENAME\s+TO\s+`?(\w+)`?/i", $sql, $matches);
@@ -38,17 +46,17 @@ class DefaultTableHelper extends Base
 
         foreach ($matches[1] as $i => $old_table) {
             $new_table = $matches[2][$i];
-            // UPDATE TABLE NAME IN $tables ARRAY
+            // Update the table name in the $tables array
             $key = array_search($old_table, $tables);
             if ($key !== false) {
                 $tables[$key] = $new_table;
             }
         }
 
-        // EXTRACT DROPPED TABLE NAMES
+        // Extract Dropped Table Names
         preg_match_all("/DROP\s+TABLE\s+`?(\w+)`?/i", $sql, $matches);
         foreach ($matches[1] as $table) {
-            // REMOVE TABLE NAME FROM $tables ARRAY
+            // Remove table names from the $tables array
             $key = array_search($table, $tables);
             if ($key !== false) {
                 unset($tables[$key]);
@@ -59,7 +67,7 @@ class DefaultTableHelper extends Base
 
         foreach ($tables as $key => $table) {
             if (!in_array($table, $current_tables)) {
-                // update the table name to a new value
+                // Update the table name to a new value
                 $new_table_name = ($this->wasRenamedTo($table) !== false) ? $this->wasRenamedTo($table) : $table;
                 $tables[$key] = $new_table_name;
             }
@@ -90,7 +98,7 @@ class DefaultTableHelper extends Base
 
         $columns = array();
 
-        // EXTRACT TABLE NAMES AND COLUMN NAMES
+        // Extract the table names and column names
         preg_match("/CREATE\s+TABLE\s+`?{$table_name}`?.*?\((.*?)\)[\s]*;/is", $sql, $match);
         $column_str = (!isset($match[1])) ?: $match[1];
         preg_match_all('/`?(\w+)`?\s+\w+\s*(?:\(\d+\))?(?:\s+UNSIGNED)?(?:\s+NOT\s+NULL)?(?:\s+AUTO_INCREMENT)?(?:\s+DEFAULT\s+\w*)?(?:\s+,\s*)?/i', $column_str, $matches);
@@ -101,7 +109,7 @@ class DefaultTableHelper extends Base
             }
         }
 
-        // CHANGE COLUMNS
+        // Change columns
         preg_match_all("/ALTER\s+TABLE\s+`?$table_name`?\s+CHANGE\s+COLUMN\s+`?(\w+)`?\s+`?(\w+)`?/i", $sql, $change_matches);
         foreach ($change_matches[1] as $key => $old_col_name) {
             $new_col_name = $change_matches[2][$key];
@@ -111,7 +119,7 @@ class DefaultTableHelper extends Base
             }
         }
 
-        // DROP COLUMNS
+        // Drop columns
         preg_match_all("/ALTER\s+TABLE\s+`?$table_name`?\s+DROP\s+COLUMN\s+`?(\w+)`?/i", $sql, $drop_matches);
         foreach ($drop_matches[1] as $match) {
             $index = array_search($match, $columns);
@@ -120,7 +128,7 @@ class DefaultTableHelper extends Base
             }
         }
 
-        // ADD COLUMNS
+        // Add columns
         preg_match_all("/ALTER\s+TABLE\s+`?$table_name`?\s+ADD\s+COLUMN\s+`?(\w+)`?/i", $sql, $add_matches);
         foreach ($add_matches[1] as $match) {
             $columns[] = $match;
@@ -242,7 +250,7 @@ class DefaultTableHelper extends Base
 
     private function getSchema()
     {
-        // ALL DEFAULT CHECKS ARE BASED ON THE MYSQL.PHP FILE - DO NOT CHANGE
+        // All default checks are based on the `mysql.php` file - DO NOT CHANGE
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
