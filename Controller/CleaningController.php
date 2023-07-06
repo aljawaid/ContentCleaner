@@ -9,7 +9,9 @@ use Kanboard\Core\Controller\PageNotFoundException;
 /**
  * Plugin ContentCleaner
  * Class CleaningController
- * @author aljawaid
+ *
+ * @package  CleaningController
+ * @author   aljawaid
  */
 
 class CleaningController extends BaseController
@@ -55,6 +57,13 @@ class CleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Delete Table
+     *
+     * @param   $table                  string
+     * @return  void
+     * @author  creecros Craig Crosby
+     */
     public function removeTable()
     {
         $table = $this->request->getStringParam('table');
