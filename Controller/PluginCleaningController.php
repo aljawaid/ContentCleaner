@@ -20,9 +20,9 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Plugin (Modal)
      *
-     * @param   $plugin_job_name       string
-     * @param   $plugin_name           string
-     * @param   $job_number            string
+     * @param   $plugin_job_name    string
+     * @param   $plugin_name        string
+     * @param   $job_number         string
      * @author  aljawaid
      */
     public function confirmDeletePlugin()
@@ -59,7 +59,7 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Plugin Tables (Modal)
      *
-     * @param   $plugin_job_name        string
+     * @param   $plugin_job_name    string
      * @author  aljawaid
      */
     public function confirmDeletePluginTables()
@@ -72,19 +72,19 @@ class PluginCleaningController extends BaseController
     /**
      * Delete Plugin Tables
      *
-     * @param   $plugin_job_name    string
-     * @param   $plugin_tables      array
-     * @author alfredbuehler Alfred Bühler
+     * @param   $plugin_job_name                string
+     * @param   $plugin_tables                  array
+     * @author  alfredbuehler Alfred Bühler
      */
     public function deletePluginTables()
     {
         $this->checkCSRFParam();
 
-        // Pull variable from button
+        // Pull the variable from the button
         $plugin_job_name = $this->request->getStringParam('plugin_job_name');
         $plugin_tables = [];
 
-        // Match variable to json content if the plugin name matches
+        // Match the variable to the JSON content if the plugin name matches
         foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
             if ($plugin['plugin_title'] === $plugin_job_name && isset($plugin['plugin_tables'])) {
                 $plugin_tables = $plugin['plugin_tables'];
@@ -171,8 +171,6 @@ class PluginCleaningController extends BaseController
      */
     public function deleteCoreTableEntries()
     {
-        // DELETE THE PLUGIN SCHEMA ENTRY FOR THE PLUGIN
-
         if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
             $this->flash->success(t('DEEP CLEANING COMPLETE: Core table entries were deleted successfully'));
         } else {
