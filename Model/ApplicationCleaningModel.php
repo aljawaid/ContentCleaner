@@ -257,7 +257,7 @@ class ApplicationCleaningModel extends Base
 
         switch (DB_DRIVER) {
             case 'sqlite':
-                return $this->db->execute('DROP TABLE IF EXISTS `' . $table . '`; SHOW WARNINGS');
+                return $this->db->execute('DROP TABLE IF EXISTS ' . $table . ';');
                 break;
             case 'mysql':
                 return $this->db->execute('DROP TABLE IF EXISTS `' . $table . '`; SHOW WARNINGS');
