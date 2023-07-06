@@ -48,9 +48,9 @@ class PluginCleaningController extends BaseController
         $plugin_name = $this->request->getStringParam('plugin_name');
 
         if ($this->pluginCleaningModel->deletePlugin($plugin_name)) {
-            $this->flash->success(t('Deep cleaning complete - plugin removed successfully'));
+            $this->flash->success(t('Deep Cleaning Complete: %s deleted successfully', $plugin_name));
         } else {
-            $this->flash->failure(t('Cleaning failed'));
+            $this->flash->failure(t('Deep Cleaning Failed: Unable to delete %s', $plugin_name));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
@@ -102,9 +102,9 @@ class PluginCleaningController extends BaseController
         }
 
         if ($success) {
-            $this->flash->success(t('DEEP CLEANING COMPLETE: Plugin tables were deleted successfully'));
+            $this->flash->success(t('Deep Cleaning Complete: Database tables created by %s were deleted successfully', $plugin_job_name));
         } else {
-            $this->flash->failure(t('DEEP CLEANING FAILED: Plugin tables could not be deleted'));
+            $this->flash->failure(t('Deep Cleaning Failed: Database tables created by %s could not be deleted', $plugin_job_name));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
@@ -138,9 +138,9 @@ class PluginCleaningController extends BaseController
         if (!empty($values)) {
             foreach ($values as $key => $val) {
                 if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
-                    $this->flash->success(t('DEEP CLEANING COMPLETE: Core table columns deleted successfully'));
+                    $this->flash->success(t('Deep Cleaning Complete: Core table columns were deleted successfully'));
                 } else {
-                    $this->flash->failure(t('DEEP CLEANING FAILED: Core table columns were not deleted'));
+                    $this->flash->failure(t('Deep Cleaning Failed: Core table columns were not deleted'));
                 }
             }
         } else {
@@ -171,10 +171,10 @@ class PluginCleaningController extends BaseController
      */
     public function deleteCoreTableEntries()
     {
-        if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
-            $this->flash->success(t('DEEP CLEANING COMPLETE: Core table entries were deleted successfully'));
+        if ($this->applicationCleaningModel->NOT_DONE_YET()) {
+            $this->flash->success(t('Deep Cleaning Complete: Core table entries were deleted successfully'));
         } else {
-            $this->flash->failure(t('DEEP CLEANING FAILED: Core table entries were not deleted'));
+            $this->flash->failure(t('Deep Cleaning Failed: Core table entries were not deleted'));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
@@ -212,7 +212,7 @@ class PluginCleaningController extends BaseController
         $plugin_name = $this->request->getStringParam('plugin_name');
 
         if ($this->pluginCleaningModel->deletePluginSchemaEntry($plugin_name)) {
-            $this->flash->success(t('Deep Cleaning Complete: Plugin registration entry for %s deleted successfully', ucfirst($plugin_name)));
+            $this->flash->success(t('Deep Cleaning Complete: Plugin registration entry for %s was deleted successfully', ucfirst($plugin_name)));
         } else {
             $this->flash->failure(t('Deep Cleaning Failed: Plugin registration entry was not deleted for %s', ucfirst($plugin_name)));
         }
