@@ -165,6 +165,10 @@ li.more {
     margin-block-end: 10px;
 }
 
+p.plugin-desc {
+    margin-block: 1.2em;
+}
+
 .job-content {
     margin-bottom: 7px;
     height: 75px;
