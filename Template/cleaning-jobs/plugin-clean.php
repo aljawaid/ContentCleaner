@@ -26,8 +26,8 @@
                     <p class=""><?= t('Installed') ?></p>
                 </div>
             <?php endif ?>
-            <p class="job-desc">
-                <?= t('Remove all traces, content and plugin registration data for %s.', $plugin['plugin_title']) ?>
+            <p class="alert alert-info job-desc plugin-desc">
+                <?= t('Remove all traces of %s using the "Delete Plugin" button or target the structure of the plugin and delete specific elements through the "Deep Cleaning" bar.', $plugin['plugin_title']) ?>
             </p>
             <div class="plugin-job-content">
                 <ul class="job-tables fa-ul">
