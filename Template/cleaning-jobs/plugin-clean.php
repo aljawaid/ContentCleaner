@@ -2,7 +2,7 @@
 <?php // phpcs:disable Generic.Files.LineLength.TooLong ?>
 <?php foreach ($deletable_plugins as $plugin): ?>
     <div class="job-section-wrapper">
-        <fieldset id="PluginJobWrapper" class="job-wrapper plugin-job-wrapper">
+        <fieldset id="PluginJobWrapper<?= $plugin['job_number'] ?>" class="job-wrapper plugin-job-wrapper">
             <legend class="job-title">
                 <span class="content-cleaner-icon"></span> <?= t('%s Plugin', $plugin['plugin_title']) ?>
                 <span class="job-number-wrapper" title="<?= t('Cleaning Job Number') ?>">

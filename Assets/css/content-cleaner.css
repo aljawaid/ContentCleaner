@@ -548,9 +548,6 @@ fieldset.plugin-job-wrapper {
     position: relative;
     display: block;
     width: auto;
-}
-
-#PluginJobWrapper {
     height: unset;
 }
 
