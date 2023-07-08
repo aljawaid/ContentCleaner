@@ -216,13 +216,13 @@ p.plugin-desc {
     letter-spacing: .06rem;
 }
 
-fieldset.job-wrapper a.job-btn:hover {
+fieldset.job-wrapper .job-btn:hover {
     color: var(--pp-green-dark) !important;
     background: var(--pp-white);
     border: 2px inset var(--pp-orange-c-cleaner);
 }
 
-fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
+fieldset.job-wrapper .job-btn, fieldset .job-btn:visited {
     font-size: 1em;
     border: 2px outset var(--pp-orange-c-cleaner);
     background: rgba(0, 0, 0, .15);
@@ -233,7 +233,7 @@ fieldset.job-wrapper a.job-btn, fieldset a.job-btn:visited {
     text-decoration: none;
 }
 
-fieldset.job-wrapper .plugin-job-form-actions a.job-btn, .plugin-job-form-actions fieldset a.job-btn:visited {
+fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions fieldset .job-btn:visited {
     margin-right: -6px;
 }
 
@@ -655,11 +655,11 @@ ul.plugin-btn-list li {
     display: inline-block;
 }
 
-ul.plugin-btn-list li a.job-btn {
+ul.plugin-btn-list li .job-btn {
     font-size: .9em;
 }
 
-ul.plugin-btn-list li a.job-btn span.plugin-icon {
+ul.plugin-btn-list li .job-btn span.plugin-icon {
     width: 16px;
     height: 16px;
 }
