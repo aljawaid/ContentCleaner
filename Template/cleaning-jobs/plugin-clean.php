@@ -130,7 +130,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="DeepCleanFormActions" class="form-actions plugin-job-form-actions">
+            <div id="DeepCleanFormActions<?= $plugin['job_number'] ?>" class="form-actions plugin-job-form-actions">
                 <div class="deep-clean-panel">
                     <ul class="plugin-btn-list">
                         <li class="deep-clean-panel-title"><?= t('Deep Cleaning') ?></li>

@@ -575,7 +575,7 @@ fieldset.plugin-job-wrapper .form-actions {
     right: 13px;
 }
 
-#DeepCleanFormActions {
+div[id^='DeepCleanFormActions'].form-actions {
     position: unset;
     right: 13px;
     display: block;
