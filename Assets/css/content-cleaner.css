@@ -617,12 +617,12 @@ ul.job-plugin-details span.plugin-icon, ul.job-plugin-details span.website-globe
     vertical-align: text-bottom;
 }
 
-#JobPluginDetails li.details-item a.details-url:hover {
+ul[id^='JobPluginDetails'] li.details-item a.details-url:hover {
     color: var(--pp-orange-c-cleaner);
     opacity: 1;
 }
 
-#JobPluginDetails li.details-item a.details-url {
+ul[id^='JobPluginDetails'] li.details-item a.details-url {
     transition: var(--transition-c-cleaner);
     text-decoration: none;
     color: #333;

@@ -9,7 +9,7 @@
                     <span class="job-number"><?= $plugin['job_number'] ?></span>
                 </span>
             </legend>
-            <ul id="JobPluginDetails" class="job-plugin-details">
+            <ul id="JobPluginDetails<?= $plugin['job_number'] ?>" class="job-plugin-details">
                 <li class="details-item" title="<?= t('Plugin Author') ?>">
                     <span class="plugin-icon"></span> <?= $plugin['plugin_author'] ?>
                 </li>
