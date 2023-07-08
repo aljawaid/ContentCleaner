@@ -21,9 +21,9 @@
                 </li>
             </ul>
             <?php if (isset($plugin['plugin_folder_name']) && (file_exists('plugins/' . $plugin['plugin_folder_name'] . ''))): ?>
-                <div id="InstallDetected" class="install-detected" title="<?= t('This plugin is detected as being installed') ?>">
+                <div id="InstallDetected<?= $plugin['job_number'] ?>" class="install-detected" title="<?= t('This plugin is detected as being installed') ?>">
                     <span class="plugin-icon"></span>
-                    <p class=""><?= t('Installed') ?></p>
+                    <p class="installed-text"><?= t('Installed') ?></p>
                 </div>
             <?php endif ?>
             <p class="alert alert-info job-desc plugin-desc">
