@@ -22,9 +22,9 @@
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('job' => '01', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+            <button href="<?= $this->url->href('CleaningController', 'confirmPluginSchemaPurge', array('job' => '01', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                 <span class="db-delete-icon"></span> <?= t('Purge Unused Entries') ?>
-            </a>
+            </button>
         </div>
     </fieldset>
 </div>
@@ -54,9 +54,9 @@
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmAutoPurgeAndClean', array('job' => '02', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+            <button href="<?= $this->url->href('CleaningController', 'confirmAutoPurgeAndClean', array('job' => '02', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                 <span class="db-delete-icon"></span> <?= t('Deep Clean Database') ?>
-            </a>
+            </button>
         </div>
     </fieldset>
 </div>
