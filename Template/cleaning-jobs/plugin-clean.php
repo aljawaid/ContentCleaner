@@ -175,13 +175,13 @@
                         <?php endif ?>
                     </ul>
                 </div>
-                <a id="DeletePluginButton" href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePlugin', array(
+                <button id="DeletePluginButton<?= $plugin['job_number'] ?>" href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePlugin', array(
                     'plugin_job_name' => $plugin['plugin_title'],
                     'job_number' => $plugin['job_number'],
                     'plugin_name' => $plugin['plugin_name'],
                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                     <span class="content-cleaner-icon"></span> <?= t('Delete Plugin') ?>
-                </a>
+                </button>
             </div>
         </fieldset>
     </div>

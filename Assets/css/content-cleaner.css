@@ -677,11 +677,11 @@ li.plugin-btn-item {
     margin-right: 10px;
 }
 
-#DeletePluginButton:hover {
+button[id^='DeletePluginButton'].btn:hover {
     background: var(--pp-white);
 }
 
-#DeletePluginButton {
+button[id^='DeletePluginButton'].btn {
     background: var(--pp-green);
     color: var(--pp-white);
     border-color: var(--pp-green-dark);
