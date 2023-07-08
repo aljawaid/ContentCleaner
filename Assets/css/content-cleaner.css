@@ -221,6 +221,10 @@ p.alert.alert-info.job-desc {
     letter-spacing: .06rem;
 }
 
+button.btn.job-btn {
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 fieldset.job-wrapper .job-btn:hover {
     color: var(--pp-green-dark) !important;
     background: var(--pp-white);
