@@ -91,7 +91,7 @@
                 <li class="job-tables-data">
                     <span class="table-data-info">
                         <?php if ($this->helper->cleaningHelper->countRememberMe() == 0): ?>
-                            <i style="font-weight: 400;"><?= t('Empty') ?></i>
+                            <i style="font-weight: 400; color: var(--pp-green-dark);"><?= t('Empty') ?></i>
                         <?php else: ?>
                             <?= $this->helper->cleaningHelper->countRememberMe() ?>
                         <?php endif ?>
@@ -137,7 +137,7 @@
                 <li class="job-tables-data">
                     <span class="table-data-info">
                         <?php if ($this->helper->cleaningHelper->countRememberMeOld() == 0): ?>
-                            <i style="font-weight: 400;"><?= t('No duplicates found') ?></i>
+                            <i style="font-weight: 400; color: var(--pp-green-dark);"><?= t('No duplicates found') ?></i>
                         <?php else: ?>
                             <?= $this->helper->cleaningHelper->countRememberMeOld() ?>
                         <?php endif ?>
