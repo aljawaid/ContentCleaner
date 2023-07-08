@@ -169,6 +169,11 @@ p.plugin-desc {
     margin-block: 1.2em;
 }
 
+p.alert.alert-info.job-desc {
+    color: #075175;
+    border-color: #58B0DB;
+}
+
 .job-content {
     margin-bottom: 7px;
     height: 75px;
