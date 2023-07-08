@@ -32,7 +32,7 @@
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmSessionsPurge', array('table' => 'sessions', 'job' => '01', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Purge Sessions') ?></a>
+            <button href="<?= $this->url->href('CleaningController', 'confirmSessionsPurge', array('table' => 'sessions', 'job' => '01', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Purge Sessions') ?></button>
         </div>
     </fieldset>
 </div>
@@ -61,7 +61,7 @@
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmResetCalendar', array('table' => 'settings', 'job' => '02', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Reset Calendar Settings') ?></a>
+            <button href="<?= $this->url->href('CleaningController', 'confirmResetCalendar', array('table' => 'settings', 'job' => '02', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Reset Calendar Settings') ?></button>
         </div>
     </fieldset>
 </div>
@@ -107,7 +107,7 @@
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmRememberMePurge', array('table' => 'remember_me', 'job' => '03', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Delete Login Sessions') ?></a>
+            <button href="<?= $this->url->href('CleaningController', 'confirmRememberMePurge', array('table' => 'remember_me', 'job' => '03', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Delete Login Sessions') ?></button>
         </div>
     </fieldset>
 </div>
@@ -153,7 +153,7 @@
             </ul>
         </div>
         <div class="form-actions">
-            <a href="<?= $this->url->href('CleaningController', 'confirmRememberMeDuplicatesPurge', array('table' => 'remember_me', 'job' => '04', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Delete Duplicate Sessions') ?></a>
+            <button href="<?= $this->url->href('CleaningController', 'confirmRememberMeDuplicatesPurge', array('table' => 'remember_me', 'job' => '04', 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"><span class="content-cleaner-icon"></span> <?= t('Delete Duplicate Sessions') ?></button>
         </div>
     </fieldset>
 </div>
