@@ -302,7 +302,7 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
 
 #JobType {
     position: absolute;
-    bottom: 7px;
+    bottom: 9px;
     color: var(--pp-light-grey);
     text-transform: uppercase;
     font-size: 1em;
@@ -734,7 +734,17 @@ div[id^='InstallDetected'] p.installed-text {
     clear: both;
 }
 
-.modal .modal-actions a.btn-cc-delete {
+.modal .modal-actions .form-actions {
+    padding-top: 5px;
+    color: var(--pp-white);
+    cursor: default;
+}
+
+.modal .modal-actions .form-actions button:focus-visible, .modal .modal-actions .form-actions a:focus-visible {
+    outline: 1px solid #D14836;
+}
+
+.modal .modal-actions .form-actions button {
     /* Default Red */
     background: #D14836;
     border-radius: var(--border-radius-c-cleaner);
@@ -744,19 +754,34 @@ div[id^='InstallDetected'] p.installed-text {
     text-decoration: none !important;
 }
 
-.modal .modal-actions a.btn-cc-delete:focus, .modal .modal-actions a.btn-cc-delete:hover {
+.modal .modal-actions .form-actions button:focus, .modal .modal-actions .form-actions button:hover {
     border: 1px solid #D14836;
     color: #D14836 !important;
     background: var(--pp-white);
     text-decoration: none !important;
 }
 
-.modal .modal-actions button.cancel-btn {
+/* Cancel Button */
+.modal .modal-actions .form-actions a {
     transition: var(--transition-c-cleaner);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 1.2em;
+    font-weight: normal;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: var(--border-radius-c-cleaner);
+    padding: 4px 10px 3px 10px;
+    margin: 0 0 0 -15px;
+    border: 1px solid #AEAEAE;
+    background: #F5F5F5;
+    color: #333333;
+    text-decoration: none;
 }
 
-.modal .modal-actions button.cancel-btn:hover {
+.modal .modal-actions .form-actions a:hover {
     border: 1px solid #D14836;
+    color: #D14836 !important;
 }
 
 .confirm .message.cleaner-warning {
