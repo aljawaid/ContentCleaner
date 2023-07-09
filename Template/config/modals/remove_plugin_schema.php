@@ -63,7 +63,6 @@
         </div>
     </div>
     <div class="modal-actions">
-        <?= $this->url->link(t('Deep Clean'), 'PluginCleaningController', 'deletePluginSchemaEntry', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), true, 'btn btn-cc-delete') ?>
-        <button class="btn cancel-btn js-modal-close" href="#"><?= t('Cancel') ?></button>
+        <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginSchemaEntry', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean'), 1) ?>
     </div>
 </div>
