@@ -700,8 +700,9 @@ button[id^='DeletePluginButton'].btn {
 
 div[id^='InstallDetected'] {
     position: absolute;
-    right: 50px;
-    top: 50px;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
     border: 2px outset var(--pp-orange-c-cleaner);
     border-radius: 50%;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, .31);
