@@ -44,7 +44,6 @@
     </div>
     <div id="RemovePluginSchema" class="modal-contents">
         <div class="confirm warning-confirm">
-            <?php $folder_name = $this->helper->pluginCleaningHelper->getFolderName() ?>
             <?php if (file_exists('plugins/' . $folder_name . '')): ?>
                 <section class="message error cleaner-warning">
                     <header></header>

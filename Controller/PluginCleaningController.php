@@ -196,6 +196,7 @@ class PluginCleaningController extends BaseController
             'title' => t('Delete Plugin Registration Entry'),
             'plugin_job_name' => $plugin_job_name,
             'plugin_name' => $plugin_name,
+            'folder_name' => $this->helper->pluginCleaningHelper->getFolderName(),
         )));
     }
 
