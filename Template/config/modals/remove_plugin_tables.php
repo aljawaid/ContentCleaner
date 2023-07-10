@@ -33,3 +33,38 @@
     }
 </style>
 
+<div id="RemovePluginTablesModal" class="modal">
+    <div class="modal-page-header">
+        <h2 class="relative">
+            <span class="modal-title">
+                <span class="content-cleaner-icon"></span> <?= $title ?>
+            </span>
+        </h2>
+    </div>
+    <div id="RemovePluginSchema" class="modal-contents">
+        <div class="confirm warning-confirm">
+            <?php if (file_exists('plugins/' . $folder_name . '')): ?>
+                <section class="message error cleaner-warning">
+                    <header></header>
+                    <i class=""></i>
+                    <h3 class="">
+                        <span class="message-title"><?= t('Warning') ?></span>
+                        <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of the database entry.', $plugin_job_name, $plugin_job_name) ?></span>
+                    </h3>
+                </section>
+            <?php endif ?>
+            <p class="confirm-notice">
+                <?= e('Do you really want to delete any database tables which were created by %s?', '<strong>' . $plugin_job_name . '</strong>') ?>
+            </p>
+            <p class="alert deep-clean-tip">
+                <?= e('For %s to recreate the tables automatically after this deep clean, you will need to run the "Plugin Registration" deep clean.', $plugin_job_name) ?>
+            </p>
+            <span id="JobType">
+                <span class="plugin-icon"></span> <?= t('Plugin Deep Cleaning') ?>
+            </span>
+        </div>
+    </div>
+    <div class="modal-actions">
+        <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginTables', array('plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
+    </div>
+</div>
