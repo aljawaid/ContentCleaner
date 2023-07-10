@@ -55,7 +55,7 @@
                 </section>
             <?php endif ?>
             <p class="confirm-notice">
-                <?= e('Do you really want to remove the entry for %s?', '<strong>' . $plugin_job_name . '</strong>') ?>
+                <?= e('Do you really want to delete the entry for %s?', '<strong>' . $plugin_job_name . '</strong>') ?>
             </p>
             <span id="JobType">
                 <span class="plugin-icon"></span> <?= t('Plugin Deep Cleaning') ?>
