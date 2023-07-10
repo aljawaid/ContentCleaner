@@ -139,7 +139,8 @@
                                 <button href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePluginTables', array(
                                     'plugin_job_name' => $plugin['plugin_title'],
                                     'plugin_name' => $plugin['plugin_name'],
-                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
+                                    <?= ($this->helper->pluginCleaningHelper->checkPluginTablesExist($plugin['plugin_title']) ? '' : 'disabled title="' . t('No database tables were found') . '"') ?>>
                                     <span class="plugin-icon"></span> <?= t('Plugin Tables') ?>
                                 </button>
                             </li>
