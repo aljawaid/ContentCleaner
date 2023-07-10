@@ -64,8 +64,13 @@ class PluginCleaningController extends BaseController
      */
     public function confirmDeletePluginTables()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
-            'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
+        $plugin_job_name = $this->request->getStringParam('plugin_job_name');
+        $plugin_name = $this->request->getStringParam('plugin_name');
+
+        $this->response->html($this->template->render('contentCleaner:config/modals/remove_plugin_tables', array(
+            'title' => t('Delete Plugin Database Tables'),
+            'plugin_job_name' => $plugin_job_name,
+            'folder_name' => $this->helper->pluginCleaningHelper->getFolderName(),
         )));
     }
 
