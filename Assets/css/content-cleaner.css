@@ -258,7 +258,7 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     vertical-align: text-top;
 }
 
-#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasHeader h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2 {
+#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasHeader h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2, #RemovePluginTablesModal .modal-page-header h2 {
     margin-top: 5px;
     margin-bottom: 0;
 }
@@ -783,6 +783,12 @@ div[id^='InstallDetected'] p.installed-text {
 .modal .modal-actions .form-actions a:hover {
     border: 1px solid #D14836;
     color: #D14836 !important;
+}
+
+p.alert.deep-clean-tip {
+    color: #886426;
+    border: 1px solid #B38D4D;
+    margin-block: 15px;
 }
 
 .confirm .message.cleaner-warning {
