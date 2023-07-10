@@ -575,7 +575,7 @@ fieldset.plugin-job-wrapper .form-actions {
     right: 13px;
 }
 
-div[id^='DeepCleanFormActions'].form-actions {
+div[id^="DeepCleanFormActions"].form-actions {
     position: unset;
     right: 13px;
     display: block;
@@ -617,15 +617,15 @@ ul.job-plugin-details span.plugin-icon, ul.job-plugin-details span.website-globe
     vertical-align: text-bottom;
 }
 
-ul[id^='JobPluginDetails'] li.details-item a.details-url:hover {
+ul[id^="JobPluginDetails"] li.details-item a.details-url:hover {
     color: var(--pp-orange-c-cleaner);
     opacity: 1;
 }
 
-ul[id^='JobPluginDetails'] li.details-item a.details-url {
+ul[id^="JobPluginDetails"] li.details-item a.details-url {
     transition: var(--transition-c-cleaner);
     text-decoration: none;
-    color: #333;
+    color: #333333;
 }
 
 span.tooltip.content-cleaner-tooltip i.fa-info-circle {
@@ -692,11 +692,11 @@ fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:hover, fieldset.job-
     background: rgba(0, 0, 0, .15);
 }
 
-button[id^='DeletePluginButton'].btn:hover {
+button[id^="DeletePluginButton"].btn:hover {
     background: var(--pp-white);
 }
 
-button[id^='DeletePluginButton'].btn {
+button[id^="DeletePluginButton"].btn {
     background: var(--pp-green);
     color: var(--pp-white);
     border-color: var(--pp-green-dark);
@@ -713,7 +713,7 @@ button[id^='DeletePluginButton'].btn {
     opacity: .7;
 }
 
-div[id^='InstallDetected'] {
+div[id^="InstallDetected"] {
     position: absolute;
     right: 0;
     top: 50%;
@@ -729,14 +729,14 @@ div[id^='InstallDetected'] {
     width: 60px;
 }
 
-div[id^='InstallDetected'] span.plugin-icon {
+div[id^="InstallDetected"] span.plugin-icon {
     width: 30px;
     height: 30px;
     display: block;
     margin: 5px auto auto auto;
 }
 
-div[id^='InstallDetected'] p.installed-text {
+div[id^="InstallDetected"] p.installed-text {
     font-weight: bold;
     text-transform: uppercase;
     margin-top: 3px;
