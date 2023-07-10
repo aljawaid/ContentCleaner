@@ -39,4 +39,44 @@ class PluginCleaningHelper extends Base
 
         return $folder_name;
     }
+
+    /**
+     * Check if the Plugin Database Tables Exist
+     *
+     * @var     $plugin_title
+     * @return  bool
+     * @author  aljawaid
+     */
+    public function checkPluginTablesExist($plugin_title)
+    {
+        $current_tables = $this->applicationCleaningModel->getTables();
+
+        // Pull the variable from the button
+        //$plugin_job_name = $plugin_title;
+        $plugin_tables = [];
+
+        // Match the variable to the JSON content if the plugin name matches
+        foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
+            if ($plugin['plugin_title'] === $plugin_title) {
+                $plugin_tables[] = $plugin['plugin_tables'];
+                break;
+            }
+        }
+
+        $single_table = '';
+
+        foreach ($plugin_tables as $single_table => $value) {
+            foreach ($value as $single_table_value) {
+                $single_table = $single_table_value;
+            }
+        }
+
+        if (in_array($single_table, $current_tables)) {
+            //return t('Tables Exist');
+            return true;
+        } else {
+            //return t('Tables Don\'t Exist');
+            return false;
+        }
+    }
 }
