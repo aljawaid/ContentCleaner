@@ -138,6 +138,7 @@
                             <li class="plugin-btn-item">
                                 <button href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePluginTables', array(
                                     'plugin_job_name' => $plugin['plugin_title'],
+                                    'plugin_name' => $plugin['plugin_name'],
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
                                     <span class="plugin-icon"></span> <?= t('Plugin Tables') ?>
                                 </button>
