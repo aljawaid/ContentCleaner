@@ -281,7 +281,7 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
 .modal-page-header h2 > .modal-subtitle span {
     width: 22px;
     height: 22px;
-    vertical-align: middle;
+    vertical-align: bottom;
 }
 
 #JobType {
