@@ -258,12 +258,12 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     vertical-align: text-top;
 }
 
-#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasHeader h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2, #RemovePluginTablesModal .modal-page-header h2 {
+#ResetModalSettingsHeader h2, #AutoPurgeCleanHeader h2, #PurgePluginSchemasModal h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2, #RemovePluginTablesModal .modal-page-header h2 {
     margin-top: 5px;
     margin-bottom: 0;
 }
 
-#ResetModalSettingsHeader h2 .job-number, #AutoPurgeCleanHeader h2 .job-number, #PurgePluginSchemasHeader h2 .job-number, #RemoveTableHeader h2 .job-number, #RemovePluginHeader h2 .job-number {
+#ResetModalSettingsHeader h2 .job-number, #AutoPurgeCleanHeader h2 .job-number, #PurgePluginSchemasModal h2 .job-number, #RemoveTableHeader h2 .job-number, #RemovePluginHeader h2 .job-number {
     background: var(--pp-orange-c-cleaner);
     color: var(--pp-white);
     padding: 0 3px;
