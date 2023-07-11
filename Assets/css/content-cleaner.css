@@ -278,27 +278,6 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     color: var(--pp-grey);
 }
 
-#ResetModalSettingsContent .form-actions, #AutoPurgeCleanContent .form-actions, #PurgePluginSchemasContent .form-actions, #RemoveTableContent .form-actions, #ExtraColumnsContent .form-actions, #RemovePluginContent .form-actions, #RemovePluginSchemaModal .modal-actions {
-    text-align: right;
-}
-
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions, #RemovePluginContent .confirm .js-confirm-buttons-rendered .form-actions {
-    color: var(--pp-white);
-}
-
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions button, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions button, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions button, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions button, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions button, #RemovePluginContent .confirm .js-confirm-buttons-rendered .form-actions button {
-    border-radius: var(--border-radius-c-cleaner);
-    padding-bottom: 4px;
-}
-
-#ResetModalSettingsContent .confirm .js-confirm-buttons-rendered .form-actions a, #AutoPurgeCleanContent .confirm .js-confirm-buttons-rendered .form-actions a, #PurgePluginSchemasContent .confirm .js-confirm-buttons-rendered .form-actions a, #RemoveTableContent .confirm .js-confirm-buttons-rendered .form-actions a, #ExtraColumnsContent .confirm .js-submit-buttons-rendered .form-actions a, #RemovePluginContent .confirm .js-confirm-buttons-rendered .form-actions a {
-    font-size: 1.2em;
-    padding: 3px 10px;
-    transition: var(--transition-c-cleaner);
-    background: var(--pp-white);
-    border: 1px solid var(--pp-grey);
-    border-radius: var(--border-radius-c-cleaner);
-    text-decoration: none;
 .modal-page-header h2 > .modal-subtitle span {
     width: 22px;
     height: 22px;
