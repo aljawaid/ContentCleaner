@@ -47,7 +47,7 @@
             </span>
         </h2>
     </div>
-    <div id="PurgePluginSchemas" class="modal-contents">
+    <div class="modal-contents">
         <div class="confirm warning-confirm">
             <p class="confirm-notice">
                 <?= t('Run this job to purge the database of any unused plugin registration data.') ?>
