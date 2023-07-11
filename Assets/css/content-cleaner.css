@@ -299,6 +299,10 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     border: 1px solid var(--pp-grey);
     border-radius: var(--border-radius-c-cleaner);
     text-decoration: none;
+.modal-page-header h2 > .modal-subtitle span {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
 }
 
 #JobType {
