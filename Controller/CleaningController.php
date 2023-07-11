@@ -132,6 +132,7 @@ class CleaningController extends BaseController
     public function confirmResetCalendar()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
+            'title' => t('Confirm Cleaning Job'),
             'table' => $this->request->getStringParam('table'),
             'job' => $this->request->getStringParam('job'),
         )));
@@ -158,6 +159,7 @@ class CleaningController extends BaseController
     public function confirmSessionsPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
+            'title' => t('Confirm Cleaning Job'),
             'table' => $this->request->getStringParam('table'),
             'job' => $this->request->getStringParam('job'),
         )));
@@ -179,6 +181,7 @@ class CleaningController extends BaseController
     public function confirmRememberMePurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
+            'title' => t('Confirm Cleaning Job'),
             'table' => $this->request->getStringParam('table'),
             'job' => $this->request->getStringParam('job'),
         )));
@@ -200,6 +203,7 @@ class CleaningController extends BaseController
     public function confirmRememberMeDuplicatesPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
+            'title' => t('Confirm Cleaning Job'),
             'table' => $this->request->getStringParam('table'),
             'job' => $this->request->getStringParam('job'),
         )));
