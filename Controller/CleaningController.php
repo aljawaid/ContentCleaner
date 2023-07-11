@@ -101,6 +101,7 @@ class CleaningController extends BaseController
     public function confirmPluginSchemaPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
+            'title' => t('Confirm Cleaning Job'),
             'job' => $this->request->getStringParam('job'),
         )));
     }
