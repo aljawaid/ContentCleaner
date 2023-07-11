@@ -26,6 +26,7 @@ class CleaningController extends BaseController
     public function confirmAutoPurgeAndClean()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/auto_purge_clean', array(
+            'title' => t('Confirm Cleaning Job'),
             'job' => $this->request->getStringParam('job'),
         )));
     }
