@@ -152,6 +152,7 @@ class CleaningController extends BaseController
         $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
 
         $this->response->html($this->template->render('contentCleaner:config/modals/remove_extra_columns', array(
+            'title' => t('Confirm Cleaning'),
             'table' => $table,
             'columns' => $columns,
         )));
