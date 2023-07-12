@@ -12,10 +12,20 @@ use Kanboard\Core\Controller\PageNotFoundException;
  *
  * @package  CleaningController
  * @author   aljawaid
+ * @author   creecros Craig Crosby
+ * @author   alfredbuehler Alfred Bühler
  */
 
 class CleaningController extends BaseController
 {
+    /**
+     * Confirm Automatic Purge & Clean Database (Modal)
+     *
+     * @param   $job                    string
+     * @return  modal
+     * @see     autoPurgeAndClean()     function
+     * @author  creecros Craig Crosby
+     */
     public function confirmAutoPurgeAndClean()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/auto_purge_clean', array(
@@ -24,6 +34,12 @@ class CleaningController extends BaseController
         )));
     }
 
+    /**
+     * Automatically Purge & Clean Database
+     *
+     * @uses    confirmAutoPurgeAndClean()  function
+     * @author  creecros Craig Crosby
+     */
     public function autoPurgeAndClean()
     {
         $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables());
@@ -55,8 +71,8 @@ class CleaningController extends BaseController
      * Confirm Deletion of Table (Modal)
      *
      * @param   $table                  string
-     * @return  void
-     * @see     removeTable()
+     * @return  modal
+     * @see     removeTable()           function
      * @author  creecros Craig Crosby
      */
     public function confirm()
@@ -70,7 +86,7 @@ class CleaningController extends BaseController
      * Delete Table
      *
      * @param   $table                  string
-     * @return  void
+     * @uses    confirm()               function
      * @author  creecros Craig Crosby
      */
     public function removeTable()
@@ -87,6 +103,14 @@ class CleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Automatically Purges Plugin Schemas (Modal)
+     *
+     * @param   $job                    string
+     * @return  modal
+     * @see     pluginSchemaPurge()     function
+     * @author  creecros Craig Crosby
+     */
     public function confirmPluginSchemaPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
@@ -95,6 +119,12 @@ class CleaningController extends BaseController
         )));
     }
 
+    /**
+     * Automatically Purges Plugin Schemas
+     *
+     * @uses    confirmPluginSchemaPurge()      function
+     * @author  creecros Craig Crosby
+     */
     public function pluginSchemaPurge()
     {
         if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
@@ -109,9 +139,9 @@ class CleaningController extends BaseController
     /**
      * View & Delete Columns (Modal)
      *
-     * @param   $table                  string
+     * @param   $table                      string
      * @var     $columns
-     * @see     removeSelectedColumns()
+     * @see     removeSelectedColumns()     function
      * @return  modal
      * @author  creecros Craig Crosby
      */
@@ -130,7 +160,8 @@ class CleaningController extends BaseController
      * Delete Selected Columns
      *
      * @param   $table                  string
-     * @return  void
+     * @param   $values
+     * @uses    viewColumns()           function
      * @author  creecros Craig Crosby
      */
     public function removeSelectedColumns()
@@ -153,6 +184,15 @@ class CleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Reset Calendar Settings (Modal)
+     *
+     * @param   $table                          string
+     * @param   $job                            string
+     * @return  modal
+     * @see     resetCalendarSettings()         function
+     * @author  alfredbuehler Alfred Bühler
+     */
     public function confirmResetCalendar()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
@@ -162,9 +202,15 @@ class CleaningController extends BaseController
         )));
     }
 
+    /**
+     * Reset Calendar Settings
+     *
+     * @uses    confirmResetCalendar()         function
+     * @author  alfredbuehler Alfred Bühler
+     */
     public function resetCalendarSettings()
     {
-        // NOTE obsoleted, settings are always in table 'settings'
+        // NOTE: obsoleted, settings are always in table 'settings'
         // $table =  $this->request->getStringParam('table');
         $this->checkCSRFParam();
 
@@ -179,7 +225,15 @@ class CleaningController extends BaseController
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
-
+    /**
+     * Confirmation to Empty Sessions Table (Modal)
+     *
+     * @param   $table                  string
+     * @param   $job                            string
+     * @return  modal
+     * @see     purgeSessionsData()     function
+     * @author  aljawaid
+     */
     public function confirmSessionsPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
@@ -189,6 +243,12 @@ class CleaningController extends BaseController
         )));
     }
 
+    /**
+     * Confirmation to Empty Sessions Table
+     *
+     * @uses    confirmSessionsPurge()      function
+     * @author  aljawaid
+     */
     public function purgeSessionsData()
     {
         $this->checkCSRFParam();
@@ -202,6 +262,15 @@ class CleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Confirmation to Empty `Remember Me` Table (Modal)
+     *
+     * @param   $table                  string
+     * @param   $job                    string
+     * @return  modal
+     * @see     purgeRememberMeData()   function
+     * @author  aljawaid
+     */
     public function confirmRememberMePurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
@@ -211,6 +280,12 @@ class CleaningController extends BaseController
         )));
     }
 
+    /**
+     * Confirmation to Empty `Remember Me` Table
+     *
+     * @uses    confirmRememberMePurge()        function
+     * @author  aljawaid
+     */
     public function purgeRememberMeData()
     {
         $this->checkCSRFParam();
@@ -224,6 +299,15 @@ class CleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * Confirmation to Remove Duplicate `Remember Me` Entries (Modal)
+     *
+     * @param   $table                                  string
+     * @param   $job                                    string
+     * @return  modal
+     * @see     deleteRememberMeDuplicatesData()        function
+     * @author  aljawaid
+     */
     public function confirmRememberMeDuplicatesPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
@@ -233,6 +317,12 @@ class CleaningController extends BaseController
         )));
     }
 
+    /**
+     * Remove Duplicate `Remember Me` Entries
+     *
+     * @uses    confirmRememberMeDuplicatesPurge()      function
+     * @author  aljawaid
+     */
     public function deleteRememberMeDuplicatesData()
     {
         $this->checkCSRFParam();
