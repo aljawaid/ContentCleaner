@@ -145,9 +145,9 @@
                             <li class="default-columns-count">
                                 <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
                                 <?php if (count($this->helper->defaultTableHelper->checkTableColumns($table))): ?>
-                                    <a href="<?= $this->url->href('CleaningController', 'viewColumns', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm extra-columns-count" title="<?= t('Delete columns from the "%s" table', $table) ?>">
-                                        <?= t('+') ?> <?= count($this->helper->defaultTableHelper->checkTableColumns($table)) ?> <?= t('columns from plugins') ?>
-                                    </a>
+                                    <button href="<?= $this->url->href('CleaningController', 'viewColumns', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm extra-columns-count" title="<?= t('View extra columns in the "%s" table', $table) ?>">
+                                        <?= t('+') ?> <?= count($this->helper->defaultTableHelper->checkTableColumns($table)) ?> <?= t('from plugins') ?>
+                                    </button>
                                 <?php endif ?>
                             </li>
                         </ul>

@@ -359,15 +359,20 @@ li.job-result-title i.fa-check::before {
     margin-top: 3px;
 }
 
-a.js-modal-confirm.extra-columns-count:hover {
-    color: var(--pp-orange-c-cleaner);
+button.js-modal-confirm.extra-columns-count:hover {
+    color: var(--pp-green-dark);
+    background: var(--pp-white);
+    border: 1px inset var(--pp-orange-c-cleaner);
 }
 
-a.extra-columns-count {
-    font-weight: 600;
-    color: var(--pp-black);
+button.extra-columns-count {
     text-decoration: none;
     transition: var(--transition-c-cleaner);
+    padding: 2px 3px 2px 2px;
+    font-size: 1em;
+    background: rgba(0, 0, 0, .15);
+    border: 1px outset var(--pp-orange-c-cleaner);
+    color: var(--pp-green-dark);
 }
 
 .table-plugin-name {
