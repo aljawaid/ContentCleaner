@@ -45,7 +45,7 @@
             <?php endforeach ?>
         </ul>
         <span id="JobType">
-            <span class="plugin-icon"></span> <?= t('Plugin Cleaning') ?>
+            <span class="plugin-icon"></span> <?= t('Plugin Cleaning Jobs') ?>
         </span>
         <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePlugin', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Delete Plugin')) ?>
     </div>
