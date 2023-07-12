@@ -16,13 +16,6 @@ use Kanboard\Core\Controller\PageNotFoundException;
 
 class CleaningController extends BaseController
 {
-    public function confirm()
-    {
-        $this->response->html($this->template->render('contentCleaner:config/modals/remove_table', array(
-            'table' => $this->request->getStringParam('table'),
-        )));
-    }
-
     public function confirmAutoPurgeAndClean()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/auto_purge_clean', array(
@@ -56,6 +49,21 @@ class CleaningController extends BaseController
         $this->applicationCleaningModel->purgeUninstalledPluginSchemas();
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
+    }
+
+    /**
+     * Confirm Deletion of Table (Modal)
+     *
+     * @param   $table                  string
+     * @return  void
+     * @see     removeTable()
+     * @author  creecros Craig Crosby
+     */
+    public function confirm()
+    {
+        $this->response->html($this->template->render('contentCleaner:config/modals/remove_table', array(
+            'table' => $this->request->getStringParam('table'),
+        )));
     }
 
     /**
@@ -98,6 +106,15 @@ class CleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
+    /**
+     * View & Delete Columns (Modal)
+     *
+     * @param   $table                  string
+     * @var     $columns
+     * @see     removeSelectedColumns()
+     * @return  modal
+     * @author  creecros Craig Crosby
+     */
     public function viewColumns()
     {
         $table = $this->request->getStringParam('table');
@@ -109,6 +126,13 @@ class CleaningController extends BaseController
         )));
     }
 
+    /**
+     * Delete Selected Columns
+     *
+     * @param   $table                  string
+     * @return  void
+     * @author  creecros Craig Crosby
+     */
     public function removeSelectedColumns()
     {
         $table = $this->request->getStringParam('table');
