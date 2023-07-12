@@ -258,7 +258,7 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     vertical-align: text-top;
 }
 
-#ResetDefaultsModal h2, #AutoPurgeCleanModal h2, #PurgePluginSchemasModal h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2, #RemovePluginTablesModal .modal-page-header h2 {
+#ResetDefaultsModal .modal-page-header h2, #AutoPurgeCleanModal .modal-page-header h2, #PurgePluginSchemasModal h2, #RemoveTableHeader h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2, #RemovePluginTablesModal .modal-page-header h2 {
     margin-top: 5px;
     margin-bottom: 0;
 }
