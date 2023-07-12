@@ -359,10 +359,15 @@ li.job-result-title i.fa-check::before {
     margin-top: 3px;
 }
 
-.extra-columns-count {
+a.js-modal-confirm.extra-columns-count:hover {
+    color: var(--pp-orange-c-cleaner);
+}
+
+a.extra-columns-count {
     font-weight: 600;
     color: var(--pp-black);
     text-decoration: none;
+    transition: var(--transition-c-cleaner);
 }
 
 .table-plugin-name {
