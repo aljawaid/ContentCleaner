@@ -258,12 +258,12 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     vertical-align: text-top;
 }
 
-#ResetDefaultsModal .modal-page-header h2, #AutoPurgeCleanModal .modal-page-header h2, #PurgePluginSchemasModal h2, #RemoveTableModal h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2, #RemovePluginTablesModal .modal-page-header h2 {
+#ResetDefaultsModal .modal-page-header h2, #AutoPurgeCleanModal .modal-page-header h2, #PurgePluginSchemasModal .modal-page-header h2, #RemoveTableModal .modal-page-header h2, #ExtraColumnsHeader h2, #RemovePluginSchemaModal .modal-page-header h2, #RemovePluginTablesModal .modal-page-header h2 {
     margin-top: 5px;
     margin-bottom: 0;
 }
 
-#ResetDefaultsModal h2 .job-number, #AutoPurgeCleanModal h2 .job-number, #PurgePluginSchemasModal h2 .job-number, #RemoveTableModal h2 .job-number, #RemovePluginHeader h2 .job-number {
+#ResetDefaultsModal h2 .job-number, #AutoPurgeCleanModal h2 .job-number, #PurgePluginSchemasModal h2 .job-number, #RemovePluginHeader h2 .job-number {
     background: var(--pp-orange-c-cleaner);
     color: var(--pp-white);
     padding: 0 3px;
