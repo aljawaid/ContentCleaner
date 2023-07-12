@@ -18,9 +18,6 @@ class ContentCleanerController extends \Kanboard\Controller\PluginController
     /**
      * Display the Settings Page
      *
-     *
-     * Use: $this->helper->layout->config for config settings menu sidebar
-     * Use: $this->helper->layout->plugin for plugin menu sidebar
      * @access public
      */
     public function show()
