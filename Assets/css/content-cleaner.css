@@ -510,8 +510,15 @@ ol.column-list li.job-columns-name {
     display: inline-block;
 }
 
+.job-columns-name:hover .job-columns-plugin {
+    background: rgba(244, 41, 14, .45);
+    border-radius: 20px;
+}
+
 .job-columns-plugin {
-    margin: auto 10px;
+    margin: auto 5px;
+    padding: 5px 10px;
+    transition: var(--transition-c-cleaner);
 }
 
 .job-columns-plugin .plugin-icon {
