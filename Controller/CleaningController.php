@@ -79,26 +79,6 @@ class CleaningController extends BaseController
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
-    public function removeSelectedColumns()
-    {
-        $table = $this->request->getStringParam('table');
-        $values = $this->request->getRawFormValues();
-
-        if (!empty($values)) {
-            foreach ($values as $key => $val) {
-                if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
-                    $this->flash->success(t('Cleaning Complete - Database column deleted successfully'));
-                } else {
-                    $this->flash->failure(t('Cleaning Failed'));
-                }
-            }
-        } else {
-            $this->flash->failure(t('No columns were selected'));
-        }
-
-        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
-    }
-
     public function confirmPluginSchemaPurge()
     {
         $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
@@ -123,10 +103,30 @@ class CleaningController extends BaseController
         $table = $this->request->getStringParam('table');
         $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
 
-        $this->response->html($this->template->render('contentCleaner:config/modals/extra_columns', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/remove_extra_columns', array(
             'table' => $table,
             'columns' => $columns,
         )));
+    }
+
+    public function removeSelectedColumns()
+    {
+        $table = $this->request->getStringParam('table');
+        $values = $this->request->getRawFormValues();
+
+        if (!empty($values)) {
+            foreach ($values as $key => $val) {
+                if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
+                    $this->flash->success(t('Cleaning Complete - Database column deleted successfully'));
+                } else {
+                    $this->flash->failure(t('Cleaning Failed'));
+                }
+            }
+        } else {
+            $this->flash->failure(t('No columns were selected'));
+        }
+
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 
     public function confirmResetCalendar()
