@@ -18,7 +18,7 @@ class CleaningController extends BaseController
 {
     public function confirm()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/remove', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/remove_table', array(
             'table' => $this->request->getStringParam('table'),
         )));
     }
