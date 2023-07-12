@@ -141,7 +141,7 @@
                 <?php foreach ($this->helper->defaultTableHelper->getDefaultTables() as $table): ?>
                     <li class="list-item">
                         <i class="fa fa-table fa-li" aria-hidden="true"></i><span class="list-item-table" title="<?= t('Table name') ?>"><?= $table ?></span>
-                        <ul class="">
+                        <ul class="list-item-columns">
                             <li class="default-columns-count">
                                 <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
                                 <?php if (count($this->helper->defaultTableHelper->checkTableColumns($table))): ?>

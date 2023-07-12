@@ -407,6 +407,11 @@ a.extra-columns-count {
     font-size: .9em;
 }
 
+ul.list-item-columns {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
 td a.list-item-table:hover {
     text-decoration: none !important;
     border: 1px solid var(--pp-orange-c-cleaner);
