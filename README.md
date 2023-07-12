@@ -37,7 +37,7 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
 
 ## Features
 
-- Show a detailed database summary
+- Show a detailed database summary of your application
   - Display extra tables which are created by plugins
   - Delete extra tables directly from the database
   - Easily identify plugin ownership of each extra table
@@ -46,23 +46,55 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
 - Numbered cleaning jobs for easy reference
   - Each cleaning job is specific to a plugin or a default application setting
 - Deep clean the database from all plugins and plugin related data
-- **Automatic Cleaning Jobs:**
-  - Purge Unused Plugin Registration Entries
-  - Clean All Unknown Tables and Columns
-- **Application Cleaning Jobs:**
-  - Purge User Sessions
-  - Restore Calendar Settings
-  - Delete `Remember Me` Login Sessions
-  - Delete Duplicate `Remember Me` Login Sessions
-- **Plugin Cleaning Jobs:**
-  - Remove [MetaMagik](https://github.com/creecros/MetaMagik "A Kanboard plugin") data
-  - Remove [CostControl](https://github.com/aljawaid/CostControl "A Kanboard plugin") data
-  - Remove [Bigboard](https://github.com/BlueTeck/kanboard_plugin_bigboard "A Kanboard plugin") data
-  - Remove [Group_assign](https://github.com/creecros/Group_assign "A Kanboard plugin") data
-  - Remove [SubtaskDueDate](https://github.com/eSkiSo/Subtaskdate "A Kanboard plugin") data
-  - Remove [Wiki](https://github.com/funktechno/kanboard-plugin-wiki "A Kanboard plugin") data
-  - Remove [TemplateManager](https://github.com/aljawaid/TemplateManager "A Kanboard plugin") data
-  - Deep clean plugins based on their structure or totally remove them using one button
+
+## Cleaning Jobs
+
+<table align="center">
+    <thead>
+        <tr>
+            <th align="center" scope="col">Automatic Cleaning Jobs</th>
+            <th align="center" scope="col">Application Cleaning Jobs</th>
+            <th align="center" scope="col">Plugin Cleaning Jobs</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td align="center">Purge Unused Plugin Registration Entries</td>
+            <td align="center">Purge User Sessions</td>
+            <td align="center">Remove <a href="https://github.com/creecros/MetaMagik" title="A Kanboard plugin">MetaMagik</a> data</td>
+        </tr>
+        <tr>
+            <td align="center">Clean All Unknown Tables and Column</td>
+            <td align="center">Restore Calendar Settings</td>
+            <td align="center">Remove <a href="https://github.com/aljawaid/CostControl" title="A Kanboard plugin" target="_blank">CostControl</a> data</td>
+        </tr>
+        <tr>
+            <td align="center"></td>
+            <td align="center">Delete `Remember Me` Login Sessions</td>
+            <td align="center">Remove <a href="https://github.com/BlueTeck/kanboard_plugin_bigboard" title="A Kanboard plugin" target="_blank">Bigboard</a> data</td>
+        </tr>
+        <tr>
+            <td align="center"></td>
+            <td align="center">Delete Duplicate `Remember Me` Login Sessions</td>
+            <td align="center">Remove <a href="https://github.com/creecros/Group_assign" title="A Kanboard plugin" target="_blank">Group_assign</a> data</td>
+        </tr>
+        <tr>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center">Remove <a href="https://github.com/eSkiSo/Subtaskdate" title="A Kanboard plugin" target="_blank">SubtaskDueDate</a> data</td>
+        </tr>
+        <tr>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center">Remove <a href="https://github.com/funktechno/kanboard-plugin-wiki" title="A Kanboard plugin" target="_blank">Wiki</a> data</td>
+        </tr>
+        <tr>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center">Remove <a href="https://github.com/aljawaid/TemplateManager" title="A Kanboard plugin" target="_blank">TemplateManager</a> data</td>
+        </tr>
+    </tbody>
+</table>
 
 <p align="right">[<a href="#user-content-readme-bottom">&#8595; Bottom</a>] [<a href="#features">&#8592; Previous</a>] [<a href="#usage">&#8594; Next</a>] [<a href="#user-content-readme-top">&#8593; Top</a>]</p>
 
