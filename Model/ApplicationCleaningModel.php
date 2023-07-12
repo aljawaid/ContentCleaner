@@ -5,11 +5,13 @@ namespace Kanboard\Plugin\ContentCleaner\Model;
 use Kanboard\Core\Base;
 
 /**
- * Class Kanboard\Plugin\ContentCleaner\Model;
+ * Application Cleaning Model
+ * Class ApplicationCleaningModel
  *
- * @author aljawaid
+ * @package  Plugin\ContentCleaner\Model
+ * @author   creecros Craig Crosby
+ * @author   aljawaid
  */
-
 class ApplicationCleaningModel extends Base
 {
     public const TABLE_SCHEMA = 'plugin_schema_versions';
