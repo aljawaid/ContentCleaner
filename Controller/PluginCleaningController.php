@@ -23,6 +23,8 @@ class PluginCleaningController extends BaseController
      * @param   $plugin_job_name    string
      * @param   $plugin_name        string
      * @param   $job_number         string
+     * @see     deletePlugin()      function
+     * @return  modal
      * @author  aljawaid
      */
     public function confirmDeletePlugin()
@@ -37,8 +39,8 @@ class PluginCleaningController extends BaseController
     /**
      * Delete Plugin
      *
-     * @param   $plugin_name        string
-     * @return  true
+     * @param   $plugin_name            string
+     * @uses    confirmDeletePlugin()   function
      * @author  aljawaid
      */
     public function deletePlugin($plugin_name)
@@ -59,7 +61,9 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Plugin Tables (Modal)
      *
-     * @param   $plugin_job_name    string
+     * @param   $plugin_job_name        string
+     * @see     deletePluginTables()    function
+     * @return  modal
      * @author  aljawaid
      */
     public function confirmDeletePluginTables()
@@ -79,6 +83,7 @@ class PluginCleaningController extends BaseController
      *
      * @param   $plugin_job_name                string
      * @param   $plugin_tables                  array
+     * @uses    confirmDeletePluginTables()     function
      * @author  alfredbuehler Alfred Bühler
      */
     public function deletePluginTables()
@@ -118,7 +123,9 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Core Table Columns (Modal)
      *
-     * @param   $plugin_job_name    string
+     * @param   $plugin_job_name            string
+     * @see     deleteCoreTablesColumns()   function
+     * @return  modal
      * @author  aljawaid
      */
     public function confirmDeleteCoreTableColumns()
@@ -131,8 +138,8 @@ class PluginCleaningController extends BaseController
     /**
      * Delete Core Table Columns (created by a plugin)
      *
-     * @param   $table        string
-     * @return  void
+     * @param   $table                              string
+     * @uses    confirmDeleteCoreTableColumns()     function
      * @author  aljawaid
      */
     public function deleteCoreTableColumns()
@@ -158,7 +165,9 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Core Table Entries (Modal)
      *
-     * @param   $plugin_job_name        string
+     * @param   $plugin_job_name            string
+     * @return  modal
+     * @see     deleteCoreTableEntries()    function
      * @author  aljawaid
      */
     public function confirmDeleteCoreTableEntries()
@@ -171,7 +180,7 @@ class PluginCleaningController extends BaseController
     /**
      * Delete Core Table Entries (created by a plugin)
      *
-     * @return  void
+     * @uses    confirmDeleteCoreTableEntries()     function
      * @author  aljawaid
      */
     public function deleteCoreTableEntries()
@@ -188,8 +197,10 @@ class PluginCleaningController extends BaseController
     /**
      * Confirm Deletion of Plugin Schema Entry (Modal)
      *
-     * @param   $plugin_job_name    string
-     * @param   $plugin_name        string
+     * @param   $plugin_job_name            string
+     * @param   $plugin_name                string
+     * @return  modal
+     * @see     deletePluginSchemaEntry()   function
      * @author  aljawaid
      */
     public function confirmDeletePluginSchemaEntry()
@@ -208,7 +219,8 @@ class PluginCleaningController extends BaseController
     /**
      * Delete the Plugin Schema Entry for the Plugin
      *
-     * @param   $plugin_name        string  - lowercase
+     * @param   $plugin_name                        string  - lowercase
+     * @uses    confirmDeletePluginSchemaEntry()    function
      * @author  aljawaid
      */
     public function deletePluginSchemaEntry()
