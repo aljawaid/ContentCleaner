@@ -9,10 +9,9 @@ use Kanboard\Core\Base;
  * Plugin ContentCleaner
  * Class DefaultTableHelper
  *
- * @package  DefaultTableHelper
+ * @package  Plugin\ContentCleaner\Helper
  * @author   creecros Craig Crosby
  */
-
 class DefaultTableHelper extends Base
 {
     /**

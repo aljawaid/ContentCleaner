@@ -4,15 +4,28 @@ namespace Kanboard\Plugin\ContentCleaner\Helper;
 
 use Kanboard\Core\Base;
 
+/**
+ * Plugin ContentCleaner
+ * Class PluginCleaningHelper
+ *
+ * @package  Plugin\ContentCleaner\Helper
+ * @author   aljawaid
+ * @author   creecros Craig Crosby
+ */
 class PluginCleaningHelper extends Base
 {
+    /**
+     * Get List of Deletable Plugins via JSON
+     *
+     * @return  $plugins                    array
+     * @author  creecros Craig Crosby
+     * @author  aljawaid
+     */
     public function getDeletablePlugins()
     {
-        // GET THE JSON OF PLUGINS WHICH CAN BE DELETED
-        // 'template/cleaning-jobs/plugin-cleaning.json'
-
         $file = PLUGINS_DIR . '/ContentCleaner/Template/cleaning-jobs/plugin-cleaning.json';
         $plugins = json_decode(file_get_contents($file), true);
+
         return $plugins;
     }
 

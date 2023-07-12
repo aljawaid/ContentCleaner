@@ -4,6 +4,14 @@ namespace Kanboard\Plugin\ContentCleaner\Helper;
 
 use Kanboard\Core\Base;
 
+/**
+ * Plugin ContentCleaner
+ * Class CleaningHelper
+ *
+ * @package  Plugin\ContentCleaner\Helper
+ * @author   creecros Craig Crosby
+ * @author   aljawaid
+ */
 class CleaningHelper extends Base
 {
     public function countTablesDB()
