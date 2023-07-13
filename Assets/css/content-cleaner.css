@@ -418,7 +418,7 @@ li.extra-table-item:hover {
 
 .list-item-table {
     background: rgba(244, 41, 14, .2);
-    padding: 0 3px 2px 3px;
+    padding: 1px 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
     border: 1px solid transparent;
     font-size: .9em;
