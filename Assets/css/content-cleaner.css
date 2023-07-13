@@ -416,6 +416,15 @@ li.extra-table-item:hover {
     background-color: rgba(244, 41, 14, .1);
 }
 
+li.extra-table-item:hover button.delete-extra-table-btn {
+    opacity: 1;
+}
+
+button.delete-extra-table-btn {
+    opacity: .5;
+    padding: 0 5px 2px 5px;
+}
+
 .list-item-table {
     background: rgba(244, 41, 14, .2);
     padding: 1px 3px 2px 3px;
@@ -779,7 +788,7 @@ div[id^="InstallDetected"] p.installed-text {
     outline: 1px solid #D14836;
 }
 
-.modal .modal-actions .form-actions button {
+.modal .modal-actions .form-actions button, button.delete-extra-table-btn {
     /* Default Red */
     background: #D14836;
     border-radius: var(--border-radius-c-cleaner);
@@ -789,7 +798,7 @@ div[id^="InstallDetected"] p.installed-text {
     text-decoration: none !important;
 }
 
-.modal .modal-actions .form-actions button:focus, .modal .modal-actions .form-actions button:hover {
+.modal .modal-actions .form-actions button:focus, .modal .modal-actions .form-actions button:hover, button.delete-extra-table-btn:focus, button.delete-extra-table-btn:hover {
     border: 1px solid #D14836;
     color: #D14836 !important;
     background: var(--pp-white);
