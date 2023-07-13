@@ -74,12 +74,19 @@
                             <?php foreach ($this->helper->defaultTableHelper->checkTables() as $table): ?>
                                 <li class="extra-table-item">
                                     <i class="fa fa-table fa-li" aria-hidden="true"></i>
-                                    <span class="table-plugin-name">
-                                        <span class="plugin-icon"></span><?= $check_tables[$table] ?>
-                                    </span>
+                                    <div class="extra-table-item-wrapper table-name">
+                                        <span class="list-item-table"><?= $table . ' ' ?></span>
+                                    </div>
+                                    <div class="extra-table-item-wrapper">
+                                        <span class="table-plugin-name">
+                                            <span class="plugin-icon"></span><?= $check_tables[$table] ?>
+                                        </span>
+                                    </div>
+                                    <div class="extra-table-item-wrapper">
                                         <button href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm delete-extra-table-btn" title="<?= t('Delete extra table') ?>">
                                             <i class="fa fa-trash" aria-hidden="true"></i>
                                         </button>
+                                    </div>
                                 </li>
                             <?php endforeach ?>
                         </ul>

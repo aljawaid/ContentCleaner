@@ -375,14 +375,6 @@ button.extra-columns-count {
     color: var(--pp-green-dark);
 }
 
-.table-plugin-name {
-    float: right;
-    margin-top: 5px;
-    margin-left: 50px;
-    font-size: .9em;
-    cursor: context-menu;
-}
-
 .table-plugin-name span.plugin-icon {
     width: 18px;
     height: 18px;
@@ -390,17 +382,37 @@ button.extra-columns-count {
     margin-right: 3px;
 }
 
-.extra-table-list {
-    margin-left: 6px;
-}
-
-.extra-table-list .extra-table-item {
+ul.extra-table-list li.extra-table-item {
     padding: 0 5px 2px 5px;
     transition: var(--transition-c-cleaner);
     border-radius: 2px;
+    line-height: 1.5;
 }
 
-.extra-table-item:hover {
+ul.extra-table-list {
+    margin-left: 6px;
+}
+
+li.extra-table-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.extra-table-item-wrapper {
+    column-width: 200px;
+    flex: 1;
+}
+
+div.extra-table-item-wrapper.table-name {
+    flex: 2;
+}
+
+div.extra-table-item-wrapper:last-child {
+    flex-grow: 0;
+}
+
+li.extra-table-item:hover {
     background-color: rgba(244, 41, 14, .1);
 }
 
@@ -417,13 +429,13 @@ ul.list-item-columns {
     margin-bottom: 5px;
 }
 
-td a.list-item-table:hover {
+td button.list-item-table:hover {
     text-decoration: none !important;
     border: 1px solid var(--pp-orange-c-cleaner);
     color: var(--pp-black) !important;
 }
 
-td a.list-item-table {
+td button.list-item-table {
     margin-right: 3px;
     text-decoration: none !important;
     line-height: 27px;
@@ -431,7 +443,7 @@ td a.list-item-table {
 }
 
 .extra-table-item i.fa-table {
-    line-height: 1.5;
+    line-height: 1.3;
 }
 
 li.list-item i.fa-table {
