@@ -161,7 +161,7 @@ Go to `Settings` &#10562; Content Cleaner
   - Compatible with [PluginManager](https://github.com/aljawaid/PluginManager)
 - **Core Files & Templates**
   - _No template overrides_
-  - _No database changes are made by this plugin other than the deletion of database content_
+  - No database changes are made by this plugin other than the deletion of database content
   - MS SQL databases are not supported
 
 </details>
