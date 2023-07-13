@@ -425,6 +425,11 @@ button.delete-extra-table-btn {
     padding: 0 5px 2px 5px;
 }
 
+span.cc-delete-icon {
+    vertical-align: sub;
+    padding-bottom: 1px;
+}
+
 .list-item-table {
     background: rgba(244, 41, 14, .2);
     padding: 1px 3px 2px 3px;

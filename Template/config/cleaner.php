@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="extra-table-item-wrapper">
                                         <button href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm delete-extra-table-btn" title="<?= t('Delete extra table') ?>">
-                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                            <span class="cc-delete-icon"></span>
                                         </button>
                                     </div>
                                 </li>
