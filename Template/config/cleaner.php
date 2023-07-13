@@ -72,7 +72,7 @@
                     <td class="">
                         <ul class="extra-table-list fa-ul">
                             <?php foreach ($this->helper->defaultTableHelper->checkTables() as $table): ?>
-                                <li class="extra-table-item" title="<?= t('Created by') . ' ' . $check_tables[$table] . ' ' . t('plugin') ?>">
+                                <li class="extra-table-item">
                                     <i class="fa fa-table fa-li" aria-hidden="true"></i>
                                     <a href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="js-modal-confirm list-item-table" title="<?= t('Delete extra table') ?>">
                                         <?= $table . ' ' ?>
