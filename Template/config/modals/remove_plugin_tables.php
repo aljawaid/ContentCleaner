@@ -49,7 +49,7 @@
                     <i class=""></i>
                     <h3 class="">
                         <span class="message-title"><?= t('Warning') ?></span>
-                        <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of the database entry.', $plugin_job_name, $plugin_job_name) ?></span>
+                        <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database tables related to the plugin.', $plugin_job_name, $plugin_job_name) ?></span>
                     </h3>
                 </section>
             <?php endif ?>
