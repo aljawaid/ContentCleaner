@@ -21,15 +21,6 @@
             <?php $deletable_plugins = $this->helper->pluginCleaningHelper->getDeletablePlugins(); ?>
             <?php foreach ($deletable_plugins as $plugin): ?>
                 <?php if ($plugin['plugin_title'] == $plugin_job_name): ?>
-                    <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableColumns')): ?>
-                        <?php if (isset($plugin['core_table_columns'])): ?>
-                            <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE COLUMNS -->
-                            <li class="plugin-job-delete-item">
-                                <i class="fa fa-check fa-li pp-green" aria-hidden="true"></i>
-                                <i class="fa fa-columns" aria-hidden="true"></i> <?= t('Core Table Columns') ?>
-                            </li>
-                        <?php endif ?>
-                    <?php endif ?>
                     <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableEntries')): ?>
                         <?php if (isset($plugin['core_table_entries'])): ?>
                             <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE ENTRIES -->
@@ -45,10 +36,6 @@
         <span id="JobType">
             <span class="plugin-icon"></span> <?= t('Plugin Deep Cleaning') ?>
         </span>
-        <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableColumns')): ?>
-            <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE COLUMNS -->
-            <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableColumns', array('plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
-        <?php endif ?>
         <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableEntries')): ?>
             <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE ENTRIES -->
             <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableEntries', array('plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
