@@ -174,7 +174,7 @@ class PluginCleaningController extends BaseController
      */
     public function confirmDeleteCoreTableEntries()
     {
-        $this->response->html($this->template->render('contentCleaner:config/modals/plugin_deep_clean', array(
+        $this->response->html($this->template->render('contentCleaner:config/modals/remove_plugin_core_table_entries', array(
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
         )));
     }
