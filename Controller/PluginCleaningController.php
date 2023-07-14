@@ -133,6 +133,7 @@ class PluginCleaningController extends BaseController
         $this->response->html($this->template->render('contentCleaner:config/modals/remove_plugin_core_table_columns', array(
             'title' => t('Delete Core Table Columns'),
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
+            'folder_name' => $this->helper->pluginCleaningHelper->getFolderName(),
         )));
     }
 
