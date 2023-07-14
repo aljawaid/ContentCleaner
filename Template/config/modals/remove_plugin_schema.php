@@ -42,7 +42,7 @@
             </span>
         </h2>
     </div>
-    <div id="RemovePluginSchema" class="modal-contents">
+    <div class="modal-contents">
         <div class="confirm warning-confirm">
             <?php if (file_exists('plugins/' . $folder_name . '')): ?>
                 <section class="message error cleaner-warning">
