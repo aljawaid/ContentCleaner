@@ -1,7 +1,3 @@
-<?php
-    $incomingController = $this->app->getRouterController();
-    $outgoingAction = $this->app->getRouterAction();
-?>
 
 <div id="RemovePluginHeader" class="modal-page-header">
     <h2 class="relative">
@@ -11,7 +7,7 @@
         </span>
     </h2>
 </div>
-<div id="RemovePluginContent" class="modal-contents">
+<div class="modal-contents">
     <div class="confirm">
         <p class="confirm-notice">
             <?= t('Process this job to complete the actions listed below for %s.', $plugin_job_name) ?>
@@ -21,7 +17,6 @@
             <?php $deletable_plugins = $this->helper->pluginCleaningHelper->getDeletablePlugins(); ?>
             <?php foreach ($deletable_plugins as $plugin): ?>
                 <?php if ($plugin['plugin_title'] == $plugin_job_name): ?>
-                    <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableEntries')): ?>
                         <?php if (isset($plugin['core_table_entries'])): ?>
                             <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE ENTRIES -->
                             <li class="plugin-job-delete-item">
@@ -29,16 +24,13 @@
                                 <i class="fa fa-tasks" aria-hidden="true"></i> <?= t('Core Table Entries') ?>
                             </li>
                         <?php endif ?>
-                    <?php endif ?>
                 <?php endif ?>
             <?php endforeach ?>
         </ul>
         <span id="JobType">
             <span class="plugin-icon"></span> <?= t('Plugin Deep Cleaning') ?>
         </span>
-        <?php if (($incomingController == 'PluginCleaningController') && ($outgoingAction == 'confirmDeleteCoreTableEntries')): ?>
             <!-- ContentCleaner: PLUGIN DEEP CLEAN CORE TABLE ENTRIES -->
             <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableEntries', array('plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Deep Clean')) ?>
-        <?php endif ?>
     </div>
 </div>
