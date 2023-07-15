@@ -132,8 +132,8 @@
             </section>
             <p class="section-intro">
                 <?= t('Jobs in this section affect leftover tables which were created by plugins.') ?>
-                <strong><?= t(' Once a plugin is uninstalled, all leftover tables for the uninstalled plugin are marked as unknown.') ?></strong>
-                <?= t(' Deleting plugin related database tables before uninstalling the plugin will prompt the plugin to recreate the tables, not uninstall the plugin.') ?>
+                <strong><?= t('Once a plugin is uninstalled, all leftover tables for the uninstalled plugin are marked as unknown.') ?></strong>
+                <?= t('Deleting plugin related database tables before uninstalling the plugin will prompt the plugin to recreate the tables, not uninstall the plugin.') ?>
             </p>
             <div class="alert alert-info process-info">
                 <h3 class="">
