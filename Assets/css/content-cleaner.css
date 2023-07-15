@@ -851,3 +851,35 @@ p.alert.deep-clean-tip {
 .confirm.warning-confirm p.confirm-notice {
     margin-top: 25px;
 }
+
+.process-info {
+    color: var(--pp-white);
+    border: .094em outset #565E64;
+    width: fit-content;
+    text-align: left;
+    display: block;
+    margin: auto;
+    background-color: #6C757D;
+    padding: 8px 14px 8px 14px;
+    border-radius: var(--border-radius-c-cleaner);
+}
+
+.process-info h3 {
+    margin: 0;
+    color: #FBFBFB;
+}
+
+.process-info h3 i {
+    color: #FBFBFB;
+    margin-right: 6px;
+    font-size: 1.2em;
+}
+
+.process-info dl dt.term {
+    font-weight: 600;
+    color: #D5D5D5;
+}
+
+.process-info dl dd.definition {
+    margin-bottom: 1em;
+}

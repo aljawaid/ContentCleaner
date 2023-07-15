@@ -135,6 +135,25 @@
                 <strong><?= t(' Once a plugin is uninstalled, all leftover tables for the uninstalled plugin are marked as unknown.') ?></strong>
                 <?= t(' Deleting plugin related database tables before uninstalling the plugin will prompt the plugin to recreate the tables, not uninstall the plugin.') ?>
             </p>
+            <div class="alert alert-info process-info">
+                <h3 class="">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i><?= t('Understanding the process') ?>
+                </h3>
+                <dl class="">
+                    <dt class="term"><?= t('Uninstall Plugin') ?></dt>
+                    <dd class="definition">
+                        <?= t('A plugin is uninstalled manually by the user. If the plugin is detected as currently installed, some features from this plugin may not work.') ?>
+                    </dd>
+                    <dt class="term"><?= t('Delete Plugin') ?></dt>
+                    <dd class="definition">
+                        <?= t('This process will complete all the steps to totally remove any traces of the plugin including any content it created.') ?>
+                    </dd>
+                    <dt class="term"><?= t('Deep Cleaning') ?></dt>
+                    <dd class="definition">
+                        <?= e('This process breaks down the %s process into finer segments.', '<i>Delete Plugin</i>') ?>
+                    </dd>
+                </dl>
+            </div>
             <?= $this->render('ContentCleaner:cleaning-jobs/plugin-clean', array('deletable_plugins' => $deletable_plugins)) ?>
         </div>
     </details>
