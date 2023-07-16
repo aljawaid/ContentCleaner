@@ -877,7 +877,8 @@ p.alert.deep-clean-tip {
 
 .process-info dl dt.term {
     font-weight: 600;
-    color: #D5D5D5;
+    color: #DBDFE3;
+    text-shadow: 1px 1px 2px #000000;
 }
 
 .process-info dl dd.definition {
