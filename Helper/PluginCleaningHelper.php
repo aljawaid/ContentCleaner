@@ -15,7 +15,7 @@ use Kanboard\Core\Base;
 class PluginCleaningHelper extends Base
 {
     /**
-     * Get List of Deletable Plugins via JSON
+     * Get The List of Deletable Plugins via JSON
      *
      * @return  $plugins                    array
      * @author  creecros Craig Crosby
@@ -30,7 +30,7 @@ class PluginCleaningHelper extends Base
     }
 
     /**
-     * Get the folder name of the Plugin
+     * Get The Folder Name of The Plugin
      *
      * @param   $plugin_name        string
      * @return  $folder_name        array
@@ -54,7 +54,7 @@ class PluginCleaningHelper extends Base
     }
 
     /**
-     * Check if the Plugin Database Tables Exist
+     * Check if The Plugin Database Tables Exist
      *
      * @var     $plugin_title
      * @return  bool
@@ -62,10 +62,10 @@ class PluginCleaningHelper extends Base
      */
     public function checkPluginTablesExist($plugin_title)
     {
+        // Check against the database
         $current_tables = $this->applicationCleaningModel->getTables();
 
-        // Pull the variable from the button
-        //$plugin_job_name = $plugin_title;
+        // Pull the variable from the button, set as array
         $plugin_tables = [];
 
         // Match the variable to the JSON content if the plugin name matches
@@ -76,6 +76,7 @@ class PluginCleaningHelper extends Base
             }
         }
 
+        // Set as string
         $single_table = '';
 
         foreach ($plugin_tables as $single_table => $value) {
@@ -84,6 +85,7 @@ class PluginCleaningHelper extends Base
             }
         }
 
+        // Search against the database
         if (in_array($single_table, $current_tables)) {
             //return t('Tables Exist');
             return true;
