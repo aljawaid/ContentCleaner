@@ -146,19 +146,23 @@ class PluginCleaningController extends BaseController
      */
     public function deleteCoreTableColumns()
     {
-        $table = $this->request->getStringParam('table');
-        $values = $this->request->getRawFormValues();
+        $this->checkCSRFParam();
+        $plugin_job_name = $this->request->getStringParam('plugin_job_name');
 
-        if (!empty($values)) {
-            foreach ($values as $key => $val) {
-                if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
-                    $this->flash->success(t('Deep Cleaning Complete: Core table columns were deleted successfully'));
-                } else {
-                    $this->flash->failure(t('Deep Cleaning Failed: Core table columns were not deleted'));
+        foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
+            if (($plugin['plugin_title'] == $plugin_job_name) && isset($plugin['core_table_columns'])) {
+                foreach ($plugin['core_table_columns'] as $tables) {
+                    foreach ($tables as $tablename => $tablecolumns) {
+                        foreach ($tablecolumns as $column) {
+                            if ($this->applicationCleaningModel->deleteColumn($tablename, $column)) {
+                                $this->flash->success(t('Deep Cleaning Complete: Core table columns created by %s were deleted successfully', $plugin_job_name));
+                            } else {
+                                $this->flash->failure(t('Deep Cleaning Failed: Core table columns created by %s were not deleted', $plugin_job_name));
+                            }
+                        }
+                    }
                 }
             }
-        } else {
-            $this->flash->failure(t('No columns were selected'));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
