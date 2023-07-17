@@ -38,11 +38,11 @@ class PluginCleaningHelper extends Base
      */
     public function getFolderName()
     {
-        // Pull variable from modal
+        // Pull variable from the modal
         $plugin_name = $this->request->getStringParam('plugin_name');
         $folder_name = [];
 
-        // Match variable to json content if the plugin name matches
+        // Match the variable to the JSON content if the plugin name matches
         foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
             if ($plugin['plugin_name'] === $plugin_name && isset($plugin['plugin_folder_name'])) {
                 $folder_name = $plugin['plugin_folder_name'];
