@@ -153,6 +153,8 @@
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
                                     <?php if (isset($plugin['plugin_folder_name']) && (file_exists('plugins/' . $plugin['plugin_folder_name'] . ''))): ?>
                                         disabled title="<?= t('This function is unavailable while the plugin is installed') ?>"
+                                    <?php elseif ($this->helper->pluginCleaningHelper->checkPluginCoreColumnsExist($plugin['plugin_title'])): ?>
+                                        disabled title="<?= t('No database core columns were found') ?>"
                                     <?php endif ?>
                                     >
                                     <span class="plugin-icon"></span> <?= t('Core Table Columns') ?>
