@@ -94,4 +94,41 @@ class PluginCleaningHelper extends Base
             return false;
         }
     }
+
+    /**
+     * Check if The Plugin Core Database Columns Exist
+     *
+     * @var     $plugin_title
+     * @return  bool
+     * @author  aljawaid
+     */
+    public function checkPluginCoreColumnsExist($plugin_title)
+    {
+        // Set as array
+        $db_result = [];
+
+        // Set as string
+        $search_column = '';
+
+        foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
+            if (($plugin['plugin_title'] == $plugin_title) && isset($plugin['core_table_columns'])) {
+                foreach ($plugin['core_table_columns'] as $tables) {
+                    foreach ($tables as $tablename => $tablecolumns) {
+                            $db_result = $this->applicationCleaningModel->getColumns($tablename);
+                        foreach ($tablecolumns as $column) {
+                            $search_column = $column;
+                        }
+                    }
+                    // Search against the database
+                    if (in_array($search_column, $db_result)) {
+                        //return t('Tables Exist');
+                        return true;
+                    } else {
+                        //return t('Tables Don\'t Exist');
+                        return false;
+                    }
+                }
+            }
+        }
+    }
 }
