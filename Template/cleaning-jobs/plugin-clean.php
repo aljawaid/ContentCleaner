@@ -150,7 +150,11 @@
                                 <button href="<?= $this->url->href('PluginCleaningController', 'confirmDeleteCoreTableColumns', array(
                                     'plugin_job_name' => $plugin['plugin_title'],
                                     'plugin_name' => $plugin['plugin_name'],
-                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
+                                    <?php if (isset($plugin['plugin_folder_name']) && (file_exists('plugins/' . $plugin['plugin_folder_name'] . ''))): ?>
+                                        disabled title="<?= t('This function is unavailable while the plugin is installed') ?>"
+                                    <?php endif ?>
+                                    >
                                     <span class="plugin-icon"></span> <?= t('Core Table Columns') ?>
                                 </button>
                             </li>
