@@ -10,7 +10,7 @@ use Kanboard\Core\Controller\PageNotFoundException;
  * Plugin ContentCleaner
  *
  * Class PluginCleaningController
- * @package     PluginCleaningController
+ * @package     Plugin\ContentCleaner\Controller
  * @author      aljawaid
  * @author      alfredbuehler Alfred Bühler
  */
