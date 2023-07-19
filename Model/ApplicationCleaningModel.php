@@ -10,16 +10,21 @@ use Kanboard\Core\Base;
  *
  * @package  Plugin\ContentCleaner\Model
  * @author   creecros Craig Crosby
+ * @author   alfredbuehler Alfred Bühler
  * @author   aljawaid
  */
 class ApplicationCleaningModel extends Base
 {
     public const TABLE_SCHEMA = 'plugin_schema_versions';
 
+    /**
+     * Count The Database Tables
+     *
+     * return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ''. DB_NAME .'' AND TABLE_TYPE = 'BASE TABLE';');
+     * @author creecros
+     */
     public function countTables()
     {
-        // return $this->db->execute('SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = ''. DB_NAME .'' AND TABLE_TYPE = 'BASE TABLE';');
-
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->table($this->getTable())
@@ -51,10 +56,14 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Find All Database Tables
+     *
+     * @return array
+     * @author creecros
+     */
     public function getTables()
     {
-        // FIND ALL TABLES
-
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->table($this->getTable())
@@ -101,11 +110,15 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Get Database Size
+     *
+     * SELECT table_schema "dbname", ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" FROM information_schema.tables WHERE table_schema = 'dbname' GROUP BY table_schema;
+     *
+     * @author creecros
+     */
     public function getSize($column = '')
     {
-        // FOR DATABASE SIZE
-        // SELECT table_schema "dbname", ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" FROM information_schema.tables WHERE table_schema = 'dbname' GROUP BY table_schema;
-
         switch (DB_DRIVER) {
             case 'mysql':
                 return $this->db->table($this->getTable())
@@ -129,10 +142,13 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Find All Duplicate Records in the `remember_me` Table
+     *
+     * @author aljawaid
+     */
     public function getRememberMeOld()
     {
-        // FIND ALL DUPLICATE RECORDS IN `REMEMBER_ME` TABLE
-
         switch (DB_DRIVER) {
             case 'sqlite':
                 $result = $this->db->execute('
@@ -171,10 +187,14 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Delete All Duplicates But Keep The Latest Record
+     *
+     * @return void
+     * @author
+     */
     public function deleteRememberMeOld()
     {
-        // DELETE ALL DUPLICATES BUT KEEP THE LATEST RECORD
-
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('
@@ -207,11 +227,13 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Empty All 'Remember Me' Session Entries From The `remember_me` Table
+     *
+     * @author aljawaid
+     */
     public function flushRememberMeAll()
     {
-        // EMPTY ALL 'REMEMBER ME' SESSION ENTRIES FROM THE 'REMEMBER_ME' TABLE
-        // EMPTY ALL SESSION ENTRIES FROM THE `SESSIONS` TABLE
-
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('DELETE FROM TABLE remember_me');
@@ -227,17 +249,24 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Count All Entries in the `remember_me` Table
+     *
+     * @return int
+     * @author aljawaid
+     */
     public function getRememberMeCount()
     {
-        // COUNT ALL ENTRIES
-
         return $this->db->table('remember_me')->count();
     }
 
+    /**
+     * Empty All Entries From The `sessions` Table
+     *
+     * @author aljawaid
+     */
     public function flushSessionsAll()
     {
-        // EMPTY ALL SESSION ENTRIES FROM THE `SESSIONS` TABLE
-
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('DELETE FROM TABLE sessions');
@@ -253,10 +282,14 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Delete Table From The Database
+     *
+     * @var     $table      string
+     * @author  aljawaid
+     */
     public function delete($table)
     {
-        // DELETE TABLE
-
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('DROP TABLE IF EXISTS ' . $table . ';');
@@ -272,10 +305,15 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Delete Column From Database Table
+     *
+     * @var     $table      string
+     * @var     $column     string
+     * @author  aljawaid
+     */
     public function deleteColumn($table, $column)
     {
-        // DELETE COLUMN FROM TABLE
-
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->execute('ALTER TABLE ' . $table . ' DROP COLUMN ' . $column . ';');
@@ -291,10 +329,13 @@ class ApplicationCleaningModel extends Base
         }
     }
 
+    /**
+     * Purge Plugin Schemas
+     *
+     * @author creecros
+     */
     public function purgeUninstalledPluginSchemas()
     {
-        // PURGE PLUGIN SCHEMAS
-
         $installed_plugins = array();
         $plugins = $this->pluginLoader->getPlugins();
 
@@ -316,29 +357,37 @@ class ApplicationCleaningModel extends Base
         return false;
     }
 
+    /**
+     * Reset Database Values
+     *
+     * @author  alfredbuehler Alfred Bühler
+     */
     public function resetSettings($fields = array())
     {
-        // RESET VALUES
-
         $table = 'settings';
 
         foreach ($fields as $key => $value) {
-            // IF OPTION EXISTS
+            // If option exists
             if ($this->db->table($table)->eq('option', $key)->exists()) {
-                // UPDATE VALUE
+                // Update value
                 $this->db->table($table)->eq('option', $key)->update(['value' => $value]);
             } else {
-                // INSERT OPTION AND VALUE
+                // Insert option and value
                 $this->db->table($table)->eq('option', $key)->insert(['option' => $key, 'value' => $value]);
             }
         }
         return true;
     }
 
+    /**
+     * Find All Table Columns
+     *
+     * @var     $table      string
+     * @return  array
+     * @author  creecros
+     */
     public function getColumns($table)
     {
-        // FIND ALL COLUMNS
-
         $columnNames = array();
 
         switch (DB_DRIVER) {
@@ -370,6 +419,11 @@ class ApplicationCleaningModel extends Base
         return $columnNames;
     }
 
+    /**
+     * Get Table Based on Database Type
+     *
+     * @author creecros
+     */
     private function getTable()
     {
         if (DB_DRIVER === 'sqlite') {
@@ -385,6 +439,12 @@ class ApplicationCleaningModel extends Base
         return $table;
     }
 
+    /**
+     * Get Total Number of Sessions
+     *
+     * @return  int
+     * @author  aljawaid
+     */
     public function getSessionCount()
     {
         return $this->db->table('sessions')->count();
