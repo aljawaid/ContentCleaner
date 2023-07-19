@@ -16,6 +16,7 @@ class PluginCleaningModel extends Base
 
     /**
      * Delete Plugin Entry from the Schema Table
+     *
      * Table: plugin_schema_versions (plugin VARCHAR(80) NOT NULL, version INT NOT NULL DEFAULT 0, PRIMARY KEY(plugin)) ENGINE=InnoDB CHARSET=utf8
      *
      * @var     string      $plugin_name        - must be lowercase

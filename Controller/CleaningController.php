@@ -227,6 +227,7 @@ class CleaningController extends BaseController
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
+
     /**
      * Confirmation to Empty Sessions Table (Modal)
      *

@@ -358,7 +358,7 @@ class ApplicationCleaningModel extends Base
     }
 
     /**
-     * Reset Database Values
+     * Reset Database Values in `settings` Table
      *
      * @author  alfredbuehler Alfred Bühler
      */
