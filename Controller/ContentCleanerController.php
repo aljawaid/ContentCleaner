@@ -7,9 +7,9 @@ use Kanboard\Core\Plugin\Directory;
 
 /**
  * Plugin ContentCleaner
- * Class ContentCleanerController
  *
- * @package  ContentCleanerController
+ * Class ContentCleanerController
+ * @package  Plugin\ContentCleaner\Controller
  * @author   aljawaid
  */
 
