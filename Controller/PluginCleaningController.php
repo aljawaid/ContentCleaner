@@ -193,7 +193,14 @@ class PluginCleaningController extends BaseController
      */
     public function deleteCoreTableEntries()
     {
-        if ($this->applicationCleaningModel->NOT_DONE_YET()) {
+        $plugin_job_name = $this->request->getStringParam('plugin_job_name');
+        $table =  $this->request->getStringParam('table');
+        $this->checkCSRFParam();
+
+        if ($this->applicationCleaningModel->deleteCoreTableEntries(array(
+                'calendar_project_tasks' => 'date_started',
+                'calendar_user_tasks' => 'date_started',
+            ))) {
             $this->flash->success(t('Deep Cleaning Complete: Core table entries were deleted successfully'));
         } else {
             $this->flash->failure(t('Deep Cleaning Failed: Core table entries were not deleted'));
