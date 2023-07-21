@@ -76,7 +76,7 @@
         "plugin_tables": ["wikipage", "wikipage_has_files", "wikipage_editions"],
         "core_tables": ["settings"],
         "core_table_entries": [
-            {"settings": ["persistEditions"]}
+            {"settings": {"option": "persistEditions"}}
         ],
         "plugin_schema_version": 8
     },
