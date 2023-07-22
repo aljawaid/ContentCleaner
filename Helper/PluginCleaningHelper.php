@@ -145,7 +145,6 @@ class PluginCleaningHelper extends Base
             if (($plugin['plugin_title'] == $plugin_title) && isset($plugin['core_table_entries'])) {
                 foreach ($plugin['core_table_entries'] as $tables) {
                     foreach ($tables as $tablename => $tablecolumns) {
-                            $db_result = $this->applicationCleaningModel->getColumns($tablename);
                         foreach ($tablecolumns as $column => $row) {
                             if ($this->db->table($tablename)->eq($column, $row)->exists()) {
                                 //return t('Entries Exist');
