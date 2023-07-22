@@ -166,7 +166,8 @@
                                 <button href="<?= $this->url->href('PluginCleaningController', 'confirmDeleteCoreTableEntries', array(
                                     'plugin_job_name' => $plugin['plugin_title'],
                                     'plugin_name' => $plugin['plugin_name'],
-                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
+                                    <?= ($this->helper->pluginCleaningHelper->checkPluginCoreEntriesExist($plugin['plugin_title']) ? '' : 'disabled title="' . t('No entries were found') . '"') ?>>
                                     <span class="plugin-icon"></span> <?= t('Core Table Entries') ?>
                                 </button>
                             </li>
