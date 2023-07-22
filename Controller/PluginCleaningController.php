@@ -194,16 +194,22 @@ class PluginCleaningController extends BaseController
     public function deleteCoreTableEntries()
     {
         $plugin_job_name = $this->request->getStringParam('plugin_job_name');
-        $table =  $this->request->getStringParam('table');
         $this->checkCSRFParam();
 
-        if ($this->applicationCleaningModel->deleteCoreTableEntries(array(
-                'calendar_project_tasks' => 'date_started',
-                'calendar_user_tasks' => 'date_started',
-            ))) {
-            $this->flash->success(t('Deep Cleaning Complete: Core table entries were deleted successfully'));
-        } else {
-            $this->flash->failure(t('Deep Cleaning Failed: Core table entries were not deleted'));
+        foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
+            if (($plugin['plugin_title'] == $plugin_job_name) && isset($plugin['core_table_entries'])) {
+                foreach ($plugin['core_table_entries'] as $tables) {
+                    foreach ($tables as $tablename => $tablecolumns) {
+                        foreach ($tablecolumns as $column => $row) {
+                            if ($this->applicationCleaningModel->deleteCoreTableEntries($tablename, $column, $row)) {
+                                $this->flash->success(t('Deep Cleaning Complete: Core table entries created by %s were deleted successfully', $plugin_job_name));
+                            } else {
+                                $this->flash->failure(t('Deep Cleaning Failed: Core table entries created by %s were not deleted', $plugin_job_name));
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
