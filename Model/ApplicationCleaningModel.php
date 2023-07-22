@@ -382,20 +382,18 @@ class ApplicationCleaningModel extends Base
     /**
      * Reset Database Values
      *
+     * @var     $table      string
+     * @var     $column     string
+     * @var     $row      string
+     * @return  bool
      * @author  aljawaid
      */
-    public function deleteCoreTableEntries($fields = array())
+    public function deleteCoreTableEntries($table, $column, $row)
     {
-        // DELETE RECORD FROM 'SETTINGS' TABLE
-
-        $table =  $this->request->getStringParam('table');
-
-        foreach ($fields as $key => $value) {
-            // IF OPTION EXISTS
-            if ($this->db->table($table)->eq('option', $key)->exists()) {
-                // REMOVE VALUE
-                $this->db->table($table)->eq('option', $key)->remove(['value' => $value]);
-            }
+        if ($this->db->table($table)->eq($column, $row)->exists()) {
+            $this->db->table($table)->eq($column, $row)->remove();
+        } else {
+            return false;
         }
 
         return true;
