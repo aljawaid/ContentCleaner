@@ -131,4 +131,33 @@ class PluginCleaningHelper extends Base
             }
         }
     }
+
+    /**
+     * Check if The Plugin Core Database Entries Exist
+     *
+     * @var     $plugin_title
+     * @return  bool
+     * @author  aljawaid
+     */
+    public function checkPluginCoreEntriesExist($plugin_title)
+    {
+        foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
+            if (($plugin['plugin_title'] == $plugin_title) && isset($plugin['core_table_entries'])) {
+                foreach ($plugin['core_table_entries'] as $tables) {
+                    foreach ($tables as $tablename => $tablecolumns) {
+                            $db_result = $this->applicationCleaningModel->getColumns($tablename);
+                        foreach ($tablecolumns as $column => $row) {
+                            if ($this->db->table($tablename)->eq($column, $row)->exists()) {
+                                //return t('Entries Exist');
+                                return true;
+                            } else {
+                                //return t('Entries Don\'t Exist');
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
