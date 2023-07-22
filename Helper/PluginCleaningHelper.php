@@ -121,10 +121,10 @@ class PluginCleaningHelper extends Base
                     }
                     // Search against the database
                     if (in_array($search_column, $db_result)) {
-                        //return t('Tables Exist');
+                        //return t('Columns Exist');
                         return true;
                     } else {
-                        //return t('Tables Don\'t Exist');
+                        //return t('Columns Don\'t Exist');
                         return false;
                     }
                 }
