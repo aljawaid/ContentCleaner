@@ -62,7 +62,6 @@
                 <?= t('This job will completely remove %s from the database based on the actions below:', $plugin_job_name) ?>
             </p>
             <ul class="plugin-job-delete fa-ul">
-                <div class="plugin-job-delete-title"><?= t('Job Actions') ?></div>
                 <?php $deletable_plugins = $this->helper->pluginCleaningHelper->getDeletablePlugins(); ?>
                 <?php foreach ($deletable_plugins as $plugin): ?>
                     <?php if ($plugin['plugin_title'] == $plugin_job_name): ?>

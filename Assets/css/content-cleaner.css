@@ -735,10 +735,12 @@ button[id^="DeletePluginButton"].btn {
     border-color: var(--pp-green-dark);
 }
 
+/*
 .plugin-job-delete-title {
     font-weight: 600;
     margin-bottom: 5px;
 }
+*/
 
 .plugin-job-delete-item span.db-database-icon {
     width: 14px;
