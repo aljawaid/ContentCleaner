@@ -59,7 +59,7 @@
                 </section>
             <?php endif ?>
             <p class="confirm-notice">
-                <?= t('Process this job to completely remove %s from the database.', $plugin_job_name) ?>
+                <?= t('This job will completely remove %s from the database based on the actions below:', $plugin_job_name) ?>
             </p>
             <ul class="plugin-job-delete fa-ul">
                 <div class="plugin-job-delete-title"><?= t('Job Actions') ?></div>
