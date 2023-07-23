@@ -47,19 +47,17 @@
         </h2>
     </div>
     <div class="modal-contents">
-        <div class="confirm">
-            <div class="confirm warning-confirm">
-                <?php if (file_exists('plugins/' . $folder_name . '')): ?>
-                    <section class="message error cleaner-warning">
-                        <header></header>
-                        <i class=""></i>
-                        <h3 class="">
-                            <span class="message-title"><?= t('Warning') ?></span>
-                            <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database table entries related to the plugin.', $plugin_job_name, $plugin_job_name) ?></span>
-                        </h3>
-                    </section>
-                <?php endif ?>
-            </div>
+        <div class="confirm warning-confirm">
+            <?php if (file_exists('plugins/' . $folder_name . '')): ?>
+                <section class="message error cleaner-warning">
+                    <header></header>
+                    <i class=""></i>
+                    <h3 class="">
+                        <span class="message-title"><?= t('Warning') ?></span>
+                        <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database table entries related to the plugin.', $plugin_job_name, $plugin_job_name) ?></span>
+                    </h3>
+                </section>
+            <?php endif ?>
             <p class="confirm-notice">
                 <?= t('Process this job to completely remove %s from the database.', $plugin_job_name) ?>
             </p>
