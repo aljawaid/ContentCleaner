@@ -33,6 +33,7 @@ class PluginCleaningController extends BaseController
             'title' => t('Confirm Cleaning Job'),
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
             'job' => $this->request->getStringParam('job_number'),
+            'folder_name' => $this->helper->pluginCleaningHelper->getFolderName(),
         )));
     }
 
