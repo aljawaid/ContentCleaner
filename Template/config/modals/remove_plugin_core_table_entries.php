@@ -43,25 +43,23 @@
         </h2>
     </div>
     <div class="modal-contents">
-        <div class="confirm">
-            <div class="confirm warning-confirm">
-                <?php if (file_exists('plugins/' . $folder_name . '')): ?>
-                    <section class="message error cleaner-warning">
-                        <header></header>
-                        <i class=""></i>
-                        <h3 class="">
-                            <span class="message-title"><?= t('Warning') ?></span>
-                            <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database table entries related to the plugin.', $plugin_job_name, $plugin_job_name) ?></span>
-                        </h3>
-                    </section>
-                <?php endif ?>
-                <p class="confirm-notice">
-                    <?= e('Do you really want to delete the core database table entries created by %s?', '<strong>' . $plugin_job_name . '</strong>') ?>
-                </p>
-                <span id="JobType">
-                    <span class="plugin-icon"></span> <?= t('Plugin Deep Cleaning') ?>
-                </span>
-            </div>
+        <div class="confirm warning-confirm">
+            <?php if (file_exists('plugins/' . $folder_name . '')): ?>
+                <section class="message error cleaner-warning">
+                    <header></header>
+                    <i class=""></i>
+                    <h3 class="">
+                        <span class="message-title"><?= t('Warning') ?></span>
+                        <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database table entries related to the plugin.', $plugin_job_name, $plugin_job_name) ?></span>
+                    </h3>
+                </section>
+            <?php endif ?>
+            <p class="confirm-notice">
+                <?= e('Do you really want to delete the core database table entries created by %s?', '<strong>' . $plugin_job_name . '</strong>') ?>
+            </p>
+            <span id="JobType">
+                <span class="plugin-icon"></span> <?= t('Plugin Deep Cleaning') ?>
+            </span>
         </div>
         <div class="modal-actions">
             <?= $this->modal->confirmButtons('PluginCleaningController', 'deleteCoreTableEntries', array('plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Deep Clean'), 1) ?>
