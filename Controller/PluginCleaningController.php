@@ -32,7 +32,7 @@ class PluginCleaningController extends BaseController
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
             'title' => t('Confirm Cleaning Job'),
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
-            'job' => $this->request->getStringParam('job_number'),
+            'job' => $this->request->getStringParam('job'),
             'folder_name' => $this->helper->pluginCleaningHelper->getFolderName(),
         )));
     }
