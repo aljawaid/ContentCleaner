@@ -33,6 +33,23 @@ return array(
     'Cleaning Complete: Reset successfully' => '',
     'Cleaning Complete: Purged successfully' => '',
     'Cleaning Complete: Duplicates deleted successfully' => '',
+    //
+    // Controller/PluginCleaningController.php
+    //
+    'Deep Cleaning Complete: %s deleted successfully' => '',
+    'Deep Cleaning Failed: Unable to delete %s' => '',
+    'Delete Plugin Database Tables' => '',
+    'Deep Cleaning Complete: Database tables created by %s were deleted successfully' => '',
+    'Deep Cleaning Failed: Database tables created by %s could not be deleted' => '',
+    'Delete Core Table Columns' => '',
+    'Deep Cleaning Complete: Core table columns created by %s were deleted' => '',
+    'Deep Cleaning Failed: Core table columns created by %s were not deleted' => '',
+    'Delete Core Table Entries') => '',
+    'Deep Cleaning Complete: Core table entries created by %s were deleted' => '',
+    'Deep Cleaning Failed: Core table entries created by %s were not deleted' => '',
+    'Delete Plugin Registration Entry' => '',
+    'Deep Cleaning Complete: Plugin registration entry for %s was deleted successfully' => '',
+    'Deep Cleaning Failed: Plugin registration entry was not deleted for %s' => '',
     '' => '',
     '' => '',
     '' => '',
