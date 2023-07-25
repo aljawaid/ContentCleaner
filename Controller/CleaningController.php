@@ -96,7 +96,7 @@ class CleaningController extends BaseController
         $this->checkCSRFParam();
 
         if ($this->applicationCleaningModel->delete($table)) {
-            $this->flash->success(t('Cleaning Complete - Database table deleted successfully'));
+            $this->flash->success(t('Cleaning Complete: Database table deleted successfully'));
         } else {
             $this->flash->failure(t('Cleaning Failed'));
         }
@@ -129,9 +129,9 @@ class CleaningController extends BaseController
     public function pluginSchemaPurge()
     {
         if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
-            $this->flash->success(t('Purge Complete - Plugin registration data successfully removed'));
+            $this->flash->success(t('Purge Complete: Plugin registration data successfully removed'));
         } else {
-            $this->flash->failure(t('Purge Failed - Might not be anything to purge'));
+            $this->flash->failure(t('Purge Failed: There may not be anything to purge'));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
@@ -174,7 +174,7 @@ class CleaningController extends BaseController
         if (!empty($values)) {
             foreach ($values as $key => $val) {
                 if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
-                    $this->flash->success(t('Cleaning Complete - Database column deleted successfully'));
+                    $this->flash->success(t('Cleaning Complete: Database column deleted successfully'));
                 } else {
                     $this->flash->failure(t('Cleaning Failed'));
                 }
@@ -257,9 +257,9 @@ class CleaningController extends BaseController
         $this->checkCSRFParam();
 
         if ($this->applicationCleaningModel->flushSessionsAll()) {
-            $this->flash->success(t('Cleaning complete - Purged successfully'));
+            $this->flash->success(t('Cleaning Complete: Purged successfully'));
         } else {
-            $this->flash->failure(t('Cleaning failed'));
+            $this->flash->failure(t('Cleaning Failed'));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
