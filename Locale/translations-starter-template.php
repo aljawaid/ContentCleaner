@@ -44,12 +44,16 @@ return array(
     'Delete Core Table Columns' => '',
     'Deep Cleaning Complete: Core table columns created by %s were deleted' => '',
     'Deep Cleaning Failed: Core table columns created by %s were not deleted' => '',
-    'Delete Core Table Entries') => '',
+    'Delete Core Table Entries' => '',
     'Deep Cleaning Complete: Core table entries created by %s were deleted' => '',
     'Deep Cleaning Failed: Core table entries created by %s were not deleted' => '',
     'Delete Plugin Registration Entry' => '',
     'Deep Cleaning Complete: Plugin registration entry for %s was deleted successfully' => '',
     'Deep Cleaning Failed: Plugin registration entry was not deleted for %s' => '',
+    //
+    // Model/ApplicationCleaningModel.php
+    //
+    'This cleaning job is not compatible with your database type' => '',
     '' => '',
     '' => '',
     '' => '',
