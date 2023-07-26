@@ -62,6 +62,10 @@ return array(
     // Template/cleaning-jobs/tooltips/core-tables.php
     //
     'Core tables are created by only the application. Plugins can only alter these types of tables but not delete them.' => '',
+    //
+    // Template/cleaning-jobs/tooltips/plugin-tables.php
+    //
+    'The tables listed here are created by the plugin itself' => '',
     '' => '',
     '' => '',
     '' => '',
