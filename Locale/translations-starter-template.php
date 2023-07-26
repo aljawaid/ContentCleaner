@@ -70,6 +70,21 @@ return array(
     // Template/cleaning-jobs/tooltips/plugin-version.php
     //
     'This cleaning job is compatible with all versions of this plugin up to v%s' => '',
+    //
+    // Template/cleaning-jobs/automatic-clean.php
+    //
+    'Purge Unused Plugin Registration Entries' => '',
+    'Cleaning Job Number' => '',
+    'Plugins which have altered the database also register themselves in the database. Use this job if you are having issues reinstalling a plugin.' => '',
+    'Table Affected' => '',
+    'Job Result' => '',
+    'The table is checked for all unknown entries compared to your installed plugins.' => '',
+    'Purge Unused Entries' => '',
+    'Clean All Unknown Tables and Columns' => '',
+    'This job is an all-in-one process to deep clean your database. Any data inside unknown tables and columns will also be deleted.' => '',
+    '+ more' => '',
+    'First all unknown tables are identified and deleted followed by all unknown columns in each table. Finally the plugin registration entries are purged.' => '',
+    'Deep Clean Database' => '',
     '' => '',
     '' => '',
     '' => '',
