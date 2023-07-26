@@ -58,6 +58,10 @@ return array(
     // Template/cleaning-jobs/tooltips/core-columns.php
     //
     'These columns are located inside core tables and will be deleted if created by a plugin' => '',
+    //
+    // Template/cleaning-jobs/tooltips/core-tables.php
+    //
+    'Core tables are created by only the application. Plugins can only alter these types of tables but not delete them.' => '',
     '' => '',
     '' => '',
     '' => '',
