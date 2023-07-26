@@ -54,10 +54,10 @@ return array(
     // Model/ApplicationCleaningModel.php
     //
     'This cleaning job is not compatible with your database type' => '',
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
+    //
+    // Template/cleaning-jobs/tooltips/core-columns.php
+    //
+    'These columns are located inside core tables and will be deleted if created by a plugin' => '',
     '' => '',
     '' => '',
     '' => '',
