@@ -66,6 +66,10 @@ return array(
     // Template/cleaning-jobs/tooltips/plugin-tables.php
     //
     'The tables listed here are created by the plugin itself' => '',
+    //
+    // Template/cleaning-jobs/tooltips/plugin-version.php
+    //
+    'This cleaning job is compatible with all versions of this plugin up to v%s' => '',
     '' => '',
     '' => '',
     '' => '',
