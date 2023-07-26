@@ -57,7 +57,7 @@
             </ul>
             <ul class="job-result fa-ul">
                 <li class="job-result-title"><i class="fa fa-check fa-li" aria-hidden="true"></i><?= t('Job Result') ?></li>
-                <li class="job-result-text"><?= t('The settings for') ?> <code>calendar_project_tasks</code> <?= t('and') ?> <code>calendar_user_tasks</code> <?= t('will be reset to the default value') ?> <code>date_started</code>.</li>
+                <li class="job-result-text"><?= e('The settings for %s and %s will be reset to the default value', '<code>calendar_project_tasks</code>', '<code>calendar_user_tasks</code>') ?>.</li>
             </ul>
         </div>
         <div class="form-actions">
