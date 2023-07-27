@@ -184,6 +184,11 @@ return array(
     '%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database tables related to the plugin.' => '',
     'Do you really want to delete any database tables which were created by %s?' => '',
     'For %s to recreate the tables automatically after this deep clean, you will need to run the "Plugin Registration" deep clean.' => '',
+    //
+    // Template/config/modals/remove_table.php
+    //
+    'Delete Table' => '',
+    'Proceed to remove this table from the database.' => '',
     '' => '',
     '' => '',
     '' => '',
