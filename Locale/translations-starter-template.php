@@ -169,6 +169,10 @@ return array(
     '%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database columns related to the plugin.' => '',
     'Do you really want to delete the core database columns created by %s?' => '',
     'Plugin Deep Cleaning' => '',
+    //
+    // Template/config/modals/remove_plugin_core_table__entries.php
+    //
+    'Do you really want to delete the core database table entries created by %s?' => '',
     '' => '',
     '' => '',
     '' => '',
