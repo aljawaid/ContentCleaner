@@ -172,7 +172,7 @@
                                 <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
                                 <?php if (count($this->helper->defaultTableHelper->checkTableColumns($table))): ?>
                                     <button href="<?= $this->url->href('CleaningController', 'viewColumns', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm extra-columns-count" title="<?= t('View extra columns in the "%s" table', $table) ?>">
-                                        <?= t('+') ?> <?= count($this->helper->defaultTableHelper->checkTableColumns($table)) ?> <?= t('from plugins') ?>
+                                        <?= t('+ %s from plugins', count($this->helper->defaultTableHelper->checkTableColumns($table))) ?>
                                     </button>
                                 <?php endif ?>
                             </li>
