@@ -189,6 +189,18 @@ return array(
     //
     'Delete Table' => '',
     'Proceed to remove this table from the database.' => '',
+    //
+    // Template/config/modals/reset.php
+    //
+    'Reset Settings' => '',
+    'Purge Login Sessions' => '',
+    'Delete Duplicate Login Sessions' => '',
+    'Run this job to empty the sessions table.' => '',
+    'Run this job to restore the calendar settings to the default values.' => '',
+    'Run this job to empty the login sessions table.' => '',
+    'Run this job to delete all duplicate sessions leaving the latest record for each user.' => '',
+    'Application Cleaning Jobs' => '',
+    'Process Job' => '',
     '' => '',
     '' => '',
     '' => '',
