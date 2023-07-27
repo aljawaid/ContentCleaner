@@ -149,6 +149,12 @@ return array(
     '%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database table entries related to the plugin.' => '',
     'Plugin Schema Registration Entry' => '',
     'Plugin Cleaning Jobs' => '',
+    //
+    // Template/config/modals/purge_plugin_schemas.php
+    //
+    'Plugin Registration Entries' => '',
+    'Run this job to purge the database of any unused plugin registration data.' => '',
+    'Purge' => '',
     '' => '',
     '' => '',
     '' => '',
