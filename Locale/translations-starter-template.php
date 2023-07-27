@@ -142,6 +142,13 @@ return array(
     'Automatically remove all unknown tables and columns left over from uninstalled plugins, followed by purging the respective plugin registration entries.' => '',
     'Automatic Cleaning Jobs' => '',
     'Deep Clean' => '',
+    //
+    // Template/config/modals/plugin_delete.php
+    //
+    'Warning' => '',
+    '%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database table entries related to the plugin.' => '',
+    'Plugin Schema Registration Entry' => '',
+    'Plugin Cleaning Jobs' => '',
     '' => '',
     '' => '',
     '' => '',
