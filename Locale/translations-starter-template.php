@@ -135,6 +135,13 @@ return array(
     'Core Table Entries' => '',
     'Plugin Registration' => '',
     'Delete Plugin' => '',
+    //
+    // Template/config/modals/auto_purge_clean.php
+    //
+    'All Unknown Tables and Columns' => '',
+    'Automatically remove all unknown tables and columns left over from uninstalled plugins, followed by purging the respective plugin registration entries.' => '',
+    'Automatic Cleaning Jobs' => '',
+    'Deep Clean' => '',
     '' => '',
     '' => '',
     '' => '',
