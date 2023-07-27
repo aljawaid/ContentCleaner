@@ -173,6 +173,11 @@ return array(
     // Template/config/modals/remove_plugin_core_table__entries.php
     //
     'Do you really want to delete the core database table entries created by %s?' => '',
+    //
+    // Template/config/modals/remove_plugin_schema.php
+    //
+    '%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of the database entry.' => '',
+    'Do you really want to delete the entry for %s?' => '',
     '' => '',
     '' => '',
     '' => '',
