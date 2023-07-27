@@ -66,7 +66,7 @@
                     <li class="job-columns-list">
                         <ol class="column-list">
                             <?php foreach ($columns as $column): ?>
-                                <li class="job-columns-name" title="<?= t('Created by') . ' ' .  $check_columns[$column] . ' ' . t('plugin') ?>">
+                                <li class="job-columns-name" title="<?= t('Created by %s plugin', $check_columns[$column]) ?>">
                                     <?= $this->form->checkbox($column, $column, 1, false) ?>
                                     <span class="job-columns-plugin">
                                         <span class="plugin-icon"></span> <?= $check_columns[$column] ?>

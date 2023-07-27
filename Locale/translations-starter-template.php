@@ -155,6 +155,14 @@ return array(
     'Plugin Registration Entries' => '',
     'Run this job to purge the database of any unused plugin registration data.' => '',
     'Purge' => '',
+    //
+    // Template/config/modals/remove_extra_columns.php
+    //
+    'Delete Columns' => '',
+    'The columns listed below are not part of the default structure for the table.' => '',
+    'Extra Columns' => '',
+    'Created by %s plugin' => '',
+    'Delete Selected' => '',
     '' => '',
     '' => '',
     '' => '',
