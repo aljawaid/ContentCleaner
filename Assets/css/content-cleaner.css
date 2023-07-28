@@ -136,7 +136,7 @@ li.more {
     box-shadow: 0 0 2px 0 var(--pp-grey);
     vertical-align: middle;
     height: 200px;
-    padding: 5px 5px 5px 5px;
+    padding: 5px;
 }
 
 .job-wrapper .form-actions {
@@ -308,7 +308,7 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     position: absolute;
     right: 10px;
     width: 33px;
-    background: white;
+    background: var(--pp-white);
     height: 26px;
     top: -29px;
     padding: 0 3px;
@@ -514,7 +514,6 @@ details.auto-cleaning-section, details.db-cleaning-section, details.plugin-clean
 .accordion-title span.plugin-icon {
     width: 22px;
     height: 20px;
-    /* vertical-align: text-top; */
     margin-top: 2px;
 }
 
@@ -734,13 +733,6 @@ button[id^="DeletePluginButton"].btn {
     color: var(--pp-white);
     border-color: var(--pp-green-dark);
 }
-
-/*
-.plugin-job-delete-title {
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-*/
 
 .plugin-job-delete-item span.db-database-icon {
     width: 14px;
