@@ -94,5 +94,16 @@
             {"predefined_task_descriptions": ["topic", "note", "instructions"]}
         ],
         "plugin_schema_version": 1
+    },
+    "8": {
+        "job_number": "08",
+        "plugin_title": "AddressBook",
+        "plugin_name": "addressbook",
+        "plugin_author": "aljawaid",
+        "plugin_url": "https://github.com/aljawaid/AddressBook",
+        "plugin_folder_name": "AddressBook",
+        "checked_up_to_plugin_version": "1.0",
+        "plugin_tables": ["address_book_contacts_items", "address_book_contacts_contact", "address_book_contacts_task_has_contact"],
+        "plugin_schema_version": 1
     }
 }
