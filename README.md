@@ -93,6 +93,11 @@ This tool allows admins to cleanup their Kanboard database by selectively deleti
             <td align="center"></td>
             <td align="center">Remove <a href="https://github.com/aljawaid/TemplateManager" title="A Kanboard plugin" target="_blank">TemplateManager</a> data</td>
         </tr>
+        <tr>
+            <td align="center"></td>
+            <td align="center"></td>
+            <td align="center">Remove <a href="https://github.com/aljawaid/AddressBook" title="A Kanboard plugin" target="_blank">AddressBook</a> data</td>
+        </tr>
     </tbody>
 </table>
 
