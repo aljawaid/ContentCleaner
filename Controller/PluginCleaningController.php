@@ -51,9 +51,9 @@ class PluginCleaningController extends BaseController
         $plugin_name = $this->request->getStringParam('plugin_name');
 
         if ($this->pluginCleaningModel->deletePlugin($plugin_name)) {
-            $this->flash->success(t('Deep Cleaning Complete: %s deleted successfully', $plugin_name));
+            $this->flash->success(t('Cleaning Complete: %s deleted successfully', $plugin_name));
         } else {
-            $this->flash->failure(t('Deep Cleaning Failed: Unable to delete %s', $plugin_name));
+            $this->flash->failure(t('Cleaning Failed: Unable to delete %s', $plugin_name));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
