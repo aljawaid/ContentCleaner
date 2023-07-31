@@ -15,13 +15,19 @@ class PluginCleaningModel extends Base
 {
     public function deletePlugin($plugin_name)
     {
-        $get_deletable_plugins = $this->helper->pluginCleaningHelper->getDeletablePlugins();
-        $plugin_tables = $this->applicationCleaningModel->delete($table);
-        $core_table_columns = $this->applicationCleaningModel->deleteColumn($table, $column);
-        $core_table_entries = $this->deleteCoreTableEntries();
-        $plugin_schema_entry = $this->deletePluginSchemaEntry();
+        // $get_deletable_plugins = $this->helper->pluginCleaningHelper->getDeletablePlugins();
 
-        return true;
+        // $plugin_tables
+        $this->applicationCleaningModel->delete($table);
+
+        // $core_table_columns
+        $this->applicationCleaningModel->deleteColumn($table, $column);
+
+        // $core_table_entries
+        $this->applicationCleaningModel->deleteCoreTableEntries($tablename, $column, $row);
+
+        // $plugin_schema_entry
+        $this->deletePluginSchemaEntry($plugin_name);
     }
 
     /**
