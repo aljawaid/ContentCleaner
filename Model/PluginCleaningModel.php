@@ -13,6 +13,14 @@ use Kanboard\Core\Base;
  */
 class PluginCleaningModel extends Base
 {
+    /**
+     * Delete Plugin
+     *
+     * Delete each step to totally remove the plugin
+     *
+     * @var     $plugin_name        string
+     * @author  aljawaid
+     */
     public function deletePlugin($plugin_name)
     {
         // $get_deletable_plugins = $this->helper->pluginCleaningHelper->getDeletablePlugins();
