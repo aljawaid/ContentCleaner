@@ -96,7 +96,7 @@
         "plugin_schema_version": 1
     },
     "8": {
-        "job_number": "00",
+        "job_number": "08",
         "plugin_title": "AddressBook",
         "plugin_name": "addressbook",
         "plugin_author": "aljawaid",
