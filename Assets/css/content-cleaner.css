@@ -709,11 +709,12 @@ li.plugin-btn-item {
     margin-right: 10px;
 }
 
-fieldset.job-wrapper li.plugin-btn-item button:disabled {
+fieldset.job-wrapper li.plugin-btn-item button:disabled, button[id^="DeletePluginButton"].btn.feature-disabled:disabled {
     cursor: not-allowed;
     color: var(--pp-grey);
     border-color: var(--pp-light-grey);
     opacity: .7;
+    background: rgba(0, 0, 0, .15);
 }
 
 fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:hover, fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:focus-visible, fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:focus {

@@ -188,7 +188,7 @@
                     'plugin_job_name' => $plugin['plugin_title'],
                     'job' => $plugin['job_number'],
                     'plugin_name' => $plugin['plugin_name'],
-                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm feature-disabled" disabled title="<?= t('This feature is currently unavailable') ?>">
                     <span class="content-cleaner-icon"></span> <?= t('Delete Plugin') ?>
                 </button>
             </div>
