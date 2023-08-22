@@ -36,7 +36,7 @@
     }
 </style>
 
-<div id="ExtraColumnsModal" class="modal">
+<div id="ExtraColumnsModal" class="content-cleaner-modal">
     <div class="modal-page-header">
         <h2 class="relative">
             <span class="modal-title">

@@ -270,7 +270,7 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     border-radius: var(--border-radius-c-cleaner);
 }
 
-.modal-page-header h2 > .modal-subtitle {
+.content-cleaner-modal .modal-page-header h2 > .modal-subtitle {
     float: right;
     margin-right: 2em;
     margin-left: 6em;
@@ -278,7 +278,7 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     color: var(--pp-grey);
 }
 
-.modal-page-header h2 > .modal-subtitle span {
+.content-cleaner-modal .modal-page-header h2 > .modal-subtitle span {
     width: 22px;
     height: 22px;
     vertical-align: bottom;
@@ -771,23 +771,23 @@ div[id^="InstallDetected"] p.installed-text {
     text-align: center;
 }
 
-.modal .modal-actions {
+.content-cleaner-modal .modal-actions {
     text-align: right;
     margin-top: 20px;
     clear: both;
 }
 
-.modal .modal-actions .form-actions {
+.content-cleaner-modal .modal-actions .form-actions {
     padding-top: 5px;
     color: var(--pp-white);
     cursor: default;
 }
 
-.modal .modal-actions .form-actions button:focus-visible, .modal .modal-actions .form-actions a:focus-visible {
+.content-cleaner-modal .modal-actions .form-actions button:focus-visible, .content-cleaner-modal .modal-actions .form-actions a:focus-visible {
     outline: 1px solid #D14836;
 }
 
-.modal .modal-actions .form-actions button, button.delete-extra-table-btn {
+.content-cleaner-modal .modal-actions .form-actions button, button.delete-extra-table-btn {
     /* Default Red */
     background: #D14836;
     border-radius: var(--border-radius-c-cleaner);
@@ -797,7 +797,7 @@ div[id^="InstallDetected"] p.installed-text {
     text-decoration: none !important;
 }
 
-.modal .modal-actions .form-actions button:focus, .modal .modal-actions .form-actions button:hover, button.delete-extra-table-btn:focus, button.delete-extra-table-btn:hover {
+.content-cleaner-modal .modal-actions .form-actions button:focus, .content-cleaner-modal .modal-actions .form-actions button:hover, button.delete-extra-table-btn:focus, button.delete-extra-table-btn:hover {
     border: 1px solid #D14836;
     color: #D14836 !important;
     background: var(--pp-white);
@@ -805,7 +805,7 @@ div[id^="InstallDetected"] p.installed-text {
 }
 
 /* Cancel Button */
-.modal .modal-actions .form-actions a {
+.content-cleaner-modal .modal-actions .form-actions a {
     transition: var(--transition-c-cleaner);
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -822,7 +822,7 @@ div[id^="InstallDetected"] p.installed-text {
     text-decoration: none;
 }
 
-.modal .modal-actions .form-actions a:hover {
+.content-cleaner-modal .modal-actions .form-actions a:hover {
     border: 1px solid #D14836;
     color: #D14836 !important;
 }

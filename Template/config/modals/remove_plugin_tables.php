@@ -33,7 +33,7 @@
     }
 </style>
 
-<div id="RemovePluginTablesModal" class="modal">
+<div id="RemovePluginTablesModal" class="content-cleaner-modal">
     <div class="modal-page-header">
         <h2 class="relative">
             <span class="modal-title">

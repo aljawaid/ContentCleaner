@@ -35,7 +35,7 @@
 </style>
 
 <!-- ContentCleaner: AUTOMATIC CLEANING JOB 02 -->
-<div id="AutoPurgeCleanModal" class="modal">
+<div id="AutoPurgeCleanModal" class="content-cleaner-modal">
     <div class="modal-page-header">
         <h2 class="relative">
             <span class="modal-title">

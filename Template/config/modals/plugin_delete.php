@@ -34,7 +34,7 @@
     }
 </style>
 
-<div id="DeletePluginModal" class="modal">
+<div id="DeletePluginModal" class="content-cleaner-modal">
     <div class="modal-page-header">
         <h2 class="relative">
             <span class="modal-title">
