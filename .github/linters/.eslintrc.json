@@ -16,7 +16,7 @@
     },
     "overrides": [
         {
-            "files": ".json",
+            "files": "*.json",
             "extends": [
                 "plugin:jsonc/recommended-with-json"
             ],
@@ -26,7 +26,7 @@
             }
         },
         {
-            "files": [".jsonc"],
+            "files": ["*.jsonc"],
             "extends": [
                 "plugin:jsonc/recommended-with-jsonc"
             ],
