@@ -34,7 +34,7 @@ class ApplicationCleaningModel extends Base
             case 'mysql':
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
-                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->eq('table_type', 'BASE TABLE')
                 ->count();
                 break;
             case 'postgres':
@@ -51,7 +51,7 @@ class ApplicationCleaningModel extends Base
             default:
                 return $this->db->table($this->getTable())
                 ->eq('table_schema', DB_NAME)
-                ->eq('TABLE_TYPE', 'BASE TABLE')
+                ->eq('table_type', 'BASE TABLE')
                 ->count();
         }
     }

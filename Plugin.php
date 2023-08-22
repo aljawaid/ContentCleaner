@@ -70,10 +70,8 @@ class Plugin extends Base
 
     public function getCompatibleVersion()
     {
-        // Examples:
-        // >=1.0.37
-        // <1.0.37
-        // <=1.0.37
+        // Examples: '>=1.0.37' '<1.0.37' '<=1.0.37'
+        // Tested on KB v1.2.32+ from plugin v1.0.0
         return '>=1.2.20';
     }
 
