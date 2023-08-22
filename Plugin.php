@@ -48,8 +48,7 @@ class Plugin extends Base
 
     public function getPluginName()
     {
-        // Plugin Name MUST be identical to namespace for Plugin Directory to detect updated versions
-        // Do not translate the plugin name here
+        // Plugin Name MUST be identical to namespace for Plugin Directory to detect updated versions - do not translate the plugin name here
         return 'ContentCleaner';
     }
 
