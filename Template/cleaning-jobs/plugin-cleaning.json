@@ -95,7 +95,7 @@
         ],
         "plugin_schema_version": 1
     },
-    "8":
+    "8": {
         "job_number": "08",
         "plugin_title": "AddressBook",
         "plugin_name": "addressbook",

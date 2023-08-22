@@ -9,7 +9,7 @@ _(most recent changes are listed on top):_
 - Initial release
 - Delete Plugin Cleaning Jobs feature disabled
 - Translations starter template included
-- Contributors: @alfredbuehler @creecros
+- Major Contributors: @alfredbuehler @creecros
 
 ---
 
