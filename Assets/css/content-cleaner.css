@@ -709,7 +709,7 @@ li.plugin-btn-item {
     margin-right: 10px;
 }
 
-fieldset.job-wrapper li.plugin-btn-item button:disabled, button[id^="DeletePluginButton"].btn.feature-disabled:disabled {
+fieldset.job-wrapper li.plugin-btn-item button:disabled {
     cursor: not-allowed;
     color: var(--pp-grey);
     border-color: var(--pp-light-grey);
