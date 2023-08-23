@@ -105,5 +105,16 @@
         "checked_up_to_plugin_version": "1.0",
         "plugin_tables": ["address_book_contacts_items", "address_book_contacts_contact", "address_book_contacts_task_has_contact"],
         "plugin_schema_version": 1
+    },
+    "9": {
+        "job_number": "09",
+        "plugin_title": "DefinitionOfDone",
+        "plugin_name": "definitionofdone",
+        "plugin_author": "Chaosmeister",
+        "plugin_url": "https://github.com/Chaosmeister/DefinitionOfDone",
+        "plugin_folder_name": "DefinitionOfDone",
+        "checked_up_to_plugin_version": "1.0",
+        "plugin_tables": ["definition_of_done"],
+        "plugin_schema_version": 2
     }
 }
