@@ -28,7 +28,7 @@ class ApplicationCleaningModel extends Base
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->table($this->getTable())
-                ->eq('TYPE', 'table')
+                ->eq('type', 'table')
                 ->count();
                 break;
             case 'mysql':
@@ -67,7 +67,7 @@ class ApplicationCleaningModel extends Base
         switch (DB_DRIVER) {
             case 'sqlite':
                 return $this->db->table($this->getTable())
-                ->eq('TYPE', 'table')
+                ->eq('type', 'table')
                 ->findAllByColumn('name');
                 break;
             case 'mysql':
