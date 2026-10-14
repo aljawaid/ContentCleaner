@@ -161,8 +161,7 @@ li.more {
 }
 
 .job-desc {
-    margin-block-start: 5px;
-    margin-block-end: 10px;
+    margin-block: 5px 10px;
 }
 
 p.plugin-desc {
@@ -211,7 +210,7 @@ p.alert.alert-info.job-desc {
 
 .job-result-text code {
     font-size: .9em;
-    background-color: rgba(27, 31, 35, .22);
+    background-color: rgb(27, 31, 35, .22);
     color: var(--pp-black);
     line-height: 2;
     margin: auto 1px;
@@ -234,7 +233,7 @@ fieldset.job-wrapper .job-btn:hover {
 fieldset.job-wrapper .job-btn, fieldset .job-btn:visited {
     font-size: 1em;
     border: 2px outset var(--pp-orange-c-cleaner);
-    background: rgba(0, 0, 0, .15);
+    background: rgb(0, 0, 0, .15);
     font-weight: 600;
     color: var(--pp-green-dark);
     transition: var(--transition-c-cleaner);
@@ -334,7 +333,7 @@ li.job-result-title i.fa-check::before {
 
 .job-tables-table {
     margin-left: -.20em;
-    background: rgba(244, 41, 14, .2);
+    background: rgb(244, 41, 14, .2);
     padding: 0 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
     margin-right: 10px;
@@ -370,7 +369,7 @@ button.extra-columns-count {
     transition: var(--transition-c-cleaner);
     padding: 2px 3px 2px 2px;
     font-size: 1em;
-    background: rgba(0, 0, 0, .15);
+    background: rgb(0, 0, 0, .15);
     border: 1px outset var(--pp-orange-c-cleaner);
     color: var(--pp-green-dark);
 }
@@ -413,7 +412,7 @@ div.extra-table-item-wrapper:last-child {
 }
 
 li.extra-table-item:hover {
-    background-color: rgba(244, 41, 14, .1);
+    background-color: rgb(244, 41, 14, .1);
 }
 
 li.extra-table-item:hover button.delete-extra-table-btn {
@@ -431,7 +430,7 @@ span.cc-delete-icon {
 }
 
 .list-item-table {
-    background: rgba(244, 41, 14, .2);
+    background: rgb(244, 41, 14, .2);
     padding: 1px 3px 2px 3px;
     border-radius: var(--border-radius-c-cleaner);
     border: 1px solid transparent;
@@ -486,8 +485,8 @@ details.auto-cleaning-section > summary.accordion-title, details.db-cleaning-sec
     border-block-width: medium;
     border-block-style: inset;
     text-indent: .5em;
-    border-block-start-color: rgba(138, 1, 1, .6);
-    border-block-end-color: rgba(244, 41, 14, .6);
+    border-block-start-color: rgb(138, 1, 1, .6);
+    border-block-end-color: rgb(244, 41, 14, .6);
     font-weight: 600;
     cursor: pointer;
     background: none;
@@ -552,7 +551,7 @@ ol.column-list li.job-columns-name {
 }
 
 .job-columns-name:hover .job-columns-plugin {
-    background: rgba(244, 41, 14, .45);
+    background: rgb(244, 41, 14, .45);
     border-radius: 20px;
 }
 
@@ -620,7 +619,7 @@ li.job-plugin-version, li.no-tables {
 }
 
 li.column-names {
-    background: rgba(255, 101, 0, .6);
+    background: rgb(255, 101, 0, .6);
     border-bottom: 2px dashed #A52A2A;
     padding-bottom: 0;
 }
@@ -682,7 +681,7 @@ li.deep-clean-panel-title {
     font-weight: 600;
     color: var(--pp-grey);
     white-space: break-spaces;
-    word-break: break-word;
+    overflow-wrap: break-word;
     width: 60px;
     text-align: center;
     vertical-align: bottom;
@@ -714,7 +713,7 @@ fieldset.job-wrapper li.plugin-btn-item button:disabled {
     color: var(--pp-grey);
     border-color: var(--pp-light-grey);
     opacity: .7;
-    background: rgba(0, 0, 0, .15);
+    background: rgb(0, 0, 0, .15);
 }
 
 fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:hover, fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:focus-visible, fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:focus {
@@ -722,7 +721,7 @@ fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:hover, fieldset.job-
     color: var(--pp-grey) !important;
     border-color: var(--pp-grey);
     opacity: .8;
-    background: rgba(0, 0, 0, .15);
+    background: rgb(0, 0, 0, .15);
 }
 
 button[id^="DeletePluginButton"].btn:hover {
@@ -748,7 +747,7 @@ div[id^="InstallDetected"] {
     transform: translate(-50%, -50%);
     border: 2px outset var(--pp-orange-c-cleaner);
     border-radius: 50%;
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, .31);
+    box-shadow: 0 0 5px 1px rgb(0, 0, 0, .31);
     background-color: var(--pp-orange-c-cleaner);
     color: var(--pp-white);
     padding: 5px 6px;
