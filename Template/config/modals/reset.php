@@ -1,6 +1,13 @@
 <?php
     $incomingController = $this->app->getRouterController();
     $outgoingAction = $this->app->getRouterAction();
+    $targetActions = array(
+        'confirmSessionsPurge' => 'purgeSessionsData',
+        'confirmResetCalendar' => 'resetCalendarSettings',
+        'confirmRememberMePurge' => 'purgeRememberMeData',
+        'confirmRememberMeDuplicatesPurge' => 'deleteRememberMeDuplicatesData',
+    );
+    $targetAction = isset($targetActions[$outgoingAction]) ? $targetActions[$outgoingAction] : '';
 ?>
 
 <style type="text/css">
@@ -128,24 +135,12 @@
             </span>
         </div>
     </div>
-    <div class="modal-actions">
-
-        <!-- ContentCleaner: APPLICATION CLEANING JOB 01 -->
-        <?php if (($incomingController == 'CleaningController') && ($outgoingAction == 'confirmSessionsPurge')): ?>
-            <?= $this->modal->confirmButtons('CleaningController', 'purgeSessionsData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
-
-        <!-- ContentCleaner: APPLICATION CLEANING JOB 02 -->
-        <?php elseif (($incomingController == 'CleaningController') && ($outgoingAction == 'confirmResetCalendar')): ?>
-            <?= $this->modal->confirmButtons('CleaningController', 'resetCalendarSettings', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
-
-        <!-- ContentCleaner: APPLICATION CLEANING JOB 03 -->
-        <?php elseif (($incomingController == 'CleaningController') && ($outgoingAction == 'confirmRememberMePurge')): ?>
-            <?= $this->modal->confirmButtons('CleaningController', 'purgeRememberMeData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
-
-        <!-- ContentCleaner: APPLICATION CLEANING JOB 04 -->
-        <?php elseif (($incomingController == 'CleaningController') && ($outgoingAction == 'confirmRememberMeDuplicatesPurge')): ?>
-            <?= $this->modal->confirmButtons('CleaningController', 'deleteRememberMeDuplicatesData', array('plugin' => 'ContentCleaner'), t('Process Job')) ?>
-        <?php endif ?>
-
-    </div>
+    <?php if ($incomingController == 'CleaningController' && $targetAction !== ''): ?>
+        <div class="modal-actions">
+            <form method="post" action="<?= $this->url->href('CleaningController', $targetAction, array('plugin' => 'ContentCleaner')) ?>">
+                <?= $this->form->csrf() ?>
+                <?= $this->modal->submitButtons(array('submitLabel' => t('Process Job'))) ?>
+            </form>
+        </div>
+    <?php endif ?>
 </div>

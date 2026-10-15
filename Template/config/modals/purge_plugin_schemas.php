@@ -58,6 +58,9 @@
         </div>
     </div>
     <div class="modal-actions">
-        <?= $this->modal->confirmButtons('CleaningController', 'pluginSchemaPurge', array('plugin' => 'ContentCleaner'), t('Purge')) ?>
+        <form method="post" action="<?= $this->url->href('CleaningController', 'pluginSchemaPurge', array('plugin' => 'ContentCleaner')) ?>">
+            <?= $this->form->csrf() ?>
+            <?= $this->modal->submitButtons(array('submitLabel' => t('Purge'))) ?>
+        </form>
     </div>
 </div>

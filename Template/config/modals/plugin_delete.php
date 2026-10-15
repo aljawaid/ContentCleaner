@@ -98,6 +98,10 @@
         </div>
     </div>
     <div class="modal-actions">
-        <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePlugin', array('plugin_job_name' => $plugin_job_name, 'plugin' => 'ContentCleaner'), t('Delete Plugin')) ?>
+        <form method="post" action="<?= $this->url->href('PluginCleaningController', 'deletePlugin', array('plugin' => 'ContentCleaner')) ?>">
+            <?= $this->form->hidden('plugin_job_name', array('plugin_job_name' => $plugin_job_name)) ?>
+            <?= $this->form->csrf() ?>
+            <?= $this->modal->submitButtons(array('submitLabel' => t('Delete Plugin'))) ?>
+        </form>
     </div>
 </div>

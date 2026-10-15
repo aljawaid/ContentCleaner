@@ -12,6 +12,8 @@ use Kanboard\Core\Base;
  * @author   creecros Craig Crosby
  * @author   alfredbuehler Alfred Bühler
  * @author   aljawaid
+ *
+ * Related tests: tests/security_contract.php and tests/database_integration.php.
  */
 class ApplicationCleaningModel extends Base
 {
@@ -234,19 +236,7 @@ class ApplicationCleaningModel extends Base
      */
     public function flushRememberMeAll()
     {
-        switch (DB_DRIVER) {
-            case 'sqlite':
-                return $this->db->execute('DELETE FROM TABLE remember_me');
-                break;
-            case 'mysql':
-                return $this->db->execute('TRUNCATE TABLE `remember_me`; SHOW WARNINGS');
-                break;
-            case 'postgres':
-                return $this->db->execute('TRUNCATE remember_me;');
-                break;
-            default:
-                return $this->db->execute('TRUNCATE TABLE `remember_me`; SHOW WARNINGS');
-        }
+        return $this->db->execute('DELETE FROM ' . $this->quoteIdentifier('remember_me'));
     }
 
     /**
@@ -267,19 +257,7 @@ class ApplicationCleaningModel extends Base
      */
     public function flushSessionsAll()
     {
-        switch (DB_DRIVER) {
-            case 'sqlite':
-                return $this->db->execute('DELETE FROM TABLE sessions');
-                break;
-            case 'mysql':
-                return $this->db->execute('TRUNCATE TABLE `sessions`; SHOW WARNINGS');
-                break;
-            case 'postgres':
-                return $this->db->execute('TRUNCATE sessions;');
-                break;
-            default:
-                return $this->db->execute('TRUNCATE TABLE `sessions`; SHOW WARNINGS');
-        }
+        return $this->db->execute('DELETE FROM ' . $this->quoteIdentifier('sessions'));
     }
 
     /**
@@ -290,19 +268,7 @@ class ApplicationCleaningModel extends Base
      */
     public function delete($table)
     {
-        switch (DB_DRIVER) {
-            case 'sqlite':
-                return $this->db->execute('DROP TABLE IF EXISTS ' . $table . ';');
-                break;
-            case 'mysql':
-                return $this->db->execute('DROP TABLE IF EXISTS `' . $table . '`; SHOW WARNINGS');
-                break;
-            case 'postgres':
-                return $this->db->execute('DROP TABLE IF EXISTS ' . $table . ' CASCADE;');
-                break;
-            default:
-                return $this->db->execute('DROP TABLE IF EXISTS `' . $table . '`; SHOW WARNINGS');
-        }
+        return $this->db->execute('DROP TABLE IF EXISTS ' . $this->quoteIdentifier($table));
     }
 
     /**
@@ -314,19 +280,10 @@ class ApplicationCleaningModel extends Base
      */
     public function deleteColumn($table, $column)
     {
-        switch (DB_DRIVER) {
-            case 'sqlite':
-                return $this->db->execute('ALTER TABLE ' . $table . ' DROP COLUMN ' . $column . ';');
-                break;
-            case 'mysql':
-                return $this->db->execute('ALTER TABLE ' . $table . ' DROP ' . $column . ';');
-                break;
-            case 'postgres':
-                return $this->db->execute('ALTER TABLE ' . $table . ' DROP ' . $column . ' CASCADE;');
-                break;
-            default:
-                return $this->db->execute('ALTER TABLE ' . $table . ' DROP ' . $column . ';');
-        }
+        return $this->db->execute(
+            'ALTER TABLE ' . $this->quoteIdentifier($table) .
+            ' DROP COLUMN ' . $this->quoteIdentifier($column)
+        );
     }
 
     /**
@@ -390,6 +347,9 @@ class ApplicationCleaningModel extends Base
      */
     public function deleteCoreTableEntries($table, $column, $row)
     {
+        $this->assertIdentifier($table);
+        $this->assertIdentifier($column);
+
         if ($this->db->table($table)->eq($column, $row)->exists()) {
             $this->db->table($table)->eq($column, $row)->remove();
         } else {
@@ -409,28 +369,31 @@ class ApplicationCleaningModel extends Base
     public function getColumns($table)
     {
         $columnNames = array();
+        $quotedTable = $this->quoteIdentifier($table);
 
         switch (DB_DRIVER) {
             case 'sqlite':
-                $columns = $this->db->execute("PRAGMA table_info($table)");
+                $columns = $this->db->execute('PRAGMA table_info(' . $quotedTable . ')');
                 foreach ($columns as $column) {
                     $columnNames[] = $column['name'];
                 }
                 break;
             case 'mysql':
-                $columns = $this->db->execute("SHOW COLUMNS FROM `" . $table . "`");
+                $columns = $this->db->execute('SHOW COLUMNS FROM ' . $quotedTable);
                 foreach ($columns as $column) {
                     $columnNames[] = $column['Field'];
                 }
                 break;
             case 'postgres':
-                $columns = $this->db->execute("select * from information_schema.columns where table_name = '" . $table . "' AND table_schema = 'public'");
+                $columns = $this->db->execute(
+                    "SELECT * FROM information_schema.columns WHERE table_name = '" . $table . "' AND table_schema = 'public'"
+                );
                 foreach ($columns as $column) {
                     $columnNames[] = $column['column_name'];
                 }
                 break;
             default:
-                $columns = $this->db->execute("SHOW COLUMNS FROM `" . $table . "`");
+                $columns = $this->db->execute('SHOW COLUMNS FROM ' . $quotedTable);
                 foreach ($columns as $column) {
                     $columnNames[] = $column['Field'];
                 }
@@ -457,6 +420,32 @@ class ApplicationCleaningModel extends Base
         }
 
         return $table;
+    }
+
+    /**
+     * Reject every identifier which is not a conventional unqualified SQL name.
+     *
+     * @throws \InvalidArgumentException
+     */
+    private function assertIdentifier($identifier)
+    {
+        if (!is_string($identifier) || preg_match('/\A[A-Za-z_][A-Za-z0-9_]*\z/D', $identifier) !== 1) {
+            throw new \InvalidArgumentException('Invalid database identifier');
+        }
+    }
+
+    /**
+     * Quote a validated identifier for the active database driver.
+     */
+    private function quoteIdentifier($identifier)
+    {
+        $this->assertIdentifier($identifier);
+
+        if (DB_DRIVER === 'mysql' || DB_DRIVER === 'mssql') {
+            return '`' . $identifier . '`';
+        }
+
+        return '"' . $identifier . '"';
     }
 
     /**

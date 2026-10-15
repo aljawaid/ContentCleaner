@@ -63,6 +63,10 @@
         </div>
     </div>
     <div class="modal-actions">
-        <?= $this->modal->confirmButtons('PluginCleaningController', 'deletePluginSchemaEntry', array('plugin_name' => $plugin_name, 'plugin' => 'ContentCleaner'), t('Deep Clean'), 1) ?>
+        <form method="post" action="<?= $this->url->href('PluginCleaningController', 'deletePluginSchemaEntry', array('plugin' => 'ContentCleaner')) ?>">
+            <?= $this->form->hidden('plugin_name', array('plugin_name' => $plugin_name)) ?>
+            <?= $this->form->csrf() ?>
+            <?= $this->modal->submitButtons(array('submitLabel' => t('Deep Clean'))) ?>
+        </form>
     </div>
 </div>

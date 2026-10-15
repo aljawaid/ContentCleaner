@@ -3,12 +3,23 @@
 namespace Kanboard\Plugin\ContentCleaner;
 
 use Kanboard\Core\Plugin\Base;
+use Kanboard\Core\Security\Role;
 use Kanboard\Core\Translator;
 
+/**
+ * Register ContentCleaner services, routes and administrator-only access.
+ *
+ * Related tests: tests/security_contract.php and tests/kanboard_integration.php.
+ */
 class Plugin extends Base
 {
     public function initialize()
     {
+        // Database inspection and cleaning must never be reachable by non-administrators.
+        $this->applicationAccessMap->add('ContentCleanerController', '*', Role::APP_ADMIN);
+        $this->applicationAccessMap->add('CleaningController', '*', Role::APP_ADMIN);
+        $this->applicationAccessMap->add('PluginCleaningController', '*', Role::APP_ADMIN);
+
         // CSS - Asset Hook
         //  - Keep filename lowercase
         $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner.css'));

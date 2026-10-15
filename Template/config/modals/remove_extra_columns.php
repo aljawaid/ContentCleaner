@@ -47,7 +47,9 @@
             </span>
         </h2>
     </div>
-    <form method="post" action="<?= $this->url->href('CleaningController', 'removeSelectedColumns', array('table' => $table, 'plugin' => 'ContentCleaner')) ?>" autocomplete="off">
+    <form method="post" action="<?= $this->url->href('CleaningController', 'removeSelectedColumns', array('plugin' => 'ContentCleaner')) ?>" autocomplete="off">
+        <?= $this->form->hidden('table', array('table' => $table)) ?>
+        <?= $this->form->csrf() ?>
         <div class="modal-contents">
             <div class="confirm">
                 <p class="confirm-notice">

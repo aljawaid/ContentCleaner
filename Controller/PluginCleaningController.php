@@ -3,8 +3,7 @@
 namespace Kanboard\Plugin\ContentCleaner\Controller;
 
 use Kanboard\Controller\BaseController;
-use Kanboard\Core\Plugin\Directory;
-use Kanboard\Core\Controller\PageNotFoundException;
+use Kanboard\Core\Controller\AccessForbiddenException;
 
 /**
  * Plugin ContentCleaner
@@ -13,6 +12,8 @@ use Kanboard\Core\Controller\PageNotFoundException;
  * @package     Plugin\ContentCleaner\Controller
  * @author      aljawaid
  * @author      alfredbuehler Alfred Bühler
+ *
+ * Security contracts are covered by tests/security_contract.php.
  */
 
 class PluginCleaningController extends BaseController
@@ -29,6 +30,8 @@ class PluginCleaningController extends BaseController
      */
     public function confirmDeletePlugin()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/plugin_delete', array(
             'title' => t('Confirm Cleaning Job'),
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
@@ -40,20 +43,21 @@ class PluginCleaningController extends BaseController
     /**
      * Delete Plugin
      *
-     * @param   $plugin_name            string
      * @uses    confirmDeletePlugin()   function
      * @author  aljawaid
      */
-    public function deletePlugin($plugin_name)
+    public function deletePlugin()
     {
-        $this->checkCSRFParam();
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
 
-        $plugin_name = $this->request->getStringParam('plugin_name');
+        $plugin_job_name = $this->request->getStringParam('plugin_job_name');
 
-        if ($this->pluginCleaningModel->deletePlugin($plugin_name)) {
-            $this->flash->success(t('Cleaning Complete: %s deleted successfully', $plugin_name));
+        if ($this->pluginCleaningModel->deletePlugin($plugin_job_name)) {
+            $this->flash->success(t('Cleaning Complete: %s deleted successfully', $plugin_job_name));
         } else {
-            $this->flash->failure(t('Cleaning Failed: Unable to delete %s', $plugin_name));
+            $this->flash->failure(t('Cleaning Failed: Unable to delete %s', $plugin_job_name));
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
@@ -69,6 +73,8 @@ class PluginCleaningController extends BaseController
      */
     public function confirmDeletePluginTables()
     {
+        $this->assertAdmin();
+
         $plugin_job_name = $this->request->getStringParam('plugin_job_name');
         $plugin_name = $this->request->getStringParam('plugin_name');
 
@@ -89,7 +95,9 @@ class PluginCleaningController extends BaseController
      */
     public function deletePluginTables()
     {
-        $this->checkCSRFParam();
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
 
         // Pull the variable from the button
         $plugin_job_name = $this->request->getStringParam('plugin_job_name');
@@ -131,6 +139,8 @@ class PluginCleaningController extends BaseController
      */
     public function confirmDeleteCoreTableColumns()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/remove_plugin_core_table_columns', array(
             'title' => t('Delete Core Table Columns'),
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
@@ -147,7 +157,9 @@ class PluginCleaningController extends BaseController
      */
     public function deleteCoreTableColumns()
     {
-        $this->checkCSRFParam();
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
         $plugin_job_name = $this->request->getStringParam('plugin_job_name');
 
         foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
@@ -179,6 +191,8 @@ class PluginCleaningController extends BaseController
      */
     public function confirmDeleteCoreTableEntries()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/remove_plugin_core_table_entries', array(
             'title' => t('Delete Core Table Entries'),
             'plugin_job_name' => $this->request->getStringParam('plugin_job_name'),
@@ -194,8 +208,11 @@ class PluginCleaningController extends BaseController
      */
     public function deleteCoreTableEntries()
     {
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
+
         $plugin_job_name = $this->request->getStringParam('plugin_job_name');
-        $this->checkCSRFParam();
 
         foreach ($this->helper->pluginCleaningHelper->getDeletablePlugins() as $plugin) {
             if (($plugin['plugin_title'] == $plugin_job_name) && isset($plugin['core_table_entries'])) {
@@ -227,6 +244,8 @@ class PluginCleaningController extends BaseController
      */
     public function confirmDeletePluginSchemaEntry()
     {
+        $this->assertAdmin();
+
         $plugin_job_name = $this->request->getStringParam('plugin_job_name');
         $plugin_name = $this->request->getStringParam('plugin_name');
 
@@ -247,7 +266,9 @@ class PluginCleaningController extends BaseController
      */
     public function deletePluginSchemaEntry()
     {
-        $this->checkCSRFParam();
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
 
         $plugin_name = $this->request->getStringParam('plugin_name');
 
@@ -258,5 +279,19 @@ class PluginCleaningController extends BaseController
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
+    }
+
+    private function assertAdmin()
+    {
+        if (!$this->userSession->isAdmin()) {
+            throw new AccessForbiddenException();
+        }
+    }
+
+    private function requirePostRequest()
+    {
+        if (!$this->request->isPost()) {
+            throw new AccessForbiddenException();
+        }
     }
 }

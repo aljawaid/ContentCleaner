@@ -59,6 +59,10 @@
         </div>
     </div>
     <div class="modal-actions">
-        <?= $this->modal->confirmButtons('CleaningController', 'removeTable', array('table' => $table, 'plugin' => 'ContentCleaner'), t('Delete Table')) ?>
+        <form method="post" action="<?= $this->url->href('CleaningController', 'removeTable', array('plugin' => 'ContentCleaner')) ?>">
+            <?= $this->form->hidden('table', array('table' => $table)) ?>
+            <?= $this->form->csrf() ?>
+            <?= $this->modal->submitButtons(array('submitLabel' => t('Delete Table'))) ?>
+        </form>
     </div>
 </div>

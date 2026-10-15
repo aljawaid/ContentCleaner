@@ -3,8 +3,7 @@
 namespace Kanboard\Plugin\ContentCleaner\Controller;
 
 use Kanboard\Controller\BaseController;
-use Kanboard\Core\Plugin\Directory;
-use Kanboard\Core\Controller\PageNotFoundException;
+use Kanboard\Core\Controller\AccessForbiddenException;
 
 /**
  * Plugin ContentCleaner
@@ -14,6 +13,8 @@ use Kanboard\Core\Controller\PageNotFoundException;
  * @author   aljawaid
  * @author   creecros Craig Crosby
  * @author   alfredbuehler Alfred Bühler
+ *
+ * Security contracts are covered by tests/security_contract.php.
  */
 
 class CleaningController extends BaseController
@@ -28,6 +29,8 @@ class CleaningController extends BaseController
      */
     public function confirmAutoPurgeAndClean()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/auto_purge_clean', array(
             'title' => t('Confirm Cleaning Job'),
             'job' => $this->request->getStringParam('job'),
@@ -42,6 +45,10 @@ class CleaningController extends BaseController
      */
     public function autoPurgeAndClean()
     {
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
+
         $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables());
 
         foreach ($this->helper->defaultTableHelper->checkTables() as $table) {
@@ -77,6 +84,8 @@ class CleaningController extends BaseController
      */
     public function confirm()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/remove_table', array(
             'title' => t('Confirm Cleaning'),
             'table' => $this->request->getStringParam('table'),
@@ -92,8 +101,11 @@ class CleaningController extends BaseController
      */
     public function removeTable()
     {
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
+
         $table = $this->request->getStringParam('table');
-        $this->checkCSRFParam();
 
         if ($this->applicationCleaningModel->delete($table)) {
             $this->flash->success(t('Cleaning Complete: Database table deleted successfully'));
@@ -114,6 +126,8 @@ class CleaningController extends BaseController
      */
     public function confirmPluginSchemaPurge()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
             'title' => t('Confirm Cleaning Job'),
             'job' => $this->request->getStringParam('job'),
@@ -128,6 +142,10 @@ class CleaningController extends BaseController
      */
     public function pluginSchemaPurge()
     {
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
+
         if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
             $this->flash->success(t('Purge Complete: Plugin registration data successfully removed'));
         } else {
@@ -148,6 +166,8 @@ class CleaningController extends BaseController
      */
     public function viewColumns()
     {
+        $this->assertAdmin();
+
         $table = $this->request->getStringParam('table');
         $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
 
@@ -168,8 +188,12 @@ class CleaningController extends BaseController
      */
     public function removeSelectedColumns()
     {
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
+
         $table = $this->request->getStringParam('table');
-        $values = $this->request->getRawFormValues();
+        $values = $this->request->getValues();
 
         if (!empty($values)) {
             foreach ($values as $key => $val) {
@@ -197,6 +221,8 @@ class CleaningController extends BaseController
      */
     public function confirmResetCalendar()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'title' => t('Confirm Cleaning Job'),
             'table' => $this->request->getStringParam('table'),
@@ -212,10 +238,12 @@ class CleaningController extends BaseController
      */
     public function resetCalendarSettings()
     {
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
+
         // NOTE: obsoleted, settings are always in table 'settings'
         // $table =  $this->request->getStringParam('table');
-        $this->checkCSRFParam();
-
         if ($this->applicationCleaningModel->resetSettings(array(
                 'calendar_project_tasks' => 'date_started',
                 'calendar_user_tasks' => 'date_started',
@@ -239,6 +267,8 @@ class CleaningController extends BaseController
      */
     public function confirmSessionsPurge()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'title' => t('Confirm Cleaning Job'),
             'table' => $this->request->getStringParam('table'),
@@ -254,7 +284,9 @@ class CleaningController extends BaseController
      */
     public function purgeSessionsData()
     {
-        $this->checkCSRFParam();
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
 
         if ($this->applicationCleaningModel->flushSessionsAll()) {
             $this->flash->success(t('Cleaning Complete: Purged successfully'));
@@ -276,6 +308,8 @@ class CleaningController extends BaseController
      */
     public function confirmRememberMePurge()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'title' => t('Confirm Cleaning Job'),
             'table' => $this->request->getStringParam('table'),
@@ -291,7 +325,9 @@ class CleaningController extends BaseController
      */
     public function purgeRememberMeData()
     {
-        $this->checkCSRFParam();
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
 
         if ($this->applicationCleaningModel->flushRememberMeAll()) {
             $this->flash->success(t('Cleaning Complete: Purged successfully'));
@@ -313,6 +349,8 @@ class CleaningController extends BaseController
      */
     public function confirmRememberMeDuplicatesPurge()
     {
+        $this->assertAdmin();
+
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'title' => t('Confirm Cleaning Job'),
             'table' => $this->request->getStringParam('table'),
@@ -328,7 +366,9 @@ class CleaningController extends BaseController
      */
     public function deleteRememberMeDuplicatesData()
     {
-        $this->checkCSRFParam();
+        $this->assertAdmin();
+        $this->requirePostRequest();
+        $this->checkCSRFForm();
 
         if ($this->applicationCleaningModel->deleteRememberMeOld()) {
             $this->flash->success(t('Cleaning Complete: Duplicates deleted successfully'));
@@ -337,5 +377,19 @@ class CleaningController extends BaseController
         }
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
+    }
+
+    private function assertAdmin()
+    {
+        if (!$this->userSession->isAdmin()) {
+            throw new AccessForbiddenException();
+        }
+    }
+
+    private function requirePostRequest()
+    {
+        if (!$this->request->isPost()) {
+            throw new AccessForbiddenException();
+        }
     }
 }
