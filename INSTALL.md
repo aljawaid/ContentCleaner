@@ -1,5 +1,7 @@
 # Plugin Installation
 
+> **Important:** ContentCleaner 2.0 requires Kanboard 1.2.54 or later. Create and verify a current database backup before installing or upgrading because cleanup operations permanently remove selected data.
+
 - **Install via the [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software") Plugin Directory**
   - _Go to:_
     - Kanboard: `Plugins` &#10562; `Plugin Directory`
@@ -13,6 +15,8 @@
   - The folder inside the `.zip` must not contain any branch names and must be exact case (matching the plugin name)
 
 _Note: The `/plugins` folder is case-sensitive._
+
+The extracted directory must be named exactly `ContentCleaner`. After installation, sign in as a Kanboard administrator and review the preview before confirming any cleaning job. SQLite, MySQL and PostgreSQL are supported; Microsoft SQL Server is not supported.
 
 - **Install using Git CLI**
   - `git clone` (_or ftp upload_) and extract the `.zip` file into this folder: `.\plugins\` (must be exact case)
