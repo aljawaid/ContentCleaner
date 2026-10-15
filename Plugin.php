@@ -76,14 +76,14 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '1.0.0';
+        return '2.0.0';
     }
 
     public function getCompatibleVersion()
     {
         // Examples: '>=1.0.37' '<1.0.37' '<=1.0.37'
-        // Tested on KB v1.2.32+ from plugin v1.0.0
-        return '>=1.2.20';
+        // Version 2.0.0 is tested against the current Kanboard 1.2.54 interfaces.
+        return '>=1.2.54';
     }
 
     public function getPluginHomepage()

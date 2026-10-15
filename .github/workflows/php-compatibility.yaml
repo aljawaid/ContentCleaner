@@ -1,3 +1,4 @@
+---
 name: PHP Compatibility
 
 on:
@@ -86,3 +87,136 @@ jobs:
           }
           echo $pluginName." loaded on Kanboard ".APP_VERSION." with PHP ".PHP_VERSION.PHP_EOL;
           PHP
+
+      - name: Run focused regression tests
+        working-directory: plugin
+        env:
+          KANBOARD_ROOT: ${{ github.workspace }}/kanboard
+        run: |
+          php tests/security_contract.php
+          php tests/style_contract.php
+          php tests/kanboard_integration.php
+          php tests/cleanup_plan_integration.php
+          php tests/plugin_cleanup_integration.php
+          php tests/database_integration.php
+
+  mysql-integration:
+    name: MySQL 8.4 integration
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      database:
+        image: mysql:8.4
+        env:
+          MYSQL_DATABASE: kanboard
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd "mysqladmin ping --host=127.0.0.1 --user=root --password=root"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - name: Checkout plugin
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: plugin
+          persist-credentials: false
+
+      - name: Checkout Kanboard
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: kanboard/kanboard
+          ref: v1.2.54
+          path: kanboard
+          persist-credentials: false
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@4424c9aab975b57bd706ee5a39c6b4334d6e4f60 # 2.40.0
+        with:
+          php-version: '8.5'
+          extensions: ctype, dom, filter, gd, json, mbstring, openssl, pdo_mysql, session, simplexml, xml
+          coverage: none
+          tools: composer:v2
+
+      - name: Install Kanboard dependencies
+        run: composer install --working-dir=kanboard --no-dev --no-interaction --prefer-dist --no-progress --optimize-autoloader
+
+      - name: Install plugin in Kanboard
+        run: |
+          mkdir -p kanboard/plugins
+          cp -R plugin kanboard/plugins/ContentCleaner
+
+      - name: Test MySQL database operations
+        working-directory: plugin
+        env:
+          KANBOARD_ROOT: ${{ github.workspace }}/kanboard
+          DB_DRIVER: mysql
+          DB_HOSTNAME: 127.0.0.1
+          DB_PORT: 3306
+          DB_NAME: kanboard
+          DB_USERNAME: root
+          DB_PASSWORD: root
+        run: php tests/database_integration.php
+
+  postgres-integration:
+    name: PostgreSQL 17 integration
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    services:
+      database:
+        image: postgres:17
+        env:
+          POSTGRES_DB: kanboard
+          POSTGRES_USER: kanboard
+          POSTGRES_PASSWORD: kanboard
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready --username=kanboard --dbname=kanboard"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - name: Checkout plugin
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: plugin
+          persist-credentials: false
+
+      - name: Checkout Kanboard
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: kanboard/kanboard
+          ref: v1.2.54
+          path: kanboard
+          persist-credentials: false
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@4424c9aab975b57bd706ee5a39c6b4334d6e4f60 # 2.40.0
+        with:
+          php-version: '8.5'
+          extensions: ctype, dom, filter, gd, json, mbstring, openssl, pdo_pgsql, session, simplexml, xml
+          coverage: none
+          tools: composer:v2
+
+      - name: Install Kanboard dependencies
+        run: composer install --working-dir=kanboard --no-dev --no-interaction --prefer-dist --no-progress --optimize-autoloader
+
+      - name: Install plugin in Kanboard
+        run: |
+          mkdir -p kanboard/plugins
+          cp -R plugin kanboard/plugins/ContentCleaner
+
+      - name: Test PostgreSQL database operations
+        working-directory: plugin
+        env:
+          KANBOARD_ROOT: ${{ github.workspace }}/kanboard
+          DB_DRIVER: postgres
+          DB_HOSTNAME: 127.0.0.1
+          DB_PORT: 5432
+          DB_NAME: kanboard
+          DB_USERNAME: kanboard
+          DB_PASSWORD: kanboard
+        run: php tests/database_integration.php
