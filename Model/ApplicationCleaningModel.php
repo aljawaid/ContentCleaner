@@ -17,8 +17,6 @@ use Kanboard\Core\Base;
  */
 class ApplicationCleaningModel extends Base
 {
-    public const TABLE_SCHEMA = 'plugin_schema_versions';
-
     /**
      * Count The Database Tables
      *
@@ -287,34 +285,6 @@ class ApplicationCleaningModel extends Base
     }
 
     /**
-     * Purge Plugin Schemas
-     *
-     * @author creecros
-     */
-    public function purgeUninstalledPluginSchemas()
-    {
-        $installed_plugins = array();
-        $plugins = $this->pluginLoader->getPlugins();
-
-        foreach ($plugins as $pluginFolder => $plugin) {
-            $installed_plugins[] = strtolower($plugin->getPluginName());
-        }
-
-        $plugins_in_schema = $this->db->table(self::TABLE_SCHEMA)->findAllByColumn('plugin');
-
-        $extra_schemas = array_diff($plugins_in_schema, $installed_plugins);
-
-        if (!empty($extra_schemas)) {
-            foreach ($extra_schemas as $plugin_to_remove) {
-                $this->db->table(self::TABLE_SCHEMA)->eq('plugin', strtolower($plugin_to_remove))->remove();
-            }
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * Reset Database Values in `settings` Table
      *
      * @author  alfredbuehler Alfred Bühler
@@ -393,10 +363,7 @@ class ApplicationCleaningModel extends Base
                 }
                 break;
             default:
-                $columns = $this->db->execute('SHOW COLUMNS FROM ' . $quotedTable);
-                foreach ($columns as $column) {
-                    $columnNames[] = $column['Field'];
-                }
+                throw new \RuntimeException('Unsupported database driver');
         }
 
         return $columnNames;
@@ -413,10 +380,10 @@ class ApplicationCleaningModel extends Base
             $table = 'sqlite_master';
         } elseif (DB_DRIVER === 'postgres') {
             $table = 'information_schema.tables';
-        } elseif (DB_DRIVER === 'mssql') {
-            $table = 'information_schema.tables';
         } elseif (DB_DRIVER === 'mysql') {
             $table = 'information_schema.tables';
+        } else {
+            throw new \RuntimeException('Unsupported database driver');
         }
 
         return $table;
@@ -441,11 +408,15 @@ class ApplicationCleaningModel extends Base
     {
         $this->assertIdentifier($identifier);
 
-        if (DB_DRIVER === 'mysql' || DB_DRIVER === 'mssql') {
+        if (DB_DRIVER === 'mysql') {
             return '`' . $identifier . '`';
         }
 
-        return '"' . $identifier . '"';
+        if (DB_DRIVER === 'sqlite' || DB_DRIVER === 'postgres') {
+            return '"' . $identifier . '"';
+        }
+
+        throw new \RuntimeException('Unsupported database driver');
     }
 
     /**

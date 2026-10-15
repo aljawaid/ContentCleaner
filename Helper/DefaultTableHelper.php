@@ -2,7 +2,6 @@
 
 namespace Kanboard\Plugin\ContentCleaner\Helper;
 
-use Kanboard\Plugin\ContentCleaner\Model\ApplicationCleaningModel;
 use Kanboard\Core\Base;
 
 /**
@@ -151,41 +150,6 @@ class DefaultTableHelper extends Base
         return $columns;
     }
 
-    public function checkTableColumns($table_name)
-    {
-        $current_columns = $this->applicationCleaningModel->getColumns($table_name);
-        $default_columns = $this->getDefaultColumnsForTable($table_name);
-
-        return array_diff($current_columns, $default_columns);
-    }
-
-    public function checkColumnsViaPlugin($table_name, $columns)
-    {
-        $columns_checks = array();
-        $plugins = $this->pluginLoader->getPlugins();
-
-        foreach ($plugins as $pluginFolder => $plugin) {
-            if (file_exists(PLUGINS_DIR . '/' . $pluginFolder . '/Schema/Mysql.php')) {
-                $file = PLUGINS_DIR . '/' . $pluginFolder . '/Schema/Mysql.php';
-                $sql = file_get_contents($file);
-
-                foreach ($columns as $column) {
-                    if (preg_match("/$table_name.*$column/i", $sql)) {
-                        $columns_checks[$column] = $plugin->getPluginName();
-                    }
-                }
-            }
-        }
-
-        foreach ($columns as $column) {
-            if (!isset($columns_checks[$column])) {
-                $columns_checks[$column] = 'Unknown';
-            }
-        }
-
-        return $columns_checks;
-    }
-
     public function checkTablesViaPlugin($table_names)
     {
         $table_checks = array();
@@ -249,18 +213,11 @@ class DefaultTableHelper extends Base
 
     private function getSchema()
     {
-        // All default checks are based on the `mysql.php` file - DO NOT CHANGE
-        switch (DB_DRIVER) {
-            case 'sqlite':
-                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
-            case 'postgres':
-                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
-            case 'mssql':
-                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
-            case 'mysql':
-                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
-            default:
-                return $_SERVER['DOCUMENT_ROOT'] . '/app/Schema/Mysql.php';
+        $schema = ROOT_DIR . '/app/Schema/Mysql.php';
+        if (!is_readable($schema)) {
+            throw new \RuntimeException('Kanboard database schema is unavailable');
         }
+
+        return $schema;
     }
 }

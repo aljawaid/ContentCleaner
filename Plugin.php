@@ -9,7 +9,8 @@ use Kanboard\Core\Translator;
 /**
  * Register ContentCleaner services, routes and administrator-only access.
  *
- * Related tests: tests/security_contract.php and tests/kanboard_integration.php.
+ * Related tests: tests/security_contract.php, tests/kanboard_integration.php
+ * and tests/cleanup_plan_integration.php.
  */
 class Plugin extends Base
 {
@@ -52,7 +53,7 @@ class Plugin extends Base
     {
         return [
             'Plugin\ContentCleaner\Model' => [
-                'ApplicationCleaningModel', 'PluginCleaningModel'
+                'ApplicationCleaningModel', 'CleanupPlanModel', 'PluginCleaningModel'
             ],
         ];
     }

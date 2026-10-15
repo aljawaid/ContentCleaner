@@ -14,6 +14,8 @@ $contentController = file_get_contents($pluginRoot . '/Controller/ContentCleaner
 $cleaningController = file_get_contents($pluginRoot . '/Controller/CleaningController.php');
 $pluginController = file_get_contents($pluginRoot . '/Controller/PluginCleaningController.php');
 $applicationModel = file_get_contents($pluginRoot . '/Model/ApplicationCleaningModel.php');
+$cleanupPlan = file_get_contents($pluginRoot . '/Model/CleanupPlanModel.php');
+$cleanerTemplate = file_get_contents($pluginRoot . '/Template/config/cleaner.php');
 $failures = array();
 
 foreach (array('ContentCleanerController', 'CleaningController', 'PluginCleaningController') as $controller) {
@@ -56,6 +58,18 @@ foreach ($modalFiles as $modalFile) {
 foreach (array('assertIdentifier(', 'quoteIdentifier(', 'Invalid database identifier') as $identifierBoundary) {
     if (strpos($applicationModel, $identifierBoundary) === false) {
         $failures[] = 'The SQL identifier boundary is missing: ' . $identifierBoundary;
+    }
+}
+
+foreach (array('buildPlan(', 'getCandidate(', 'executeSelection(', 'executePluginCleanup(', 'getDefaultTables(', 'getIncompatiblePlugins(', 'DirectoryIterator(', "['installed']") as $planBoundary) {
+    if (strpos($cleanupPlan, $planBoundary) === false) {
+        $failures[] = 'The reviewed cleanup-plan boundary is missing: ' . $planBoundary;
+    }
+}
+
+foreach (array($cleaningController, $pluginController) as $mutationController) {
+    if (strpos($mutationController, 'getRawFormValues(') !== false) {
+        $failures[] = 'A mutation controller still accepts an unbounded raw form payload.';
     }
 }
 

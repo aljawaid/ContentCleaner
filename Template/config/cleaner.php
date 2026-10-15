@@ -1,6 +1,20 @@
-<?php $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables()); ?>
+<?php
+$check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables());
+$tableCandidatesByName = array();
+$columnCandidatesByTable = array();
+foreach ($cleanup_plan as $token => $candidate) {
+    if ($candidate['type'] === 'table') {
+        $tableCandidatesByName[$candidate['table']] = $token;
+    } elseif ($candidate['type'] === 'column') {
+        if (!isset($columnCandidatesByTable[$candidate['table']])) {
+            $columnCandidatesByTable[$candidate['table']] = array();
+        }
+        $columnCandidatesByTable[$candidate['table']][] = $candidate;
+    }
+}
+?>
 
-<div class="c-cleaner-page-margin">
+<div class="content-cleaner-page c-cleaner-page-margin">
     <div class="c-cleaner-page-header">
         <h2 class="">
             <span class="content-cleaner-icon"></span> <?= t('Deep Cleaning') ?>
@@ -83,9 +97,16 @@
                                         </span>
                                     </div>
                                     <div class="extra-table-item-wrapper">
-                                        <button href="<?= $this->url->href('CleaningController', 'confirm', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm delete-extra-table-btn" title="<?= t('Delete extra table') ?>">
-                                            <span class="cc-delete-icon"></span>
-                                        </button>
+                                        <?php if (isset($tableCandidatesByName[$table])): ?>
+                                            <button href="<?= $this->url->href('CleaningController', 'confirm', array('candidate' => $tableCandidatesByName[$table], 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm delete-extra-table-btn" title="<?= t('Review this allowlisted table') ?>">
+                                                <span class="cc-delete-icon"></span>
+                                            </button>
+                                        <?php else: ?>
+                                            <span class="table-not-allowlisted" title="<?= t('Unknown tables are reported but cannot be deleted until they are added to the reviewed cleanup catalogue') ?>">
+                                                <i class="fa fa-lock" aria-hidden="true"></i>
+                                                <span class="sr-only"><?= t('Not allowlisted for deletion') ?></span>
+                                            </span>
+                                        <?php endif ?>
                                     </div>
                                 </li>
                             <?php endforeach ?>
@@ -170,9 +191,9 @@
                         <ul class="list-item-columns">
                             <li class="default-columns-count">
                                 <?= count($this->helper->defaultTableHelper->getDefaultColumnsForTable($table)) ?> <?= t('columns') ?>
-                                <?php if (count($this->helper->defaultTableHelper->checkTableColumns($table))): ?>
+                                <?php if (!empty($columnCandidatesByTable[$table])): ?>
                                     <button href="<?= $this->url->href('CleaningController', 'viewColumns', array('table' => $table, 'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn js-modal-confirm extra-columns-count" title="<?= t('View extra columns in the "%s" table', $table) ?>">
-                                        <?= t('+ %s from plugins', count($this->helper->defaultTableHelper->checkTableColumns($table))) ?>
+                                        <?= t('+ %s from plugins', count($columnCandidatesByTable[$table])) ?>
                                     </button>
                                 <?php endif ?>
                             </li>

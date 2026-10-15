@@ -33,7 +33,8 @@ class CleaningController extends BaseController
 
         $this->response->html($this->template->render('contentCleaner:config/modals/auto_purge_clean', array(
             'title' => t('Confirm Cleaning Job'),
-            'job' => $this->request->getStringParam('job'),
+            'job' => '02',
+            'candidates' => $this->cleanupPlanModel->buildPlan(),
         )));
     }
 
@@ -49,29 +50,21 @@ class CleaningController extends BaseController
         $this->requirePostRequest();
         $this->checkCSRFForm();
 
-        $check_tables = $this->helper->defaultTableHelper->checkTablesViaPlugin($this->helper->defaultTableHelper->checkTables());
-
-        foreach ($this->helper->defaultTableHelper->checkTables() as $table) {
-            if ($check_tables[$table] == 'Unknown') {
-                $this->applicationCleaningModel->delete($table);
-            }
+        $values = $this->request->getValues();
+        if (!isset($values['backup_confirmed']) || $values['backup_confirmed'] !== '1') {
+            $this->flash->failure(t('Confirm that a current database backup is available before cleaning'));
+            return $this->redirectToSettings();
         }
 
-        foreach ($this->helper->defaultTableHelper->getDefaultTables() as $table) {
-            if (count($this->helper->defaultTableHelper->checkTableColumns($table))) {
-                $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
-                $check_columns = $this->helper->defaultTableHelper->checkColumnsViaPlugin($table, $columns);
-                foreach ($columns as $column) {
-                    if ($check_columns[$column] == 'Unknown') {
-                        $this->applicationCleaningModel->deleteColumn($table, $column);
-                    }
-                }
-            }
+        $result = $this->executeCleanupSelection(
+            $this->getSelectedTokens($values),
+            array('table', 'column', 'schema')
+        );
+        if ($result === null) {
+            return $this->redirectToSettings();
         }
-
-        $this->applicationCleaningModel->purgeUninstalledPluginSchemas();
-
-        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
+        $this->flashCleanupResult($result);
+        $this->redirectToSettings();
     }
 
     /**
@@ -86,9 +79,19 @@ class CleaningController extends BaseController
     {
         $this->assertAdmin();
 
+        try {
+            $candidate = $this->cleanupPlanModel->getCandidate(
+                $this->request->getStringParam('candidate'),
+                'table'
+            );
+        } catch (\InvalidArgumentException $exception) {
+            $this->flash->failure(t('This cleanup selection is no longer available'));
+            return $this->redirectToSettings();
+        }
+
         $this->response->html($this->template->render('contentCleaner:config/modals/remove_table', array(
             'title' => t('Confirm Cleaning'),
-            'table' => $this->request->getStringParam('table'),
+            'candidate' => $candidate,
         )));
     }
 
@@ -105,13 +108,15 @@ class CleaningController extends BaseController
         $this->requirePostRequest();
         $this->checkCSRFForm();
 
-        $table = $this->request->getStringParam('table');
-
-        if ($this->applicationCleaningModel->delete($table)) {
-            $this->flash->success(t('Cleaning Complete: Database table deleted successfully'));
-        } else {
-            $this->flash->failure(t('Cleaning Failed'));
+        $values = $this->request->getValues();
+        $result = $this->executeCleanupSelection(
+            array(isset($values['candidate']) ? $values['candidate'] : ''),
+            array('table')
+        );
+        if ($result === null) {
+            return $this->redirectToSettings();
         }
+        $this->flashCleanupResult($result);
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
@@ -130,7 +135,8 @@ class CleaningController extends BaseController
 
         $this->response->html($this->template->render('contentCleaner:config/modals/purge_plugin_schemas', array(
             'title' => t('Confirm Cleaning Job'),
-            'job' => $this->request->getStringParam('job'),
+            'job' => '01',
+            'candidates' => $this->cleanupPlanModel->filterByType($this->cleanupPlanModel->buildPlan(), 'schema'),
         )));
     }
 
@@ -146,11 +152,12 @@ class CleaningController extends BaseController
         $this->requirePostRequest();
         $this->checkCSRFForm();
 
-        if ($this->applicationCleaningModel->purgeUninstalledPluginSchemas()) {
-            $this->flash->success(t('Purge Complete: Plugin registration data successfully removed'));
-        } else {
-            $this->flash->failure(t('Purge Failed: There may not be anything to purge'));
+        $values = $this->request->getValues();
+        $result = $this->executeCleanupSelection($this->getSelectedTokens($values), array('schema'));
+        if ($result === null) {
+            return $this->redirectToSettings();
         }
+        $this->flashCleanupResult($result);
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
@@ -169,12 +176,15 @@ class CleaningController extends BaseController
         $this->assertAdmin();
 
         $table = $this->request->getStringParam('table');
-        $columns = $this->helper->defaultTableHelper->checkTableColumns($table);
+        if (!in_array($table, $this->helper->defaultTableHelper->getDefaultTables(), true)) {
+            throw new AccessForbiddenException();
+        }
+        $candidates = $this->cleanupPlanModel->getColumnCandidates($table);
 
         $this->response->html($this->template->render('contentCleaner:config/modals/remove_extra_columns', array(
             'title' => t('Confirm Cleaning'),
             'table' => $table,
-            'columns' => $columns,
+            'candidates' => $candidates,
         )));
     }
 
@@ -192,20 +202,12 @@ class CleaningController extends BaseController
         $this->requirePostRequest();
         $this->checkCSRFForm();
 
-        $table = $this->request->getStringParam('table');
         $values = $this->request->getValues();
-
-        if (!empty($values)) {
-            foreach ($values as $key => $val) {
-                if ($this->applicationCleaningModel->deleteColumn($table, $key)) {
-                    $this->flash->success(t('Cleaning Complete: Database column deleted successfully'));
-                } else {
-                    $this->flash->failure(t('Cleaning Failed'));
-                }
-            }
-        } else {
-            $this->flash->failure(t('No columns were selected'));
+        $result = $this->executeCleanupSelection($this->getSelectedTokens($values), array('column'));
+        if ($result === null) {
+            return $this->redirectToSettings();
         }
+        $this->flashCleanupResult($result);
 
         $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
@@ -225,8 +227,8 @@ class CleaningController extends BaseController
 
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'title' => t('Confirm Cleaning Job'),
-            'table' => $this->request->getStringParam('table'),
-            'job' => $this->request->getStringParam('job'),
+            'table' => 'settings',
+            'job' => '02',
         )));
     }
 
@@ -242,12 +244,12 @@ class CleaningController extends BaseController
         $this->requirePostRequest();
         $this->checkCSRFForm();
 
-        // NOTE: obsoleted, settings are always in table 'settings'
-        // $table =  $this->request->getStringParam('table');
-        if ($this->applicationCleaningModel->resetSettings(array(
+        if (
+            $this->applicationCleaningModel->resetSettings(array(
                 'calendar_project_tasks' => 'date_started',
                 'calendar_user_tasks' => 'date_started',
-            ))) {
+            ))
+        ) {
             $this->flash->success(t('Cleaning Complete: Reset successfully'));
         } else {
             $this->flash->failure(t('Cleaning Failed'));
@@ -271,8 +273,8 @@ class CleaningController extends BaseController
 
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'title' => t('Confirm Cleaning Job'),
-            'table' => $this->request->getStringParam('table'),
-            'job' => $this->request->getStringParam('job'),
+            'table' => 'sessions',
+            'job' => '01',
         )));
     }
 
@@ -312,8 +314,8 @@ class CleaningController extends BaseController
 
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'title' => t('Confirm Cleaning Job'),
-            'table' => $this->request->getStringParam('table'),
-            'job' => $this->request->getStringParam('job'),
+            'table' => 'remember_me',
+            'job' => '03',
         )));
     }
 
@@ -353,8 +355,8 @@ class CleaningController extends BaseController
 
         $this->response->html($this->template->render('contentCleaner:config/modals/reset', array(
             'title' => t('Confirm Cleaning Job'),
-            'table' => $this->request->getStringParam('table'),
-            'job' => $this->request->getStringParam('job'),
+            'table' => 'remember_me',
+            'job' => '04',
         )));
     }
 
@@ -391,5 +393,40 @@ class CleaningController extends BaseController
         if (!$this->request->isPost()) {
             throw new AccessForbiddenException();
         }
+    }
+
+    private function getSelectedTokens(array $values)
+    {
+        if (!isset($values['cleanup_items']) || !is_array($values['cleanup_items'])) {
+            return array();
+        }
+
+        return $values['cleanup_items'];
+    }
+
+    private function flashCleanupResult(array $result)
+    {
+        if ($result['requested'] === 0) {
+            $this->flash->failure(t('Cleaning Failed: Select at least one reviewed item'));
+        } elseif ($result['failed'] !== null) {
+            $this->flash->failure(t('Cleaning stopped after %d of %d selected items', $result['completed'], $result['requested']));
+        } else {
+            $this->flash->success(t('Cleaning Complete: %d reviewed items were removed', $result['completed']));
+        }
+    }
+
+    private function executeCleanupSelection(array $tokens, array $allowedTypes)
+    {
+        try {
+            return $this->cleanupPlanModel->executeSelection($tokens, $allowedTypes);
+        } catch (\InvalidArgumentException $exception) {
+            $this->flash->failure(t('This cleanup selection is invalid or no longer available'));
+            return null;
+        }
+    }
+
+    private function redirectToSettings()
+    {
+        $this->response->redirect($this->helper->url->to('ContentCleanerController', 'show', array('plugin' => 'ContentCleaner')));
     }
 }
