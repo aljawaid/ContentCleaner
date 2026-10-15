@@ -1,15 +1,18 @@
 /* KANBOARD PLUGIN - CSS FILE */
+/* Related test: tests/style_contract.php. */
 
-:root {
+.content-cleaner-page,
+.content-cleaner-modal,
+body:has(.content-cleaner-modal) {
     --pp-blue: #007AC9;
     --pp-blue-alt: #00ADFF;
     --pp-red: #B71234;
     --pp-red-alt: #DA004C;
     --pp-red-alt-2: #AE003D;
-    --pp-black: #000000;
+    --pp-black: var(--color-text, #000000);
     --pp-light-grey: #8F8F8F;
     --pp-grey: #4D4D4D;
-    --pp-white: #FFFFFF;
+    --pp-white: var(--color-background, #FFFFFF);
     --pp-green: #2EA02E;
     --pp-green-dark: #055D20;
     --pp-orange: #FF6500;
@@ -23,28 +26,54 @@
     --page-margin-c-cleaner: 0 15px 0 15px;
     --title-margin-c-cleaner: 0 15px 0 15px;
     --border-radius-c-cleaner: 3px;
-    --panel-background-c-cleaner: #EEEEEE;
+    --panel-background-c-cleaner: var(--color-background-secondary, #EEEEEE);
     --transition-c-cleaner: ease-in-out all .3s;
 }
 
-.pp-blue { color: var(--pp-blue); fill: var(--pp-blue); }
-.pp-blue-alt { color: var(--pp-blue-alt); fill: var(--pp-blue-alt); }
-.pp-red { color: var(--pp-red); fill: var(--pp-red); }
-.pp-red-alt { color: var(--pp-red-alt); fill: var(--pp-red-alt); }
-.pp-red-alt-2 { color: var(--pp-red-alt-2); fill: var(--pp-red-alt-2); }
-.pp-black { color: var(--pp-black); fill: var(--pp-black); }
-.pp-light-grey { color: var(--pp-light-grey); fill: var(--pp-light-grey); }
-.pp-grey { color: var(--pp-grey); fill: var(--pp-grey); }
-.pp-white { color: var(--pp-white); fill: var(--pp-white); }
-.pp-green { color: var(--pp-green); fill: var(--pp-green); }
-.pp-dark-green { color: var(--pp-green-dark); fill: var(--pp-green-dark); }
-.pp-orange { color: var(--pp-orange); fill: var(--pp-orange); }
+.content-cleaner-page .pp-blue,
+.content-cleaner-modal .pp-blue { color: var(--pp-blue); fill: var(--pp-blue); }
 
-.font-weight-bold { font-weight: bold; }
+.content-cleaner-page .pp-blue-alt,
+.content-cleaner-modal .pp-blue-alt { color: var(--pp-blue-alt); fill: var(--pp-blue-alt); }
 
-.text-center { text-align: center; }
+.content-cleaner-page .pp-red,
+.content-cleaner-modal .pp-red { color: var(--pp-red); fill: var(--pp-red); }
 
-.relative { position: relative; }
+.content-cleaner-page .pp-red-alt,
+.content-cleaner-modal .pp-red-alt { color: var(--pp-red-alt); fill: var(--pp-red-alt); }
+
+.content-cleaner-page .pp-red-alt-2,
+.content-cleaner-modal .pp-red-alt-2 { color: var(--pp-red-alt-2); fill: var(--pp-red-alt-2); }
+
+.content-cleaner-page .pp-black,
+.content-cleaner-modal .pp-black { color: var(--pp-black); fill: var(--pp-black); }
+
+.content-cleaner-page .pp-light-grey,
+.content-cleaner-modal .pp-light-grey { color: var(--pp-light-grey); fill: var(--pp-light-grey); }
+
+.content-cleaner-page .pp-grey,
+.content-cleaner-modal .pp-grey { color: var(--pp-grey); fill: var(--pp-grey); }
+
+.content-cleaner-page .pp-white,
+.content-cleaner-modal .pp-white { color: var(--pp-white); fill: var(--pp-white); }
+
+.content-cleaner-page .pp-green,
+.content-cleaner-modal .pp-green { color: var(--pp-green); fill: var(--pp-green); }
+
+.content-cleaner-page .pp-dark-green,
+.content-cleaner-modal .pp-dark-green { color: var(--pp-green-dark); fill: var(--pp-green-dark); }
+
+.content-cleaner-page .pp-orange,
+.content-cleaner-modal .pp-orange { color: var(--pp-orange); fill: var(--pp-orange); }
+
+.content-cleaner-page .font-weight-bold,
+.content-cleaner-modal .font-weight-bold { font-weight: bold; }
+
+.content-cleaner-page .text-center,
+.content-cleaner-modal .text-center { text-align: center; }
+
+.content-cleaner-page .relative,
+.content-cleaner-modal .relative { position: relative; }
 
 .c-cleaner-page-margin {
     margin: var(--page-margin-c-cleaner);
@@ -105,7 +134,7 @@ ul.default-table-list li.list-item {
 }
 
 .default-tables {
-    border: 2px outset var(--pp-orangered);
+    border: 2px outset var(--pp-orange-c-cleaner);
     border-radius: var(--border-radius-c-cleaner);
 }
 
