@@ -47,6 +47,37 @@ class ContentCleanerController extends BaseController
         )));
     }
 
+    /**
+     * Save the plugin-cleaning control level.
+     */
+    public function saveDisplayMode()
+    {
+        $this->assertAdmin();
+        if (!$this->request->isPost()) {
+            throw new AccessForbiddenException();
+        }
+        $this->checkCSRFForm();
+
+        $values = $this->request->getValues();
+        $displayMode = isset($values['content_cleaner_display_mode'])
+            ? $values['content_cleaner_display_mode']
+            : '';
+
+        if (!in_array($displayMode, array('normal', 'advanced'), true)) {
+            $this->flash->failure(t('Choose a valid ContentCleaner display mode'));
+        } elseif ($this->configModel->save(array('content_cleaner_display_mode' => $displayMode))) {
+            $this->flash->success(t('ContentCleaner display mode saved'));
+        } else {
+            $this->flash->failure(t('Unable to save the ContentCleaner display mode'));
+        }
+
+        $this->response->redirect($this->helper->url->to(
+            'ContentCleanerController',
+            'show',
+            array('plugin' => 'ContentCleaner')
+        ));
+    }
+
     private function assertAdmin()
     {
         if (!$this->userSession->isAdmin()) {

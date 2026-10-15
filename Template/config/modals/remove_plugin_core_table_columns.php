@@ -1,39 +1,3 @@
-<style type="text/css">
-    /* MODAL SIZE */
-    #modal-box {
-        width: auto !important;
-        overflow: hidden;
-    }
-
-    #modal-content {
-        padding: 10px 15px;
-    }
-
-    /* MODAL CLOSE BUTTON */
-    #modal-close-button {
-        transform: scale(1.5);
-        display: inline-block;
-        position: absolute;
-        right: 5px;
-        top: 6px;
-        background: var(--pp-red-alt-2);
-        padding: 3px 3px 5px 6px;
-        border-bottom-left-radius: 3px;
-        box-shadow: -1px -1px 0 3px var(--pp-white);
-        z-index: 1;
-    }
-
-    #modal-close-button i {
-        color: var(--pp-white);
-        transition: var(--transition-c-cleaner);
-    }
-
-    #modal-close-button:hover i {
-        color: var(--pp-grey);
-        text-shadow: 0 0 1px var(--pp-white);
-    }
-</style>
-
 <div id="RemovePluginCoreTableColumnsModal" class="content-cleaner-modal">
     <div class="modal-page-header">
         <h2 class="relative">
@@ -44,18 +8,18 @@
     </div>
     <div class="modal-contents">
         <div class="confirm warning-confirm">
-            <?php if (file_exists('plugins/' . $folder_name . '')): ?>
-                <section class="message error cleaner-warning">
+            <?php if ($cleanup['installed']): ?>
+                <section class="content-cleaner-message error cleaner-warning">
                     <header></header>
                     <i class=""></i>
                     <h3 class="">
                         <span class="message-title"><?= t('Warning') ?></span>
-                        <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database columns related to the plugin.', $plugin_job_name, $plugin_job_name) ?></span>
+                        <span class="message-text"><?= t('%s is detected as installed. You should uninstall %s before completing this action to avoid the automatic creation of any database columns related to the plugin.', $this->text->e($plugin_job_name), $this->text->e($plugin_job_name)) ?></span>
                     </h3>
                 </section>
             <?php endif ?>
             <p class="confirm-notice">
-                <?= e('Do you really want to delete the core database columns created by %s?', '<strong>' . $plugin_job_name . '</strong>') ?>
+                <?= e('Do you really want to delete the core database columns created by %s?', '<strong>' . $this->text->e($plugin_job_name) . '</strong>') ?>
             </p>
             <span id="JobType">
                 <span class="plugin-icon"></span> <?= t('Plugin Deep Cleaning') ?>
@@ -64,9 +28,15 @@
     </div>
     <div class="modal-actions">
         <form method="post" action="<?= $this->url->href('PluginCleaningController', 'deleteCoreTableColumns', array('plugin' => 'ContentCleaner')) ?>">
-            <?= $this->form->hidden('plugin_job_name', array('plugin_job_name' => $plugin_job_name)) ?>
+            <?= $this->form->hidden('plugin_name', array('plugin_name' => $plugin_name)) ?>
             <?= $this->form->csrf() ?>
-            <?= $this->modal->submitButtons(array('submitLabel' => t('Deep Clean'))) ?>
+            <?php if (!$cleanup['installed'] && $cleanup['candidates'] !== array()): ?>
+                <label class="backup-confirmation">
+                    <input type="checkbox" name="backup_confirmed" value="1" required>
+                    <?= t('I confirm that a current database backup is available.') ?>
+                </label>
+                <?= $this->modal->submitButtons(array('submitLabel' => t('Deep Clean'))) ?>
+            <?php endif ?>
         </form>
     </div>
 </div>

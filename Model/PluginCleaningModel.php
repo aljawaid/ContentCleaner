@@ -10,6 +10,8 @@ use Kanboard\Core\Base;
  *
  * @package  Plugin\ContentCleaner\Model
  * @author   aljawaid
+ *
+ * Related test: tests/plugin_cleanup_integration.php.
  */
 class PluginCleaningModel extends Base
 {
@@ -23,19 +25,14 @@ class PluginCleaningModel extends Base
      */
     public function deletePlugin($plugin_name)
     {
-        // $get_deletable_plugins = $this->helper->pluginCleaningHelper->getDeletablePlugins();
+        $result = $this->cleanupPlanModel->executePluginCleanup(
+            $plugin_name,
+            array('entry', 'column', 'table', 'schema')
+        );
 
-        // $plugin_tables
-        $this->applicationCleaningModel->delete($table);
-
-        // $core_table_columns
-        $this->applicationCleaningModel->deleteColumn($table, $column);
-
-        // $core_table_entries
-        $this->applicationCleaningModel->deleteCoreTableEntries($tablename, $column, $row);
-
-        // $plugin_schema_entry
-        $this->deletePluginSchemaEntry($plugin_name);
+        return $result['requested'] > 0
+            && $result['completed'] === $result['requested']
+            && $result['failed'] === null;
     }
 
     /**

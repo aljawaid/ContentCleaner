@@ -833,11 +833,11 @@ p.alert.deep-clean-tip {
     margin-block: 15px;
 }
 
-.confirm .message.cleaner-warning {
+.confirm .content-cleaner-message.cleaner-warning {
     margin-bottom: 1em;
 }
 
-.confirm .message.cleaner-warning h3 {
+.confirm .content-cleaner-message.cleaner-warning h3 {
     font-size: 1.1em;
     margin: .5em;
 }
@@ -877,4 +877,128 @@ p.alert.deep-clean-tip {
 
 .process-info dl dd.definition {
     margin-bottom: 1em;
+}
+
+.content-cleaner-page .display-mode-settings {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid var(--pp-light-grey);
+    border-radius: 4px;
+    background: var(--pp-white);
+    color: var(--pp-black);
+}
+
+.content-cleaner-page .display-mode-settings form,
+.content-cleaner-page .display-mode-heading {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.content-cleaner-page .display-mode-heading label {
+    font-weight: 600;
+}
+
+body:has(.content-cleaner-modal) #modal-box {
+    width: auto !important;
+    max-width: min(900px, calc(100vw - 2rem));
+    overflow: hidden;
+}
+
+body:has(.content-cleaner-modal) #modal-content {
+    padding: 10px 15px;
+    overflow-wrap: anywhere;
+}
+
+body:has(.content-cleaner-modal) #modal-close-button {
+    position: absolute;
+    z-index: 1;
+    top: 6px;
+    right: 5px;
+    display: inline-block;
+    padding: 3px 3px 5px 6px;
+    transform: scale(1.5);
+    border-bottom-left-radius: 3px;
+    background: var(--pp-red-alt-2);
+    box-shadow: -1px -1px 0 3px var(--pp-white);
+}
+
+body:has(.content-cleaner-modal) #modal-close-button i {
+    color: var(--pp-white);
+    transition: var(--transition-c-cleaner);
+}
+
+body:has(.content-cleaner-modal) #modal-close-button:hover i {
+    color: var(--pp-grey);
+    text-shadow: 0 0 1px var(--pp-white);
+}
+
+.cleanup-preview-list,
+.cleanup-preview-item,
+.backup-confirmation {
+    display: block;
+    margin-block: .75rem;
+    text-align: left;
+}
+
+.cleanup-preview-list {
+    max-height: 40vh;
+    padding-left: 1.5rem;
+    overflow-y: auto;
+}
+
+.table-not-allowlisted {
+    display: inline-flex;
+    min-width: 2rem;
+    min-height: 2rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--pp-light-grey);
+}
+
+@media (max-width: 768px) {
+    .content-cleaner-page .display-mode-settings form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .content-cleaner-page.c-cleaner-page-margin {
+        margin-inline: .5rem;
+    }
+
+    .content-cleaner-page .job-wrapper {
+        width: auto;
+        height: auto;
+        margin: .75rem 0;
+        display: block;
+    }
+
+    .content-cleaner-page .plugin-job-content,
+    .content-cleaner-page .job-result,
+    .content-cleaner-page .deep-clean-panel,
+    .content-cleaner-page ul.plugin-btn-list {
+        display: block;
+        width: auto;
+    }
+
+    .content-cleaner-page ul.default-table-list li.list-item {
+        width: 100%;
+    }
+
+    .content-cleaner-page .summary-table,
+    .content-cleaner-page .extra-table-list {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    body:has(.content-cleaner-modal) #modal-box {
+        width: calc(100vw - 1rem) !important;
+        max-width: calc(100vw - 1rem);
+    }
+
+    .content-cleaner-modal .modal-actions .form-actions {
+        display: flex;
+        gap: .5rem;
+        flex-wrap: wrap;
+    }
 }

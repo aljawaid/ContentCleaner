@@ -43,6 +43,37 @@ foreach (array($cleaningController, $pluginController) as $mutationController) {
     }
 }
 
+foreach (array($cleaningController, $pluginController) as $controllerSource) {
+    if (strpos($controllerSource, "getStringParam('job')") !== false) {
+        $failures[] = 'A confirmation controller still accepts a reflected job label.';
+    }
+}
+
+$escapedModalPaths = array(
+    '/Template/config/modals/auto_purge_clean.php',
+    '/Template/config/modals/plugin_delete.php',
+    '/Template/config/modals/purge_plugin_schemas.php',
+    '/Template/config/modals/reset.php',
+);
+foreach ($escapedModalPaths as $escapedModalPath) {
+    $escapedModal = file_get_contents($pluginRoot . $escapedModalPath);
+    if (strpos($escapedModal, 'text->e(') === false) {
+        $failures[] = basename($escapedModalPath) . ' is missing explicit output escaping.';
+    }
+}
+
+foreach (array('isPost()', 'checkCSRFForm()', "array('normal', 'advanced')") as $modeBoundary) {
+    if (strpos($contentController, $modeBoundary) === false) {
+        $failures[] = 'The display-mode boundary is missing: ' . $modeBoundary;
+    }
+}
+
+foreach (array("saveDisplayMode", 'method="post"', 'form->csrf()') as $modeFormBoundary) {
+    if (strpos($cleanerTemplate, $modeFormBoundary) === false) {
+        $failures[] = 'The display-mode form boundary is missing: ' . $modeFormBoundary;
+    }
+}
+
 $modalFiles = glob($pluginRoot . '/Template/config/modals/*.php');
 foreach ($modalFiles as $modalFile) {
     $modal = file_get_contents($modalFile);

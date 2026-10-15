@@ -1,6 +1,7 @@
 <!-- ContentCleaner: PLUGIN CLEANING -->
 <?php // phpcs:disable Generic.Files.LineLength.TooLong ?>
 <?php foreach ($deletable_plugins as $plugin): ?>
+    <?php $cleanup = $plugin_cleanups[$plugin['plugin_name']]; ?>
     <div class="job-section-wrapper">
         <fieldset id="PluginJobWrapper<?= $plugin['job_number'] ?>" class="job-wrapper plugin-job-wrapper">
             <legend class="job-title">
@@ -20,14 +21,18 @@
                     </a>
                 </li>
             </ul>
-            <?php if (isset($plugin['plugin_folder_name']) && (file_exists('plugins/' . $plugin['plugin_folder_name'] . ''))): ?>
+            <?php if ($cleanup['installed']): ?>
                 <div id="InstallDetected<?= $plugin['job_number'] ?>" class="install-detected" title="<?= t('This plugin is detected as being installed') ?>">
                     <span class="plugin-icon"></span>
                     <p class="installed-text"><?= t('Installed') ?></p>
                 </div>
             <?php endif ?>
             <p class="alert alert-info job-desc plugin-desc">
-                <?= t('Remove all traces of %s using the "Delete Plugin" button or target the structure of the plugin and delete specific elements through the "Deep Cleaning" bar.', $plugin['plugin_title']) ?>
+                <?php if ($display_mode === 'advanced'): ?>
+                    <?= t('Remove reviewed database artefacts for %s using the "Clean Plugin Data" button, or target one artefact type through the "Deep Cleaning" bar.', $plugin['plugin_title']) ?>
+                <?php else: ?>
+                    <?= t('Remove every reviewed database artefact for %s using the "Clean Plugin Data" button.', $plugin['plugin_title']) ?>
+                <?php endif ?>
             </p>
             <div class="plugin-job-content">
                 <ul class="job-tables fa-ul">
@@ -131,16 +136,16 @@
                 </ul>
             </div>
             <div id="DeepCleanFormActions<?= $plugin['job_number'] ?>" class="form-actions plugin-job-form-actions">
-                <div class="deep-clean-panel">
-                    <ul class="plugin-btn-list">
+                <?php if ($display_mode === 'advanced'): ?>
+                    <div class="deep-clean-panel">
+                        <ul class="plugin-btn-list">
                         <li class="deep-clean-panel-title"><?= t('Deep Cleaning') ?></li>
                         <?php if (isset($plugin['plugin_tables'])): ?>
                             <li class="plugin-btn-item">
                                 <button href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePluginTables', array(
-                                    'plugin_job_name' => $plugin['plugin_title'],
                                     'plugin_name' => $plugin['plugin_name'],
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
-                                    <?= ($this->helper->pluginCleaningHelper->checkPluginTablesExist($plugin['plugin_title']) ? '' : 'disabled title="' . t('No database tables were found') . '"') ?>>
+                                    <?= (!$cleanup['installed'] && in_array('table', $cleanup['available_types'], true) ? '' : 'disabled title="' . t('Uninstall the plugin and ensure reviewed database tables exist') . '"') ?>>
                                     <span class="plugin-icon"></span> <?= t('Plugin Tables') ?>
                                 </button>
                             </li>
@@ -148,15 +153,9 @@
                         <?php if (isset($plugin['core_table_columns'])): ?>
                             <li class="plugin-btn-item">
                                 <button href="<?= $this->url->href('PluginCleaningController', 'confirmDeleteCoreTableColumns', array(
-                                    'plugin_job_name' => $plugin['plugin_title'],
                                     'plugin_name' => $plugin['plugin_name'],
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
-                                    <?php if (isset($plugin['plugin_folder_name']) && (file_exists('plugins/' . $plugin['plugin_folder_name'] . ''))): ?>
-                                        disabled title="<?= t('This function is unavailable while the plugin is installed') ?>"
-                                    <?php elseif ($this->helper->pluginCleaningHelper->checkPluginCoreColumnsExist($plugin['plugin_title'])): ?>
-                                        disabled title="<?= t('No database core columns were found') ?>"
-                                    <?php endif ?>
-                                    >
+                                    <?= (!$cleanup['installed'] && in_array('column', $cleanup['available_types'], true) ? '' : 'disabled title="' . t('Uninstall the plugin and ensure reviewed database columns exist') . '"') ?>>
                                     <span class="plugin-icon"></span> <?= t('Core Table Columns') ?>
                                 </button>
                             </li>
@@ -164,10 +163,9 @@
                         <?php if (isset($plugin['core_table_entries'])): ?>
                             <li class="plugin-btn-item">
                                 <button href="<?= $this->url->href('PluginCleaningController', 'confirmDeleteCoreTableEntries', array(
-                                    'plugin_job_name' => $plugin['plugin_title'],
                                     'plugin_name' => $plugin['plugin_name'],
                                     'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
-                                    <?= ($this->helper->pluginCleaningHelper->checkPluginCoreEntriesExist($plugin['plugin_title']) ? '' : 'disabled title="' . t('No entries were found') . '"') ?>>
+                                    <?= (!$cleanup['installed'] && in_array('entry', $cleanup['available_types'], true) ? '' : 'disabled title="' . t('Uninstall the plugin and ensure reviewed database entries exist') . '"') ?>>
                                     <span class="plugin-icon"></span> <?= t('Core Table Entries') ?>
                                 </button>
                             </li>
@@ -175,21 +173,22 @@
                         <?php if (isset($plugin['plugin_schema_version'])): ?>
                             <li class="plugin-btn-item">
                                 <button href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePluginSchemaEntry', array(
-                                    'plugin_job_name' => $plugin['plugin_title'],
                                     'plugin_name' => $plugin['plugin_name'],
-                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
+                                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
+                                    <?= (!$cleanup['installed'] && in_array('schema', $cleanup['available_types'], true) ? '' : 'disabled title="' . t('Uninstall the plugin and ensure a reviewed registration entry exists') . '"') ?>>
                                     <span class="plugin-icon"></span> <?= t('Plugin Registration') ?>
                                 </button>
                             </li>
                         <?php endif ?>
-                    </ul>
-                </div>
+                        </ul>
+                    </div>
+                <?php endif ?>
                 <button id="DeletePluginButton<?= $plugin['job_number'] ?>" href="<?= $this->url->href('PluginCleaningController', 'confirmDeletePlugin', array(
-                    'plugin_job_name' => $plugin['plugin_title'],
                     'job' => $plugin['job_number'],
                     'plugin_name' => $plugin['plugin_name'],
-                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm">
-                    <span class="content-cleaner-icon"></span> <?= t('Delete Plugin') ?>
+                    'plugin' => 'ContentCleaner'), false, '', false) ?>" class="btn job-btn js-modal-confirm"
+                    <?= (!$cleanup['installed'] && $cleanup['candidates'] !== array() ? '' : 'disabled title="' . t('Uninstall the plugin and ensure reviewed database artefacts exist') . '"') ?>>
+                    <span class="content-cleaner-icon"></span> <?= t('Clean Plugin Data') ?>
                 </button>
             </div>
         </fieldset>

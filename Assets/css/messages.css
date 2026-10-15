@@ -5,7 +5,7 @@
  https://codepen.io/Peltos/pen/OGPMxK
  =====================================================================
  HTML FORMAT:
- <section class="message error|warning|neutral|success|uhm">
+ <section class="content-cleaner-message error|warning|neutral|success|uhm">
     <header></header>
     <i class=""></i>
     <h3 class="">
@@ -22,13 +22,13 @@
   box-sizing: border-box;
 } */
 
-.message,
-*::after,
-*::before {
+.content-cleaner-message,
+.content-cleaner-message::after,
+.content-cleaner-message::before {
   box-sizing: border-box;
 }
 
-.message {
+.content-cleaner-message {
     /* max-width: 40em; */
     background: #EEEEEE;
     box-shadow: 4px 4px 8px 0 rgb(0, 0, 0, .31);
@@ -40,7 +40,7 @@
     width: fit-content;
 }
 
-.message header {
+.content-cleaner-message header {
     background: #9E9E9E;
     width: 100%;
     padding: .5em;
@@ -48,7 +48,7 @@
     border-bottom: 0;
 }
 
-.message i::after {
+.content-cleaner-message i::after {
     font-family: FontAwesome;
     font-weight: 900;
     content: "";
@@ -63,7 +63,7 @@
     text-align: center;
 }
 
-.message h3 {
+.content-cleaner-message h3 {
     margin: .75em;
     font-size: 1.25em;
     position: relative;
@@ -71,18 +71,18 @@
     width: calc(100% - 2.5em - 1.5em);
 }
 
-.message h3 span.message-title {
+.content-cleaner-message h3 span.message-title {
     color: #9E9E9E;
     font-weight: bold;
 }
 
-.message h3 span.message-text {
+.content-cleaner-message h3 span.message-text {
     font-size: .8em;
     margin-left: 5px;
     vertical-align: unset;
 }
 
-.message h3::after {
+.content-cleaner-message h3::after {
     content: "";
     border-bottom: .1em solid #9E9E9E;
     width: 100%;
@@ -93,92 +93,92 @@
     margin-top: 3px;
 }
 
-.error header {
+.content-cleaner-message.error header {
     background: #D50000;
 }
 
-.error i::after {
+.content-cleaner-message.error i::after {
     background: #3D1D1D;
     color: #FF5656;
     content: "";
 }
 
-.error h3 span.message-title {
+.content-cleaner-message.error h3 span.message-title {
     color: #D50000;
 }
 
-.error h3::after {
+.content-cleaner-message.error h3::after {
     border-bottom: .1em solid #D50000;
 }
 
-.warning header {
+.content-cleaner-message.warning header {
     background: #FF6F00;
 }
 
-.warning i::after {
+.content-cleaner-message.warning i::after {
     background: #432E1D;
     color: #FFB780;
     content: "";
 }
 
-.warning h3 span.message-title {
+.content-cleaner-message.warning h3 span.message-title {
     color: #FF6F00;
 }
 
-.warning h3::after {
+.content-cleaner-message.warning h3::after {
     border-bottom: .1em solid #FF6F00;
 }
 
-.neutral header {
+.content-cleaner-message.neutral header {
     background: #448AFF;
 }
 
-.neutral i::after {
+.content-cleaner-message.neutral i::after {
     background: #273243;
     color: #C4DAFF;
     content: "";
 }
 
-.neutral h3 span.message-title {
+.content-cleaner-message.neutral h3 span.message-title {
     color: #448AFF;
 }
 
-.neutral h3::after {
+.content-cleaner-message.neutral h3::after {
     border-bottom: .1em solid #448AFF;
 }
 
-.success header {
+.content-cleaner-message.success header {
     background: #388E3C;
 }
 
-.success i::after {
+.content-cleaner-message.success i::after {
     background: #253226;
     color: #7BCB7E;
     content: "";
 }
 
-.success h3 span.message-title {
+.content-cleaner-message.success h3 span.message-title {
     color: #388E3C;
 }
 
-.success h3::after {
+.content-cleaner-message.success h3::after {
     border-bottom: .1em solid #388E3C;
 }
 
-.uhm header {
+.content-cleaner-message.uhm header {
     background: #C1610D;
 }
 
-.uhm i::after {
+.content-cleaner-message.uhm i::after {
     background: #3A2B1F;
     color: #F4A25A;
     content: "";
 }
 
-.uhm h3 span.message-title {
+.content-cleaner-message.uhm h3 span.message-title {
     color: #C1610D;
 }
 
-.uhm h3::after {
+.content-cleaner-message.uhm h3::after {
     border-bottom: .1em solid #C1610D;
 }

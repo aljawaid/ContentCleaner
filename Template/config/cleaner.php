@@ -23,13 +23,34 @@ foreach ($cleanup_plan as $token => $candidate) {
     <p class="cleaner-intro">
         <?= t('Temporary files can accumulate data which can affect your database and functionality of your application. Plugins which alter the database do not (by default) remove any database tables after uninstalling causing potential issues. Cleaning jobs are segments of processes to optimize your database and cleanup your data. This tool lists cleaning jobs that can deep clean useless data easily.') ?>
     </p>
-    <section class="message warning cleaner-warning">
+    <section class="content-cleaner-message warning cleaner-warning">
         <header></header>
         <i class=""></i>
         <h3 class="">
             <span class="message-title"><?= t('Warning') ?></span>
             <span class="message-text"><?= t('Using this tool deletes data from the database permanently') ?></span>
         </h3>
+    </section>
+    <section class="display-mode-settings" aria-labelledby="DisplayModeTitle">
+        <form method="post" action="<?= $this->url->href('ContentCleanerController', 'saveDisplayMode', array('plugin' => 'ContentCleaner')) ?>">
+            <?= $this->form->csrf() ?>
+            <div class="display-mode-heading">
+                <label id="DisplayModeTitle" for="ContentCleanerDisplayMode"><?= t('Plugin cleaning controls') ?></label>
+                <span class="tooltip content-cleaner-tooltip">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    <script type="text/template">
+                        <div class="markdown">
+                            <p><?= t('Normal mode shows one reviewed whole-plugin action. Advanced mode also shows separate table, column, entry and registration actions.') ?></p>
+                        </div>
+                    </script>
+                </span>
+            </div>
+            <select id="ContentCleanerDisplayMode" name="content_cleaner_display_mode">
+                <option value="normal" <?= $display_mode === 'normal' ? 'selected' : '' ?>><?= t('Normal') ?></option>
+                <option value="advanced" <?= $display_mode === 'advanced' ? 'selected' : '' ?>><?= t('Advanced') ?></option>
+            </select>
+            <button type="submit" class="btn"><?= t('Save') ?></button>
+        </form>
     </section>
     <section id="DBSummary" class="db-summary">
         <fieldset class="">
@@ -143,7 +164,7 @@ foreach ($cleanup_plan as $token => $candidate) {
             <span class="plugin-icon"></span> <?= t('3 - Plugin Cleaning Jobs') ?>
         </summary>
         <div class="accordion-content">
-             <section class="message error cleaner-warning">
+             <section class="content-cleaner-message error cleaner-warning">
                 <header></header>
                 <i class=""></i>
                 <h3 class="">
@@ -175,7 +196,11 @@ foreach ($cleanup_plan as $token => $candidate) {
                     </dd>
                 </dl>
             </div>
-            <?= $this->render('ContentCleaner:cleaning-jobs/plugin-clean', array('deletable_plugins' => $deletable_plugins)) ?>
+            <?= $this->render('ContentCleaner:cleaning-jobs/plugin-clean', array(
+                'deletable_plugins' => $deletable_plugins,
+                'plugin_cleanups' => $plugin_cleanups,
+                'display_mode' => $display_mode,
+            )) ?>
         </div>
     </details>
     <section id="DefaultTables" class="default-table-section">
