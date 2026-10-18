@@ -70,6 +70,7 @@
     position: relative;
     display: block;
     width: calc(100% - 2.5em - 1.5em);
+    color: #333333;
 }
 
 .content-cleaner-message h3 span.message-title {

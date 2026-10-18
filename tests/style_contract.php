@@ -28,11 +28,17 @@ foreach (array('#007AC9', '#00ADFF', '#B71234', '#DA004C', '#AE003D', '#2EA02E',
 }
 
 foreach (array(
-    '--pp-surface: var(--color-background, #FFFFFF)',
+    '--pp-black: var(--color-primary, #333333)',
+    '--pp-grey: var(--color-light, #4D4D4D)',
+    '--pp-surface: var(--body-background-color, #FFFFFF)',
+    '--pp-link-color: var(--link-color-primary, #3366CC)',
+    '--panel-background-c-cleaner: var(--panel-background-color, #EEEEEE)',
     '--pp-white: #FFFFFF',
     '--pp-green-action: #167316',
     'background: var(--pp-green-action)',
-    'color: var(--pp-grey)',
+    'background-color: var(--panel-background-c-cleaner)',
+    'color: var(--pp-black)',
+    'color: var(--pp-link-color)',
     'color: #FFFFFF',
     'min-height: 200px',
     'min-height: 75px',
@@ -48,6 +54,10 @@ foreach (array('#963B00', '#0759B8', '#1B5E20', '#8A3E00') as $messageColor) {
     if (strpos($messageCss, $messageColor) === false) {
         $failures[] = 'An accessible message-title colour is missing: ' . $messageColor;
     }
+}
+
+if (strpos($messageCss, 'color: #333333') === false) {
+    $failures[] = 'The fixed-light message panel needs an explicit readable foreground.';
 }
 
 $relativeLuminance = static function ($hex) {

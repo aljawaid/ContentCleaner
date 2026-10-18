@@ -9,10 +9,10 @@ body:has(.content-cleaner-modal) {
     --pp-red: #B71234;
     --pp-red-alt: #DA004C;
     --pp-red-alt-2: #AE003D;
-    --pp-black: var(--color-text, #000000);
+    --pp-black: var(--color-primary, #333333);
     --pp-light-grey: #8F8F8F;
-    --pp-grey: #4D4D4D;
-    --pp-surface: var(--color-background, #FFFFFF);
+    --pp-grey: var(--color-light, #4D4D4D);
+    --pp-surface: var(--body-background-color, #FFFFFF);
     --pp-white: #FFFFFF;
     --pp-green: #2EA02E;
     --pp-green-action: #167316;
@@ -23,12 +23,12 @@ body:has(.content-cleaner-modal) {
     --button-blue-gradient: linear-gradient(to bottom, #7892C2 80%, #476E9E 100%);
     --blue-border-gradient-match: #476E9E;
     --button-background-delete: #D05C84;
-    --link-color-primary: #3366CC;
+    --pp-link-color: var(--link-color-primary, #3366CC);
     --header-page-margin-c-cleaner: 5px 15px 10px 15px;
     --page-margin-c-cleaner: 0 15px 0 15px;
     --title-margin-c-cleaner: 0 15px 0 15px;
     --border-radius-c-cleaner: 3px;
-    --panel-background-c-cleaner: var(--color-background-secondary, #EEEEEE);
+    --panel-background-c-cleaner: var(--panel-background-color, #EEEEEE);
     --transition-c-cleaner: ease-in-out all .3s;
 }
 
@@ -690,7 +690,7 @@ ul[id^="JobPluginDetails"] li.details-item a.details-url:hover {
 ul[id^="JobPluginDetails"] li.details-item a.details-url {
     transition: var(--transition-c-cleaner);
     text-decoration: none;
-    color: #333333;
+    color: var(--pp-link-color);
 }
 
 span.tooltip.content-cleaner-tooltip i.fa-info-circle {
@@ -702,9 +702,9 @@ span.tooltip.content-cleaner-tooltip i.fa-info-circle {
 .deep-clean-panel {
     border-radius: var(--border-radius-c-cleaner);
     padding: 0 1px 3px 5px;
-    border: 1px solid #000000;
-    color: var(--color-primary);
-    background-color: #FCFCFC;
+    border: 1px solid var(--panel-border-color, #000000);
+    color: var(--pp-black);
+    background-color: var(--panel-background-c-cleaner);
     display: inline-block;
     margin-right: 15px;
 }
@@ -713,7 +713,7 @@ li.deep-clean-panel-title {
     text-transform: uppercase;
     font-size: .8em;
     font-weight: 600;
-    color: var(--pp-grey);
+    color: var(--pp-black);
     white-space: break-spaces;
     overflow-wrap: break-word;
     width: 60px;
@@ -850,9 +850,9 @@ div[id^="InstallDetected"] p.installed-text {
     border-radius: var(--border-radius-c-cleaner);
     padding: 4px 10px 3px 10px;
     margin: 0 0 0 -15px;
-    border: 1px solid #AEAEAE;
-    background: #F5F5F5;
-    color: #333333;
+    border: 1px solid var(--button-default-border-color, #AEAEAE);
+    background: var(--button-default-background-color, #F5F5F5);
+    color: var(--button-default-color, #333333);
     text-decoration: none;
 }
 
@@ -987,7 +987,7 @@ body:has(.content-cleaner-modal) #modal-close-button:hover i {
     min-height: 2rem;
     align-items: center;
     justify-content: center;
-    color: var(--pp-grey);
+    color: var(--pp-black);
 }
 
 @media (max-width: 1024px) {

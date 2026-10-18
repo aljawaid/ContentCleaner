@@ -1,6 +1,13 @@
 # Changelog
 
 
+## v2.0.3
+
+_(most recent changes are listed on top):_
+- FIX: Use Kanboard's native surface, panel, text, link, border and button variables across custom controls in Dark theme
+- FIX: Keep fixed-light warning messages readable while removing white control panels from Dark theme
+
+
 ## v2.0.2
 
 _(most recent changes are listed on top):_
