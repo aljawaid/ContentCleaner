@@ -165,9 +165,11 @@ li.more {
     border: 1px solid var(--pp-grey);
     border-radius: var(--border-radius-c-cleaner);
     box-shadow: 0 0 2px 0 var(--pp-grey);
-    vertical-align: middle;
-    height: 200px;
+    vertical-align: top;
+    min-height: 200px;
+    height: auto;
     padding: 5px;
+    box-sizing: border-box;
 }
 
 .job-wrapper .form-actions {
@@ -206,7 +208,8 @@ p.alert.alert-info.job-desc {
 
 .job-content {
     margin-bottom: 7px;
-    height: 75px;
+    min-height: 75px;
+    height: auto;
     display: block;
 }
 
@@ -985,6 +988,18 @@ body:has(.content-cleaner-modal) #modal-close-button:hover i {
     align-items: center;
     justify-content: center;
     color: var(--pp-grey);
+}
+
+@media (max-width: 1024px) {
+    .content-cleaner-page .job-section-wrapper {
+        display: block;
+    }
+
+    .content-cleaner-page .job-wrapper {
+        width: auto;
+        margin: .75rem 0;
+        display: block;
+    }
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,13 @@
 # Changelog
 
 
+## v2.0.2
+
+_(most recent changes are listed on top):_
+- FIX: Prevent cleaning job cards from overlapping accordion headings and database information at sidebar and tablet widths
+- FIX: Let job cards grow with translated or wrapped content while stacking them below 1024px
+
+
 ## v2.0.1
 
 _(most recent changes are listed on top):_

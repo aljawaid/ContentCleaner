@@ -34,6 +34,10 @@ foreach (array(
     'background: var(--pp-green-action)',
     'color: var(--pp-grey)',
     'color: #FFFFFF',
+    'min-height: 200px',
+    'min-height: 75px',
+    '@media (max-width: 1024px)',
+    '.content-cleaner-page .job-section-wrapper',
 ) as $contrastBoundary) {
     if (strpos($mainCss, $contrastBoundary) === false) {
         $failures[] = 'An accessible theme or contrast boundary is missing: ' . $contrastBoundary;
