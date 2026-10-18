@@ -36,8 +36,8 @@ foreach (array(
 }
 
 foreach (array(
-    "request->getStringParam('controller')",
-    "router->getPath() === 'settings/cleaner'",
+    "router->getPlugin() === 'ContentCleaner'",
+    'router->getController()',
     'userSession->isAdmin() && $isCleanerPage',
 ) as $assetBoundary) {
     if (strpos($plugin, $assetBoundary) === false) {

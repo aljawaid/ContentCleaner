@@ -1,6 +1,13 @@
 # Changelog
 
 
+## v2.0.5
+
+_(most recent changes are listed on top):_
+- FIX: Register administrator-only styles after Kanboard opens the session and dispatches the ContentCleaner route
+- FIX: Preserve ContentCleaner Light and Dark styling without loading cleanup assets on ordinary-user pages
+
+
 ## v2.0.4
 
 _(most recent changes are listed on top):_
