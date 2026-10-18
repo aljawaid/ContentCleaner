@@ -1,6 +1,13 @@
 # Changelog
 
 
+## v2.0.1
+
+_(most recent changes are listed on top):_
+- FIX: Meet WCAG AA text contrast for warnings, action buttons, badges, process guidance and allowlist locks in Light and Dark themes
+- FIX: Separate theme-aware panel surfaces from literal white foregrounds so Dark theme controls remain readable
+
+
 ## v2.0.0
 
 _(most recent changes are listed on top):_

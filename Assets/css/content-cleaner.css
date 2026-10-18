@@ -12,11 +12,13 @@ body:has(.content-cleaner-modal) {
     --pp-black: var(--color-text, #000000);
     --pp-light-grey: #8F8F8F;
     --pp-grey: #4D4D4D;
-    --pp-white: var(--color-background, #FFFFFF);
+    --pp-surface: var(--color-background, #FFFFFF);
+    --pp-white: #FFFFFF;
     --pp-green: #2EA02E;
+    --pp-green-action: #167316;
     --pp-green-dark: #055D20;
     --pp-orange: #FF6500;
-    --pp-orange-c-cleaner: #F4290E;
+    --pp-orange-c-cleaner: #D9270C;
     --blue-icon-dark: #034CA6;
     --button-blue-gradient: linear-gradient(to bottom, #7892C2 80%, #476E9E 100%);
     --blue-border-gradient-match: #476E9E;
@@ -176,7 +178,7 @@ li.more {
 }
 
 .job-title {
-    background-color: var(--pp-white);
+    background-color: var(--pp-surface);
     padding-left: 4px;
     padding-right: 10px;
     font-weight: 600;
@@ -255,7 +257,7 @@ button.btn.job-btn {
 
 fieldset.job-wrapper .job-btn:hover {
     color: var(--pp-green-dark) !important;
-    background: var(--pp-white);
+    background: var(--pp-surface);
     border: 2px inset var(--pp-orange-c-cleaner);
 }
 
@@ -336,7 +338,7 @@ fieldset.job-wrapper .plugin-job-form-actions .job-btn, .plugin-job-form-actions
     position: absolute;
     right: 10px;
     width: 33px;
-    background: var(--pp-white);
+    background: var(--pp-surface);
     height: 26px;
     top: -29px;
     padding: 0 3px;
@@ -389,7 +391,7 @@ li.job-result-title i.fa-check::before {
 
 button.js-modal-confirm.extra-columns-count:hover {
     color: var(--pp-green-dark);
-    background: var(--pp-white);
+    background: var(--pp-surface);
     border: 1px inset var(--pp-orange-c-cleaner);
 }
 
@@ -754,11 +756,11 @@ fieldset.job-wrapper li.plugin-btn-item button.btn:disabled:hover, fieldset.job-
 }
 
 button[id^="DeletePluginButton"].btn:hover {
-    background: var(--pp-white);
+    background: var(--pp-surface);
 }
 
 button[id^="DeletePluginButton"].btn {
-    background: var(--pp-green);
+    background: var(--pp-green-action);
     color: var(--pp-white);
     border-color: var(--pp-green-dark);
 }
@@ -829,7 +831,7 @@ div[id^="InstallDetected"] p.installed-text {
 .content-cleaner-modal .modal-actions .form-actions button:focus, .content-cleaner-modal .modal-actions .form-actions button:hover, button.delete-extra-table-btn:focus, button.delete-extra-table-btn:hover {
     border: 1px solid #D14836;
     color: #D14836 !important;
-    background: var(--pp-white);
+    background: var(--pp-surface);
     text-decoration: none !important;
 }
 
@@ -900,7 +902,7 @@ p.alert.deep-clean-tip {
 
 .process-info dl dt.term {
     font-weight: 600;
-    color: #DBDFE3;
+    color: #FFFFFF;
     text-shadow: 1px 1px 2px #000000;
 }
 
@@ -913,7 +915,7 @@ p.alert.deep-clean-tip {
     padding: 1rem;
     border: 1px solid var(--pp-light-grey);
     border-radius: 4px;
-    background: var(--pp-white);
+    background: var(--pp-surface);
     color: var(--pp-black);
 }
 
@@ -949,7 +951,7 @@ body:has(.content-cleaner-modal) #modal-close-button {
     transform: scale(1.5);
     border-bottom-left-radius: 3px;
     background: var(--pp-red-alt-2);
-    box-shadow: -1px -1px 0 3px var(--pp-white);
+    box-shadow: -1px -1px 0 3px var(--pp-surface);
 }
 
 body:has(.content-cleaner-modal) #modal-close-button i {
@@ -959,7 +961,7 @@ body:has(.content-cleaner-modal) #modal-close-button i {
 
 body:has(.content-cleaner-modal) #modal-close-button:hover i {
     color: var(--pp-grey);
-    text-shadow: 0 0 1px var(--pp-white);
+    text-shadow: 0 0 1px var(--pp-surface);
 }
 
 .cleanup-preview-list,
@@ -982,7 +984,7 @@ body:has(.content-cleaner-modal) #modal-close-button:hover i {
     min-height: 2rem;
     align-items: center;
     justify-content: center;
-    color: var(--pp-light-grey);
+    color: var(--pp-grey);
 }
 
 @media (max-width: 768px) {

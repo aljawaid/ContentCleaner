@@ -123,7 +123,7 @@
 }
 
 .content-cleaner-message.warning h3 span.message-title {
-    color: #FF6F00;
+    color: #963B00;
 }
 
 .content-cleaner-message.warning h3::after {
@@ -141,7 +141,7 @@
 }
 
 .content-cleaner-message.neutral h3 span.message-title {
-    color: #448AFF;
+    color: #0759B8;
 }
 
 .content-cleaner-message.neutral h3::after {
@@ -159,7 +159,7 @@
 }
 
 .content-cleaner-message.success h3 span.message-title {
-    color: #388E3C;
+    color: #1B5E20;
 }
 
 .content-cleaner-message.success h3::after {
@@ -177,7 +177,7 @@
 }
 
 .content-cleaner-message.uhm h3 span.message-title {
-    color: #C1610D;
+    color: #8A3E00;
 }
 
 .content-cleaner-message.uhm h3::after {
