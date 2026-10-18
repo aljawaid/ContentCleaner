@@ -1,6 +1,13 @@
 # Changelog
 
 
+## v2.0.4
+
+_(most recent changes are listed on top):_
+- FIX: Load ContentCleaner styles only on authorised administrator requests so ordinary-user pages cannot inherit cleanup rules
+- FIX: Keep the cleaner, modal and icon styles available on both query-string and friendly routes
+
+
 ## v2.0.3
 
 _(most recent changes are listed on top):_

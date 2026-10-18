@@ -21,11 +21,18 @@ class Plugin extends Base
         $this->applicationAccessMap->add('CleaningController', '*', Role::APP_ADMIN);
         $this->applicationAccessMap->add('PluginCleaningController', '*', Role::APP_ADMIN);
 
-        // CSS - Asset Hook
-        //  - Keep filename lowercase
-        $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner.css'));
-        $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner-icons.css'));
-        $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/messages.css'));
+        // Load cleanup styling only for an administrator viewing ContentCleaner.
+        $isCleanerPage = in_array(
+            $this->request->getStringParam('controller'),
+            array('ContentCleanerController', 'CleaningController', 'PluginCleaningController'),
+            true
+        ) || $this->router->getPath() === 'settings/cleaner';
+
+        if ($this->userSession->isAdmin() && $isCleanerPage) {
+            $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner.css'));
+            $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/content-cleaner-icons.css'));
+            $this->hook->on('template:layout:css', array('template' => 'plugins/ContentCleaner/Assets/css/messages.css'));
+        }
 
         // Views - Add Menu Item - Template Hook
         //  - Override name should start lowercase e.g. pluginNameExampleCamelCase
@@ -76,13 +83,13 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '2.0.3';
+        return '2.0.4';
     }
 
     public function getCompatibleVersion()
     {
         // Examples: '>=1.0.37' '<1.0.37' '<=1.0.37'
-        // Version 2.0.3 is tested against the current Kanboard 1.2.54 interfaces.
+        // Version 2.0.4 is tested against the current Kanboard 1.2.54 interfaces.
         return '>=1.2.54';
     }
 

@@ -25,6 +25,26 @@ foreach (array('ContentCleanerController', 'CleaningController', 'PluginCleaning
     }
 }
 
+foreach (array(
+    'plugins/ContentCleaner/Assets/css/content-cleaner.css',
+    'plugins/ContentCleaner/Assets/css/content-cleaner-icons.css',
+    'plugins/ContentCleaner/Assets/css/messages.css',
+) as $asset) {
+    if (strpos($plugin, $asset) === false) {
+        $failures[] = 'The administrator stylesheet is missing: ' . $asset;
+    }
+}
+
+foreach (array(
+    "request->getStringParam('controller')",
+    "router->getPath() === 'settings/cleaner'",
+    'userSession->isAdmin() && $isCleanerPage',
+) as $assetBoundary) {
+    if (strpos($plugin, $assetBoundary) === false) {
+        $failures[] = 'The administrator-only asset boundary is missing: ' . $assetBoundary;
+    }
+}
+
 if (strpos($contentController, 'extends BaseController') === false || strpos($contentController, 'PluginController') !== false) {
     $failures[] = 'ContentCleanerController must not inherit core plugin-management actions.';
 }
