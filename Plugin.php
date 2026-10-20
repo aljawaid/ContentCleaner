@@ -84,13 +84,13 @@ class Plugin extends Base
 
     public function getPluginVersion()
     {
-        return '2.0.5';
+        return '2.0.6';
     }
 
     public function getCompatibleVersion()
     {
         // Examples: '>=1.0.37' '<1.0.37' '<=1.0.37'
-        // Version 2.0.5 is tested against the current Kanboard 1.2.54 interfaces.
+        // Version 2.0.6 is tested against the current Kanboard 1.2.54 interfaces.
         return '>=1.2.54';
     }
 

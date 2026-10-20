@@ -172,7 +172,7 @@ Installed plugins cannot be cleaned. Uninstall the relevant plugin first so it c
 <details>
     <summary><strong>Compatibility</strong></summary>
 
-- Requires [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software") ≥`1.2.54`
+- ContentCleaner `2.0.6` requires [Kanboard](https://github.com/kanboard/kanboard "Kanboard - Kanban Project Management Software") ≥`1.2.54`
 - Tested with PHP `8.2`–`8.5`
 - SQLite is exercised locally and in CI; MySQL `8.4` and PostgreSQL `17` have dedicated CI service tests
 - **Other Plugins & Action Plugins**

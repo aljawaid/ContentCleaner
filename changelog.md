@@ -1,6 +1,12 @@
 # Changelog
 
 
+## v2.0.6
+
+_(most recent changes are listed on top):_
+- FIX: BUG: Register ContentCleaner Assets After Bootstrap
+
+
 ## v2.0.5
 
 _(most recent changes are listed on top):_
